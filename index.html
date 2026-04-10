@@ -106,10 +106,10 @@
   .nav-logo { text-decoration: none; }
   .nav-wordmark-wrap { position: relative; display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; }
   .nav-arc { position: absolute; inset: -6px; width: calc(100% + 12px); height: calc(100% + 12px); pointer-events: none; }
-  .nav-wordmark { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 300; color: var(--nuit); letter-spacing: 2.5px; position: relative; }
+  .nav-wordmark { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 300; color: var(--nuit); letter-spacing: 1px; position: relative; }
   .nav-i-wrap { position: relative; display: inline-block; }
-  .nav-i-wrap .nav-dot { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); width: 5px; height: 5px; border-radius: 50%; background: var(--violet-mid); z-index: 2; }
-  .nav-i-wrap .nav-dot-cover { position: absolute; top: 1px; left: 50%; transform: translateX(-50%); width: 7px; height: 7px; border-radius: 50%; background: rgba(249,248,255,1); z-index: 1; }
+  .nav-i-wrap .nav-dot { position: absolute; top: 2px; left: 50%; transform: translateX(-50%); width: 5px; height: 5px; border-radius: 50%; background: var(--violet-mid); z-index: 2; }
+  .nav-i-wrap .nav-dot-cover { position: absolute; top: 2px; left: 50%; transform: translateX(-50%); width: 7px; height: 7px; border-radius: 50%; background: rgba(249,248,255,1); z-index: 1; }
   .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
   .nav-links a { font-size: 14px; font-weight: 400; color: var(--gris); text-decoration: none; transition: color .2s; }
   .nav-links a:hover { color: var(--nuit); }
@@ -330,8 +330,8 @@
   <a href="#" class="nav-logo" aria-label="Navia home">
     <span class="nav-wordmark-wrap">
       <svg class="nav-arc" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-        <!-- 270° arc, open at bottom-right -->
-        <path d="M 80 78 A 42 42 0 1 1 88 68" stroke="#AFA9EC" stroke-width="1" fill="none" stroke-linecap="round"/>
+        <!-- ~240° arc (2/3 circle), open at bottom-right -->
+        <path d="M 72 82 A 42 42 0 1 1 90 60" stroke="#AFA9EC" stroke-width="1" fill="none" stroke-linecap="round"/>
       </svg>
       <span class="nav-wordmark">nav<span class="nav-i-wrap"><span class="nav-dot-cover"></span><span class="nav-dot"></span>i</span>a</span>
     </span>
