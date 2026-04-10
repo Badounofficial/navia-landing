@@ -103,9 +103,12 @@
     backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(175,169,236,0.15);
   }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo svg { width: 32px; height: 32px; }
-  .nav-wordmark { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 22px; font-weight: 400; color: var(--nuit); letter-spacing: -0.3px; }
+  .nav-logo { text-decoration: none; }
+  .nav-wordmark-wrap { position: relative; display: inline-block; padding: 6px 10px; }
+  .nav-arc { position: absolute; inset: -4px; width: calc(100% + 8px); height: calc(100% + 8px); pointer-events: none; }
+  .nav-wordmark { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 24px; font-weight: 300; color: var(--nuit); letter-spacing: 2px; position: relative; }
+  .nav-i-wrap { position: relative; display: inline-block; }
+  .nav-i-wrap .nav-dot { position: absolute; top: 0px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; border-radius: 50%; background: var(--violet-mid); z-index: 1; }
   .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
   .nav-links a { font-size: 14px; font-weight: 400; color: var(--gris); text-decoration: none; transition: color .2s; }
   .nav-links a:hover { color: var(--nuit); }
@@ -320,15 +323,13 @@
 
 <!-- NAV -->
 <nav aria-label="Main navigation">
-  <a href="#" class="nav-logo">
-    <svg viewBox="0 0 32 32" fill="none">
-      <circle cx="16" cy="16" r="14" fill="#EEEDFE"/>
-      <path d="M10 22 Q16 6 22 22" stroke="#7B6EF6" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-      <circle cx="16" cy="10" r="2.5" fill="#7B6EF6"/>
-      <circle cx="11" cy="20" r="1.5" fill="#AFA9EC" opacity="0.7"/>
-      <circle cx="21" cy="20" r="1.5" fill="#AFA9EC" opacity="0.7"/>
-    </svg>
-    <span class="nav-wordmark">navia</span>
+  <a href="#" class="nav-logo" aria-label="Navia home">
+    <span class="nav-wordmark-wrap">
+      <svg class="nav-arc" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <path d="M 88 72 A 44 44 0 1 1 92 62" stroke="#AFA9EC" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-wordmark">nav<span class="nav-i-wrap">i<span class="nav-dot"></span></span>a</span>
+    </span>
   </a>
   <ul class="nav-links">
     <li><a href="#modules">Our approach</a></li>
@@ -606,7 +607,7 @@
 
 <!-- FOOTER -->
 <footer role="contentinfo">
-  <span class="footer-logo">navia</span>
+  <span class="footer-logo">nav<span class="nav-i-wrap" style="position:relative">i<span class="nav-dot" style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:#AFA9EC;display:block"></span></span>a</span>
   <ul class="footer-links">
     <li><a href="/privacy">Privacy</a></li>
     <li><a href="mailto:contact@bynavia.com">Contact</a></li>
