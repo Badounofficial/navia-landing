@@ -536,10 +536,10 @@
         </div>
         <div class="phone-diary">
           <p class="phone-diary-label">Your diary</p>
-          <p class="phone-diary-text" id="diary-typed"></p>
-          <div class="phone-navia-response" id="navia-reply" style="display:none;">
+          <p class="phone-diary-text">Tonight I feel a little heavy. The baby kicked a lot today and I keep thinking about...</p>
+          <div class="phone-navia-response" id="navia-reply">
             <p class="phone-navia-tag">navia</p>
-            <p class="phone-navia-msg">I hear you, Emma. What you're feeling is so valid. You're carrying so much — and you're doing it beautifully.</p>
+            <p class="phone-navia-msg" id="navia-typed"></p>
           </div>
         </div>
       </div>
@@ -892,30 +892,27 @@ if ('IntersectionObserver' in window) {
   }, { passive: true });
 })();
 
-/* Phone diary typing animation */
+/* Phone Navia response typing animation */
 (function() {
-  var diaryEl = document.getElementById('diary-typed');
-  var replyEl = document.getElementById('navia-reply');
-  var text = 'Tonight I feel a little heavy. The baby kicked a lot today and I keep thinking about\u2026';
+  var naviaEl = document.getElementById('navia-typed');
+  var text = 'I hear you, Emma. What you\'re feeling is so valid. You\'re carrying so much and you\'re doing it beautifully.';
   var i = 0;
   var started = false;
 
   function typeNext() {
     if (i < text.length) {
-      diaryEl.textContent = text.slice(0, i + 1);
+      naviaEl.textContent = text.slice(0, i + 1);
       i++;
-      setTimeout(typeNext, 45 + Math.random() * 35);
-    } else {
-      setTimeout(function() { replyEl.style.display = 'block'; }, 600);
+      setTimeout(typeNext, 40 + Math.random() * 30);
     }
   }
 
   if ('IntersectionObserver' in window) {
     var phoneObs = new IntersectionObserver(function(entries) {
-      if (entries[0].isIntersecting && !started) { started = true; setTimeout(typeNext, 500); phoneObs.disconnect(); }
+      if (entries[0].isIntersecting && !started) { started = true; setTimeout(typeNext, 800); phoneObs.disconnect(); }
     }, { threshold: 0.3 });
     phoneObs.observe(document.querySelector('.phone-mockup'));
-  } else { diaryEl.textContent = text; replyEl.style.display = 'block'; }
+  } else { naviaEl.textContent = text; }
 })()
 
 /* Mobile hamburger menu */
