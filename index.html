@@ -104,11 +104,12 @@
     border-bottom: 1px solid rgba(175,169,236,0.15);
   }
   .nav-logo { text-decoration: none; }
-  .nav-wordmark-wrap { position: relative; display: inline-block; padding: 6px 10px; }
-  .nav-arc { position: absolute; inset: -4px; width: calc(100% + 8px); height: calc(100% + 8px); pointer-events: none; }
-  .nav-wordmark { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 24px; font-weight: 300; color: var(--nuit); letter-spacing: 2px; position: relative; }
+  .nav-wordmark-wrap { position: relative; display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; }
+  .nav-arc { position: absolute; inset: -6px; width: calc(100% + 12px); height: calc(100% + 12px); pointer-events: none; }
+  .nav-wordmark { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 300; color: var(--nuit); letter-spacing: 2.5px; position: relative; }
   .nav-i-wrap { position: relative; display: inline-block; }
-  .nav-i-wrap .nav-dot { position: absolute; top: 0px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; border-radius: 50%; background: var(--violet-mid); z-index: 1; }
+  .nav-i-wrap .nav-dot { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); width: 5px; height: 5px; border-radius: 50%; background: var(--violet-mid); z-index: 2; }
+  .nav-i-wrap .nav-dot-cover { position: absolute; top: 1px; left: 50%; transform: translateX(-50%); width: 7px; height: 7px; border-radius: 50%; background: rgba(249,248,255,1); z-index: 1; }
   .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
   .nav-links a { font-size: 14px; font-weight: 400; color: var(--gris); text-decoration: none; transition: color .2s; }
   .nav-links a:hover { color: var(--nuit); }
@@ -300,7 +301,10 @@
 
   /* FOOTER */
   footer { padding: 3rem; border-top: 1px solid rgba(123,110,246,.1); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-  .footer-logo { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 400; color: var(--nuit); }
+  .footer-logo { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 300; color: var(--nuit); letter-spacing: 2px; }
+  .footer-logo .nav-i-wrap { position: relative; display: inline-block; }
+  .footer-logo .nav-dot { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; border-radius: 50%; background: var(--violet-mid); z-index: 2; }
+  .footer-logo .nav-dot-cover { position: absolute; top: 1px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; border-radius: 50%; background: var(--blanc); z-index: 1; }
   .footer-copy { font-size: 13px; color: var(--gris); }
   .footer-links { display: flex; gap: 2rem; list-style: none; }
   .footer-links a { font-size: 13px; color: var(--gris); text-decoration: none; transition: color .2s; }
@@ -326,9 +330,10 @@
   <a href="#" class="nav-logo" aria-label="Navia home">
     <span class="nav-wordmark-wrap">
       <svg class="nav-arc" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-        <path d="M 88 72 A 44 44 0 1 1 92 62" stroke="#AFA9EC" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <!-- 270° arc, open at bottom-right -->
+        <path d="M 80 78 A 42 42 0 1 1 88 68" stroke="#AFA9EC" stroke-width="1" fill="none" stroke-linecap="round"/>
       </svg>
-      <span class="nav-wordmark">nav<span class="nav-i-wrap">i<span class="nav-dot"></span></span>a</span>
+      <span class="nav-wordmark">nav<span class="nav-i-wrap"><span class="nav-dot-cover"></span><span class="nav-dot"></span>i</span>a</span>
     </span>
   </a>
   <ul class="nav-links">
@@ -607,7 +612,7 @@
 
 <!-- FOOTER -->
 <footer role="contentinfo">
-  <span class="footer-logo">nav<span class="nav-i-wrap" style="position:relative">i<span class="nav-dot" style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:#AFA9EC;display:block"></span></span>a</span>
+  <span class="footer-logo">nav<span class="nav-i-wrap"><span class="nav-dot-cover"></span><span class="nav-dot"></span>i</span>a</span>
   <ul class="footer-links">
     <li><a href="/privacy">Privacy</a></li>
     <li><a href="mailto:contact@bynavia.com">Contact</a></li>
