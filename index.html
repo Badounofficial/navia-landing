@@ -337,7 +337,106 @@
   .phone-navia-response { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(123,110,246,0.1); }
   .phone-navia-tag { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--violet-mid); margin-bottom: 4px; }
   .phone-navia-msg { font-size: 11px; line-height: 1.6; color: var(--nuit); }
+  .phone-followup { margin-top: 12px; padding-top: 12px; border-top: 1px dashed rgba(123,110,246,0.15); opacity: 0; transform: translateY(6px); transition: opacity .6s ease, transform .6s ease; }
+  .phone-followup.show { opacity: 1; transform: translateY(0); }
   .phone-glow { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: var(--violet); opacity: 0.12; top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; z-index: -1; filter: blur(40px); }
+
+  /* A DAY WITH NAVIA */
+  .day { padding: 7rem 3rem; background: linear-gradient(180deg, var(--blanc) 0%, #EEEBF7 100%); content-visibility: auto; contain-intrinsic-size: auto 900px; }
+  .day-header { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
+  .day-header .section-tag { display: inline-block; margin-bottom: 1.25rem; }
+  .day-title { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 300; color: var(--nuit); line-height: 1.2; }
+  .day-title em { font-style: italic; color: var(--violet-dark); }
+  .day-sub { font-size: 15px; color: var(--gris); margin-top: 1.25rem; line-height: 1.8; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .day-phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; max-width: 1080px; margin: 0 auto; }
+  .day-phone { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .day-time { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 1.35rem; font-style: italic; font-weight: 300; color: var(--violet-dark); margin-bottom: 1rem; letter-spacing: 0.5px; }
+  .day-caption { margin-top: 1.5rem; font-size: 13.5px; color: var(--gris); line-height: 1.65; max-width: 260px; }
+  .day-caption strong { color: var(--nuit); font-weight: 500; }
+
+  /* MINI PHONE (used in day + inside sections) */
+  .mini-phone { position: relative; width: 220px; height: 440px; }
+  .mini-frame { width: 100%; height: 100%; background: white; border-radius: 30px; border: 5px solid var(--nuit); box-shadow: 0 18px 40px rgba(44,40,64,0.14), inset 0 0 0 1.5px rgba(243,242,247,0.6); overflow: hidden; position: relative; }
+  .mini-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 90px; height: 20px; background: var(--nuit); border-radius: 0 0 14px 14px; z-index: 3; }
+  .mini-screen { width: 100%; height: 100%; padding: 30px 14px 14px; display: flex; flex-direction: column; overflow: hidden; background: var(--blanc); }
+  .mini-header { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 9px; font-weight: 300; color: var(--nuit); letter-spacing: 0.5px; opacity: 0.5; margin-bottom: 8px; }
+  .mini-greet { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 16px; font-weight: 300; color: var(--nuit); line-height: 1.3; margin-bottom: 14px; }
+  .mini-greet em { color: var(--violet-dark); font-style: italic; }
+  .mini-card { background: white; border-radius: 12px; padding: 10px 11px; border: 1px solid rgba(123,110,246,0.12); margin-bottom: 9px; }
+  .mini-card-label { font-size: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet-dark); margin-bottom: 5px; }
+  .mini-card-body { font-size: 10.5px; line-height: 1.5; color: var(--nuit); }
+  .mini-card-body em { font-style: italic; color: var(--violet-dark); }
+  .mini-card-big { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 20px; font-weight: 300; color: var(--nuit); line-height: 1; }
+  .mini-card-big span { color: var(--violet-dark); font-style: italic; }
+  .mini-meta { font-size: 9px; color: var(--gris); margin-top: 4px; }
+  .mini-card-accent { background: linear-gradient(135deg, var(--violet-dark), #6F61D8); color: white; border: none; }
+  .mini-card-accent .mini-card-label { color: rgba(255,255,255,0.75); }
+  .mini-card-accent .mini-card-body { color: white; }
+  .mini-card-accent .mini-card-body em { color: #E8E6F5; }
+  .mini-moods { display: flex; gap: 5px; justify-content: space-between; margin-top: 2px; }
+  .mini-mood { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; background: var(--violet-light); }
+  .mini-mood.active { background: var(--violet-dark); transform: scale(1.1); }
+  .mini-diary-body { font-size: 10px; font-style: italic; line-height: 1.55; color: var(--gris); }
+  .mini-diary-reply { margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(123,110,246,0.1); }
+  .mini-diary-reply .mini-card-label { color: var(--violet-mid); margin-bottom: 3px; font-size: 7.5px; }
+  .mini-reply-text { font-size: 9.5px; line-height: 1.55; color: var(--nuit); }
+  .mini-spacer { flex: 1; }
+
+  /* Sleep ring */
+  .sleep-ring { display: flex; align-items: center; gap: 10px; }
+  .sleep-ring-circle { width: 42px; height: 42px; border-radius: 50%; background: conic-gradient(var(--violet-dark) 0% 72%, rgba(123,110,246,0.15) 72% 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .sleep-ring-inner { width: 32px; height: 32px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-size: 8.5px; font-weight: 500; color: var(--violet-dark); }
+
+  /* INSIDE NAVIA */
+  .inside { padding: 7rem 3rem 8rem; background: var(--blanc); content-visibility: auto; contain-intrinsic-size: auto 1200px; }
+  .inside-header { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
+  .inside-header .section-tag { display: inline-block; margin-bottom: 1.25rem; }
+  .inside-title { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 300; color: var(--nuit); line-height: 1.2; }
+  .inside-title em { font-style: italic; color: var(--violet-dark); }
+  .inside-sub { font-size: 15px; color: var(--gris); margin-top: 1.25rem; line-height: 1.8; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .inside-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; max-width: 1120px; margin: 0 auto; }
+  .inside-card { background: white; border-radius: 22px; padding: 2rem 1.75rem; border: 1px solid rgba(123,110,246,0.15); box-shadow: 0 8px 28px rgba(44,40,64,0.06); display: flex; flex-direction: column; transition: transform .35s ease, box-shadow .35s ease; }
+  .inside-card:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(83,71,196,0.14); }
+  .inside-preview { height: 170px; border-radius: 14px; background: linear-gradient(180deg, #F7F5FC 0%, #ECE8F8 100%); padding: 18px; display: flex; flex-direction: column; justify-content: center; margin-bottom: 1.5rem; position: relative; overflow: hidden; }
+  .inside-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet-dark); margin-bottom: 0.75rem; display: block; }
+  .inside-card h3 { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: var(--nuit); margin-bottom: 0.65rem; line-height: 1.25; }
+  .inside-card h3 em { font-style: italic; color: var(--violet-dark); }
+  .inside-card p { font-size: 13.5px; color: var(--gris); line-height: 1.65; }
+
+  /* Cycle ring preview */
+  .cycle-ring { width: 110px; height: 110px; border-radius: 50%; background: conic-gradient(var(--violet-dark) 0% 48%, var(--violet-mid) 48% 62%, rgba(123,110,246,0.15) 62% 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+  .cycle-ring-inner { width: 82px; height: 82px; border-radius: 50%; background: white; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .cycle-ring-day { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--nuit); line-height: 1; }
+  .cycle-ring-label { font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet-dark); margin-top: 4px; }
+
+  /* Checkin preview */
+  .checkin-moods { display: flex; gap: 8px; justify-content: center; align-items: center; }
+  .checkin-moods .mini-mood { width: 34px; height: 34px; font-size: 17px; }
+
+  /* Diary reply preview */
+  .preview-bubble { background: white; border-radius: 10px; padding: 9px 11px; font-size: 10.5px; font-style: italic; color: var(--gris); line-height: 1.55; border: 1px solid rgba(123,110,246,0.12); margin-bottom: 7px; }
+  .preview-bubble.navia { font-style: normal; background: var(--violet-dark); color: white; border: none; }
+
+  /* Pregnancy week */
+  .preg-wrap { display: flex; align-items: center; gap: 14px; }
+  .preg-circle { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--violet-dark), #6F61D8); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; flex-shrink: 0; box-shadow: 0 8px 18px rgba(83,71,196,0.25); }
+  .preg-circle-num { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; line-height: 1; }
+  .preg-circle-label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85; margin-top: 2px; }
+  .preg-meta-title { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--nuit); font-style: italic; margin-bottom: 3px; }
+  .preg-meta-sub { font-size: 10.5px; color: var(--gris); line-height: 1.5; }
+
+  /* Pattern chart */
+  .chart-bars { display: flex; align-items: flex-end; justify-content: space-between; gap: 5px; height: 80px; padding: 0 4px; }
+  .chart-bar { flex: 1; background: linear-gradient(180deg, var(--violet) 0%, var(--violet-dark) 100%); border-radius: 4px 4px 0 0; opacity: 0.85; }
+  .chart-legend { display: flex; justify-content: space-between; margin-top: 8px; font-size: 9px; color: var(--gris); }
+
+  /* Privacy dashboard */
+  .privacy-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .privacy-lock { width: 48px; height: 48px; border-radius: 50%; background: var(--violet-light); display: flex; align-items: center; justify-content: center; }
+  .privacy-lock svg { width: 22px; height: 22px; }
+  .privacy-bars { width: 100%; display: flex; flex-direction: column; gap: 5px; }
+  .privacy-row { display: flex; align-items: center; justify-content: space-between; font-size: 9px; color: var(--nuit); background: white; padding: 5px 9px; border-radius: 7px; border: 1px solid rgba(123,110,246,0.12); }
+  .privacy-dot { width: 6px; height: 6px; border-radius: 50%; background: #5EC18A; }
 
   /* STICKY CTA BAR */
   .sticky-cta {
@@ -428,6 +527,11 @@
     .cta-final { padding: 7rem 2rem; }
     .nav-links { gap: 1.5rem; }
     .nav-links a { font-size: 13px; }
+    .day { padding: 5rem 2rem; }
+    .day-phones { gap: 1.5rem; }
+    .mini-phone { width: 195px; height: 390px; }
+    .inside { padding: 5rem 2rem; }
+    .inside-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
   }
 
   /* MOBILE: up to 768px */
@@ -478,6 +582,14 @@
     .footer-promise { padding: 2rem 1.25rem 0.5rem; font-size: 1.05rem; }
     .footer-inner { flex-direction: column; text-align: center; padding: 1rem 1.25rem 2rem; }
     .footer-links { gap: 1.5rem; }
+    .day { padding: 4rem 1.25rem; }
+    .day-header { margin-bottom: 2.5rem; }
+    .day-phones { grid-template-columns: 1fr; gap: 3rem; }
+    .mini-phone { width: 220px; height: 440px; margin: 0 auto; }
+    .inside { padding: 4rem 1.25rem 5rem; }
+    .inside-header { margin-bottom: 2.5rem; }
+    .inside-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .inside-card { padding: 1.75rem 1.5rem; }
   }
 
   /* SMALL MOBILE: up to 400px */
@@ -493,6 +605,8 @@
     .cta-final { padding: 4rem 1rem; }
     .footer-inner { padding: 0.5rem 1rem 1.5rem; }
     .footer-promise { padding: 1.5rem 1rem 0.5rem; font-size: 1rem; }
+    .day { padding: 3rem 1rem; }
+    .inside { padding: 3rem 1rem 4rem; }
   }
 </style>
 </head>
@@ -517,6 +631,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#modules">Our approach</a></li>
+    <li><a href="#inside">Inside Navia</a></li>
     <li><a href="#gifting">Gifting</a></li>
     <li><a href="#founder">Founder</a></li>
     <li><a href="#faq">Questions</a></li>
@@ -530,6 +645,7 @@
 <!-- MOBILE MENU OVERLAY -->
 <div class="mobile-overlay" id="mobile-menu">
   <a href="#modules" onclick="toggleMenu()">Our approach</a>
+  <a href="#inside" onclick="toggleMenu()">Inside Navia</a>
   <a href="#gifting" onclick="toggleMenu()">Gifting</a>
   <a href="#founder" onclick="toggleMenu()">Founder</a>
   <a href="#faq" onclick="toggleMenu()">Questions</a>
@@ -566,19 +682,26 @@
         <div class="phone-checkin">
           <p class="phone-checkin-label">How are you feeling?</p>
           <div class="phone-moods">
-            <span class="phone-mood">😌</span>
-            <span class="phone-mood">😊</span>
-            <span class="phone-mood active" style="color:white">😔</span>
             <span class="phone-mood">😴</span>
+            <span class="phone-mood">😌</span>
+            <span class="phone-mood active" style="color:white">😊</span>
+            <span class="phone-mood">🥰</span>
             <span class="phone-mood">✨</span>
           </div>
         </div>
         <div class="phone-diary">
           <p class="phone-diary-label">Your diary</p>
-          <p class="phone-diary-text">Tonight I feel a little heavy. The baby kicked a lot today and I keep thinking about...</p>
+          <p class="phone-diary-text">Tonight I feel a little heavy. The baby kicked a lot today and I keep thinking about whether I'll be a good mother…</p>
           <div class="phone-navia-response" id="navia-reply">
             <p class="phone-navia-tag">navia</p>
             <p class="phone-navia-msg" id="navia-typed"></p>
+          </div>
+          <div class="phone-followup" id="phone-followup">
+            <p class="phone-diary-text" id="emma-followup"></p>
+            <div class="phone-navia-response">
+              <p class="phone-navia-tag">navia</p>
+              <p class="phone-navia-msg" id="navia-typed-2"></p>
+            </div>
           </div>
         </div>
       </div>
@@ -665,6 +788,223 @@
       <p class="module-num">06</p>
       <h3 class="module-title">Intelligent gifting</h3>
       <p class="module-desc">A surprise arrives. Not because you asked for it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- A DAY WITH NAVIA -->
+<section class="day reveal" id="day">
+  <div class="day-header">
+    <span class="section-tag">A day with Navia</span>
+    <h2 class="day-title">From morning light to <em>midnight thoughts</em></h2>
+    <p class="day-sub">Navia is there at every moment that matters. Not demanding attention, just present when you need her.</p>
+  </div>
+
+  <div class="day-phones">
+    <!-- MORNING -->
+    <div class="day-phone">
+      <span class="day-time">07:42 am</span>
+      <div class="mini-phone">
+        <div class="mini-frame">
+          <div class="mini-notch"></div>
+          <div class="mini-screen">
+            <p class="mini-header">navia</p>
+            <p class="mini-greet">Good morning,<br><em>Emma</em></p>
+            <div class="mini-card">
+              <p class="mini-card-label">Last night</p>
+              <div class="sleep-ring">
+                <div class="sleep-ring-circle"><div class="sleep-ring-inner">7h 12</div></div>
+                <div style="text-align:left">
+                  <p class="mini-card-big">Restful</p>
+                  <p class="mini-meta">72% deep sleep</p>
+                </div>
+              </div>
+            </div>
+            <div class="mini-card mini-card-accent">
+              <p class="mini-card-label">Today's focus</p>
+              <p class="mini-card-body">Drink a glass of water before your coffee. Your body will thank you.</p>
+            </div>
+            <div class="mini-spacer"></div>
+          </div>
+        </div>
+      </div>
+      <p class="day-caption"><strong>Morning.</strong> She reads your night before you open your eyes, and whispers one kind thing you can do for yourself.</p>
+    </div>
+
+    <!-- MIDDAY -->
+    <div class="day-phone">
+      <span class="day-time">01:08 pm</span>
+      <div class="mini-phone">
+        <div class="mini-frame">
+          <div class="mini-notch"></div>
+          <div class="mini-screen">
+            <p class="mini-header">navia</p>
+            <p class="mini-greet">A quick <em>check-in</em></p>
+            <div class="mini-card">
+              <p class="mini-card-label">Energy right now</p>
+              <div class="mini-moods">
+                <span class="mini-mood">😌</span>
+                <span class="mini-mood active" style="color:white">😊</span>
+                <span class="mini-mood">🥰</span>
+                <span class="mini-mood">✨</span>
+              </div>
+            </div>
+            <div class="mini-card">
+              <p class="mini-card-label">Your cycle</p>
+              <p class="mini-card-body">Day 14. Your energy is <em>rising</em>. Ride the wave today.</p>
+            </div>
+            <div class="mini-card mini-card-accent">
+              <p class="mini-card-label">Gentle idea</p>
+              <p class="mini-card-body">Step outside for five minutes. Sun on your face.</p>
+            </div>
+            <div class="mini-spacer"></div>
+          </div>
+        </div>
+      </div>
+      <p class="day-caption"><strong>Midday.</strong> A thirty-second check-in. No pressure, no perfection. Just a small note of how you are.</p>
+    </div>
+
+    <!-- NIGHT -->
+    <div class="day-phone">
+      <span class="day-time">10:47 pm</span>
+      <div class="mini-phone">
+        <div class="mini-frame">
+          <div class="mini-notch"></div>
+          <div class="mini-screen">
+            <p class="mini-header">navia</p>
+            <p class="mini-greet">Before you <em>sleep</em></p>
+            <div class="mini-card">
+              <p class="mini-card-label">Your diary</p>
+              <p class="mini-diary-body">Today was a lot. I felt anxious in the afternoon and I keep wondering if I'm doing enough…</p>
+              <div class="mini-diary-reply">
+                <p class="mini-card-label">navia</p>
+                <p class="mini-reply-text">You're allowed to not do enough some days. What you did today was show up, and that counts.</p>
+              </div>
+            </div>
+            <div class="mini-card mini-card-accent">
+              <p class="mini-card-label">Tonight</p>
+              <p class="mini-card-body">Breathing exercise, four minutes. Ready when you are.</p>
+            </div>
+            <div class="mini-spacer"></div>
+          </div>
+        </div>
+      </div>
+      <p class="day-caption"><strong>Night.</strong> When the noise settles, you write. She reads, and answers with warmth, not advice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSIDE NAVIA -->
+<section class="inside reveal" id="inside">
+  <div class="inside-header">
+    <span class="section-tag">Inside Navia</span>
+    <h2 class="inside-title">Everything she holds, <em>gently</em></h2>
+    <p class="inside-sub">A glimpse of the tools Navia brings to every chapter of your life. Simple on the surface, deeply personal underneath.</p>
+  </div>
+
+  <div class="inside-grid">
+    <!-- 1. Cycle ring -->
+    <div class="inside-card">
+      <div class="inside-preview">
+        <div class="cycle-ring">
+          <div class="cycle-ring-inner">
+            <span class="cycle-ring-day">14</span>
+            <span class="cycle-ring-label">Ovulation</span>
+          </div>
+        </div>
+      </div>
+      <span class="inside-label">01 · Cycle</span>
+      <h3>Your body, on a <em>ring</em></h3>
+      <p>Cycle, ovulation, hormones, and fertile window at a glance. Understood simply, without charts that feel clinical.</p>
+    </div>
+
+    <!-- 2. Check-in -->
+    <div class="inside-card">
+      <div class="inside-preview">
+        <span class="inside-label" style="margin-bottom:1rem">How are you?</span>
+        <div class="checkin-moods">
+          <span class="mini-mood">😴</span>
+          <span class="mini-mood">😌</span>
+          <span class="mini-mood active" style="color:white">😊</span>
+          <span class="mini-mood">🥰</span>
+          <span class="mini-mood">✨</span>
+        </div>
+      </div>
+      <span class="inside-label">02 · Daily check-in</span>
+      <h3>Thirty <em>seconds</em> a day</h3>
+      <p>One mood, one word, one tap. Navia remembers, so you never start from zero again.</p>
+    </div>
+
+    <!-- 3. Diary reply -->
+    <div class="inside-card">
+      <div class="inside-preview">
+        <div class="preview-bubble">I feel a little heavy tonight. My belly is…</div>
+        <div class="preview-bubble navia">It's okay to feel heavy. Your body is doing so much right now.</div>
+      </div>
+      <span class="inside-label">03 · Smart diary</span>
+      <h3>A friend who <em>listens</em></h3>
+      <p>Write freely. Navia reads the whole day, not just the words, and answers with care, not advice.</p>
+    </div>
+
+    <!-- 4. Pregnancy -->
+    <div class="inside-card">
+      <div class="inside-preview">
+        <div class="preg-wrap">
+          <div class="preg-circle">
+            <span class="preg-circle-num">24</span>
+            <span class="preg-circle-label">Weeks</span>
+          </div>
+          <div>
+            <p class="preg-meta-title">Baby is a corn cob</p>
+            <p class="preg-meta-sub">~30 cm, 600 g. Their hearing is growing this week.</p>
+          </div>
+        </div>
+      </div>
+      <span class="inside-label">04 · Pregnancy</span>
+      <h3>Week by <em>week</em>, together</h3>
+      <p>From the first line on the test to the last day. Navia follows your pregnancy with the softness of a sister.</p>
+    </div>
+
+    <!-- 5. Patterns -->
+    <div class="inside-card">
+      <div class="inside-preview">
+        <span class="inside-label" style="margin-bottom:0.75rem">Energy this month</span>
+        <div class="chart-bars">
+          <div class="chart-bar" style="height:40%"></div>
+          <div class="chart-bar" style="height:62%"></div>
+          <div class="chart-bar" style="height:78%"></div>
+          <div class="chart-bar" style="height:55%"></div>
+          <div class="chart-bar" style="height:88%"></div>
+          <div class="chart-bar" style="height:70%"></div>
+          <div class="chart-bar" style="height:45%"></div>
+        </div>
+        <div class="chart-legend"><span>W1</span><span>W2</span><span>W3</span><span>W4</span></div>
+      </div>
+      <span class="inside-label">05 · Patterns</span>
+      <h3>The <em>rhythm</em> behind your days</h3>
+      <p>Energy, mood, sleep, cycle. Navia finds the patterns you feel but can't quite name.</p>
+    </div>
+
+    <!-- 6. Privacy -->
+    <div class="inside-card">
+      <div class="inside-preview">
+        <div class="privacy-wrap">
+          <div class="privacy-lock">
+            <svg viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <rect x="5" y="10" width="12" height="9" rx="2" stroke="#5347C4" stroke-width="1.5"/>
+              <path d="M7.5 10V7 a3.5 3.5 0 0 1 7 0 V10" stroke="#5347C4" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <div class="privacy-bars">
+            <div class="privacy-row"><span>Encrypted on device</span><span class="privacy-dot"></span></div>
+            <div class="privacy-row"><span>Never sold, ever</span><span class="privacy-dot"></span></div>
+            <div class="privacy-row"><span>Delete anytime</span><span class="privacy-dot"></span></div>
+          </div>
+        </div>
+      </div>
+      <span class="inside-label">06 · Privacy</span>
+      <h3>Your words <em>stay yours</em></h3>
+      <p>Everything you share with Navia is private by design, encrypted, and can disappear the moment you ask.</p>
     </div>
   </div>
 </section>
@@ -978,32 +1318,59 @@ if ('IntersectionObserver' in window) {
   }, { passive: true });
 })();
 
-/* Phone Navia response typing animation + auto-scroll diary to keep reply in view */
+/* Phone Navia multi-turn typing animation + auto-scroll diary to keep latest message in view */
 (function() {
   var naviaEl = document.getElementById('navia-typed');
   if (!naviaEl) return;
+  var naviaEl2 = document.getElementById('navia-typed-2');
+  var emmaEl = document.getElementById('emma-followup');
+  var followupWrap = document.getElementById('phone-followup');
   var diaryEl = naviaEl.closest('.phone-diary');
-  var text = 'I hear you, Emma. What you\'re feeling is so valid. You\'re carrying so much and you\'re doing it beautifully.';
-  var i = 0;
   var started = false;
 
-  function typeNext() {
-    if (i < text.length) {
-      naviaEl.textContent = text.slice(0, i + 1);
-      i++;
-      if (diaryEl) { diaryEl.scrollTop = diaryEl.scrollHeight; }
-      setTimeout(typeNext, 40 + Math.random() * 30);
-    }
+  var naviaText1 = 'I hear you, Emma. That thought, "will I be a good mother", is one of the most common and most tender fears. It usually comes from people who already care deeply. You are already showing up.';
+  var emmaText  = 'I needed to hear that. Thank you. I just wish I could stop overthinking everything.';
+  var naviaText2 = 'Overthinking is often love with nowhere else to go. Tonight, let me hold some of it for you. Sleep gently.';
+
+  function scroll() { if (diaryEl) { diaryEl.scrollTop = diaryEl.scrollHeight; } }
+
+  function typeInto(el, text, speed, done) {
+    var i = 0;
+    (function step() {
+      if (i < text.length) {
+        el.textContent = text.slice(0, i + 1);
+        i++;
+        scroll();
+        setTimeout(step, speed + Math.random() * 25);
+      } else if (done) {
+        setTimeout(done, 600);
+      }
+    })();
+  }
+
+  function runSequence() {
+    typeInto(naviaEl, naviaText1, 32, function() {
+      setTimeout(function() {
+        if (followupWrap) followupWrap.classList.add('show');
+        scroll();
+        typeInto(emmaEl, emmaText, 30, function() {
+          typeInto(naviaEl2, naviaText2, 32, null);
+        });
+      }, 700);
+    });
   }
 
   if ('IntersectionObserver' in window) {
     var phoneObs = new IntersectionObserver(function(entries) {
-      if (entries[0].isIntersecting && !started) { started = true; setTimeout(typeNext, 800); phoneObs.disconnect(); }
+      if (entries[0].isIntersecting && !started) { started = true; setTimeout(runSequence, 800); phoneObs.disconnect(); }
     }, { threshold: 0.3 });
     phoneObs.observe(document.querySelector('.phone-mockup'));
   } else {
-    naviaEl.textContent = text;
-    if (diaryEl) { diaryEl.scrollTop = diaryEl.scrollHeight; }
+    naviaEl.textContent = naviaText1;
+    if (followupWrap) followupWrap.classList.add('show');
+    if (emmaEl) emmaEl.textContent = emmaText;
+    if (naviaEl2) naviaEl2.textContent = naviaText2;
+    scroll();
   }
 })()
 
