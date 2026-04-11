@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navia — Intelligent Companion for Women's Health & Wellness</title>
-<meta name="description" content="Navia is your intelligent companion through every chapter of womanhood — cycle tracking, pregnancy, emotions, and personalized gifting. Join the waitlist today.">
+<title>Navia | Intelligent Companion for Women's Health & Wellness</title>
+<meta name="description" content="Navia is your intelligent companion through every chapter of womanhood. Cycle tracking, pregnancy, emotions, and personalized gifting. Join the waitlist today.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://bynavia.com/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bynavia.com/">
-<meta property="og:title" content="Navia — You're Never Alone">
-<meta property="og:description" content="Your intelligent companion through every chapter of womanhood — cycle, pregnancy, emotions, and personalized gifting. Join the waitlist.">
+<meta property="og:title" content="Navia. You're Never Alone">
+<meta property="og:description" content="Your intelligent companion through every chapter of womanhood. Cycle, pregnancy, emotions, and personalized gifting. Join the waitlist.">
 <meta property="og:image" content="https://bynavia.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,8 +21,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Navia — You're Never Alone">
-<meta name="twitter:description" content="Your intelligent companion through every chapter of womanhood — cycle, pregnancy, emotions, and personalized gifting.">
+<meta name="twitter:title" content="Navia. You're Never Alone">
+<meta name="twitter:description" content="Your intelligent companion through every chapter of womanhood. Cycle, pregnancy, emotions, and personalized gifting.">
 <meta name="twitter:image" content="https://bynavia.com/og-image.png">
 
 <!-- Structured Data -->
@@ -46,8 +46,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Navia — Intelligent Companion for Women's Health & Wellness",
-  "description": "Navia walks with you through every chapter of your life — your cycle, your pregnancy, your emotions — with a presence that's gentle, smart, and always there.",
+  "name": "Navia | Intelligent Companion for Women's Health & Wellness",
+  "description": "Navia walks with you through every chapter of your life, your cycle, your pregnancy, your emotions, with a presence that's gentle, smart, and always there.",
   "url": "https://bynavia.com/",
   "publisher": {
     "@type": "Organization",
@@ -325,7 +325,8 @@
   .phone-moods { display: flex; gap: 8px; justify-content: space-between; }
   .phone-mood { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; background: var(--violet-light); transition: transform 0.2s, background 0.2s; }
   .phone-mood.active { background: var(--violet-dark); transform: scale(1.15); }
-  .phone-diary { background: white; border-radius: 16px; padding: 14px; border: 1px solid rgba(123,110,246,0.12); flex: 1; }
+  .phone-diary { background: white; border-radius: 16px; padding: 14px; border: 1px solid rgba(123,110,246,0.12); flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; }
+  .phone-diary::-webkit-scrollbar { display: none; }
   .phone-diary-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet-dark); margin-bottom: 8px; }
   .phone-diary-text { font-size: 12px; font-style: italic; line-height: 1.6; color: var(--gris); }
   .phone-diary-cursor { display: inline-block; width: 1px; height: 14px; background: var(--violet-dark); margin-left: 2px; vertical-align: middle; animation: blink 1s step-end infinite; }
@@ -350,6 +351,30 @@
   .sticky-cta p em { color: var(--violet-mid); font-style: italic; font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 16px; }
   .sticky-cta-btn { padding: 8px 20px; background: var(--violet-dark); color: white; border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
   .sticky-cta-btn:hover { background: var(--violet); }
+
+  /* FAQ */
+  .faq { padding: 7rem 3rem; max-width: 780px; margin: 0 auto; content-visibility: auto; contain-intrinsic-size: auto 900px; }
+  .faq-header { text-align: center; margin-bottom: 3.5rem; }
+  .faq-title { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--nuit); line-height: 1.2; }
+  .faq-title em { font-style: italic; color: var(--violet-dark); }
+  .faq-subtitle { font-size: 15px; color: var(--gris); margin-top: 1.25rem; line-height: 1.75; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item { border-bottom: 1px solid rgba(123,110,246,0.18); padding: 1.75rem 0; transition: border-color 0.25s ease; }
+  .faq-item:first-child { border-top: 1px solid rgba(123,110,246,0.18); }
+  .faq-item[open] { border-bottom-color: rgba(123,110,246,0.35); }
+  .faq-q { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 400; color: var(--nuit); cursor: pointer; list-style: none; display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; line-height: 1.4; transition: color 0.2s ease; }
+  .faq-q:hover { color: var(--violet-dark); }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::marker { display: none; content: ''; }
+  .faq-icon { width: 22px; height: 22px; flex-shrink: 0; margin-top: 6px; position: relative; }
+  .faq-icon::before, .faq-icon::after { content: ''; position: absolute; top: 50%; left: 50%; background: var(--violet-dark); transform: translate(-50%, -50%); transition: opacity 0.3s ease, transform 0.3s ease; }
+  .faq-icon::before { width: 14px; height: 1.5px; }
+  .faq-icon::after { width: 1.5px; height: 14px; }
+  .faq-item[open] .faq-icon::after { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
+  .faq-a { font-size: 15px; line-height: 1.85; color: var(--gris); padding-top: 1rem; max-width: 95%; animation: faqFade 0.4s ease; }
+  .faq-a em { font-style: italic; color: var(--violet-dark); }
+  @keyframes faqFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+  .faq-closing { text-align: center; margin-top: 3rem; font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 1.15rem; font-style: italic; color: var(--violet-dark); font-weight: 300; }
 
   /* CTA */
   .cta-final { padding: 9rem 3rem; text-align: center; position: relative; overflow: hidden; }
@@ -394,6 +419,7 @@
     .manifesto, .modules { padding: 5rem 2rem; }
     .gifting { gap: 3rem; padding: 6rem 2rem; }
     .testimonials { padding: 5rem 2rem; }
+    .faq { padding: 5rem 2rem; }
     .cta-final { padding: 7rem 2rem; }
     .nav-links { gap: 1.5rem; }
     .nav-links a { font-size: 13px; }
@@ -408,8 +434,15 @@
     .sticky-cta { padding: 10px 1rem; gap: 8px; }
     .hero { padding: 6.5rem 1.25rem 3.5rem; min-height: auto; }
     .hero-layout { flex-direction: column; gap: 2.5rem; }
-    .phone-mockup { width: 220px; height: 440px; margin: 0 auto; }
-    .phone-screen-greeting { font-size: 18px; }
+    .phone-mockup { width: 240px; height: 480px; margin: 0 auto; }
+    .phone-screen { padding: 36px 16px 16px; }
+    .phone-screen-header { font-size: 10px; margin-bottom: 8px; }
+    .phone-screen-greeting { font-size: 17px; margin-bottom: 14px; }
+    .phone-checkin { padding: 12px; margin-bottom: 10px; }
+    .phone-mood { width: 30px; height: 30px; font-size: 14px; }
+    .phone-diary { padding: 12px; }
+    .phone-diary-text { font-size: 11px; }
+    .phone-navia-msg { font-size: 10.5px; line-height: 1.55; }
     /* Disable floating animations on mobile to reduce GPU/paint work */
     .hero-orb-1, .hero-orb-2, .hero-orb-3, .fb1, .fb2 { animation: none; }
     .hero-title { font-size: clamp(2.2rem, 8vw, 3.5rem); }
@@ -430,6 +463,11 @@
     .founder { grid-template-columns: 1fr; text-align: center; padding: 4rem 1.25rem; gap: 2rem; }
     .founder-visual { margin: 0 auto; }
     .founder-highlights { justify-content: center; }
+    .faq { padding: 4rem 1.25rem; }
+    .faq-header { margin-bottom: 2.5rem; }
+    .faq-item { padding: 1.5rem 0; }
+    .faq-q { font-size: 1.1rem; gap: 1rem; }
+    .faq-a { font-size: 14px; }
     .cta-final { padding: 5rem 1.25rem; }
     .cta-title { font-size: clamp(2rem, 7vw, 3.5rem); }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.25rem; }
@@ -445,6 +483,7 @@
     .modules { padding: 3rem 1rem 4rem; }
     .gifting { padding: 3rem 1rem; }
     .testimonials { padding: 3rem 1rem; }
+    .faq { padding: 3rem 1rem; }
     .cta-final { padding: 4rem 1rem; }
     footer { padding: 1.5rem 1rem; }
   }
@@ -473,6 +512,7 @@
     <li><a href="#modules">Our approach</a></li>
     <li><a href="#gifting">Gifting</a></li>
     <li><a href="#founder">Founder</a></li>
+    <li><a href="#faq">Questions</a></li>
     <li><a href="#waitlist" class="nav-cta">Join the waitlist</a></li>
   </ul>
   <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
@@ -485,6 +525,7 @@
   <a href="#modules" onclick="toggleMenu()">Our approach</a>
   <a href="#gifting" onclick="toggleMenu()">Gifting</a>
   <a href="#founder" onclick="toggleMenu()">Founder</a>
+  <a href="#faq" onclick="toggleMenu()">Questions</a>
   <a href="#waitlist" class="nav-cta" onclick="toggleMenu()">Join the waitlist</a>
 </div>
 
@@ -503,7 +544,7 @@
       You're <em>never</em><br>alone on<br>this journey.
     </h1>
     <p class="hero-subtitle">
-      Navia walks with you through every chapter of your life — your cycle, your pregnancy, your emotions — with a presence that's gentle, smart, and always there.
+      Navia walks with you through every chapter of your life. Your cycle, your pregnancy, your emotions, with a presence that's gentle, smart, and always there.
     </p>
     <p class="hero-note">No ads. Your data stays yours. Always.</p>
   </div>
@@ -546,7 +587,7 @@
     "Because sometimes, all you need is to feel like <span>someone is thinking of you</span>."
   </p>
   <p class="manifesto-body">
-    We built a companion that doesn't replace your doctor — it's there <em>between appointments</em>. In the moments of doubt, in the exhaustion, or simply when there's no one around to talk to.
+    We built a companion that doesn't replace your doctor. She's there <em>between appointments</em>. In the moments of doubt, in the exhaustion, or simply when there's no one around to talk to.
   </p>
 </section>
 
@@ -565,7 +606,7 @@
       </svg>
       <p class="module-num">01</p>
       <h3 class="module-title">Body tracking</h3>
-      <p class="module-desc">Cycle, ovulation, hormones — understood simply. Your body, on your terms.</p>
+      <p class="module-desc">Cycle, ovulation, hormones, understood simply. Your body, on your terms.</p>
     </div>
     <div class="module-card">
       <svg class="module-icon" viewBox="0 0 40 40" fill="none">
@@ -586,7 +627,7 @@
       </svg>
       <p class="module-num">03</p>
       <h3 class="module-title">Smart diary</h3>
-      <p class="module-desc">Write freely. The AI listens, understands, and responds — or stays quiet.</p>
+      <p class="module-desc">Write freely. Navia listens, understands, and responds. Or stays quiet.</p>
     </div>
     <div class="module-card">
       <svg class="module-icon" viewBox="0 0 40 40" fill="none">
@@ -671,7 +712,7 @@
     <span class="gifting-tag">Signature feature</span>
     <h2 class="gifting-title">She receives.<br>She never <em>asked</em>.</h2>
     <p class="gifting-body">
-      Navia reads between the lines. When it detects a hard moment — or a moment of joy — it sends a real, physical, personalized gift.
+      Navia reads between the lines. When she senses a hard moment, or a moment of joy, she sends a real, physical, personalized gift.
     </p>
     <ul class="gifting-list">
       <li>Triggered by emotions detected in the diary</li>
@@ -739,10 +780,10 @@
     <h2 class="founder-name">Sebastien Assohou</h2>
     <p class="founder-role">Holistic Health & Human Performance Expert</p>
     <p class="founder-bio">
-      From protecting world leaders as a decorated police officer to coaching elite athletes and executives across continents, Sebastien has spent his career understanding what humans need to perform — and to heal. Author of <em>The Successful Body</em> and <em>Peak Performance</em>, Technogym Master Trainer, and recognized by the U.S. government as an individual of extraordinary ability, he brings a rare blend of operational experience and scientific depth.
+      From protecting world leaders as a decorated police officer to coaching elite athletes and executives across continents, Sebastien has spent his career understanding what humans need to perform, and to heal. Author of <em>The Successful Body</em> and <em>Peak Performance</em>, Technogym Master Trainer, and recognized by the U.S. government as an individual of extraordinary ability, he brings a rare blend of operational experience and scientific depth.
     </p>
     <p class="founder-bio">
-      But Navia was born from something more personal. After years of guiding women through their most transformative chapters — conception, pregnancy, postpartum — across diverse profiles and challenges, Sebastien saw a gap no app was filling: the space between doctor visits, where women feel most alone. Navia is his answer.
+      But Navia was born from something more personal. After years of guiding women through their most transformative chapters, conception, pregnancy, postpartum, across diverse profiles and challenges, Sebastien saw a gap no app was filling: the space between doctor visits, where women feel most alone. Navia is his answer.
     </p>
     <ul class="founder-highlights" aria-label="Key credentials">
       <li>EB-1 Extraordinary Ability</li>
@@ -754,6 +795,69 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq reveal" id="faq">
+  <div class="faq-header">
+    <span class="section-tag">Gentle answers</span>
+    <h2 class="faq-title">What women often ask <em>before joining</em></h2>
+    <p class="faq-subtitle">Everything below is written the way we'd want it whispered to us. With honesty, care, and no pressure.</p>
+  </div>
+  <div class="faq-list">
+
+    <details class="faq-item">
+      <summary class="faq-q">Is Navia a replacement for my doctor?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <div class="faq-a">No, and we'll never pretend to be. Navia is a companion, not a clinician. She won't diagnose, prescribe, or replace any professional you already trust. Think of her as the space <em>between</em> appointments, where you can be heard when no one else is listening.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">How does Navia protect what I share?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <div class="faq-a">Your words belong to you. Everything you share is encrypted, never sold, and never used to train models without your clear, explicit consent. You can review, export, or delete anything, any time, without having to explain why.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Will Navia text me all day?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <div class="faq-a">Only when you want her to. You choose the rhythm. A morning check-in, a quiet evening note, or silence for a week. Navia follows your pace, never the other way around. <em>Presence, not pressure</em>, is the whole point.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">I'm pregnant (or trying, or postpartum). Does Navia adapt?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <div class="faq-a">Yes. Navia recognizes every chapter. Trying to conceive, pregnancy week by week, postpartum, your cycle, perimenopause. She gently shifts her tone, her questions, and what she notices, so she meets you exactly where you are today.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Can Navia really help with how I'm feeling emotionally?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <div class="faq-a">That's her heart. Navia listens without judgment, reflects what she hears back to you with warmth, and reminds you that nothing you feel is "too much." For heavier moments, she will always, gently, encourage you to reach out to a trusted person or professional.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">What exactly is the gifting part, and is it shopping?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <div class="faq-a">It isn't shopping. When someone you love is going through a hard week, a milestone, or the long days of morning sickness, Navia helps you send a thoughtful gift curated for that exact moment. No carts, no ads, no endless scrolling. Just <em>presence, delivered</em>.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">If I send a gift, does the other person see my private notes?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <div class="faq-a">Never. Only the gift itself, and whatever message you choose to write, are shared. Her mood entries, her diary, her check-ins all stay hers alone. Navia never shares what isn't hers to share.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Can I stop or pause whenever I want?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <div class="faq-a">Always. There's no lock-in, no guilt-trip, no pressure. If you need to pause for a week, pause. If you want to leave, leave, and take everything you shared with you. Navia is here on your terms, or not at all.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">How is Navia different from the wellness apps I already have?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <div class="faq-a">Most apps track you. Navia walks with you. You don't count calories or close rings. You share what's real, and she responds with warmth, memory, and care. She remembers the little things. She asks how last week felt. She's less of a tool, more of a presence.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">What will it cost, and do I have to pay now?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <div class="faq-a">You don't pay anything today. The first 500 members receive early access for free, plus a surprise on launch. When we do introduce pricing, it will be simple, transparent, and honest. No hidden fees, no dark patterns, ever.</div>
+    </details>
+
+  </div>
+  <p class="faq-closing">Still unsure? That's okay. Navia is built for women who take their time.</p>
+</section>
+
 <!-- CTA FINAL -->
 <section class="cta-final reveal" id="waitlist">
   <div class="cta-orb"></div>
@@ -762,7 +866,7 @@
       Be among the first<br><em>Navia women</em>
     </h2>
     <p class="cta-subtitle">
-      The app launches soon. The first 500 members get early access — and a surprise.
+      The app launches soon. The first 500 members get early access, plus a surprise.
     </p>
     <div class="cta-form" id="cta-form">
       <input class="hero-input" type="email" id="cta-email" placeholder="your@email.com" aria-label="Email address" required />
@@ -869,9 +973,11 @@ if ('IntersectionObserver' in window) {
   }, { passive: true });
 })();
 
-/* Phone Navia response typing animation */
+/* Phone Navia response typing animation + auto-scroll diary to keep reply in view */
 (function() {
   var naviaEl = document.getElementById('navia-typed');
+  if (!naviaEl) return;
+  var diaryEl = naviaEl.closest('.phone-diary');
   var text = 'I hear you, Emma. What you\'re feeling is so valid. You\'re carrying so much and you\'re doing it beautifully.';
   var i = 0;
   var started = false;
@@ -880,6 +986,7 @@ if ('IntersectionObserver' in window) {
     if (i < text.length) {
       naviaEl.textContent = text.slice(0, i + 1);
       i++;
+      if (diaryEl) { diaryEl.scrollTop = diaryEl.scrollHeight; }
       setTimeout(typeNext, 40 + Math.random() * 30);
     }
   }
@@ -889,7 +996,10 @@ if ('IntersectionObserver' in window) {
       if (entries[0].isIntersecting && !started) { started = true; setTimeout(typeNext, 800); phoneObs.disconnect(); }
     }, { threshold: 0.3 });
     phoneObs.observe(document.querySelector('.phone-mockup'));
-  } else { naviaEl.textContent = text; }
+  } else {
+    naviaEl.textContent = text;
+    if (diaryEl) { diaryEl.scrollTop = diaryEl.scrollHeight; }
+  }
 })()
 
 /* Mobile hamburger menu */
