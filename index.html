@@ -342,7 +342,14 @@
   .phone-glow { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: var(--violet); opacity: 0.12; top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; z-index: -1; filter: blur(40px); }
 
   /* A DAY WITH NAVIA */
-  .day { padding: 7rem 3rem; background: linear-gradient(180deg, var(--blanc) 0%, #EEEBF7 100%); content-visibility: auto; contain-intrinsic-size: auto 900px; }
+  .day { position: relative; overflow: hidden; padding: 7rem 3rem; background: linear-gradient(180deg, var(--blanc) 0%, #EEEBF7 100%); content-visibility: auto; contain-intrinsic-size: auto 900px; }
+  .day-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+  .day-orb { position: absolute; border-radius: 50%; filter: blur(2px); }
+  .day-orb-1 { width: 420px; height: 420px; background: var(--violet-light); opacity: 0.7; top: 18%; left: -120px; animation: float1 9s ease-in-out infinite; }
+  .day-orb-2 { width: 260px; height: 260px; background: var(--rose); opacity: 0.35; top: 58%; left: 38%; animation: float2 11s ease-in-out infinite; }
+  .day-orb-3 { width: 340px; height: 340px; background: var(--violet-mid); opacity: 0.28; top: 12%; right: -100px; animation: float3 8s ease-in-out infinite; }
+  .day-orb-4 { width: 180px; height: 180px; background: var(--violet); opacity: 0.18; bottom: 10%; left: 22%; animation: float2 7s ease-in-out infinite; }
+  .day > .day-header, .day > .day-phones { position: relative; z-index: 1; }
   .day-header { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
   .day-header .section-tag { display: inline-block; margin-bottom: 1.25rem; }
   .day-title { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 300; color: var(--nuit); line-height: 1.2; }
@@ -363,6 +370,7 @@
   .mini-greet { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 16px; font-weight: 300; color: var(--nuit); line-height: 1.3; margin-bottom: 14px; }
   .mini-greet em { color: var(--violet-dark); font-style: italic; }
   .mini-card { background: white; border-radius: 12px; padding: 10px 11px; border: 1px solid rgba(123,110,246,0.12); margin-bottom: 9px; }
+  .mini-card-compact { padding: 8px 11px 9px; margin-bottom: 7px; }
   .mini-card-label { font-size: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet-dark); margin-bottom: 5px; }
   .mini-card-body { font-size: 10.5px; line-height: 1.5; color: var(--nuit); }
   .mini-card-body em { font-style: italic; color: var(--violet-dark); }
@@ -794,6 +802,12 @@
 
 <!-- A DAY WITH NAVIA -->
 <section class="day reveal" id="day">
+  <div class="day-bg" aria-hidden="true">
+    <div class="day-orb day-orb-1"></div>
+    <div class="day-orb day-orb-2"></div>
+    <div class="day-orb day-orb-3"></div>
+    <div class="day-orb day-orb-4"></div>
+  </div>
   <div class="day-header">
     <span class="section-tag">A day with Navia</span>
     <h2 class="day-title">From morning light to <em>midnight thoughts</em></h2>
@@ -873,17 +887,27 @@
           <div class="mini-screen">
             <p class="mini-header">navia</p>
             <p class="mini-greet">Before you <em>sleep</em></p>
-            <div class="mini-card">
-              <p class="mini-card-label">Your diary</p>
-              <p class="mini-diary-body">Today was a lot. I felt anxious in the afternoon and I keep wondering if I'm doing enough…</p>
-              <div class="mini-diary-reply">
-                <p class="mini-card-label">navia</p>
-                <p class="mini-reply-text">You're allowed to not do enough some days. What you did today was show up, and that counts.</p>
+            <div class="mini-card mini-card-compact">
+              <p class="mini-card-label">How was today?</p>
+              <div class="mini-moods">
+                <span class="mini-mood">😴</span>
+                <span class="mini-mood">😌</span>
+                <span class="mini-mood">😊</span>
+                <span class="mini-mood">🥰</span>
+                <span class="mini-mood active" style="color:white">😔</span>
               </div>
             </div>
-            <div class="mini-card mini-card-accent">
+            <div class="mini-card">
+              <p class="mini-card-label">Your diary</p>
+              <p class="mini-diary-body">Today was a lot. I keep wondering if I'm doing enough…</p>
+              <div class="mini-diary-reply">
+                <p class="mini-card-label">navia</p>
+                <p class="mini-reply-text">What you did today was show up. That counts more than you think.</p>
+              </div>
+            </div>
+            <div class="mini-card mini-card-accent mini-card-compact">
               <p class="mini-card-label">Tonight</p>
-              <p class="mini-card-body">Breathing exercise, four minutes. Ready when you are.</p>
+              <p class="mini-card-body">Breathing exercise, four minutes.</p>
             </div>
             <div class="mini-spacer"></div>
           </div>
