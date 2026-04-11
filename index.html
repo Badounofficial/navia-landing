@@ -251,8 +251,8 @@
     gap: 1rem;
   }
   .founder-avatar {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     background: var(--violet-light);
     border: 2px solid rgba(123,110,246,.15);
@@ -260,8 +260,10 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    box-shadow: 0 12px 32px rgba(83,71,196,0.18);
   }
   .founder-avatar svg { width: 80px; height: 80px; }
+  .founder-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; display: block; }
   .founder-tag {
     font-size: 11px;
     font-weight: 500;
@@ -772,11 +774,7 @@
 <section class="founder reveal" id="founder">
   <div class="founder-visual">
     <div class="founder-avatar">
-      <!-- Replace with actual founder photo: <img src="founder.jpg" alt="Sebastien Assohou, Founder of Navia" width="160" height="160" style="width:100%;height:100%;object-fit:cover;"> -->
-      <svg viewBox="0 0 80 80" fill="none">
-        <circle cx="40" cy="28" r="14" fill="#7B6EF6" opacity="0.5"/>
-        <path d="M16 72 Q16 50 40 50 Q64 50 64 72" fill="#7B6EF6" opacity="0.35"/>
-      </svg>
+      <img src="sebastien-hero.jpg" alt="Sebastien Assohou, Founder of Navia" width="180" height="180" loading="lazy" decoding="async">
     </div>
     <span class="founder-tag">Founder</span>
   </div>
