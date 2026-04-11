@@ -143,9 +143,9 @@
     padding: 8rem 3rem 5rem; position: relative; overflow: hidden;
   }
   .hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
-  .hero-orb-1 { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: var(--violet-light); opacity: .75; top: -100px; right: -150px; animation: float1 8s ease-in-out infinite; }
-  .hero-orb-2 { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: var(--rose); opacity: .45; bottom: 80px; right: 200px; animation: float2 10s ease-in-out infinite; }
-  .hero-orb-3 { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: var(--violet-mid); opacity: .3; top: 200px; left: 60%; animation: float3 7s ease-in-out infinite; }
+  .hero-orb-1 { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: var(--violet-light); opacity: .75; top: -120px; left: -180px; animation: float1 8s ease-in-out infinite; }
+  .hero-orb-2 { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: var(--rose); opacity: .45; bottom: 60px; left: 180px; animation: float2 10s ease-in-out infinite; }
+  .hero-orb-3 { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: var(--violet-mid); opacity: .3; top: 220px; left: 35%; animation: float3 7s ease-in-out infinite; }
   @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,20px)} }
   @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(15px,-15px)} }
   @keyframes float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-10px,10px)} }
@@ -183,6 +183,7 @@
   .modules::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 400px; height: 400px; border-radius: 50%; background: var(--violet); opacity: .08; pointer-events: none; }
   .modules-header { text-align: center; margin-bottom: 4rem; position: relative; z-index: 1; }
   .section-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--violet-dark); margin-bottom: 1rem; }
+  .modules .section-tag { color: var(--violet-mid); }
   .section-title-dark { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; color: white; line-height: 1.2; }
   .section-title-dark em { font-style: italic; color: var(--violet); }
 
@@ -387,7 +388,9 @@
   .cta-note { font-size: 12px; color: var(--gris); margin-top: 12px; }
 
   /* FOOTER */
-  footer { padding: 3rem; border-top: 1px solid rgba(123,110,246,.1); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  footer { padding: 0; border-top: 1px solid rgba(123,110,246,.1); }
+  .footer-promise { text-align: center; padding: 2.25rem 3rem 1rem; font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 1.15rem; font-style: italic; font-weight: 300; color: var(--violet-dark); letter-spacing: 0.3px; }
+  .footer-inner { padding: 1.5rem 3rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
   .footer-logo { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 20px; font-weight: 300; color: var(--nuit); letter-spacing: 2px; }
   .footer-logo .nav-i-wrap { position: relative; display: inline-block; }
   .footer-logo .nav-dot { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; border-radius: 50%; background: var(--violet-mid); z-index: 2; }
@@ -449,9 +452,9 @@
     .hero-subtitle { font-size: 16px; margin-bottom: 2rem; }
     .hero-form, .cta-form { flex-direction: column; }
     .hero-btn { padding: 16px; text-align: center; }
-    .hero-orb-1 { width: 350px; height: 350px; top: -60px; right: -100px; }
-    .hero-orb-2 { width: 180px; height: 180px; bottom: 40px; right: 20px; }
-    .hero-orb-3 { width: 120px; height: 120px; }
+    .hero-orb-1 { width: 350px; height: 350px; top: -60px; left: -100px; right: auto; }
+    .hero-orb-2 { width: 180px; height: 180px; bottom: 40px; left: 20px; right: auto; }
+    .hero-orb-3 { width: 120px; height: 120px; left: 30%; }
     .manifesto { padding: 4rem 1.25rem; }
     .manifesto-quote { font-size: clamp(1.4rem, 5vw, 2rem); }
     .modules { padding: 4rem 1.25rem 5rem; }
@@ -470,7 +473,8 @@
     .faq-a { font-size: 14px; }
     .cta-final { padding: 5rem 1.25rem; }
     .cta-title { font-size: clamp(2rem, 7vw, 3.5rem); }
-    footer { flex-direction: column; text-align: center; padding: 2rem 1.25rem; }
+    .footer-promise { padding: 2rem 1.25rem 0.5rem; font-size: 1.05rem; }
+    .footer-inner { flex-direction: column; text-align: center; padding: 1rem 1.25rem 2rem; }
     .footer-links { gap: 1.5rem; }
   }
 
@@ -485,7 +489,8 @@
     .testimonials { padding: 3rem 1rem; }
     .faq { padding: 3rem 1rem; }
     .cta-final { padding: 4rem 1rem; }
-    footer { padding: 1.5rem 1rem; }
+    .footer-inner { padding: 0.5rem 1rem 1.5rem; }
+    .footer-promise { padding: 1.5rem 1rem 0.5rem; font-size: 1rem; }
   }
 </style>
 </head>
@@ -546,7 +551,6 @@
     <p class="hero-subtitle">
       Navia walks with you through every chapter of your life. Your cycle, your pregnancy, your emotions, with a presence that's gentle, smart, and always there.
     </p>
-    <p class="hero-note">No ads. Your data stays yours. Always.</p>
   </div>
 
   <!-- PHONE MOCKUP -->
@@ -780,14 +784,14 @@
     <h2 class="founder-name">Sebastien Assohou</h2>
     <p class="founder-role">Holistic Health & Human Performance Expert</p>
     <p class="founder-bio">
-      From protecting world leaders as a decorated police officer to coaching elite athletes and executives across continents, Sebastien has spent his career understanding what humans need to perform, and to heal. Author of <em>The Successful Body</em> and <em>Peak Performance</em>, Technogym Master Trainer, and recognized by the U.S. government as an individual of extraordinary ability, he brings a rare blend of operational experience and scientific depth.
+      From protecting world leaders as a decorated police officer to coaching elite athletes and executives across continents, Sebastien has spent his career understanding what humans need to perform, and to heal. Co-author of two bestselling books alongside other leading experts, Technogym Master Trainer, and recognized by the U.S. government as an individual of extraordinary ability, he brings a rare blend of operational experience and scientific depth.
     </p>
     <p class="founder-bio">
       But Navia was born from something more personal. After years of guiding women through their most transformative chapters, conception, pregnancy, postpartum, across diverse profiles and challenges, Sebastien saw a gap no app was filling: the space between doctor visits, where women feel most alone. Navia is his answer.
     </p>
     <ul class="founder-highlights" aria-label="Key credentials">
       <li>EB-1 Extraordinary Ability</li>
-      <li>2 Published Books</li>
+      <li>Co-author, 2 Bestseller Books</li>
       <li>Technogym Master Trainer</li>
       <li>Paris 2024 Olympics Selected</li>
       <li>Women's Health Specialist</li>
@@ -884,13 +888,16 @@
 
 <!-- FOOTER -->
 <footer role="contentinfo">
-  <span class="footer-logo">nav<span class="nav-i-wrap"><span class="nav-dot-cover"></span><span class="nav-dot"></span>i</span>a</span>
-  <ul class="footer-links">
-    <li><a href="/privacy">Privacy</a></li>
-    <li><a href="mailto:contact@bynavia.com">Contact</a></li>
-    <li><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-  </ul>
-  <p class="footer-copy">&copy; 2026 Navia. Made with presence.</p>
+  <p class="footer-promise">No ads. Your data stays yours. Always.</p>
+  <div class="footer-inner">
+    <span class="footer-logo">nav<span class="nav-i-wrap"><span class="nav-dot-cover"></span><span class="nav-dot"></span>i</span>a</span>
+    <ul class="footer-links">
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="mailto:contact@bynavia.com">Contact</a></li>
+      <li><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Navia. Made with presence.</p>
+  </div>
 </footer>
 
 <script>
