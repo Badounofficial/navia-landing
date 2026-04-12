@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" data-theme="night">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navia | Intelligent Companion for Women's Health & Wellness</title>
-<meta name="description" content="Navia is your intelligent companion through every chapter of womanhood. Cycle tracking, pregnancy, emotions, and personalized gifting. Join the waitlist today.">
+<title>Navia &middot; To be understood before having to ask</title>
+<meta name="description" content="Navia is a quiet companion for every phase of a woman's life. A breathing moon, private circles with the people she trusts, and a presence that acts before she has to ask.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://bynavia.com/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bynavia.com/">
-<meta property="og:title" content="Navia. You're Never Alone">
-<meta property="og:description" content="Your intelligent companion through every chapter of womanhood. Cycle, pregnancy, emotions, and personalized gifting. Join the waitlist.">
+<meta property="og:title" content="Navia &middot; To be understood before having to ask">
+<meta property="og:description" content="A quiet companion for every phase of a woman's life. Navia listens the way the moon listens, and acts before you have to ask.">
 <meta property="og:image" content="https://bynavia.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,8 +21,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Navia. You're Never Alone">
-<meta name="twitter:description" content="Your intelligent companion through every chapter of womanhood. Cycle, pregnancy, emotions, and personalized gifting.">
+<meta name="twitter:title" content="Navia &middot; To be understood before having to ask">
+<meta name="twitter:description" content="A quiet companion for every phase of a woman's life.">
 <meta name="twitter:image" content="https://bynavia.com/og-image.png">
 
 <!-- Structured Data -->
@@ -32,1381 +32,2171 @@
   "@type": "Organization",
   "name": "Navia",
   "url": "https://bynavia.com",
-  "logo": "https://bynavia.com/logo.png",
-  "description": "Intelligent companion for women's health, wellness, and emotional well-being.",
+  "description": "A quiet companion for every phase of a woman's life.",
   "email": "contact@bynavia.com",
-  "founder": {
-    "@type": "Person",
-    "name": "Sebastien Assohou"
-  },
+  "founder": { "@type": "Person", "name": "Sebastien Assohou" },
   "sameAs": []
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Navia | Intelligent Companion for Women's Health & Wellness",
-  "description": "Navia walks with you through every chapter of your life, your cycle, your pregnancy, your emotions, with a presence that's gentle, smart, and always there.",
-  "url": "https://bynavia.com/",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Navia"
-  }
-}
-</script>
 
-<!-- Performance: theme-color for mobile browsers -->
-<meta name="theme-color" content="#F3F2F7">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#2B2940">
+<meta name="color-scheme" content="dark light">
 
-<!-- Fonts: preconnect + non-blocking load with display=optional -->
+<!-- Fonts: non-blocking load -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=optional" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=optional" rel="stylesheet"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&display=swap" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+
+<!-- Favicon placeholder (tiny inline SVG moon) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='%23F5F0E6'/%3E%3C/svg%3E">
+
 <style>
-  /* Fallback font metrics to prevent CLS during font swap */
-  @font-face {
-    font-family: 'Cormorant Garamond Fallback';
-    src: local('Georgia'), local('Times New Roman');
-    size-adjust: 113%;
-    ascent-override: 90%;
-    descent-override: 22%;
-    line-gap-override: 0%;
+  /* ─── Theme tokens ───────────────────────────────────────── */
+  :root[data-theme="night"] {
+    --bg: #2B2940;
+    --bg-gradient: radial-gradient(ellipse at top, #3E3A7A 0%, #2B2940 55%, #1d1b2e 100%);
+    --text: rgba(245, 240, 230, 0.92);
+    --text-soft: rgba(245, 240, 230, 0.62);
+    --text-strong: #F5F0E6;
+    --hairline: rgba(245, 240, 230, 0.14);
+    --accent-rose: #E8A89D;
+    --accent-aube: #E8C58F;
+    --card-bg: rgba(245, 240, 230, 0.04);
+    --moon-color: #F5F0E6;
+    --moon-halo-1: rgba(245, 240, 230, 0.65);
+    --moon-halo-2: rgba(245, 240, 230, 0.25);
+    --stars-opacity: 1;
+    --input-bg: rgba(245, 240, 230, 0.06);
+    --input-border: rgba(245, 240, 230, 0.25);
+    --btn-bg: #F5F0E6;
+    --btn-text: #2B2940;
+    --glow-aube: rgba(232, 197, 143, 0.45);
+    --glow-aube-ring: rgba(232, 197, 143, 0.32);
+    --glow-aube-wide: rgba(232, 197, 143, 0.14);
+    --glow-shadow: rgba(0, 0, 0, 0.32);
+    --glow-inset: rgba(245, 240, 230, 0.12);
+    --glow-tint: rgba(232, 197, 143, 0.07);
   }
-  @font-face {
-    font-family: 'DM Sans Fallback';
-    src: local('system-ui'), local('-apple-system'), local('Segoe UI');
-    size-adjust: 106%;
-    ascent-override: 92%;
-    descent-override: 23%;
-    line-gap-override: 0%;
+
+  :root[data-theme="day"] {
+    --bg: #F4EFF5;
+    --bg-gradient: radial-gradient(ellipse at top, #F8F3F8 0%, #F4EFF5 55%, #EDE6EE 100%);
+    --text: rgba(43, 41, 64, 0.88);
+    --text-soft: rgba(43, 41, 64, 0.55);
+    --text-strong: #2B2940;
+    --hairline: rgba(43, 41, 64, 0.12);
+    --accent-rose: #C97A8E;
+    --accent-aube: #8E7BB8;
+    --card-bg: rgba(43, 41, 64, 0.04);
+    --moon-color: #FBF9FD;
+    --moon-halo-1: rgba(208, 196, 232, 0.38);
+    --moon-halo-2: rgba(230, 205, 220, 0.18);
+    --stars-opacity: 0;
+    --input-bg: rgba(43, 41, 64, 0.04);
+    --input-border: rgba(43, 41, 64, 0.22);
+    --btn-bg: #2B2940;
+    --btn-text: #F5F0E6;
+    --glow-aube: rgba(142, 123, 184, 0.5);
+    --glow-aube-ring: rgba(142, 123, 184, 0.34);
+    --glow-aube-wide: rgba(142, 123, 184, 0.12);
+    --glow-shadow: rgba(43, 41, 64, 0.15);
+    --glow-inset: rgba(255, 255, 255, 0.5);
+    --glow-tint: rgba(142, 123, 184, 0.07);
+    /* Soft decorative circles (echo of first iteration) */
+    --deco-lavender: rgba(200, 185, 232, 0.55);
+    --deco-rose: rgba(232, 195, 210, 0.5);
   }
-  :root {
-    --violet: #7B6EF6;
-    --violet-dark: #5347C4;
-    --violet-light: #E8E6F5;
-    --violet-mid: #AFA9EC;
-    --rose: #F4C0D1;
-    --nuit: #2C2840;
-    --nuit-soft: #3D3758;
-    --blanc: #F3F2F7;
-    --gris: #6B687A;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
+
   body {
-    background: var(--blanc);
-    color: var(--nuit);
-    font-family: 'DM Sans', 'DM Sans Fallback', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text);
     font-weight: 300;
-    overflow-x: hidden;
-    text-rendering: optimizeSpeed;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
-  }
-  /* Accessibility: visible focus for keyboard navigation */
-  :focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; border-radius: 4px; }
-  /* Reduce motion for users who prefer it */
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-    .reveal { opacity: 1 !important; transform: none !important; }
+    overflow-x: hidden;
+    transition: background 0.6s ease, color 0.6s ease;
+    position: relative;
   }
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1.25rem 3rem;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(243,242,247,0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(175,169,236,0.2);
-  }
-  .nav-logo { text-decoration: none; }
-  .nav-wordmark-wrap { position: relative; display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; }
-  .nav-arc { position: absolute; inset: -6px; width: calc(100% + 12px); height: calc(100% + 12px); pointer-events: none; }
-  .nav-wordmark { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 18px; font-weight: 300; color: var(--nuit); letter-spacing: 1px; position: relative; }
-  .nav-i-wrap { position: relative; display: inline-block; }
-  .nav-i-wrap .nav-dot { position: absolute; top: 2px; left: 50%; transform: translateX(-50%); width: 5px; height: 5px; border-radius: 50%; background: var(--violet-mid); z-index: 2; }
-  .nav-i-wrap .nav-dot-cover { position: absolute; top: 2px; left: 50%; transform: translateX(-50%); width: 7px; height: 7px; border-radius: 50%; background: rgba(243,242,247,1); z-index: 1; }
-  .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
-  .nav-links a { font-size: 14px; font-weight: 400; color: var(--gris); text-decoration: none; transition: color .2s; }
-  .nav-links a:hover { color: var(--nuit); }
-  .nav-cta { background: var(--nuit) !important; color: var(--blanc) !important; padding: 9px 22px; border-radius: 100px; font-size: 13px !important; font-weight: 500 !important; transition: background .2s, transform .15s !important; }
-  .nav-cta:hover { background: var(--nuit-soft) !important; transform: translateY(-1px); }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding: 8rem 3rem 5rem; position: relative; overflow: hidden;
-  }
-  .hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
-  .hero-orb-1 { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: var(--violet-light); opacity: .75; top: -120px; left: -180px; animation: float1 8s ease-in-out infinite; }
-  .hero-orb-2 { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: var(--rose); opacity: .45; bottom: 60px; left: 180px; animation: float2 10s ease-in-out infinite; }
-  .hero-orb-3 { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: var(--violet-mid); opacity: .3; top: 220px; left: 35%; animation: float3 7s ease-in-out infinite; }
-  @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,20px)} }
-  @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(15px,-15px)} }
-  @keyframes float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-10px,10px)} }
-
-  .hero-content { position: relative; z-index: 1; max-width: 640px; animation: fadeUp 1s ease both; }
-  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-
-  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--violet-dark); margin-bottom: 1.5rem; animation: fadeUp 1s ease .1s both; }
-  .hero-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--violet-dark); }
-
-  .hero-title { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.1; color: var(--nuit); margin-bottom: 1.5rem; animation: fadeUp 1s ease .2s both; }
-  .hero-title em { font-style: italic; color: var(--violet-dark); }
-
-  .hero-subtitle { font-size: 18px; font-weight: 300; line-height: 1.75; color: var(--gris); max-width: 480px; margin-bottom: 3rem; animation: fadeUp 1s ease .3s both; }
-
-  .hero-form { display: flex; gap: 10px; max-width: 440px; animation: fadeUp 1s ease .4s both; }
-  .hero-input { flex: 1; padding: 14px 20px; border: 1.5px solid rgba(123,110,246,.3); border-radius: 100px; background: #FFFFFF; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--nuit); outline: none; transition: border-color .2s; box-shadow: 0 2px 8px rgba(44,40,64,.06); }
-  .hero-input::placeholder { color: var(--violet-mid); }
-  .hero-input:focus { border-color: var(--violet); }
-  .hero-btn { padding: 14px 28px; background: var(--violet-dark); color: white; border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: background .2s, transform .15s; }
-  .hero-btn:hover { background: var(--nuit-soft); transform: translateY(-1px); }
-
-  .hero-note { font-size: 12px; color: var(--gris); margin-top: 14px; animation: fadeUp 1s ease .5s both; }
-  .success-msg { display: none; align-items: center; gap: 10px; font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 20px; font-style: italic; color: var(--violet-dark); }
-  .success-msg.show { display: flex; }
-
-  /* MANIFESTO */
-  .manifesto { padding: 7rem 3rem; max-width: 900px; margin: 0 auto; text-align: center; content-visibility: auto; contain-intrinsic-size: auto 400px; }
-  .manifesto-quote { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 300; font-style: italic; line-height: 1.5; color: var(--nuit); margin-bottom: 2rem; }
-  .manifesto-quote span { color: var(--violet-dark); }
-  .manifesto-body { font-size: 16px; line-height: 1.9; color: var(--gris); max-width: 640px; margin: 0 auto; }
-
-  /* MODULES */
-  .modules { padding: 5rem 3rem 7rem; background: var(--nuit); position: relative; overflow: hidden; content-visibility: auto; contain-intrinsic-size: auto 800px; }
-  .modules::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 400px; height: 400px; border-radius: 50%; background: var(--violet); opacity: .08; pointer-events: none; }
-  .modules-header { text-align: center; margin-bottom: 4rem; position: relative; z-index: 1; }
-  .section-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--violet-dark); margin-bottom: 1rem; }
-  .modules .section-tag { color: var(--violet-mid); }
-  .section-title-dark { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; color: white; line-height: 1.2; }
-  .section-title-dark em { font-style: italic; color: var(--violet); }
-
-  .modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; position: relative; z-index: 1; border: 1.5px solid rgba(175,169,236,.12); border-radius: 20px; overflow: hidden; }
-  .module-card { padding: 2rem 1.75rem; background: rgba(255,255,255,.03); border: 1px solid rgba(175,169,236,.08); transition: background .2s; }
-  .module-card:hover { background: rgba(123,110,246,.08); }
-  .module-icon { width: 40px; height: 40px; margin-bottom: 1.25rem; }
-  .module-num { font-size: 11px; font-weight: 500; color: var(--violet); letter-spacing: .08em; margin-bottom: .5rem; }
-  .module-title { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 1.4rem; font-weight: 400; color: white; margin-bottom: .75rem; line-height: 1.2; }
-  .module-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.6); }
-
-  /* GIFTING */
-  .gifting { padding: 8rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; content-visibility: auto; contain-intrinsic-size: auto 600px; }
-  .gifting-visual { position: relative; }
-  .gift-card { background: white; border-radius: 24px; padding: 2rem; border: 1.5px solid rgba(123,110,246,.15); position: relative; z-index: 1; }
-  .gift-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
-  .gift-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--violet-light); display: flex; align-items: center; justify-content: center; }
-  .gift-name { font-size: 15px; font-weight: 500; color: var(--nuit); }
-  .gift-phase { font-size: 12px; color: var(--gris); }
-  .gift-message { background: var(--violet-light); border-radius: 16px 16px 16px 4px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
-  .gift-message p { font-size: 14px; line-height: 1.65; color: var(--nuit-soft); font-style: italic; }
-  .gift-surprise { background: var(--nuit); border-radius: 16px; padding: 1.25rem; display: flex; align-items: center; gap: 14px; }
-  .gift-box-icon { width: 42px; height: 42px; background: rgba(123,110,246,.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .gift-surprise-text p:first-child { font-size: 13px; font-weight: 500; color: white; margin-bottom: 2px; }
-  .gift-surprise-text p:last-child { font-size: 12px; color: var(--violet-mid); }
-  .floating-badge { position: absolute; background: white; border: 1.5px solid rgba(123,110,246,.2); border-radius: 100px; padding: 8px 14px; font-size: 12px; color: var(--nuit); white-space: nowrap; }
-  .fb1 { top: -16px; right: -10px; animation: float2 6s ease-in-out infinite; }
-  .fb2 { bottom: -16px; left: -10px; animation: float1 8s ease-in-out infinite; }
-
-  .gifting-tag { font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--violet-dark); margin-bottom: 1rem; display: block; }
-  .gifting-title { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.2; color: var(--nuit); margin-bottom: 1.5rem; }
-  .gifting-title em { font-style: italic; color: var(--violet-dark); }
-  .gifting-body { font-size: 16px; line-height: 1.8; color: var(--gris); margin-bottom: 2rem; }
-  .gifting-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .gifting-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--nuit); line-height: 1.5; }
-  .gifting-list li::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--violet); margin-top: 6px; flex-shrink: 0; }
-
-  /* TESTIMONIALS */
-  .testimonials { padding: 7rem 3rem; background: var(--violet-light); content-visibility: auto; contain-intrinsic-size: auto 500px; }
-  .testimonials-header { text-align: center; margin-bottom: 4rem; }
-  .section-title-light { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--nuit); line-height: 1.2; }
-  .section-title-light em { font-style: italic; color: var(--violet-dark); }
-  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
-  .testi-card { background: white; border-radius: 20px; padding: 1.75rem; border: 1px solid rgba(123,110,246,.1); }
-  .testi-quote { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 1.25rem; font-style: italic; font-weight: 300; line-height: 1.6; color: var(--nuit); margin-bottom: 1.25rem; }
-  .testi-author { display: flex; align-items: center; gap: 10px; }
-  .testi-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; }
-  .testi-name { font-size: 13px; font-weight: 500; color: var(--nuit); }
-  .testi-role { font-size: 12px; color: var(--gris); }
-
-  /* FOUNDER */
-  .founder {
-    padding: 7rem 3rem;
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-  .founder-visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  .founder-avatar {
-    width: 180px;
-    height: 180px;
+  /* ─── Decorative soft circles (day mode only) ────────
+   * Echo of the first iteration's lavender + rose blobs.
+   * Hidden in night mode so the stars field owns the sky.
+   */
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
     border-radius: 50%;
-    background: var(--violet-light);
-    border: 2px solid rgba(123,110,246,.15);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.9s ease;
+    filter: blur(60px);
+  }
+  body::before {
+    top: -180px;
+    left: -160px;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle at center, var(--deco-lavender, transparent) 0%, transparent 70%);
+  }
+  body::after {
+    bottom: -200px;
+    right: -180px;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle at center, var(--deco-rose, transparent) 0%, transparent 70%);
+  }
+  :root[data-theme="day"] body::before,
+  :root[data-theme="day"] body::after {
+    opacity: 1;
+  }
+
+  /* ─── Stars (visible only at night) ──────────────────────── */
+  .stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: var(--stars-opacity);
+    transition: opacity 0.8s ease;
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, rgba(245, 240, 230, 0.5), transparent),
+      radial-gradient(1px 1px at 28% 42%, rgba(245, 240, 230, 0.3), transparent),
+      radial-gradient(1px 1px at 55% 25%, rgba(245, 240, 230, 0.4), transparent),
+      radial-gradient(1px 1px at 72% 65%, rgba(245, 240, 230, 0.25), transparent),
+      radial-gradient(1px 1px at 85% 35%, rgba(245, 240, 230, 0.35), transparent),
+      radial-gradient(1px 1px at 40% 80%, rgba(245, 240, 230, 0.3), transparent),
+      radial-gradient(1px 1px at 92% 82%, rgba(245, 240, 230, 0.28), transparent),
+      radial-gradient(1px 1px at 18% 72%, rgba(245, 240, 230, 0.22), transparent);
+  }
+
+  /* ─── Top bar: toggle (left) + community banner (center) + wordmark (right) ──────────────── */
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(to bottom, rgba(43, 41, 64, 0.55) 0%, rgba(43, 41, 64, 0.15) 60%, rgba(43, 41, 64, 0) 100%);
+    transform: translateY(0);
+    transition: background 0.6s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.55s ease;
+    will-change: transform;
+  }
+  .top-bar.is-hidden {
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  :root[data-theme="day"] .top-bar {
+    background: linear-gradient(to bottom, rgba(245, 240, 230, 0.7) 0%, rgba(245, 240, 230, 0.2) 60%, rgba(245, 240, 230, 0) 100%);
+  }
+  .top-bar-left { flex: 0 0 auto; display: flex; align-items: center; }
+  .top-bar-center { flex: 1 1 auto; text-align: center; }
+  .top-bar-right { flex: 0 0 auto; display: flex; align-items: center; }
+
+  .community-link {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: var(--text-soft);
+    text-decoration: none;
+    padding: 9px 20px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    transform: translateY(0);
+    transition:
+      color 0.45s ease,
+      border-color 0.45s ease,
+      background 0.45s ease,
+      transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+  }
+  .community-link::after {
+    content: ' \2192';
+    opacity: 0.6;
+    margin-left: 4px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: inline-block;
+  }
+  /* Night-mode hover: lifts off the bar, brightens toward warm aube */
+  .community-link:hover,
+  .community-link:focus-visible {
+    color: #F2D9A8;
+    border-color: rgba(232, 197, 143, 0.6);
+    background: rgba(232, 197, 143, 0.16);
+    transform: translateY(-3px);
+    box-shadow:
+      0 0 0 1px rgba(232, 197, 143, 0.45),
+      0 0 36px rgba(232, 197, 143, 0.28),
+      0 16px 36px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    outline: none;
+  }
+  /* Day-mode hover: deepens into a richer lavender, same lift */
+  :root[data-theme="day"] .community-link:hover,
+  :root[data-theme="day"] .community-link:focus-visible {
+    color: #5B4A8A;
+    border-color: rgba(110, 90, 160, 0.55);
+    background: rgba(142, 123, 184, 0.14);
+    box-shadow:
+      0 0 0 1px rgba(110, 90, 160, 0.4),
+      0 0 32px rgba(142, 123, 184, 0.25),
+      0 16px 36px rgba(43, 41, 64, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+  .community-link:hover::after,
+  .community-link:focus-visible::after {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    width: 34px;
+    height: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    box-shadow: 0 12px 32px rgba(83,71,196,0.18);
+    cursor: pointer;
+    color: var(--text);
+    transition: background 0.3s ease, transform 0.2s ease;
+    padding: 0;
   }
-  .founder-avatar svg { width: 80px; height: 80px; }
-  .founder-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; display: block; }
-  .founder-tag {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--violet-dark);
+  .theme-toggle:hover {
+    background: var(--card-bg);
+    transform: scale(1.05);
   }
-  .founder-name {
-    font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
+  .theme-toggle svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .wordmark-wrap {
+    opacity: 0.78;
+    transition: opacity 0.4s ease;
+  }
+  .wordmark-wrap:hover { opacity: 1; }
+
+  .wordmark {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: 17px;
+    letter-spacing: 0.02em;
+    color: var(--text-strong);
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+  .wordmark-i {
+    position: relative;
+    display: inline-block;
+  }
+  .wordmark-i::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 35%, #FFFFFF 0%, var(--moon-color) 55%, rgba(245, 240, 230, 0.35) 100%);
+    box-shadow: 0 0 14px var(--moon-halo-1), 0 0 32px var(--moon-halo-2);
+    animation: softBreath 5s ease-in-out infinite;
+  }
+  /* Lavender ring keeps the moon-i visible against the day background */
+  :root[data-theme="day"] .wordmark-i::before {
+    border: 0.6px solid rgba(160, 140, 200, 0.55);
+    box-shadow:
+      0 0 0 0.6px rgba(200, 185, 232, 0.35),
+      0 0 12px rgba(200, 185, 232, 0.45),
+      0 0 24px rgba(232, 195, 220, 0.28);
+  }
+
+  @keyframes softBreath {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.95; }
+    50% { transform: translateX(-50%) scale(1.08); opacity: 1; }
+  }
+
+  /* ─── Layout container ──────────────────────────────────── */
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 160px 40px 60px;
+  }
+
+  section { margin-bottom: 120px; }
+
+  /* ─── Hero ─────────────────────────────────────────────── */
+  /* Moon is offset slightly right of center so it visually
+     hovers above the "D" of "understood" in the headline below */
+  .hero-moon {
+    display: block;
+    margin: 20px 0 48px;
+    margin-left: calc(50% - 75px + 56px);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 35%, #FFFFFF 0%, var(--moon-color) 55%, rgba(245, 240, 230, 0.18) 100%);
+    box-shadow: 0 0 90px var(--moon-halo-1), 0 0 180px var(--moon-halo-2);
+    animation: softBreath 6s ease-in-out infinite;
+  }
+  /* In day mode the moon would melt into the lavender background.
+     A subtle lavender ring keeps her present, never hard. */
+  :root[data-theme="day"] .hero-moon {
+    border: 1px solid rgba(160, 140, 200, 0.5);
+    box-shadow:
+      0 0 0 1px rgba(200, 185, 232, 0.35),
+      0 0 60px rgba(200, 185, 232, 0.45),
+      0 0 140px rgba(232, 195, 220, 0.3);
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
     font-weight: 300;
-    color: var(--nuit);
-    margin-bottom: .5rem;
-    line-height: 1.2;
+    font-size: clamp(40px, 6vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--text-strong);
+    text-align: center;
+    margin-bottom: 28px;
   }
-  .founder-role {
+  h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent-aube);
+  }
+
+  .lede {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 300;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--text);
+    text-align: center;
+    margin: 0 auto 48px;
+    max-width: 32ch;
+  }
+
+  /* ─── Waitlist form ────────────────────────────────────── */
+  .waitlist-form {
+    display: flex;
+    gap: 10px;
+    max-width: 460px;
+    margin: 0 auto 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .waitlist-input {
+    flex: 1 1 240px;
+    min-width: 0;
+    padding: 15px 22px;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 100px;
+    color: var(--text-strong);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+  .waitlist-input::placeholder { color: var(--text-soft); }
+  .waitlist-input:focus {
+    border-color: var(--accent-aube);
+    background: var(--card-bg);
+  }
+  .waitlist-input[aria-invalid="true"] { border-color: var(--accent-rose); }
+
+  .waitlist-btn {
+    padding: 15px 32px;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 100px;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    color: var(--violet-dark);
-    margin-bottom: 1.25rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform 0.2s ease, opacity 0.2s ease;
   }
-  .founder-bio {
+  .waitlist-btn:hover { transform: translateY(-1px); opacity: 0.92; }
+  .waitlist-btn:active { transform: translateY(0); }
+
+  .waitlist-note {
+    font-size: 12px;
+    color: var(--text-soft);
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  .waitlist-success {
+    display: none;
+    text-align: center;
+    padding: 24px;
+    color: var(--text-strong);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 20px;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  .waitlist-success.show { display: block; }
+
+  /* ─── Section labels and headings ──────────────────────── */
+  .section-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-rose);
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(30px, 4.5vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--text-strong);
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  h2 em { font-style: italic; color: var(--accent-rose); }
+
+  p {
+    font-size: 17px;
+    color: var(--text);
+    margin-bottom: 22px;
+  }
+
+  .prose p {
+    max-width: 62ch;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .library-specialists {
     font-size: 15px;
-    line-height: 1.85;
-    color: var(--gris);
-    margin-bottom: 1.5rem;
+    color: var(--text-soft, rgba(43, 41, 64, 0.72));
+    font-style: italic;
+    letter-spacing: 0.01em;
+    margin-top: 14px;
   }
-  .founder-highlights {
+
+  /* ─── Library preview cards ───────────────────────────── */
+  .library-preview {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin: 48px auto 24px;
+    max-width: 900px;
+  }
+  .library-card {
+    position: relative;
+    padding: 26px 26px 24px;
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    background: var(--card-bg);
+    text-align: left;
+    transform: translateY(0);
+    transition:
+      transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.5s ease;
+    overflow: hidden;
+  }
+  .library-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    pointer-events: none;
+    background: linear-gradient(145deg, var(--glow-tint) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .library-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--glow-aube-ring);
+    box-shadow:
+      0 22px 52px var(--glow-shadow),
+      0 0 0 1px var(--glow-aube-ring),
+      0 0 60px var(--glow-aube-wide),
+      inset 0 1px 0 var(--glow-inset);
+  }
+  .library-card:hover::before { opacity: 1; }
+  .library-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .library-category {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-aube);
+  }
+  .library-time {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-soft);
+    letter-spacing: 0.04em;
+  }
+  .library-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--text-strong);
+    margin: 0 0 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .library-lead {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .library-formats {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .library-format {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--text-soft);
+    padding: 4px 10px;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    background: transparent;
+  }
+  .library-preview-note {
+    text-align: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-soft);
+    margin: 8px auto 24px;
+    max-width: 48ch;
+  }
+
+  /* ─── Phase 2 Consultation section ────────────────────── */
+  .consultation-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 44px auto 28px;
+    max-width: 980px;
+  }
+  .consultation-step {
+    position: relative;
+    padding: 30px 26px 26px;
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    background: var(--card-bg);
+    text-align: left;
+    transition:
+      transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.5s ease;
+    overflow: hidden;
+  }
+  .consultation-step::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    pointer-events: none;
+    background: linear-gradient(145deg, var(--glow-tint) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .consultation-step:hover {
+    transform: translateY(-5px);
+    border-color: var(--glow-aube-ring);
+    box-shadow:
+      0 22px 52px var(--glow-shadow),
+      0 0 0 1px var(--glow-aube-ring),
+      0 0 60px var(--glow-aube-wide),
+      inset 0 1px 0 var(--glow-inset);
+  }
+  .consultation-step:hover::before { opacity: 1; }
+  .consultation-step-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 30px;
+    color: var(--accent-aube);
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .consultation-step-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--text-strong);
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .consultation-step-body {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--text);
+    position: relative;
+    z-index: 1;
+  }
+  .consultation-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-soft);
+    font-style: italic;
+    max-width: 64ch;
+    margin: 14px auto 0;
+    line-height: 1.6;
+  }
+
+  .callout {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(22px, 3vw, 28px);
+    line-height: 1.45;
+    color: var(--text-strong);
+    text-align: center;
+    margin: 60px auto;
+    max-width: 28ch;
+    position: relative;
+  }
+  .callout::before, .callout::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--hairline);
+    margin: 24px auto;
+  }
+  .callout-wide { max-width: 44ch; }
+
+  /* ─── Moon phases row ──────────────────────────────────── */
+  .phases {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+  }
+  .phase {
+    flex: 1 1 110px;
+    text-align: center;
+  }
+  .phase svg {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 10px;
+  }
+  /* In day mode, the cream fills would disappear into the lavender background.
+     We repaint each moon element in lavender tones so the phases stay readable
+     without ever flashing a harsh black silhouette. */
+  :root[data-theme="day"] .phase svg .moon-disc {
+    fill: #8E7BB8;
+    stroke: rgba(74, 61, 107, 0.35);
+    stroke-width: 0.8;
+  }
+  :root[data-theme="day"] .phase svg .moon-disc-faint {
+    fill: #8E7BB8;
+    fill-opacity: 0.18;
+    stroke: rgba(107, 91, 149, 0.65);
+    stroke-width: 1;
+    opacity: 1;
+  }
+  :root[data-theme="day"] .phase svg .moon-ring {
+    stroke: rgba(107, 91, 149, 0.7);
+    stroke-opacity: 1;
+  }
+  :root[data-theme="day"] .phase svg .moon-shadow {
+    fill: #4A3D6B;
+    fill-opacity: 0.92;
+  }
+  .phase-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .phase-mood {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  /* ─── Day/Night preview ───────────────────────────────── */
+  .modes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 40px 0;
+  }
+  .mode {
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    padding: 36px 24px;
+    text-align: center;
+    font: inherit;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+  /* Day card blends with the body background — subtle continuity,
+     not a contrasting tile. The signal is "you are already there." */
+  .mode-day {
+    background: #F4EFF5;
+    color: #2B2940;
+    border-color: rgba(43, 41, 64, 0.10);
+  }
+  .mode-night {
+    background: #2B2940;
+    color: #F5F0E6;
+    border-color: rgba(245, 240, 230, 0.2);
+  }
+  .mode:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+  }
+  .mode-day:hover { border-color: rgba(142, 123, 184, 0.28); }
+  .mode-night:hover { border-color: rgba(245, 240, 230, 0.42); }
+  .mode.is-active {
+    box-shadow: 0 0 0 2px var(--accent-aube), 0 14px 40px rgba(0, 0, 0, 0.15);
+  }
+  .mode-label {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .mode-desc {
+    font-size: 13px;
+    opacity: 0.72;
+    display: block;
+  }
+  .mode-hint {
+    display: block;
+    margin-top: 14px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.48;
+  }
+
+  /* ─── Circles section layout ──────────────────────────── */
+  .circles-row {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+    margin: 40px 0 30px;
+  }
+  .circles-text p {
+    font-size: 16px;
+    line-height: 1.72;
+    color: var(--text);
+    margin-bottom: 20px;
+    text-align: left;
+    max-width: none;
+  }
+  .circles-text p:last-child { margin-bottom: 0; }
+  .circles-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .phone-svg {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    color: var(--text);
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.22));
+  }
+  @media (max-width: 720px) {
+    .circles-row { grid-template-columns: 1fr; gap: 40px; }
+    .circles-visual { order: -1; }
+    .phone-svg { max-width: 220px; }
+  }
+
+  /* ─── Triad ────────────────────────────────────────────── */
+  .triad {
+    display: grid;
+    gap: 14px;
+    margin: 36px auto;
+    max-width: 640px;
+  }
+  .triad-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 22px 26px;
+    background: var(--card-bg);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    cursor: pointer;
+    position: relative;
+    transform: translateY(0);
+    transition:
+      transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.5s ease,
+      background 0.5s ease;
+    will-change: transform;
+  }
+  .triad-row::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    pointer-events: none;
+    background: linear-gradient(145deg, var(--glow-tint) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .triad-row:hover {
+    transform: translateY(-5px);
+    border-color: var(--glow-aube-ring);
+    background: var(--card-bg);
+    box-shadow:
+      0 22px 52px var(--glow-shadow),
+      0 0 0 1px var(--glow-aube-ring),
+      0 0 60px var(--glow-aube-wide),
+      inset 0 1px 0 var(--glow-inset);
+  }
+  .triad-row:hover::before { opacity: 1; }
+  .triad-row:focus-visible {
+    outline: none;
+    border-color: var(--glow-aube-ring);
+    box-shadow:
+      0 0 0 2px var(--glow-aube),
+      0 18px 40px var(--glow-shadow);
+  }
+  .triad-icon {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--accent-aube);
+    flex-shrink: 0;
+    min-width: 100px;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+    position: relative;
+    z-index: 1;
+  }
+  .triad-row:hover .triad-icon {
+    transform: translateX(3px);
+  }
+  .triad-text {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── Pitch link ──────────────────────────────────────── */
+  .pitch-link {
+    display: inline-block;
+    margin: 20px auto;
+    color: var(--text-soft);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 3px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .pitch-link:hover {
+    color: var(--text-strong);
+    border-color: var(--accent-aube);
+  }
+
+  .center { text-align: center; }
+
+  /* ─── Second waitlist CTA ─────────────────────────────── */
+  .final-cta {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  /* ─── The Numbers section ─────────────────────────────── */
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 40px auto 0;
+    max-width: 1100px;
+  }
+  .number-card {
+    position: relative;
+    padding: 32px 22px 26px;
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    background: var(--card-bg);
+    text-align: center;
+    transform: translateY(0);
+    transition:
+      transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.5s ease;
+    will-change: transform;
+  }
+  .number-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--glow-aube-ring);
+    box-shadow:
+      0 22px 52px var(--glow-shadow),
+      0 0 0 1px var(--glow-aube-ring),
+      0 0 50px var(--glow-aube-wide),
+      inset 0 1px 0 var(--glow-inset);
+  }
+  .number-figure {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(36px, 4vw, 48px);
+    line-height: 1;
+    color: var(--accent-aube);
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .number-headline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--text-strong);
+    margin-bottom: 12px;
+    min-height: 40px;
+  }
+  .number-context {
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--text-soft);
+    margin-bottom: 14px;
+  }
+  .number-source {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    opacity: 0.7;
+  }
+  .numbers-disclaimer {
+    margin: 36px auto 0;
+    max-width: 640px;
+    font-size: 11px;
+    color: var(--text-soft);
+    text-align: center;
+    font-style: italic;
+    opacity: 0.7;
+    line-height: 1.6;
+  }
+
+  /* ─── Footer ──────────────────────────────────────────── */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--hairline);
+    margin-top: 80px;
+    padding: 60px 40px 48px;
+  }
+  .footer-inner {
+    max-width: 780px;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer-brand .wordmark { font-size: 20px; }
+  .footer-brand .wordmark-i::before { width: 12px; height: 12px; top: -3px; }
+  .footer-tagline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-top: 10px;
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     list-style: none;
   }
-  .founder-highlights li {
+  .footer-links a {
+    color: var(--text-soft);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .footer-links a:hover { color: var(--text-strong); }
+  .footer-founder {
+    max-width: 280px;
     font-size: 12px;
+    color: var(--text-soft);
+    line-height: 1.65;
+  }
+  .footer-copy {
+    max-width: 780px;
+    margin: 40px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--hairline);
+    font-size: 11px;
+    color: var(--text-soft);
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── Download buttons (App Store + Google Play) ──────── */
+  .footer-downloads {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 48px auto 28px;
+    flex-wrap: wrap;
+  }
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 22px 12px 18px;
+    background: var(--card-bg);
+    border: 1px solid var(--hairline);
+    border-radius: 14px;
+    color: var(--text-strong);
+    text-decoration: none;
+    transform: translateY(0);
+    transition:
+      transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.45s ease;
+  }
+  .download-btn:hover,
+  .download-btn:focus-visible {
+    transform: translateY(-3px);
+    border-color: var(--glow-aube-ring);
+    box-shadow:
+      0 0 0 1px var(--glow-aube-ring),
+      0 16px 36px var(--glow-shadow),
+      0 0 36px var(--glow-aube-wide),
+      inset 0 1px 0 var(--glow-inset);
+    outline: none;
+  }
+  .download-btn svg {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+  }
+  .download-text { display: flex; flex-direction: column; line-height: 1.1; text-align: left; }
+  .download-tiny {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 2px;
+  }
+  .download-store {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 16px;
     font-weight: 400;
-    color: var(--nuit);
-    background: var(--violet-light);
-    padding: 6px 14px;
-    border-radius: 100px;
-    white-space: nowrap;
   }
 
-  /* SCROLL ANIMATIONS */
-  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-
-  /* PHONE MOCKUP */
-  .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 4rem; position: relative; z-index: 1; width: 100%; max-width: 1100px; }
-  .phone-mockup { position: relative; flex-shrink: 0; width: 280px; height: 560px; }
-  .phone-frame { width: 100%; height: 100%; background: white; border-radius: 40px; border: 6px solid var(--nuit); box-shadow: 0 25px 60px rgba(44,40,64,0.15), inset 0 0 0 2px rgba(243,242,247,0.6); overflow: hidden; position: relative; }
-  .phone-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 28px; background: var(--nuit); border-radius: 0 0 18px 18px; z-index: 3; }
-  .phone-screen { width: 100%; height: 100%; padding: 40px 20px 20px; display: flex; flex-direction: column; overflow: hidden; background: var(--blanc); }
-  .phone-screen-header { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 11px; font-weight: 300; color: var(--nuit); letter-spacing: 0.5px; opacity: 0.5; margin-bottom: 12px; }
-  .phone-screen-greeting { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 22px; font-weight: 300; color: var(--nuit); line-height: 1.3; margin-bottom: 20px; }
-  .phone-screen-greeting em { color: var(--violet-dark); font-style: italic; }
-  .phone-checkin { background: white; border-radius: 16px; padding: 14px; border: 1px solid rgba(123,110,246,0.12); margin-bottom: 12px; }
-  .phone-checkin-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet-dark); margin-bottom: 8px; }
-  .phone-moods { display: flex; gap: 8px; justify-content: space-between; }
-  .phone-mood { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; background: var(--violet-light); transition: transform 0.2s, background 0.2s; }
-  .phone-mood.active { background: var(--violet-dark); transform: scale(1.15); }
-  .phone-diary { background: white; border-radius: 16px; padding: 14px; border: 1px solid rgba(123,110,246,0.12); flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; }
-  .phone-diary::-webkit-scrollbar { display: none; }
-  .phone-diary-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet-dark); margin-bottom: 8px; }
-  .phone-diary-text { font-size: 12px; font-style: italic; line-height: 1.6; color: var(--gris); }
-  .phone-diary-cursor { display: inline-block; width: 1px; height: 14px; background: var(--violet-dark); margin-left: 2px; vertical-align: middle; animation: blink 1s step-end infinite; }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-  .phone-navia-response { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(123,110,246,0.1); }
-  .phone-navia-tag { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--violet-mid); margin-bottom: 4px; }
-  .phone-navia-msg { font-size: 11px; line-height: 1.6; color: var(--nuit); }
-  .phone-followup { margin-top: 12px; padding-top: 12px; border-top: 1px dashed rgba(123,110,246,0.15); opacity: 0; transform: translateY(6px); transition: opacity .6s ease, transform .6s ease; }
-  .phone-followup.show { opacity: 1; transform: translateY(0); }
-  .phone-glow { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: var(--violet); opacity: 0.12; top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; z-index: -1; filter: blur(40px); }
-
-  /* A DAY WITH NAVIA */
-  .day { position: relative; overflow: hidden; padding: 7rem 3rem; background: linear-gradient(180deg, var(--blanc) 0%, #EEEBF7 100%); content-visibility: auto; contain-intrinsic-size: auto 900px; }
-  .day-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
-  .day-orb { position: absolute; border-radius: 50%; filter: blur(2px); }
-  .day-orb-1 { width: 420px; height: 420px; background: var(--violet-light); opacity: 0.7; top: 18%; left: -120px; animation: float1 9s ease-in-out infinite; }
-  .day-orb-2 { width: 260px; height: 260px; background: var(--rose); opacity: 0.35; top: 58%; left: 38%; animation: float2 11s ease-in-out infinite; }
-  .day-orb-3 { width: 340px; height: 340px; background: var(--violet-mid); opacity: 0.28; top: 12%; right: -100px; animation: float3 8s ease-in-out infinite; }
-  .day-orb-4 { width: 180px; height: 180px; background: var(--violet); opacity: 0.18; bottom: 10%; left: 22%; animation: float2 7s ease-in-out infinite; }
-  .day > .day-header, .day > .day-phones { position: relative; z-index: 1; }
-  .day-header { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
-  .day-header .section-tag { display: inline-block; margin-bottom: 1.25rem; }
-  .day-title { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 300; color: var(--nuit); line-height: 1.2; }
-  .day-title em { font-style: italic; color: var(--violet-dark); }
-  .day-sub { font-size: 15px; color: var(--gris); margin-top: 1.25rem; line-height: 1.8; max-width: 560px; margin-left: auto; margin-right: auto; }
-  .day-phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; max-width: 1080px; margin: 0 auto; }
-  .day-phone { display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .day-time { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 1.35rem; font-style: italic; font-weight: 300; color: var(--violet-dark); margin-bottom: 1rem; letter-spacing: 0.5px; }
-  .day-caption { margin-top: 1.5rem; font-size: 13.5px; color: var(--gris); line-height: 1.65; max-width: 260px; }
-  .day-caption strong { color: var(--nuit); font-weight: 500; }
-
-  /* MINI PHONE (used in day + inside sections) */
-  .mini-phone { position: relative; width: 220px; height: 440px; }
-  .mini-frame { width: 100%; height: 100%; background: white; border-radius: 30px; border: 5px solid var(--nuit); box-shadow: 0 18px 40px rgba(44,40,64,0.14), inset 0 0 0 1.5px rgba(243,242,247,0.6); overflow: hidden; position: relative; }
-  .mini-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 90px; height: 20px; background: var(--nuit); border-radius: 0 0 14px 14px; z-index: 3; }
-  .mini-screen { width: 100%; height: 100%; padding: 30px 14px 14px; display: flex; flex-direction: column; overflow: hidden; background: var(--blanc); }
-  .mini-header { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 9px; font-weight: 300; color: var(--nuit); letter-spacing: 0.5px; opacity: 0.5; margin-bottom: 8px; }
-  .mini-greet { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 16px; font-weight: 300; color: var(--nuit); line-height: 1.3; margin-bottom: 14px; }
-  .mini-greet em { color: var(--violet-dark); font-style: italic; }
-  .mini-card { background: white; border-radius: 12px; padding: 10px 11px; border: 1px solid rgba(123,110,246,0.12); margin-bottom: 9px; }
-  .mini-card-compact { padding: 8px 11px 9px; margin-bottom: 7px; }
-  .mini-card-label { font-size: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet-dark); margin-bottom: 5px; }
-  .mini-card-body { font-size: 10.5px; line-height: 1.5; color: var(--nuit); }
-  .mini-card-body em { font-style: italic; color: var(--violet-dark); }
-  .mini-card-big { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 20px; font-weight: 300; color: var(--nuit); line-height: 1; }
-  .mini-card-big span { color: var(--violet-dark); font-style: italic; }
-  .mini-meta { font-size: 9px; color: var(--gris); margin-top: 4px; }
-  .mini-card-accent { background: linear-gradient(135deg, var(--violet-dark), #6F61D8); color: white; border: none; }
-  .mini-card-accent .mini-card-label { color: rgba(255,255,255,0.75); }
-  .mini-card-accent .mini-card-body { color: white; }
-  .mini-card-accent .mini-card-body em { color: #E8E6F5; }
-  .mini-moods { display: flex; gap: 5px; justify-content: space-between; margin-top: 2px; }
-  .mini-mood { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; background: var(--violet-light); }
-  .mini-mood.active { background: var(--violet-dark); transform: scale(1.1); }
-  .mini-diary-body { font-size: 10px; font-style: italic; line-height: 1.55; color: var(--gris); }
-  .mini-diary-reply { margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(123,110,246,0.1); }
-  .mini-diary-reply .mini-card-label { color: var(--violet-mid); margin-bottom: 3px; font-size: 7.5px; }
-  .mini-reply-text { font-size: 9.5px; line-height: 1.55; color: var(--nuit); }
-  .mini-spacer { flex: 1; }
-
-  /* Sleep ring */
-  .sleep-ring { display: flex; align-items: center; gap: 10px; }
-  .sleep-ring-circle { width: 42px; height: 42px; border-radius: 50%; background: conic-gradient(var(--violet-dark) 0% 72%, rgba(123,110,246,0.15) 72% 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .sleep-ring-inner { width: 32px; height: 32px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-size: 8.5px; font-weight: 500; color: var(--violet-dark); }
-
-  /* INSIDE NAVIA */
-  .inside { padding: 7rem 3rem 8rem; background: var(--blanc); content-visibility: auto; contain-intrinsic-size: auto 1200px; }
-  .inside-header { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
-  .inside-header .section-tag { display: inline-block; margin-bottom: 1.25rem; }
-  .inside-title { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 300; color: var(--nuit); line-height: 1.2; }
-  .inside-title em { font-style: italic; color: var(--violet-dark); }
-  .inside-sub { font-size: 15px; color: var(--gris); margin-top: 1.25rem; line-height: 1.8; max-width: 560px; margin-left: auto; margin-right: auto; }
-  .inside-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; max-width: 1120px; margin: 0 auto; }
-  .inside-card { background: white; border-radius: 22px; padding: 2rem 1.75rem; border: 1px solid rgba(123,110,246,0.15); box-shadow: 0 8px 28px rgba(44,40,64,0.06); display: flex; flex-direction: column; transition: transform .35s ease, box-shadow .35s ease; }
-  .inside-card:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(83,71,196,0.14); }
-  .inside-preview { height: 170px; border-radius: 14px; background: linear-gradient(180deg, #F7F5FC 0%, #ECE8F8 100%); padding: 18px; display: flex; flex-direction: column; justify-content: center; margin-bottom: 1.5rem; position: relative; overflow: hidden; }
-  .inside-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet-dark); margin-bottom: 0.75rem; display: block; }
-  .inside-card h3 { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: var(--nuit); margin-bottom: 0.65rem; line-height: 1.25; }
-  .inside-card h3 em { font-style: italic; color: var(--violet-dark); }
-  .inside-card p { font-size: 13.5px; color: var(--gris); line-height: 1.65; }
-
-  /* Cycle ring preview */
-  .cycle-ring { width: 110px; height: 110px; border-radius: 50%; background: conic-gradient(var(--violet-dark) 0% 48%, var(--violet-mid) 48% 62%, rgba(123,110,246,0.15) 62% 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto; }
-  .cycle-ring-inner { width: 82px; height: 82px; border-radius: 50%; background: white; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-  .cycle-ring-day { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--nuit); line-height: 1; }
-  .cycle-ring-label { font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet-dark); margin-top: 4px; }
-
-  /* Checkin preview */
-  .checkin-moods { display: flex; gap: 8px; justify-content: center; align-items: center; }
-  .checkin-moods .mini-mood { width: 34px; height: 34px; font-size: 17px; }
-
-  /* Diary reply preview */
-  .preview-bubble { background: white; border-radius: 10px; padding: 9px 11px; font-size: 10.5px; font-style: italic; color: var(--gris); line-height: 1.55; border: 1px solid rgba(123,110,246,0.12); margin-bottom: 7px; }
-  .preview-bubble.navia { font-style: normal; background: var(--violet-dark); color: white; border: none; }
-
-  /* Pregnancy week */
-  .preg-wrap { display: flex; align-items: center; gap: 14px; }
-  .preg-circle { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--violet-dark), #6F61D8); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; flex-shrink: 0; box-shadow: 0 8px 18px rgba(83,71,196,0.25); }
-  .preg-circle-num { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; line-height: 1; }
-  .preg-circle-label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85; margin-top: 2px; }
-  .preg-meta-title { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--nuit); font-style: italic; margin-bottom: 3px; }
-  .preg-meta-sub { font-size: 10.5px; color: var(--gris); line-height: 1.5; }
-
-  /* Pattern chart */
-  .chart-bars { display: flex; align-items: flex-end; justify-content: space-between; gap: 5px; height: 80px; padding: 0 4px; }
-  .chart-bar { flex: 1; background: linear-gradient(180deg, var(--violet) 0%, var(--violet-dark) 100%); border-radius: 4px 4px 0 0; opacity: 0.85; }
-  .chart-legend { display: flex; justify-content: space-between; margin-top: 8px; font-size: 9px; color: var(--gris); }
-
-  /* Privacy dashboard */
-  .privacy-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-  .privacy-lock { width: 48px; height: 48px; border-radius: 50%; background: var(--violet-light); display: flex; align-items: center; justify-content: center; }
-  .privacy-lock svg { width: 22px; height: 22px; }
-  .privacy-bars { width: 100%; display: flex; flex-direction: column; gap: 5px; }
-  .privacy-row { display: flex; align-items: center; justify-content: space-between; font-size: 9px; color: var(--nuit); background: white; padding: 5px 9px; border-radius: 7px; border: 1px solid rgba(123,110,246,0.12); }
-  .privacy-dot { width: 6px; height: 6px; border-radius: 50%; background: #5EC18A; }
-
-  /* STICKY CTA BAR */
-  .sticky-cta {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    background: var(--nuit);
-    padding: 12px 2rem;
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-    transform: translateY(-100%);
-    transition: transform 0.4s ease;
-    box-shadow: 0 4px 20px rgba(44,40,64,0.2);
+  /* ─── Social icons row ────────────────────────────────── */
+  .footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 36px;
+    list-style: none;
+    padding: 0;
   }
-  .sticky-cta.show { transform: translateY(0); }
-  .sticky-cta p { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 300; }
-  .sticky-cta p em { color: var(--violet-mid); font-style: italic; font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 16px; }
-  .sticky-cta-btn { padding: 8px 20px; background: var(--violet-dark); color: white; border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
-  .sticky-cta-btn:hover { background: var(--violet); }
-
-  /* FAQ */
-  .faq { padding: 7rem 3rem; max-width: 780px; margin: 0 auto; content-visibility: auto; contain-intrinsic-size: auto 900px; }
-  .faq-header { text-align: center; margin-bottom: 3.5rem; }
-  .faq-title { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--nuit); line-height: 1.2; }
-  .faq-title em { font-style: italic; color: var(--violet-dark); }
-  .faq-subtitle { font-size: 15px; color: var(--gris); margin-top: 1.25rem; line-height: 1.75; max-width: 520px; margin-left: auto; margin-right: auto; }
-  .faq-list { display: flex; flex-direction: column; }
-  .faq-item { border-bottom: 1px solid rgba(123,110,246,0.18); padding: 1.75rem 0; transition: border-color 0.25s ease; }
-  .faq-item:first-child { border-top: 1px solid rgba(123,110,246,0.18); }
-  .faq-item[open] { border-bottom-color: rgba(123,110,246,0.35); }
-  .faq-q { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 400; color: var(--nuit); cursor: pointer; list-style: none; display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; line-height: 1.4; transition: color 0.2s ease; }
-  .faq-q:hover { color: var(--violet-dark); }
-  .faq-q::-webkit-details-marker { display: none; }
-  .faq-q::marker { display: none; content: ''; }
-  .faq-icon { width: 22px; height: 22px; flex-shrink: 0; margin-top: 6px; position: relative; }
-  .faq-icon::before, .faq-icon::after { content: ''; position: absolute; top: 50%; left: 50%; background: var(--violet-dark); transform: translate(-50%, -50%); transition: opacity 0.3s ease, transform 0.3s ease; }
-  .faq-icon::before { width: 14px; height: 1.5px; }
-  .faq-icon::after { width: 1.5px; height: 14px; }
-  .faq-item[open] .faq-icon::after { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
-  .faq-a { font-size: 15px; line-height: 1.85; color: var(--gris); padding-top: 1rem; max-width: 95%; animation: faqFade 0.4s ease; }
-  .faq-a em { font-style: italic; color: var(--violet-dark); }
-  @keyframes faqFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-  .faq-closing { text-align: center; margin-top: 3rem; font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 1.15rem; font-style: italic; color: var(--violet-dark); font-weight: 300; }
-
-  /* CTA */
-  .cta-final { padding: 9rem 3rem; text-align: center; position: relative; overflow: hidden; }
-  .cta-orb { position: absolute; width: 700px; height: 400px; border-radius: 50%; background: var(--violet-light); opacity: .5; top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
-  .cta-content { position: relative; z-index: 1; }
-  .cta-title { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; color: var(--nuit); line-height: 1.15; margin-bottom: 1.5rem; }
-  .cta-title em { font-style: italic; color: var(--violet-dark); }
-  .cta-subtitle { font-size: 16px; color: var(--gris); margin-bottom: 3rem; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.7; }
-  .cta-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
-  .cta-note { font-size: 12px; color: var(--gris); margin-top: 12px; }
-
-  /* FOOTER */
-  footer { padding: 0; border-top: 1px solid rgba(123,110,246,.1); }
-  .footer-promise { text-align: center; padding: 2.25rem 3rem 1rem; font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 1.15rem; font-style: italic; font-weight: 300; color: var(--violet-dark); letter-spacing: 0.3px; }
-  .footer-inner { padding: 1.5rem 3rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-  .footer-logo { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; font-size: 20px; font-weight: 300; color: var(--nuit); letter-spacing: 2px; }
-  .footer-logo .nav-i-wrap { position: relative; display: inline-block; }
-  .footer-logo .nav-dot { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; border-radius: 50%; background: var(--violet-mid); z-index: 2; }
-  .footer-logo .nav-dot-cover { position: absolute; top: 1px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; border-radius: 50%; background: var(--blanc); z-index: 1; }
-  .footer-copy { font-size: 13px; color: var(--gris); }
-  .footer-links { display: flex; gap: 2rem; list-style: none; }
-  .footer-links a { font-size: 13px; color: var(--gris); text-decoration: none; transition: color .2s; }
-  .footer-links a:hover { color: var(--violet); }
-
-  /* HAMBURGER MENU */
-  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; }
-  .hamburger span { display: block; width: 22px; height: 2px; background: var(--nuit); margin: 5px 0; border-radius: 2px; transition: all .3s; }
-  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-  .hamburger.active span:nth-child(2) { opacity: 0; }
-  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-  .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(243,242,247,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
-  .mobile-overlay.open { display: flex; }
-  .mobile-overlay a { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.8rem; font-weight: 300; color: var(--nuit); text-decoration: none; transition: color .2s; }
-  .mobile-overlay a:hover { color: var(--violet); }
-  .mobile-overlay .nav-cta { font-family: 'DM Sans', sans-serif; font-size: 1rem; background: var(--nuit); color: var(--blanc) !important; padding: 14px 36px; border-radius: 100px; margin-top: 1rem; }
-
-  /* TABLET: 769px to 1024px */
-  @media (max-width: 1024px) {
-    nav { padding: 1rem 2rem; }
-    .hero { padding: 7rem 2rem 4rem; }
-    .hero-layout { gap: 2.5rem; }
-    .phone-mockup { width: 240px; height: 480px; }
-    .manifesto, .modules { padding: 5rem 2rem; }
-    .gifting { gap: 3rem; padding: 6rem 2rem; }
-    .testimonials { padding: 5rem 2rem; }
-    .faq { padding: 5rem 2rem; }
-    .cta-final { padding: 7rem 2rem; }
-    .nav-links { gap: 1.5rem; }
-    .nav-links a { font-size: 13px; }
-    .day { padding: 5rem 2rem; }
-    .day-phones { gap: 1.5rem; }
-    .mini-phone { width: 195px; height: 390px; }
-    .inside { padding: 5rem 2rem; }
-    .inside-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .footer-socials li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer-socials li::marker { content: ''; }
+  .social-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--hairline);
+    border-radius: 50%;
+    color: var(--text-soft);
+    text-decoration: none;
+    background: var(--card-bg);
+    transform: translateY(0);
+    transition:
+      transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.45s ease,
+      color 0.45s ease;
+  }
+  .social-icon svg { width: 16px; height: 16px; }
+  .social-icon:hover,
+  .social-icon:focus-visible {
+    transform: translateY(-3px);
+    color: var(--accent-aube);
+    border-color: var(--glow-aube-ring);
+    box-shadow:
+      0 0 0 1px var(--glow-aube-ring),
+      0 12px 28px var(--glow-shadow),
+      0 0 28px var(--glow-aube-wide);
+    outline: none;
   }
 
-  /* MOBILE: up to 768px */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.25rem; }
-    .nav-links { display: none; }
-    .hamburger { display: block; }
-    .sticky-cta p { font-size: 12px; }
-    .sticky-cta { padding: 10px 1rem; gap: 8px; }
-    .hero { padding: 6.5rem 1.25rem 3.5rem; min-height: auto; }
-    .hero-layout { flex-direction: column; gap: 2.5rem; }
-    .phone-mockup { width: 240px; height: 480px; margin: 0 auto; }
-    .phone-screen { padding: 36px 16px 16px; }
-    .phone-screen-header { font-size: 10px; margin-bottom: 8px; }
-    .phone-screen-greeting { font-size: 17px; margin-bottom: 14px; }
-    .phone-checkin { padding: 12px; margin-bottom: 10px; }
-    .phone-mood { width: 30px; height: 30px; font-size: 14px; }
-    .phone-diary { padding: 12px; }
-    .phone-diary-text { font-size: 11px; }
-    .phone-navia-msg { font-size: 10.5px; line-height: 1.55; }
-    /* Disable floating animations on mobile to reduce GPU/paint work */
-    .hero-orb-1, .hero-orb-2, .hero-orb-3, .fb1, .fb2 { animation: none; }
-    .hero-title { font-size: clamp(2.2rem, 8vw, 3.5rem); }
-    .hero-subtitle { font-size: 16px; margin-bottom: 2rem; }
-    .hero-form, .cta-form { flex-direction: column; }
-    .hero-btn { padding: 16px; text-align: center; }
-    .hero-orb-1 { width: 350px; height: 350px; top: -60px; left: -100px; right: auto; }
-    .hero-orb-2 { width: 180px; height: 180px; bottom: 40px; left: 20px; right: auto; }
-    .hero-orb-3 { width: 120px; height: 120px; left: 30%; }
-    .manifesto { padding: 4rem 1.25rem; }
-    .manifesto-quote { font-size: clamp(1.4rem, 5vw, 2rem); }
-    .modules { padding: 4rem 1.25rem 5rem; }
-    .modules-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; }
-    .module-card { padding: 1.5rem; }
-    .gifting { grid-template-columns: 1fr; padding: 4rem 1.25rem; gap: 2.5rem; }
-    .testimonials { padding: 4rem 1.25rem; }
-    .testi-grid { grid-template-columns: 1fr; }
-    .founder { grid-template-columns: 1fr; text-align: center; padding: 4rem 1.25rem; gap: 2rem; }
-    .founder-visual { margin: 0 auto; }
-    .founder-highlights { justify-content: center; }
-    .faq { padding: 4rem 1.25rem; }
-    .faq-header { margin-bottom: 2.5rem; }
-    .faq-item { padding: 1.5rem 0; }
-    .faq-q { font-size: 1.1rem; gap: 1rem; }
-    .faq-a { font-size: 14px; }
-    .cta-final { padding: 5rem 1.25rem; }
-    .cta-title { font-size: clamp(2rem, 7vw, 3.5rem); }
-    .footer-promise { padding: 2rem 1.25rem 0.5rem; font-size: 1.05rem; }
-    .footer-inner { flex-direction: column; text-align: center; padding: 1rem 1.25rem 2rem; }
-    .footer-links { gap: 1.5rem; }
-    .day { padding: 4rem 1.25rem; }
-    .day-header { margin-bottom: 2.5rem; }
-    .day-phones { grid-template-columns: 1fr; gap: 3rem; }
-    .mini-phone { width: 220px; height: 440px; margin: 0 auto; }
-    .inside { padding: 4rem 1.25rem 5rem; }
-    .inside-header { margin-bottom: 2.5rem; }
-    .inside-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-    .inside-card { padding: 1.75rem 1.5rem; }
+  /* ─── Signup terms line (replaces 'no spam') ─────────── */
+  .signup-terms {
+    margin-top: 14px;
+    font-size: 11px;
+    color: var(--text-soft);
+    opacity: 0.8;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .signup-terms a {
+    color: var(--text-soft);
+    text-decoration: underline;
+    text-decoration-color: var(--hairline);
+    text-underline-offset: 3px;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+  }
+  .signup-terms a:hover {
+    color: var(--accent-aube);
+    text-decoration-color: var(--glow-aube-ring);
   }
 
-  /* SMALL MOBILE: up to 400px */
-  @media (max-width: 400px) {
-    nav { padding: 0.75rem 1rem; }
-    .hero { padding: 6rem 1rem 3rem; }
-    .hero-title { font-size: 2rem; }
-    .manifesto { padding: 3rem 1rem; }
-    .modules { padding: 3rem 1rem 4rem; }
-    .gifting { padding: 3rem 1rem; }
-    .testimonials { padding: 3rem 1rem; }
-    .faq { padding: 3rem 1rem; }
-    .cta-final { padding: 4rem 1rem; }
-    .footer-inner { padding: 0.5rem 1rem 1.5rem; }
-    .footer-promise { padding: 1.5rem 1rem 0.5rem; font-size: 1rem; }
-    .day { padding: 3rem 1rem; }
-    .inside { padding: 3rem 1rem 4rem; }
+  /* ─── Responsive ──────────────────────────────────────── */
+  @media (max-width: 980px) {
+    .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    main { padding: 130px 24px 40px; }
+    section { margin-bottom: 80px; }
+    .top-bar { padding: 14px 18px; }
+    .wordmark { font-size: 15px; }
+    .wordmark-i::before { width: 9px; height: 9px; top: -3px; }
+    .theme-toggle { width: 30px; height: 30px; }
+    .theme-toggle svg { width: 14px; height: 14px; }
+    .community-link { font-size: 12px; padding: 6px 12px; }
+    .hero-moon { width: 120px; height: 120px; margin-left: calc(50% - 60px + 38px); }
+    .modes { grid-template-columns: 1fr; }
+    .waitlist-form { flex-direction: column; }
+    .waitlist-input, .waitlist-btn { flex: 1 1 auto; width: 100%; }
+    .triad-row { flex-direction: column; gap: 6px; }
+    .triad-icon { min-width: 0; }
+    .footer-inner { flex-direction: column; gap: 32px; }
+    .numbers-grid { grid-template-columns: 1fr; gap: 14px; }
+    .number-headline { min-height: 0; }
+    .library-preview { grid-template-columns: 1fr; gap: 14px; }
+    .library-card { padding: 22px 22px 20px; }
+    .library-title { font-size: 19px; }
+    .consultation-steps { grid-template-columns: 1fr; gap: 14px; }
+    .footer-downloads { flex-direction: column; align-items: center; }
+    .download-btn { width: 220px; justify-content: flex-start; }
+  }
+
+  @media (max-width: 520px) {
+    .top-bar-center { display: none; }
+  }
+
+  /* ─── Reduced motion ──────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-moon, .wordmark-i::before { animation: none; }
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
   }
 </style>
 </head>
 <body>
 
-<!-- STICKY CTA BAR (appears when user stops scrolling, past hero) -->
-<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
-  <p>Join the <em>Navia</em> community</p>
-  <a href="#waitlist" class="sticky-cta-btn" onclick="document.getElementById('sticky-cta').classList.remove('show')">Join the waitlist</a>
-</div>
+<div class="stars" aria-hidden="true"></div>
 
-<!-- NAV -->
-<nav aria-label="Main navigation">
-  <a href="#" class="nav-logo" aria-label="Navia home">
-    <span class="nav-wordmark-wrap">
-      <svg class="nav-arc" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-        <!-- ~240° arc (2/3 circle), open at bottom-right -->
-        <path d="M 72 82 A 42 42 0 1 1 90 60" stroke="#9B94D8" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+<nav class="top-bar" aria-label="Top navigation">
+  <div class="top-bar-left">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch between day and night mode" type="button">
+      <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path id="theme-icon-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span class="nav-wordmark">nav<span class="nav-i-wrap"><span class="nav-dot-cover"></span><span class="nav-dot"></span>i</span>a</span>
-    </span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#modules">Our approach</a></li>
-    <li><a href="#inside">Inside Navia</a></li>
-    <li><a href="#gifting">Gifting</a></li>
-    <li><a href="#founder">Founder</a></li>
-    <li><a href="#faq">Questions</a></li>
-    <li><a href="#waitlist" class="nav-cta">Join the waitlist</a></li>
-  </ul>
-  <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
+    </button>
+  </div>
+  <div class="top-bar-center">
+    <a href="#final-cta" class="community-link">Join the Navia community</a>
+  </div>
+  <div class="top-bar-right">
+    <div class="wordmark-wrap">
+      <a href="/" class="wordmark">Nav<span class="wordmark-i">&#305;</span>a</a>
+    </div>
+  </div>
 </nav>
 
-<!-- MOBILE MENU OVERLAY -->
-<div class="mobile-overlay" id="mobile-menu">
-  <a href="#modules" onclick="toggleMenu()">Our approach</a>
-  <a href="#inside" onclick="toggleMenu()">Inside Navia</a>
-  <a href="#gifting" onclick="toggleMenu()">Gifting</a>
-  <a href="#founder" onclick="toggleMenu()">Founder</a>
-  <a href="#faq" onclick="toggleMenu()">Questions</a>
-  <a href="#waitlist" class="nav-cta" onclick="toggleMenu()">Join the waitlist</a>
-</div>
-
-<!-- HERO -->
 <main>
-<section class="hero">
-  <div class="hero-bg">
-    <div class="hero-orb-1"></div>
-    <div class="hero-orb-2"></div>
-    <div class="hero-orb-3"></div>
-  </div>
-  <div class="hero-layout">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Intelligent companion for women</div>
-    <h1 class="hero-title">
-      You're <em>never</em><br>alone on<br>this journey.
-    </h1>
-    <p class="hero-subtitle">
-      Navia walks with you through every chapter of your life. Your cycle, your pregnancy, your emotions, with a presence that's gentle, smart, and always there.
-    </p>
-  </div>
 
-  <!-- PHONE MOCKUP -->
-  <div class="phone-mockup reveal">
-    <div class="phone-glow"></div>
-    <div class="phone-frame">
-      <div class="phone-notch"></div>
-      <div class="phone-screen">
-        <p class="phone-screen-header">navia</p>
-        <p class="phone-screen-greeting">Good evening,<br><em>Emma</em></p>
-        <div class="phone-checkin">
-          <p class="phone-checkin-label">How are you feeling?</p>
-          <div class="phone-moods">
-            <span class="phone-mood">😴</span>
-            <span class="phone-mood">😌</span>
-            <span class="phone-mood active" style="color:white">😊</span>
-            <span class="phone-mood">🥰</span>
-            <span class="phone-mood">✨</span>
-          </div>
-        </div>
-        <div class="phone-diary">
-          <p class="phone-diary-label">Your diary</p>
-          <p class="phone-diary-text">Tonight I feel a little heavy. The baby kicked a lot today and I keep thinking about whether I'll be a good mother…</p>
-          <div class="phone-navia-response" id="navia-reply">
-            <p class="phone-navia-tag">navia</p>
-            <p class="phone-navia-msg" id="navia-typed"></p>
-          </div>
-          <div class="phone-followup" id="phone-followup">
-            <p class="phone-diary-text" id="emma-followup"></p>
-            <div class="phone-navia-response">
-              <p class="phone-navia-tag">navia</p>
-              <p class="phone-navia-msg" id="navia-typed-2"></p>
-            </div>
-          </div>
-        </div>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-moon" aria-hidden="true"></div>
+    <h1>To be understood<br/>before having to <em>ask</em>.</h1>
+    <p class="lede">Navia is a quiet companion for every phase of a woman's life. She listens the way the moon listens.</p>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy">
+    <span class="section-label">Our philosophy</span>
+    <h2>We do not stop the hemorrhage.<br/>We <em>prevent</em> it.</h2>
+
+    <div class="prose">
+      <p>Every woman lives with a quiet duality. What her hormones dictate on any given morning, and what she actually wants underneath. When a low mood finds her, she would love a hand on her shoulder, a voice note from her sister, a gesture from someone who loves her. But she will not ask for it. Having to ask breaks the comfort of receiving.</p>
+      <p>Navia was built on a quiet inheritance, closer in spirit to traditional Chinese medicine, where the practitioner adjusts the body's energy long before any illness has a chance to declare itself. The goal is not to stop the bleeding. The goal is to make sure it never starts.</p>
+    </div>
+
+    <div class="callout callout-wide">To be understood before having to ask.</div>
+  </section>
+
+  <!-- COMPANION -->
+  <section id="companion">
+    <span class="section-label">Her form</span>
+    <h2>A moon that breathes,<br/>never a face that <em>stares</em>.</h2>
+
+    <div class="prose">
+      <p>Navia takes the form of a luminous moon. No eyes, no mouth, no avatar, no cartoon character. She breathes with a soft halo, the same way a sleeping body rises and falls. When you open the app, she is already there, already waiting, already present. When you speak to her, the moon gently enlarges and glows. When you stop, it returns to rest.</p>
+    </div>
+
+    <div class="phases" aria-label="Moon phases as mood">
+      <div class="phase">
+        <svg viewBox="0 0 48 48" fill="none"><circle class="moon-disc" cx="24" cy="24" r="18" fill="#F5F0E6"/></svg>
+        <span class="phase-label">Full</span>
+        <span class="phase-mood">at peace</span>
+      </div>
+      <div class="phase">
+        <svg viewBox="0 0 48 48" fill="none"><circle class="moon-disc" cx="24" cy="24" r="18" fill="#F5F0E6"/><path class="moon-shadow" d="M 36 24 a 12 18 0 0 1 -12 18 a 18 18 0 0 0 0 -36 a 12 18 0 0 1 12 18 z" fill="#2B2940"/></svg>
+        <span class="phase-label">Gibbous</span>
+        <span class="phase-mood">mostly serene</span>
+      </div>
+      <div class="phase">
+        <svg viewBox="0 0 48 48" fill="none"><circle class="moon-disc" cx="24" cy="24" r="18" fill="#F5F0E6"/><path class="moon-shadow" d="M 24 6 a 18 18 0 0 0 0 36 z" fill="#2B2940"/></svg>
+        <span class="phase-label">Half</span>
+        <span class="phase-mood">in balance</span>
+      </div>
+      <div class="phase">
+        <svg viewBox="0 0 48 48" fill="none"><circle class="moon-disc" cx="24" cy="24" r="18" fill="#F5F0E6"/><path class="moon-shadow" d="M 24 6 a 18 18 0 0 0 0 36 a 12 18 0 0 0 0 -36 z" fill="#2B2940"/></svg>
+        <span class="phase-label">Crescent</span>
+        <span class="phase-mood">in passage</span>
+      </div>
+      <div class="phase">
+        <svg viewBox="0 0 48 48" fill="none"><circle class="moon-disc-faint" cx="24" cy="24" r="18" fill="#F5F0E6" opacity="0.16"/><circle class="moon-ring" cx="24" cy="24" r="18" fill="none" stroke="#F5F0E6" stroke-opacity="0.5"/></svg>
+        <span class="phase-label">New</span>
+        <span class="phase-mood">in retreat</span>
       </div>
     </div>
-  </div>
-  </div><!-- /hero-layout -->
-</section>
+  </section>
 
-<!-- MANIFESTO -->
-<section class="manifesto reveal">
-  <p class="manifesto-quote">
-    "Because sometimes, all you need is to feel like <span>someone is thinking of you</span>."
-  </p>
-  <p class="manifesto-body">
-    We built a companion that doesn't replace your doctor. She's there <em>between appointments</em>. In the moments of doubt, in the exhaustion, or simply when there's no one around to talk to.
-  </p>
-</section>
+  <!-- MODES -->
+  <section id="experience">
+    <span class="section-label">Day and night</span>
+    <h2>A space that adapts<br/>to her <em>mood</em>.</h2>
 
-<!-- MODULES -->
-<section class="modules reveal" id="modules">
-  <div class="modules-header">
-    <span class="section-tag">How it works</span>
-    <h2 class="section-title-dark">A companion that <em>adapts</em><br>to your life</h2>
-  </div>
-  <div class="modules-grid">
-    <div class="module-card">
-      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
-        <circle cx="20" cy="20" r="18" stroke="#AFA9EC" stroke-width="0.8" opacity="0.4"/>
-        <path d="M20 8 Q28 14 28 20 Q28 28 20 32 Q12 28 12 20 Q12 14 20 8Z" stroke="#7B6EF6" stroke-width="1.5" fill="none"/>
-        <circle cx="20" cy="20" r="3" fill="#7B6EF6"/>
-      </svg>
-      <p class="module-num">01</p>
-      <h3 class="module-title">Body tracking</h3>
-      <p class="module-desc">Cycle, ovulation, hormones, understood simply. Your body, on your terms.</p>
+    <div class="prose">
+      <p>Navia lives in two interchangeable modes. Day mode is luminous and warm, the energy of morning and presence. Night mode is deep indigo, embraced by stars, the register of retreat and softness. You choose which one holds you, and you can switch whenever you want. Tap the moon in the corner of the screen.</p>
     </div>
-    <div class="module-card">
-      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
-        <ellipse cx="20" cy="22" rx="10" ry="13" stroke="#7B6EF6" stroke-width="1.5" fill="none"/>
-        <circle cx="20" cy="13" r="4" stroke="#AFA9EC" stroke-width="1" fill="none"/>
-        <path d="M14 30 Q20 34 26 30" stroke="#7B6EF6" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-      </svg>
-      <p class="module-num">02</p>
-      <h3 class="module-title">Pregnancy tracking</h3>
-      <p class="module-desc">Week by week, your baby grows. Navia grows with you.</p>
-    </div>
-    <div class="module-card">
-      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
-        <rect x="8" y="10" width="24" height="22" rx="4" stroke="#7B6EF6" stroke-width="1.5" fill="none"/>
-        <path d="M13 18h14M13 23h10" stroke="#AFA9EC" stroke-width="1.2" stroke-linecap="round"/>
-        <circle cx="28" cy="14" r="4" fill="#7B6EF6"/>
-        <path d="M26 14l1.5 1.5 2.5-2.5" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <p class="module-num">03</p>
-      <h3 class="module-title">Smart diary</h3>
-      <p class="module-desc">Write freely. Navia listens, understands, and responds. Or stays quiet.</p>
-    </div>
-    <div class="module-card">
-      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
-        <path d="M10 25 Q10 15 20 12 Q30 15 30 25" stroke="#7B6EF6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <rect x="8" y="25" width="24" height="6" rx="3" stroke="#AFA9EC" stroke-width="1" fill="none"/>
-        <path d="M16 28h8" stroke="#AFA9EC" stroke-width="1.2" stroke-linecap="round"/>
-      </svg>
-      <p class="module-num">04</p>
-      <h3 class="module-title">Daily check-in</h3>
-      <p class="module-desc">30 seconds every morning. Mood, energy, sleep. Navia adjusts to you.</p>
-    </div>
-    <div class="module-card">
-      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
-        <path d="M12 32 L12 20 Q12 10 20 8 Q28 10 28 20 L28 32" stroke="#7B6EF6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M8 32h24" stroke="#AFA9EC" stroke-width="1.2" stroke-linecap="round"/>
-        <circle cx="20" cy="18" r="3" stroke="#AFA9EC" stroke-width="1" fill="none"/>
-      </svg>
-      <p class="module-num">05</p>
-      <h3 class="module-title">Personal insights</h3>
-      <p class="module-desc">Your emotional patterns, your energy cycles. Know yourself better.</p>
-    </div>
-    <div class="module-card">
-      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
-        <rect x="10" y="14" width="20" height="16" rx="5" stroke="#7B6EF6" stroke-width="1.5" fill="none"/>
-        <path d="M15 14 Q15 8 20 8 Q25 8 25 14" stroke="#AFA9EC" stroke-width="1.2" fill="none"/>
-        <circle cx="20" cy="22" r="2.5" fill="#7B6EF6"/>
-        <path d="M20 24.5v2" stroke="#7B6EF6" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <p class="module-num">06</p>
-      <h3 class="module-title">Intelligent gifting</h3>
-      <p class="module-desc">A surprise arrives. Not because you asked for it.</p>
-    </div>
-  </div>
-</section>
 
-<!-- A DAY WITH NAVIA -->
-<section class="day reveal" id="day">
-  <div class="day-bg" aria-hidden="true">
-    <div class="day-orb day-orb-1"></div>
-    <div class="day-orb day-orb-2"></div>
-    <div class="day-orb day-orb-3"></div>
-    <div class="day-orb day-orb-4"></div>
-  </div>
-  <div class="day-header">
-    <span class="section-tag">A day with Navia</span>
-    <h2 class="day-title">From morning light to <em>midnight thoughts</em></h2>
-    <p class="day-sub">Navia is there at every moment that matters. Not demanding attention, just present when you need her.</p>
-  </div>
+    <div class="modes" id="mode-preview">
+      <button type="button" class="mode mode-day" data-theme-target="day" aria-label="Preview day mode">
+        <span class="mode-label">Day</span>
+        <span class="mode-desc">Clair de lune, souffle rose, the energy of presence</span>
+        <span class="mode-hint">Hover to try</span>
+      </button>
+      <button type="button" class="mode mode-night" data-theme-target="night" aria-label="Preview night mode">
+        <span class="mode-label">Night</span>
+        <span class="mode-desc">Indigo royal, breathing moon, the register of retreat</span>
+        <span class="mode-hint">Hover to try</span>
+      </button>
+    </div>
+  </section>
 
-  <div class="day-phones">
-    <!-- MORNING -->
-    <div class="day-phone">
-      <span class="day-time">07:42 am</span>
-      <div class="mini-phone">
-        <div class="mini-frame">
-          <div class="mini-notch"></div>
-          <div class="mini-screen">
-            <p class="mini-header">navia</p>
-            <p class="mini-greet">Good morning,<br><em>Emma</em></p>
-            <div class="mini-card">
-              <p class="mini-card-label">Last night</p>
-              <div class="sleep-ring">
-                <div class="sleep-ring-circle"><div class="sleep-ring-inner">7h 12</div></div>
-                <div style="text-align:left">
-                  <p class="mini-card-big">Restful</p>
-                  <p class="mini-meta">72% deep sleep</p>
-                </div>
-              </div>
-            </div>
-            <div class="mini-card mini-card-accent">
-              <p class="mini-card-label">Today's focus</p>
-              <p class="mini-card-body">Drink a glass of water before your coffee. Your body will thank you.</p>
-            </div>
-            <div class="mini-spacer"></div>
-          </div>
+  <!-- CIRCLES -->
+  <section id="circles">
+    <span class="section-label">Private circles</span>
+    <h2>Consent as a<br/><em>lunar</em> cycle.</h2>
+
+    <div class="circles-row">
+      <div class="circles-text">
+        <p>You can invite one or several trusted people into your Navia through a private QR code. Each invitation carries a cycle duration you choose yourself. Twelve hours to cross a difficult night with your sister. Twelve days to accompany a friend who just gave birth. Twelve weeks to walk through a first trimester with your mother. Twelve months for a friendship you want to keep close all year.</p>
+        <p>During the cycle, your two companions quietly share context after a transparent agreement, so your friend never has to be told that today is a hard day. She simply arrives already knowing, and her gesture can land at the right moment. When the cycle ends, the companions gently forget. Access is a ritual gift, never a permanent transfer.</p>
+      </div>
+
+      <div class="circles-visual">
+        <svg class="phone-svg" viewBox="0 0 260 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A phone displaying a Navia private circle QR code that opens the waitlist, and a twelve-day lunar cycle timeline">
+          <defs>
+            <!-- Phone screen soft vignette — cool lavender pale, mirrors day-mode background -->
+            <radialGradient id="phoneScreenGrad" cx="50%" cy="40%" r="75%">
+              <stop offset="0%" stop-color="#FBF9FD" stop-opacity="1"/>
+              <stop offset="60%" stop-color="#F4EFF5" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#EDE6EE" stop-opacity="1"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Phone body frame (soft lavender, fixed — no harsh black) -->
+          <rect x="22" y="18" width="216" height="484" rx="34" fill="#6B5B95" stroke="#4A3D6B" stroke-width="1.5"/>
+          <rect x="22" y="18" width="216" height="484" rx="34" fill="none" stroke="rgba(245, 240, 230, 0.28)" stroke-width="0.6"/>
+
+          <!-- Screen (lavender pale, not theme-reactive) -->
+          <rect x="30" y="26" width="200" height="468" rx="28" fill="url(#phoneScreenGrad)"/>
+
+          <!-- Dynamic island / notch -->
+          <rect x="108" y="32" width="44" height="6" rx="3" fill="#4A3D6B" opacity="0.85"/>
+
+          <!-- Wordmark Navıa, split so the dotless ı sits exactly at x=130
+               and the moon can be centered above it. Deep indigo ink for legibility. -->
+          <text x="130" y="82" text-anchor="end"
+                font-family="Georgia, 'Times New Roman', serif" font-size="18" font-style="italic"
+                fill="#2B2940" opacity="0.88">Nav</text>
+          <text x="131" y="82" text-anchor="start"
+                font-family="Georgia, 'Times New Roman', serif" font-size="18" font-style="italic"
+                fill="#2B2940" opacity="0.88">&#305;a</text>
+          <!-- Moon dot — lavender, centered above the ı (the brand signature) -->
+          <circle cx="133" cy="66" r="2.6" fill="#5B4A8A"/>
+          <circle cx="133" cy="66" r="3.8" fill="none" stroke="#5B4A8A" stroke-width="0.5" opacity="0.35"/>
+
+          <!-- Subtitle caps -->
+          <text x="130" y="104" text-anchor="middle"
+                font-family="'Inter', sans-serif" font-size="7" letter-spacing="2.4"
+                fill="#2B2940" opacity="0.45">PRIVATE CIRCLE</text>
+
+          <!-- QR quiet zone (cool lavender white card) -->
+          <rect x="56" y="124" width="148" height="148" rx="10" fill="#FBF9FD" stroke="#DDD0E8" stroke-width="0.8"/>
+
+          <!-- Real QR code — opens https://bynavia.com -->
+          <g fill="#2B2940">
+            <rect x="64.00" y="134.00" width="5.28" height="5.28"/>
+            <rect x="69.28" y="134.00" width="5.28" height="5.28"/>
+            <rect x="74.56" y="134.00" width="5.28" height="5.28"/>
+            <rect x="79.84" y="134.00" width="5.28" height="5.28"/>
+            <rect x="85.12" y="134.00" width="5.28" height="5.28"/>
+            <rect x="90.40" y="134.00" width="5.28" height="5.28"/>
+            <rect x="95.68" y="134.00" width="5.28" height="5.28"/>
+            <rect x="106.24" y="134.00" width="5.28" height="5.28"/>
+            <rect x="122.08" y="134.00" width="5.28" height="5.28"/>
+            <rect x="127.36" y="134.00" width="5.28" height="5.28"/>
+            <rect x="137.92" y="134.00" width="5.28" height="5.28"/>
+            <rect x="159.04" y="134.00" width="5.28" height="5.28"/>
+            <rect x="164.32" y="134.00" width="5.28" height="5.28"/>
+            <rect x="169.60" y="134.00" width="5.28" height="5.28"/>
+            <rect x="174.88" y="134.00" width="5.28" height="5.28"/>
+            <rect x="180.16" y="134.00" width="5.28" height="5.28"/>
+            <rect x="185.44" y="134.00" width="5.28" height="5.28"/>
+            <rect x="190.72" y="134.00" width="5.28" height="5.28"/>
+            <rect x="64.00" y="139.28" width="5.28" height="5.28"/>
+            <rect x="95.68" y="139.28" width="5.28" height="5.28"/>
+            <rect x="106.24" y="139.28" width="5.28" height="5.28"/>
+            <rect x="111.52" y="139.28" width="5.28" height="5.28"/>
+            <rect x="116.80" y="139.28" width="5.28" height="5.28"/>
+            <rect x="127.36" y="139.28" width="5.28" height="5.28"/>
+            <rect x="132.64" y="139.28" width="5.28" height="5.28"/>
+            <rect x="137.92" y="139.28" width="5.28" height="5.28"/>
+            <rect x="148.48" y="139.28" width="5.28" height="5.28"/>
+            <rect x="159.04" y="139.28" width="5.28" height="5.28"/>
+            <rect x="190.72" y="139.28" width="5.28" height="5.28"/>
+            <rect x="64.00" y="144.56" width="5.28" height="5.28"/>
+            <rect x="74.56" y="144.56" width="5.28" height="5.28"/>
+            <rect x="79.84" y="144.56" width="5.28" height="5.28"/>
+            <rect x="85.12" y="144.56" width="5.28" height="5.28"/>
+            <rect x="95.68" y="144.56" width="5.28" height="5.28"/>
+            <rect x="116.80" y="144.56" width="5.28" height="5.28"/>
+            <rect x="122.08" y="144.56" width="5.28" height="5.28"/>
+            <rect x="127.36" y="144.56" width="5.28" height="5.28"/>
+            <rect x="132.64" y="144.56" width="5.28" height="5.28"/>
+            <rect x="148.48" y="144.56" width="5.28" height="5.28"/>
+            <rect x="159.04" y="144.56" width="5.28" height="5.28"/>
+            <rect x="169.60" y="144.56" width="5.28" height="5.28"/>
+            <rect x="174.88" y="144.56" width="5.28" height="5.28"/>
+            <rect x="180.16" y="144.56" width="5.28" height="5.28"/>
+            <rect x="190.72" y="144.56" width="5.28" height="5.28"/>
+            <rect x="64.00" y="149.84" width="5.28" height="5.28"/>
+            <rect x="74.56" y="149.84" width="5.28" height="5.28"/>
+            <rect x="79.84" y="149.84" width="5.28" height="5.28"/>
+            <rect x="85.12" y="149.84" width="5.28" height="5.28"/>
+            <rect x="95.68" y="149.84" width="5.28" height="5.28"/>
+            <rect x="116.80" y="149.84" width="5.28" height="5.28"/>
+            <rect x="132.64" y="149.84" width="5.28" height="5.28"/>
+            <rect x="137.92" y="149.84" width="5.28" height="5.28"/>
+            <rect x="159.04" y="149.84" width="5.28" height="5.28"/>
+            <rect x="169.60" y="149.84" width="5.28" height="5.28"/>
+            <rect x="174.88" y="149.84" width="5.28" height="5.28"/>
+            <rect x="180.16" y="149.84" width="5.28" height="5.28"/>
+            <rect x="190.72" y="149.84" width="5.28" height="5.28"/>
+            <rect x="64.00" y="155.12" width="5.28" height="5.28"/>
+            <rect x="74.56" y="155.12" width="5.28" height="5.28"/>
+            <rect x="79.84" y="155.12" width="5.28" height="5.28"/>
+            <rect x="85.12" y="155.12" width="5.28" height="5.28"/>
+            <rect x="95.68" y="155.12" width="5.28" height="5.28"/>
+            <rect x="106.24" y="155.12" width="5.28" height="5.28"/>
+            <rect x="111.52" y="155.12" width="5.28" height="5.28"/>
+            <rect x="116.80" y="155.12" width="5.28" height="5.28"/>
+            <rect x="122.08" y="155.12" width="5.28" height="5.28"/>
+            <rect x="137.92" y="155.12" width="5.28" height="5.28"/>
+            <rect x="159.04" y="155.12" width="5.28" height="5.28"/>
+            <rect x="169.60" y="155.12" width="5.28" height="5.28"/>
+            <rect x="174.88" y="155.12" width="5.28" height="5.28"/>
+            <rect x="180.16" y="155.12" width="5.28" height="5.28"/>
+            <rect x="190.72" y="155.12" width="5.28" height="5.28"/>
+            <rect x="64.00" y="160.40" width="5.28" height="5.28"/>
+            <rect x="95.68" y="160.40" width="5.28" height="5.28"/>
+            <rect x="106.24" y="160.40" width="5.28" height="5.28"/>
+            <rect x="122.08" y="160.40" width="5.28" height="5.28"/>
+            <rect x="137.92" y="160.40" width="5.28" height="5.28"/>
+            <rect x="159.04" y="160.40" width="5.28" height="5.28"/>
+            <rect x="190.72" y="160.40" width="5.28" height="5.28"/>
+            <rect x="64.00" y="165.68" width="5.28" height="5.28"/>
+            <rect x="69.28" y="165.68" width="5.28" height="5.28"/>
+            <rect x="74.56" y="165.68" width="5.28" height="5.28"/>
+            <rect x="79.84" y="165.68" width="5.28" height="5.28"/>
+            <rect x="85.12" y="165.68" width="5.28" height="5.28"/>
+            <rect x="90.40" y="165.68" width="5.28" height="5.28"/>
+            <rect x="95.68" y="165.68" width="5.28" height="5.28"/>
+            <rect x="106.24" y="165.68" width="5.28" height="5.28"/>
+            <rect x="116.80" y="165.68" width="5.28" height="5.28"/>
+            <rect x="127.36" y="165.68" width="5.28" height="5.28"/>
+            <rect x="137.92" y="165.68" width="5.28" height="5.28"/>
+            <rect x="148.48" y="165.68" width="5.28" height="5.28"/>
+            <rect x="159.04" y="165.68" width="5.28" height="5.28"/>
+            <rect x="164.32" y="165.68" width="5.28" height="5.28"/>
+            <rect x="169.60" y="165.68" width="5.28" height="5.28"/>
+            <rect x="174.88" y="165.68" width="5.28" height="5.28"/>
+            <rect x="180.16" y="165.68" width="5.28" height="5.28"/>
+            <rect x="185.44" y="165.68" width="5.28" height="5.28"/>
+            <rect x="190.72" y="165.68" width="5.28" height="5.28"/>
+            <rect x="106.24" y="170.96" width="5.28" height="5.28"/>
+            <rect x="116.80" y="170.96" width="5.28" height="5.28"/>
+            <rect x="122.08" y="170.96" width="5.28" height="5.28"/>
+            <rect x="127.36" y="170.96" width="5.28" height="5.28"/>
+            <rect x="137.92" y="170.96" width="5.28" height="5.28"/>
+            <rect x="143.20" y="170.96" width="5.28" height="5.28"/>
+            <rect x="148.48" y="170.96" width="5.28" height="5.28"/>
+            <rect x="64.00" y="176.24" width="5.28" height="5.28"/>
+            <rect x="69.28" y="176.24" width="5.28" height="5.28"/>
+            <rect x="74.56" y="176.24" width="5.28" height="5.28"/>
+            <rect x="90.40" y="176.24" width="5.28" height="5.28"/>
+            <rect x="95.68" y="176.24" width="5.28" height="5.28"/>
+            <rect x="106.24" y="176.24" width="5.28" height="5.28"/>
+            <rect x="111.52" y="176.24" width="5.28" height="5.28"/>
+            <rect x="116.80" y="176.24" width="5.28" height="5.28"/>
+            <rect x="132.64" y="176.24" width="5.28" height="5.28"/>
+            <rect x="137.92" y="176.24" width="5.28" height="5.28"/>
+            <rect x="148.48" y="176.24" width="5.28" height="5.28"/>
+            <rect x="153.76" y="176.24" width="5.28" height="5.28"/>
+            <rect x="159.04" y="176.24" width="5.28" height="5.28"/>
+            <rect x="164.32" y="176.24" width="5.28" height="5.28"/>
+            <rect x="169.60" y="176.24" width="5.28" height="5.28"/>
+            <rect x="185.44" y="176.24" width="5.28" height="5.28"/>
+            <rect x="190.72" y="176.24" width="5.28" height="5.28"/>
+            <rect x="69.28" y="181.52" width="5.28" height="5.28"/>
+            <rect x="111.52" y="181.52" width="5.28" height="5.28"/>
+            <rect x="116.80" y="181.52" width="5.28" height="5.28"/>
+            <rect x="132.64" y="181.52" width="5.28" height="5.28"/>
+            <rect x="143.20" y="181.52" width="5.28" height="5.28"/>
+            <rect x="153.76" y="181.52" width="5.28" height="5.28"/>
+            <rect x="159.04" y="181.52" width="5.28" height="5.28"/>
+            <rect x="164.32" y="181.52" width="5.28" height="5.28"/>
+            <rect x="174.88" y="181.52" width="5.28" height="5.28"/>
+            <rect x="185.44" y="181.52" width="5.28" height="5.28"/>
+            <rect x="190.72" y="181.52" width="5.28" height="5.28"/>
+            <rect x="64.00" y="186.80" width="5.28" height="5.28"/>
+            <rect x="74.56" y="186.80" width="5.28" height="5.28"/>
+            <rect x="79.84" y="186.80" width="5.28" height="5.28"/>
+            <rect x="85.12" y="186.80" width="5.28" height="5.28"/>
+            <rect x="90.40" y="186.80" width="5.28" height="5.28"/>
+            <rect x="95.68" y="186.80" width="5.28" height="5.28"/>
+            <rect x="100.96" y="186.80" width="5.28" height="5.28"/>
+            <rect x="106.24" y="186.80" width="5.28" height="5.28"/>
+            <rect x="122.08" y="186.80" width="5.28" height="5.28"/>
+            <rect x="143.20" y="186.80" width="5.28" height="5.28"/>
+            <rect x="153.76" y="186.80" width="5.28" height="5.28"/>
+            <rect x="164.32" y="186.80" width="5.28" height="5.28"/>
+            <rect x="174.88" y="186.80" width="5.28" height="5.28"/>
+            <rect x="180.16" y="186.80" width="5.28" height="5.28"/>
+            <rect x="190.72" y="186.80" width="5.28" height="5.28"/>
+            <rect x="85.12" y="192.08" width="5.28" height="5.28"/>
+            <rect x="90.40" y="192.08" width="5.28" height="5.28"/>
+            <rect x="100.96" y="192.08" width="5.28" height="5.28"/>
+            <rect x="106.24" y="192.08" width="5.28" height="5.28"/>
+            <rect x="111.52" y="192.08" width="5.28" height="5.28"/>
+            <rect x="132.64" y="192.08" width="5.28" height="5.28"/>
+            <rect x="153.76" y="192.08" width="5.28" height="5.28"/>
+            <rect x="174.88" y="192.08" width="5.28" height="5.28"/>
+            <rect x="64.00" y="197.36" width="5.28" height="5.28"/>
+            <rect x="74.56" y="197.36" width="5.28" height="5.28"/>
+            <rect x="85.12" y="197.36" width="5.28" height="5.28"/>
+            <rect x="90.40" y="197.36" width="5.28" height="5.28"/>
+            <rect x="95.68" y="197.36" width="5.28" height="5.28"/>
+            <rect x="106.24" y="197.36" width="5.28" height="5.28"/>
+            <rect x="111.52" y="197.36" width="5.28" height="5.28"/>
+            <rect x="122.08" y="197.36" width="5.28" height="5.28"/>
+            <rect x="127.36" y="197.36" width="5.28" height="5.28"/>
+            <rect x="132.64" y="197.36" width="5.28" height="5.28"/>
+            <rect x="143.20" y="197.36" width="5.28" height="5.28"/>
+            <rect x="148.48" y="197.36" width="5.28" height="5.28"/>
+            <rect x="159.04" y="197.36" width="5.28" height="5.28"/>
+            <rect x="164.32" y="197.36" width="5.28" height="5.28"/>
+            <rect x="190.72" y="197.36" width="5.28" height="5.28"/>
+            <rect x="69.28" y="202.64" width="5.28" height="5.28"/>
+            <rect x="79.84" y="202.64" width="5.28" height="5.28"/>
+            <rect x="90.40" y="202.64" width="5.28" height="5.28"/>
+            <rect x="100.96" y="202.64" width="5.28" height="5.28"/>
+            <rect x="106.24" y="202.64" width="5.28" height="5.28"/>
+            <rect x="111.52" y="202.64" width="5.28" height="5.28"/>
+            <rect x="127.36" y="202.64" width="5.28" height="5.28"/>
+            <rect x="143.20" y="202.64" width="5.28" height="5.28"/>
+            <rect x="148.48" y="202.64" width="5.28" height="5.28"/>
+            <rect x="159.04" y="202.64" width="5.28" height="5.28"/>
+            <rect x="164.32" y="202.64" width="5.28" height="5.28"/>
+            <rect x="185.44" y="202.64" width="5.28" height="5.28"/>
+            <rect x="190.72" y="202.64" width="5.28" height="5.28"/>
+            <rect x="64.00" y="207.92" width="5.28" height="5.28"/>
+            <rect x="69.28" y="207.92" width="5.28" height="5.28"/>
+            <rect x="85.12" y="207.92" width="5.28" height="5.28"/>
+            <rect x="90.40" y="207.92" width="5.28" height="5.28"/>
+            <rect x="95.68" y="207.92" width="5.28" height="5.28"/>
+            <rect x="111.52" y="207.92" width="5.28" height="5.28"/>
+            <rect x="116.80" y="207.92" width="5.28" height="5.28"/>
+            <rect x="127.36" y="207.92" width="5.28" height="5.28"/>
+            <rect x="132.64" y="207.92" width="5.28" height="5.28"/>
+            <rect x="137.92" y="207.92" width="5.28" height="5.28"/>
+            <rect x="143.20" y="207.92" width="5.28" height="5.28"/>
+            <rect x="174.88" y="207.92" width="5.28" height="5.28"/>
+            <rect x="180.16" y="207.92" width="5.28" height="5.28"/>
+            <rect x="190.72" y="207.92" width="5.28" height="5.28"/>
+            <rect x="74.56" y="213.20" width="5.28" height="5.28"/>
+            <rect x="90.40" y="213.20" width="5.28" height="5.28"/>
+            <rect x="100.96" y="213.20" width="5.28" height="5.28"/>
+            <rect x="106.24" y="213.20" width="5.28" height="5.28"/>
+            <rect x="116.80" y="213.20" width="5.28" height="5.28"/>
+            <rect x="122.08" y="213.20" width="5.28" height="5.28"/>
+            <rect x="127.36" y="213.20" width="5.28" height="5.28"/>
+            <rect x="137.92" y="213.20" width="5.28" height="5.28"/>
+            <rect x="159.04" y="213.20" width="5.28" height="5.28"/>
+            <rect x="164.32" y="213.20" width="5.28" height="5.28"/>
+            <rect x="169.60" y="213.20" width="5.28" height="5.28"/>
+            <rect x="174.88" y="213.20" width="5.28" height="5.28"/>
+            <rect x="64.00" y="218.48" width="5.28" height="5.28"/>
+            <rect x="69.28" y="218.48" width="5.28" height="5.28"/>
+            <rect x="74.56" y="218.48" width="5.28" height="5.28"/>
+            <rect x="90.40" y="218.48" width="5.28" height="5.28"/>
+            <rect x="95.68" y="218.48" width="5.28" height="5.28"/>
+            <rect x="132.64" y="218.48" width="5.28" height="5.28"/>
+            <rect x="137.92" y="218.48" width="5.28" height="5.28"/>
+            <rect x="148.48" y="218.48" width="5.28" height="5.28"/>
+            <rect x="153.76" y="218.48" width="5.28" height="5.28"/>
+            <rect x="159.04" y="218.48" width="5.28" height="5.28"/>
+            <rect x="164.32" y="218.48" width="5.28" height="5.28"/>
+            <rect x="169.60" y="218.48" width="5.28" height="5.28"/>
+            <rect x="185.44" y="218.48" width="5.28" height="5.28"/>
+            <rect x="106.24" y="223.76" width="5.28" height="5.28"/>
+            <rect x="111.52" y="223.76" width="5.28" height="5.28"/>
+            <rect x="116.80" y="223.76" width="5.28" height="5.28"/>
+            <rect x="132.64" y="223.76" width="5.28" height="5.28"/>
+            <rect x="137.92" y="223.76" width="5.28" height="5.28"/>
+            <rect x="148.48" y="223.76" width="5.28" height="5.28"/>
+            <rect x="169.60" y="223.76" width="5.28" height="5.28"/>
+            <rect x="190.72" y="223.76" width="5.28" height="5.28"/>
+            <rect x="64.00" y="229.04" width="5.28" height="5.28"/>
+            <rect x="69.28" y="229.04" width="5.28" height="5.28"/>
+            <rect x="74.56" y="229.04" width="5.28" height="5.28"/>
+            <rect x="79.84" y="229.04" width="5.28" height="5.28"/>
+            <rect x="85.12" y="229.04" width="5.28" height="5.28"/>
+            <rect x="90.40" y="229.04" width="5.28" height="5.28"/>
+            <rect x="95.68" y="229.04" width="5.28" height="5.28"/>
+            <rect x="122.08" y="229.04" width="5.28" height="5.28"/>
+            <rect x="148.48" y="229.04" width="5.28" height="5.28"/>
+            <rect x="159.04" y="229.04" width="5.28" height="5.28"/>
+            <rect x="169.60" y="229.04" width="5.28" height="5.28"/>
+            <rect x="190.72" y="229.04" width="5.28" height="5.28"/>
+            <rect x="64.00" y="234.32" width="5.28" height="5.28"/>
+            <rect x="95.68" y="234.32" width="5.28" height="5.28"/>
+            <rect x="106.24" y="234.32" width="5.28" height="5.28"/>
+            <rect x="111.52" y="234.32" width="5.28" height="5.28"/>
+            <rect x="132.64" y="234.32" width="5.28" height="5.28"/>
+            <rect x="143.20" y="234.32" width="5.28" height="5.28"/>
+            <rect x="148.48" y="234.32" width="5.28" height="5.28"/>
+            <rect x="169.60" y="234.32" width="5.28" height="5.28"/>
+            <rect x="185.44" y="234.32" width="5.28" height="5.28"/>
+            <rect x="190.72" y="234.32" width="5.28" height="5.28"/>
+            <rect x="64.00" y="239.60" width="5.28" height="5.28"/>
+            <rect x="74.56" y="239.60" width="5.28" height="5.28"/>
+            <rect x="79.84" y="239.60" width="5.28" height="5.28"/>
+            <rect x="85.12" y="239.60" width="5.28" height="5.28"/>
+            <rect x="95.68" y="239.60" width="5.28" height="5.28"/>
+            <rect x="116.80" y="239.60" width="5.28" height="5.28"/>
+            <rect x="122.08" y="239.60" width="5.28" height="5.28"/>
+            <rect x="127.36" y="239.60" width="5.28" height="5.28"/>
+            <rect x="132.64" y="239.60" width="5.28" height="5.28"/>
+            <rect x="143.20" y="239.60" width="5.28" height="5.28"/>
+            <rect x="148.48" y="239.60" width="5.28" height="5.28"/>
+            <rect x="153.76" y="239.60" width="5.28" height="5.28"/>
+            <rect x="159.04" y="239.60" width="5.28" height="5.28"/>
+            <rect x="164.32" y="239.60" width="5.28" height="5.28"/>
+            <rect x="169.60" y="239.60" width="5.28" height="5.28"/>
+            <rect x="185.44" y="239.60" width="5.28" height="5.28"/>
+            <rect x="190.72" y="239.60" width="5.28" height="5.28"/>
+            <rect x="64.00" y="244.88" width="5.28" height="5.28"/>
+            <rect x="74.56" y="244.88" width="5.28" height="5.28"/>
+            <rect x="79.84" y="244.88" width="5.28" height="5.28"/>
+            <rect x="85.12" y="244.88" width="5.28" height="5.28"/>
+            <rect x="95.68" y="244.88" width="5.28" height="5.28"/>
+            <rect x="111.52" y="244.88" width="5.28" height="5.28"/>
+            <rect x="116.80" y="244.88" width="5.28" height="5.28"/>
+            <rect x="127.36" y="244.88" width="5.28" height="5.28"/>
+            <rect x="148.48" y="244.88" width="5.28" height="5.28"/>
+            <rect x="153.76" y="244.88" width="5.28" height="5.28"/>
+            <rect x="169.60" y="244.88" width="5.28" height="5.28"/>
+            <rect x="180.16" y="244.88" width="5.28" height="5.28"/>
+            <rect x="185.44" y="244.88" width="5.28" height="5.28"/>
+            <rect x="64.00" y="250.16" width="5.28" height="5.28"/>
+            <rect x="74.56" y="250.16" width="5.28" height="5.28"/>
+            <rect x="79.84" y="250.16" width="5.28" height="5.28"/>
+            <rect x="85.12" y="250.16" width="5.28" height="5.28"/>
+            <rect x="95.68" y="250.16" width="5.28" height="5.28"/>
+            <rect x="106.24" y="250.16" width="5.28" height="5.28"/>
+            <rect x="111.52" y="250.16" width="5.28" height="5.28"/>
+            <rect x="127.36" y="250.16" width="5.28" height="5.28"/>
+            <rect x="132.64" y="250.16" width="5.28" height="5.28"/>
+            <rect x="137.92" y="250.16" width="5.28" height="5.28"/>
+            <rect x="148.48" y="250.16" width="5.28" height="5.28"/>
+            <rect x="153.76" y="250.16" width="5.28" height="5.28"/>
+            <rect x="164.32" y="250.16" width="5.28" height="5.28"/>
+            <rect x="169.60" y="250.16" width="5.28" height="5.28"/>
+            <rect x="174.88" y="250.16" width="5.28" height="5.28"/>
+            <rect x="185.44" y="250.16" width="5.28" height="5.28"/>
+            <rect x="190.72" y="250.16" width="5.28" height="5.28"/>
+            <rect x="64.00" y="255.44" width="5.28" height="5.28"/>
+            <rect x="95.68" y="255.44" width="5.28" height="5.28"/>
+            <rect x="106.24" y="255.44" width="5.28" height="5.28"/>
+            <rect x="111.52" y="255.44" width="5.28" height="5.28"/>
+            <rect x="122.08" y="255.44" width="5.28" height="5.28"/>
+            <rect x="127.36" y="255.44" width="5.28" height="5.28"/>
+            <rect x="137.92" y="255.44" width="5.28" height="5.28"/>
+            <rect x="143.20" y="255.44" width="5.28" height="5.28"/>
+            <rect x="148.48" y="255.44" width="5.28" height="5.28"/>
+            <rect x="164.32" y="255.44" width="5.28" height="5.28"/>
+            <rect x="169.60" y="255.44" width="5.28" height="5.28"/>
+            <rect x="64.00" y="260.72" width="5.28" height="5.28"/>
+            <rect x="69.28" y="260.72" width="5.28" height="5.28"/>
+            <rect x="74.56" y="260.72" width="5.28" height="5.28"/>
+            <rect x="79.84" y="260.72" width="5.28" height="5.28"/>
+            <rect x="85.12" y="260.72" width="5.28" height="5.28"/>
+            <rect x="90.40" y="260.72" width="5.28" height="5.28"/>
+            <rect x="95.68" y="260.72" width="5.28" height="5.28"/>
+            <rect x="106.24" y="260.72" width="5.28" height="5.28"/>
+            <rect x="116.80" y="260.72" width="5.28" height="5.28"/>
+            <rect x="132.64" y="260.72" width="5.28" height="5.28"/>
+            <rect x="137.92" y="260.72" width="5.28" height="5.28"/>
+            <rect x="148.48" y="260.72" width="5.28" height="5.28"/>
+            <rect x="159.04" y="260.72" width="5.28" height="5.28"/>
+            <rect x="174.88" y="260.72" width="5.28" height="5.28"/>
+            <rect x="190.72" y="260.72" width="5.28" height="5.28"/>
+          </g>
+
+          <!-- Cycle label -->
+          <text x="130" y="306" text-anchor="middle"
+                font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic"
+                fill="#2B2940" opacity="0.85">twelve days together</text>
+
+          <!-- Moon phase timeline -->
+          <line x1="62" y1="342" x2="198" y2="342" stroke="#2B2940" stroke-width="0.6" opacity="0.22"/>
+          <circle cx="68" cy="342" r="6" fill="#2B2940" opacity="0.9"/>
+          <circle cx="102" cy="342" r="6" fill="#2B2940" opacity="0.68"/>
+          <circle cx="136" cy="342" r="6" fill="#2B2940" opacity="0.48"/>
+          <circle cx="170" cy="342" r="6" fill="#2B2940" opacity="0.28"/>
+          <circle cx="192" cy="342" r="6" fill="none" stroke="#2B2940" stroke-width="1" opacity="0.4"/>
+
+          <!-- Status label -->
+          <text x="130" y="390" text-anchor="middle"
+                font-family="'Inter', sans-serif" font-size="7" letter-spacing="2"
+                fill="#2B2940" opacity="0.4">PRESENCE FLOWING</text>
+
+          <!-- Home indicator -->
+          <rect x="108" y="478" width="44" height="3" rx="1.5" fill="#4A3D6B" opacity="0.55"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="callout">She does not have to ask.<br/>She is already held.</div>
+  </section>
+
+  <!-- CONTENT TRIAD -->
+  <section id="content">
+    <span class="section-label">The Library</span>
+    <h2>Three formats,<br/>one <em>living</em> library.</h2>
+
+    <div class="prose">
+      <p>Every subject in Navia exists at three depths, designed for three very different moments in your day.</p>
+      <p class="library-specialists">In conversation with leading specialists, including psychiatrists, perinatal coaches, pediatric first responders, and relational psychologists, so every piece of Navia content rests on real clinical ground.</p>
+    </div>
+
+    <div class="triad">
+      <div class="triad-row">
+        <span class="triad-icon">Article</span>
+        <span class="triad-text">The long form, editorial, written with warmth and real expertise. Emotion, the body, hormonal weather, practical motherhood. Read at leisure.</span>
+      </div>
+      <div class="triad-row">
+        <span class="triad-icon">Podcast</span>
+        <span class="triad-text">The audio companion. Heard while walking, nursing, driving, falling asleep. Same depth as the article, delivered in Navia's voice.</span>
+      </div>
+      <div class="triad-row">
+        <span class="triad-icon">Short video</span>
+        <span class="triad-text">The moment of need fragment. Built from the Navia visual system, never human footage. For the 3 am questions: how to hold a newborn, a gentle first aid gesture.</span>
+      </div>
+    </div>
+
+    <p class="library-preview-note">A first glimpse of what Navia will hold, ready at launch.</p>
+
+    <div class="library-preview">
+      <article class="library-card">
+        <div class="library-card-meta">
+          <span class="library-category">Perinatal mental health</span>
+          <span class="library-time">12 min read</span>
         </div>
-      </div>
-      <p class="day-caption"><strong>Morning.</strong> She reads your night before you open your eyes, and whispers one kind thing you can do for yourself.</p>
-    </div>
-
-    <!-- MIDDAY -->
-    <div class="day-phone">
-      <span class="day-time">01:08 pm</span>
-      <div class="mini-phone">
-        <div class="mini-frame">
-          <div class="mini-notch"></div>
-          <div class="mini-screen">
-            <p class="mini-header">navia</p>
-            <p class="mini-greet">A quick <em>check-in</em></p>
-            <div class="mini-card">
-              <p class="mini-card-label">Energy right now</p>
-              <div class="mini-moods">
-                <span class="mini-mood">😌</span>
-                <span class="mini-mood active" style="color:white">😊</span>
-                <span class="mini-mood">🥰</span>
-                <span class="mini-mood">✨</span>
-              </div>
-            </div>
-            <div class="mini-card">
-              <p class="mini-card-label">Your cycle</p>
-              <p class="mini-card-body">Day 14. Your energy is <em>rising</em>. Ride the wave today.</p>
-            </div>
-            <div class="mini-card mini-card-accent">
-              <p class="mini-card-label">Gentle idea</p>
-              <p class="mini-card-body">Step outside for five minutes. Sun on your face.</p>
-            </div>
-            <div class="mini-spacer"></div>
-          </div>
+        <h3 class="library-title">Fourth trimester, without the fog</h3>
+        <p class="library-lead">The weeks after birth that no one warns you about, named clearly and held with care, so a new mother can recognize what she is feeling before it grows heavy.</p>
+        <div class="library-formats">
+          <span class="library-format">Article</span>
+          <span class="library-format">Podcast 16 min</span>
+          <span class="library-format">Video 90 s</span>
         </div>
-      </div>
-      <p class="day-caption"><strong>Midday.</strong> A thirty-second check-in. No pressure, no perfection. Just a small note of how you are.</p>
-    </div>
+      </article>
 
-    <!-- NIGHT -->
-    <div class="day-phone">
-      <span class="day-time">10:47 pm</span>
-      <div class="mini-phone">
-        <div class="mini-frame">
-          <div class="mini-notch"></div>
-          <div class="mini-screen">
-            <p class="mini-header">navia</p>
-            <p class="mini-greet">Before you <em>sleep</em></p>
-            <div class="mini-card mini-card-compact">
-              <p class="mini-card-label">How was today?</p>
-              <div class="mini-moods">
-                <span class="mini-mood">😴</span>
-                <span class="mini-mood">😌</span>
-                <span class="mini-mood">😊</span>
-                <span class="mini-mood">🥰</span>
-                <span class="mini-mood active" style="color:white">😔</span>
-              </div>
-            </div>
-            <div class="mini-card">
-              <p class="mini-card-label">Your diary</p>
-              <p class="mini-diary-body">Today was a lot. I keep wondering if I'm doing enough…</p>
-              <div class="mini-diary-reply">
-                <p class="mini-card-label">navia</p>
-                <p class="mini-reply-text">What you did today was show up. That counts more than you think.</p>
-              </div>
-            </div>
-            <div class="mini-card mini-card-accent mini-card-compact">
-              <p class="mini-card-label">Tonight</p>
-              <p class="mini-card-body">Breathing exercise, four minutes.</p>
-            </div>
-            <div class="mini-spacer"></div>
-          </div>
+      <article class="library-card">
+        <div class="library-card-meta">
+          <span class="library-category">Newborn first aid</span>
+          <span class="library-time">8 min read</span>
         </div>
-      </div>
-      <p class="day-caption"><strong>Night.</strong> When the noise settles, you write. She reads, and answers with warmth, not advice.</p>
-    </div>
-  </div>
-</section>
-
-<!-- INSIDE NAVIA -->
-<section class="inside reveal" id="inside">
-  <div class="inside-header">
-    <span class="section-tag">Inside Navia</span>
-    <h2 class="inside-title">Everything she holds, <em>gently</em></h2>
-    <p class="inside-sub">A glimpse of the tools Navia brings to every chapter of your life. Simple on the surface, deeply personal underneath.</p>
-  </div>
-
-  <div class="inside-grid">
-    <!-- 1. Cycle ring -->
-    <div class="inside-card">
-      <div class="inside-preview">
-        <div class="cycle-ring">
-          <div class="cycle-ring-inner">
-            <span class="cycle-ring-day">14</span>
-            <span class="cycle-ring-label">Ovulation</span>
-          </div>
+        <h3 class="library-title">A calm hand through her first fever</h3>
+        <p class="library-lead">Step by step, in a quiet voice, what to do when a tiny body burns at 3 am. Written with a pediatric first responder, made to steady the hands of a mother who is alone and scared.</p>
+        <div class="library-formats">
+          <span class="library-format">Article</span>
+          <span class="library-format">Podcast 11 min</span>
+          <span class="library-format">Video 60 s</span>
         </div>
-      </div>
-      <span class="inside-label">01 · Cycle</span>
-      <h3>Your body, on a <em>ring</em></h3>
-      <p>Cycle, ovulation, hormones, and fertile window at a glance. Understood simply, without charts that feel clinical.</p>
-    </div>
+      </article>
 
-    <!-- 2. Check-in -->
-    <div class="inside-card">
-      <div class="inside-preview">
-        <span class="inside-label" style="margin-bottom:1rem">How are you?</span>
-        <div class="checkin-moods">
-          <span class="mini-mood">😴</span>
-          <span class="mini-mood">😌</span>
-          <span class="mini-mood active" style="color:white">😊</span>
-          <span class="mini-mood">🥰</span>
-          <span class="mini-mood">✨</span>
+      <article class="library-card">
+        <div class="library-card-meta">
+          <span class="library-category">Perinatal body</span>
+          <span class="library-time">10 min read</span>
         </div>
-      </div>
-      <span class="inside-label">02 · Daily check-in</span>
-      <h3>Thirty <em>seconds</em> a day</h3>
-      <p>One mood, one word, one tap. Navia remembers, so you never start from zero again.</p>
-    </div>
-
-    <!-- 3. Diary reply -->
-    <div class="inside-card">
-      <div class="inside-preview">
-        <div class="preview-bubble">I feel a little heavy tonight. My belly is…</div>
-        <div class="preview-bubble navia">It's okay to feel heavy. Your body is doing so much right now.</div>
-      </div>
-      <span class="inside-label">03 · Smart diary</span>
-      <h3>A friend who <em>listens</em></h3>
-      <p>Write freely. Navia reads the whole day, not just the words, and answers with care, not advice.</p>
-    </div>
-
-    <!-- 4. Pregnancy -->
-    <div class="inside-card">
-      <div class="inside-preview">
-        <div class="preg-wrap">
-          <div class="preg-circle">
-            <span class="preg-circle-num">24</span>
-            <span class="preg-circle-label">Weeks</span>
-          </div>
-          <div>
-            <p class="preg-meta-title">Baby is a corn cob</p>
-            <p class="preg-meta-sub">~30 cm, 600 g. Their hearing is growing this week.</p>
-          </div>
+        <h3 class="library-title">Six months later, the quiet rebuild</h3>
+        <p class="library-lead">A patient look at the pelvic floor long after birth, with a perinatal coach who believes recovery is not a deadline. What to try, what to rest, what to forgive yourself for.</p>
+        <div class="library-formats">
+          <span class="library-format">Article</span>
+          <span class="library-format">Podcast 14 min</span>
+          <span class="library-format">Video 75 s</span>
         </div>
-      </div>
-      <span class="inside-label">04 · Pregnancy</span>
-      <h3>Week by <em>week</em>, together</h3>
-      <p>From the first line on the test to the last day. Navia follows your pregnancy with the softness of a sister.</p>
-    </div>
+      </article>
 
-    <!-- 5. Patterns -->
-    <div class="inside-card">
-      <div class="inside-preview">
-        <span class="inside-label" style="margin-bottom:0.75rem">Energy this month</span>
-        <div class="chart-bars">
-          <div class="chart-bar" style="height:40%"></div>
-          <div class="chart-bar" style="height:62%"></div>
-          <div class="chart-bar" style="height:78%"></div>
-          <div class="chart-bar" style="height:55%"></div>
-          <div class="chart-bar" style="height:88%"></div>
-          <div class="chart-bar" style="height:70%"></div>
-          <div class="chart-bar" style="height:45%"></div>
+      <article class="library-card">
+        <div class="library-card-meta">
+          <span class="library-category">Mother and daughter</span>
+          <span class="library-time">14 min read</span>
         </div>
-        <div class="chart-legend"><span>W1</span><span>W2</span><span>W3</span><span>W4</span></div>
-      </div>
-      <span class="inside-label">05 · Patterns</span>
-      <h3>The <em>rhythm</em> behind your days</h3>
-      <p>Energy, mood, sleep, cycle. Navia finds the patterns you feel but can't quite name.</p>
-    </div>
-
-    <!-- 6. Privacy -->
-    <div class="inside-card">
-      <div class="inside-preview">
-        <div class="privacy-wrap">
-          <div class="privacy-lock">
-            <svg viewBox="0 0 22 22" fill="none" aria-hidden="true">
-              <rect x="5" y="10" width="12" height="9" rx="2" stroke="#5347C4" stroke-width="1.5"/>
-              <path d="M7.5 10V7 a3.5 3.5 0 0 1 7 0 V10" stroke="#5347C4" stroke-width="1.5" fill="none"/>
-            </svg>
-          </div>
-          <div class="privacy-bars">
-            <div class="privacy-row"><span>Encrypted on device</span><span class="privacy-dot"></span></div>
-            <div class="privacy-row"><span>Never sold, ever</span><span class="privacy-dot"></span></div>
-            <div class="privacy-row"><span>Delete anytime</span><span class="privacy-dot"></span></div>
-          </div>
+        <h3 class="library-title">When her mother is the one she cannot call</h3>
+        <p class="library-lead">Some women become mothers while still grieving their own. A relational psychologist walks through the internal dialogue that shapes postpartum, with words a woman can borrow when her own feel too tangled.</p>
+        <div class="library-formats">
+          <span class="library-format">Article</span>
+          <span class="library-format">Podcast 18 min</span>
+          <span class="library-format">Video 90 s</span>
         </div>
-      </div>
-      <span class="inside-label">06 · Privacy</span>
-      <h3>Your words <em>stay yours</em></h3>
-      <p>Everything you share with Navia is private by design, encrypted, and can disappear the moment you ask.</p>
+      </article>
     </div>
-  </div>
-</section>
 
-<!-- GIFTING -->
-<section class="gifting reveal" id="gifting">
-  <div class="gifting-visual">
-    <div class="gift-card">
-      <div class="gift-card-top">
-        <div class="gift-avatar">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <circle cx="11" cy="8" r="4" fill="#7B6EF6" opacity="0.6"/>
-            <path d="M4 20 Q4 14 11 14 Q18 14 18 20" fill="#7B6EF6" opacity="0.4"/>
+    <div class="center">
+      <a href="/pitch.html" class="pitch-link">Read the full vision</a>
+    </div>
+  </section>
+
+  <!-- THE NUMBERS -->
+  <section id="numbers">
+    <span class="section-label">In numbers</span>
+    <h2>Why a companion,<br/><em>not another app.</em></h2>
+
+    <div class="prose">
+      <p>Quiet figures that explain why being present, early, matters so much for her.</p>
+    </div>
+
+    <div class="numbers-grid">
+      <div class="number-card">
+        <div class="number-figure">1 in 7</div>
+        <div class="number-headline">Mothers touched by postpartum depression</div>
+        <div class="number-context">A condition still under-recognized in the first year after birth.</div>
+        <div class="number-source">Source: CDC, Depression Among Women</div>
+      </div>
+
+      <div class="number-card">
+        <div class="number-figure">1 in 4</div>
+        <div class="number-headline">Women face a perinatal mental health condition</div>
+        <div class="number-context">From pregnancy through the first year postpartum.</div>
+        <div class="number-source">Source: Maternal Mental Health Leadership Alliance</div>
+      </div>
+
+      <div class="number-card">
+        <div class="number-figure">75%</div>
+        <div class="number-headline">Of unpaid caregivers in the US are women</div>
+        <div class="number-context">Care for others is carried quietly, often without care of her own.</div>
+        <div class="number-source">Source: AARP &amp; NAC, Caregiving in the U.S. 2020</div>
+      </div>
+
+      <div class="number-card">
+        <div class="number-figure">2x</div>
+        <div class="number-headline">Women twice as likely as men to live with anxiety</div>
+        <div class="number-context">A global pattern that begins early and follows her through life stages.</div>
+        <div class="number-source">Source: WHO, Mental Health Atlas</div>
+      </div>
+
+      <div class="number-card">
+        <div class="number-figure">44%</div>
+        <div class="number-headline">Report moderate to severe mood symptoms in perimenopause</div>
+        <div class="number-context">A passage still missing from most health conversations.</div>
+        <div class="number-source">Source: Menopause, NAMS Journal</div>
+      </div>
+
+      <div class="number-card">
+        <div class="number-figure">80%</div>
+        <div class="number-headline">Of women say their pain is dismissed in clinical settings</div>
+        <div class="number-context">Being heard is itself a form of medicine she often goes without.</div>
+        <div class="number-source">Source: Journal of Pain Research</div>
+      </div>
+
+      <div class="number-card">
+        <div class="number-figure">$14B</div>
+        <div class="number-headline">Annual US cost of untreated maternal mental health</div>
+        <div class="number-context">A price paid by families, workplaces, and communities alike.</div>
+        <div class="number-source">Source: Mathematica Policy Research, 2019</div>
+      </div>
+
+      <div class="number-card">
+        <div class="number-figure">$1T</div>
+        <div class="number-headline">Annual global GDP lost to women&rsquo;s health gaps</div>
+        <div class="number-context">Closing the gap is a health, human, and economic imperative.</div>
+        <div class="number-source">Source: McKinsey Health Institute, 2024</div>
+      </div>
+    </div>
+
+    <p class="numbers-disclaimer">Figures cited from publicly reported sources. Each will be re-verified with its primary source before public launch.</p>
+  </section>
+
+  <!-- PHASE 2 — CONSULTATION TEASER -->
+  <section id="consultation">
+    <span class="section-label">Coming in Phase Two</span>
+    <h2>When a conversation <em>is not enough</em>,<br/>a real specialist is one tap away.</h2>
+
+    <div class="prose">
+      <p>Navia begins with presence. For the moments when presence alone will not carry you, a second layer will arrive: a discreet consultation tab inside the app, built with partner cabinets in mental health, perinatal care, pediatric first response, and relational therapy.</p>
+      <p>No cold directory, no random search. Only practices Navia already works with on content, vetted for warmth and rigor, reachable in the same breath as the companion who listened first.</p>
+    </div>
+
+    <div class="consultation-steps">
+      <div class="consultation-step">
+        <div class="consultation-step-num">01</div>
+        <div class="consultation-step-title">Navia listens</div>
+        <div class="consultation-step-body">She hears the signal, offers a first response, holds space without rushing.</div>
+      </div>
+      <div class="consultation-step">
+        <div class="consultation-step-num">02</div>
+        <div class="consultation-step-title">She suggests a hand</div>
+        <div class="consultation-step-body">Only when the moment calls for one, Navia gently points to a partner cabinet that matches the need.</div>
+      </div>
+      <div class="consultation-step">
+        <div class="consultation-step-num">03</div>
+        <div class="consultation-step-title">Continuity, not handoff</div>
+        <div class="consultation-step-body">The specialist sees the shared context a woman chose to bring. Nothing leaves the circle without her consent.</div>
+      </div>
+    </div>
+
+    <p class="consultation-note">Phase Two follows the launch of the free emotional core. No specialist is listed until their cabinet has signed a formal partnership and content has been reviewed alongside them.</p>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="final-cta">
+    <div class="final-cta">
+      <span class="section-label">Walk with her</span>
+      <h2>Walk with <em>her</em><br/>from the beginning.</h2>
+      <p class="lede">Join the waitlist and Navia will reach out when she is ready for you.</p>
+
+      <form class="waitlist-form" id="waitlist-form-2" novalidate>
+        <input
+          class="waitlist-input"
+          type="email"
+          id="waitlist-email-2"
+          placeholder="your@email.com"
+          aria-label="Your email address"
+          autocomplete="email"
+          required />
+        <button class="waitlist-btn" type="submit">Join the waitlist</button>
+      </form>
+      <p class="signup-terms" id="waitlist-note-2">By joining the waitlist, you agree to our <a href="/privacy.html">privacy policy</a> and <a href="/terms.html">terms of service</a>.</p>
+      <div class="waitlist-success" id="waitlist-success-2">Thank you. Navia will reach out when she is ready for you.</div>
+
+      <div class="footer-downloads" aria-label="Download Navia">
+        <a class="download-btn" href="#final-cta" aria-label="Download on the App Store (waitlist)">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16.365 1.43c0 1.14-.43 2.22-1.21 3.02-.79.81-2.05 1.43-3.13 1.34-.13-1.1.43-2.25 1.18-3.04.83-.86 2.21-1.49 3.16-1.32zM20.5 17.43c-.55 1.27-.81 1.83-1.52 2.95-1 1.57-2.4 3.52-4.13 3.54-1.54.02-1.93-1-4.02-.99-2.09.01-2.52 1.01-4.06.99-1.73-.02-3.06-1.78-4.06-3.34C-.05 16.36-.36 11.07 1.5 8.27c1.32-1.99 3.41-3.16 5.37-3.16 2 0 3.26 1.1 4.91 1.1 1.6 0 2.58-1.1 4.89-1.1 1.74 0 3.59.95 4.9 2.59-4.31 2.36-3.61 8.51 1.43 9.73-.13.16-.27.31-.5 0z"/>
           </svg>
-        </div>
-        <div>
-          <p class="gift-name">Emma, 28</p>
-          <p class="gift-phase">Week 24 of pregnancy</p>
-        </div>
-      </div>
-      <div class="gift-message">
-        <p>"Tonight I feel so tired and a little lonely in all of this. My belly is heavy and I can't seem to fall asleep..."</p>
-      </div>
-      <div class="gift-surprise">
-        <div class="gift-box-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <rect x="3" y="9" width="16" height="11" rx="2" stroke="#AFA9EC" stroke-width="1.2"/>
-            <path d="M3 12h16" stroke="#AFA9EC" stroke-width="1" stroke-linecap="round"/>
-            <path d="M11 9V20" stroke="#AFA9EC" stroke-width="1" stroke-linecap="round"/>
-            <path d="M7 9 Q7 4 11 4 Q11 4 11 9" stroke="#CECBF6" stroke-width="1.2" fill="none"/>
-            <path d="M15 9 Q15 4 11 4 Q11 4 11 9" stroke="#CECBF6" stroke-width="1.2" fill="none"/>
+          <span class="download-text">
+            <span class="download-tiny">Download on the</span>
+            <span class="download-store">App Store</span>
+          </span>
+        </a>
+        <a class="download-btn" href="#final-cta" aria-label="Get it on Google Play (waitlist)">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3.609 1.814 13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zM14.499 12.708l2.302 2.302-11.62 6.66L14.5 12.71zM18.928 9.4a1.13 1.13 0 0 1 0 5.2l-2.658 1.523-2.51-2.51 2.51-2.51L18.928 9.4zM5.18 3.03l11.621 6.66-2.302 2.302L5.18 3.03z"/>
           </svg>
-        </div>
-        <div class="gift-surprise-text">
-          <p>A surprise is on its way</p>
-          <p>Sleep tea + maternity pillow · sent by Navia</p>
-        </div>
+          <span class="download-text">
+            <span class="download-tiny">Get it on</span>
+            <span class="download-store">Google Play</span>
+          </span>
+        </a>
       </div>
     </div>
-    <div class="floating-badge fb1">
-      <svg width="8" height="8" viewBox="0 0 8 8" style="display:inline;margin-right:5px;vertical-align:middle"><circle cx="4" cy="4" r="3" fill="#7B6EF6"/></svg>
-      Detected: difficult night
-    </div>
-    <div class="floating-badge fb2">
-      <svg width="8" height="8" viewBox="0 0 8 8" style="display:inline;margin-right:5px;vertical-align:middle"><circle cx="4" cy="4" r="3" fill="#F4C0D1"/></svg>
-      Delivery tomorrow
-    </div>
-  </div>
-
-  <div class="gifting-content">
-    <span class="gifting-tag">Signature feature</span>
-    <h2 class="gifting-title">She receives.<br>She never <em>asked</em>.</h2>
-    <p class="gifting-body">
-      Navia reads between the lines. When she senses a hard moment, or a moment of joy, she sends a real, physical, personalized gift.
-    </p>
-    <ul class="gifting-list">
-      <li>Triggered by emotions detected in the diary</li>
-      <li>Tailored to her life phase: cycle, pregnancy, postpartum</li>
-      <li>Wellness boxes, handwritten letters, baby keepsakes</li>
-      <li>Budget set by the user, managed automatically</li>
-      <li>Never e-commerce. Always an emotional experience.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials reveal">
-  <div class="testimonials-header">
-    <span class="section-tag">What they feel</span>
-    <h2 class="section-title-light">Words that come from the <em>heart</em></h2>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card">
-      <p class="testi-quote">"For the first time, I felt like something truly understood me. Not a doctor, not a fitness app. Something gentle."</p>
-      <div class="testi-author">
-        <div class="testi-dot" style="background:#EEEDFE;color:#534AB7;">S</div>
-        <div>
-          <p class="testi-name">Sophia R.</p>
-          <p class="testi-role">Trying to conceive, 8 months</p>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card">
-      <p class="testi-quote">"When the box arrived that evening, I cried. Not from sadness. Because I felt seen."</p>
-      <div class="testi-author">
-        <div class="testi-dot" style="background:#FBEAF0;color:#72243E;">M</div>
-        <div>
-          <p class="testi-name">Marie K.</p>
-          <p class="testi-role">Week 32 of pregnancy</p>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card">
-      <p class="testi-quote">"My morning check-in has become a sacred ritual. Five minutes just for me. Navia doesn't judge. It's just there."</p>
-      <div class="testi-author">
-        <div class="testi-dot" style="background:#E1F5EE;color:#085041;">A</div>
-        <div>
-          <p class="testi-name">Amina D.</p>
-          <p class="testi-role">Cycle tracking · 6 months</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDER -->
-<section class="founder reveal" id="founder">
-  <div class="founder-visual">
-    <div class="founder-avatar">
-      <img src="sebastien-hero.jpg" alt="Sebastien Assohou, Founder of Navia" width="180" height="180" loading="lazy" decoding="async">
-    </div>
-    <span class="founder-tag">Founder</span>
-  </div>
-  <div class="founder-content">
-    <h2 class="founder-name">Sebastien Assohou</h2>
-    <p class="founder-role">Holistic Health & Human Performance Expert</p>
-    <p class="founder-bio">
-      From protecting world leaders as a decorated police officer to coaching elite athletes and executives across continents, Sebastien has spent his career understanding what humans need to perform, and to heal. Co-author of two bestselling books alongside other leading experts, Technogym Master Trainer, and recognized by the U.S. government as an individual of extraordinary ability, he brings a rare blend of operational experience and scientific depth.
-    </p>
-    <p class="founder-bio">
-      But Navia was born from something more personal. After years of guiding women through their most transformative chapters, conception, pregnancy, postpartum, across diverse profiles and challenges, Sebastien saw a gap no app was filling: the space between doctor visits, where women feel most alone. Navia is his answer.
-    </p>
-    <ul class="founder-highlights" aria-label="Key credentials">
-      <li>EB-1 Extraordinary Ability</li>
-      <li>Co-author, 2 Bestseller Books</li>
-      <li>Technogym Master Trainer</li>
-      <li>Paris 2024 Olympics Selected</li>
-      <li>Women's Health Specialist</li>
-    </ul>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq reveal" id="faq">
-  <div class="faq-header">
-    <span class="section-tag">Gentle answers</span>
-    <h2 class="faq-title">What women often ask <em>before joining</em></h2>
-    <p class="faq-subtitle">Everything below is written the way we'd want it whispered to us. With honesty, care, and no pressure.</p>
-  </div>
-  <div class="faq-list">
-
-    <details class="faq-item">
-      <summary class="faq-q">Is Navia a replacement for my doctor?<span class="faq-icon" aria-hidden="true"></span></summary>
-      <div class="faq-a">No, and we'll never pretend to be. Navia is a companion, not a clinician. She won't diagnose, prescribe, or replace any professional you already trust. Think of her as the space <em>between</em> appointments, where you can be heard when no one else is listening.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">How does Navia protect what I share?<span class="faq-icon" aria-hidden="true"></span></summary>
-      <div class="faq-a">Your words belong to you. Everything you share is encrypted, never sold, and never used to train models without your clear, explicit consent. You can review, export, or delete anything, any time, without having to explain why.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">Will Navia text me all day?<span class="faq-icon" aria-hidden="true"></span></summary>
-      <div class="faq-a">Only when you want her to. You choose the rhythm. A morning check-in, a quiet evening note, or silence for a week. Navia follows your pace, never the other way around. <em>Presence, not pressure</em>, is the whole point.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">I'm pregnant (or trying, or postpartum). Does Navia adapt?<span class="faq-icon" aria-hidden="true"></span></summary>
-      <div class="faq-a">Yes. Navia recognizes every chapter. Trying to conceive, pregnancy week by week, postpartum, your cycle, perimenopause. She gently shifts her tone, her questions, and what she notices, so she meets you exactly where you are today.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">Can Navia really help with how I'm feeling emotionally?<span class="faq-icon" aria-hidden="true"></span></summary>
-      <div class="faq-a">That's her heart. Navia listens without judgment, reflects what she hears back to you with warmth, and reminds you that nothing you feel is "too much." For heavier moments, she will always, gently, encourage you to reach out to a trusted person or professional.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">What exactly is the gifting part, and is it shopping?<span class="faq-icon" aria-hidden="true"></span></summary>
-      <div class="faq-a">It isn't shopping. When someone you love is going through a hard week, a milestone, or the long days of morning sickness, Navia helps you send a thoughtful gift curated for that exact moment. No carts, no ads, no endless scrolling. Just <em>presence, delivered</em>.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">If I send a gift, does the other person see my private notes?<span class="faq-icon" aria-hidden="true"></span></summary>
-      <div class="faq-a">Never. Only the gift itself, and whatever message you choose to write, are shared. Her mood entries, her diary, her check-ins all stay hers alone. Navia never shares what isn't hers to share.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">Can I stop or pause whenever I want?<span class="faq-icon" aria-hidden="true"></span></summary>
-      <div class="faq-a">Always. There's no lock-in, no guilt-trip, no pressure. If you need to pause for a week, pause. If you want to leave, leave, and take everything you shared with you. Navia is here on your terms, or not at all.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">How is Navia different from the wellness apps I already have?<span class="faq-icon" aria-hidden="true"></span></summary>
-      <div class="faq-a">Most apps track you. Navia walks with you. You don't count calories or close rings. You share what's real, and she responds with warmth, memory, and care. She remembers the little things. She asks how last week felt. She's less of a tool, more of a presence.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">What will it cost, and do I have to pay now?<span class="faq-icon" aria-hidden="true"></span></summary>
-      <div class="faq-a">You don't pay anything today. The first 500 members receive early access for free, plus a surprise on launch. When we do introduce pricing, it will be simple, transparent, and honest. No hidden fees, no dark patterns, ever.</div>
-    </details>
-
-  </div>
-  <p class="faq-closing">Still unsure? That's okay. Navia is built for women who take their time.</p>
-</section>
-
-<!-- CTA FINAL -->
-<section class="cta-final reveal" id="waitlist">
-  <div class="cta-orb"></div>
-  <div class="cta-content">
-    <h2 class="cta-title">
-      Be among the first<br><em>Navia women</em>
-    </h2>
-    <p class="cta-subtitle">
-      The app launches soon. The first 500 members get early access, plus a surprise.
-    </p>
-    <div class="cta-form" id="cta-form">
-      <input class="hero-input" type="email" id="cta-email" placeholder="your@email.com" aria-label="Email address" required />
-      <button class="hero-btn" type="button" onclick="submitEmail()">I'm in</button>
-    </div>
-    <div class="success-msg" id="cta-success" style="justify-content:center; margin-top:1rem;">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#7B6EF6" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#7B6EF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Welcome to the Navia community.
-    </div>
-    <p class="cta-note" id="cta-note">Zero spam. Unsubscribe anytime.</p>
-  </div>
-</section>
+  </section>
 
 </main>
 
-<!-- FOOTER -->
-<footer role="contentinfo">
-  <p class="footer-promise">No ads. Your data stays yours. Always.</p>
+<footer>
   <div class="footer-inner">
-    <span class="footer-logo">nav<span class="nav-i-wrap"><span class="nav-dot-cover"></span><span class="nav-dot"></span>i</span>a</span>
-    <ul class="footer-links">
-      <li><a href="/privacy">Privacy</a></li>
-      <li><a href="mailto:contact@bynavia.com">Contact</a></li>
-      <li><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    <div class="footer-brand">
+      <div class="wordmark">Nav<span class="wordmark-i">&#305;</span>a</div>
+      <p class="footer-tagline">Be where she is.</p>
+    </div>
+
+    <ul class="footer-socials" aria-label="Navia on social media">
+      <li>
+        <a class="social-icon" href="https://instagram.com/bynavia" target="_blank" rel="noopener" aria-label="Navia on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="social-icon" href="https://x.com/bynavia" target="_blank" rel="noopener" aria-label="Navia on X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="social-icon" href="https://facebook.com/bynavia" target="_blank" rel="noopener" aria-label="Navia on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.5 22v-8h2.7l.4-3.13H13.5V8.86c0-.9.25-1.52 1.55-1.52H16.7V4.55c-.29-.04-1.27-.13-2.41-.13-2.39 0-4.03 1.46-4.03 4.13v2.32H7.5V14h2.76v8h3.24z"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="social-icon" href="https://youtube.com/@bynavia" target="_blank" rel="noopener" aria-label="Navia on YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.27 5 12 5 12 5s-6.27 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2C2 8.78 2 12 2 12s0 3.22.4 4.8a2.5 2.5 0 0 0 1.76 1.77C5.73 19 12 19 12 19s6.27 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77C22 15.22 22 12 22 12s0-3.22-.4-4.8zM10 15.02V8.98L15.2 12 10 15.02z"/>
+          </svg>
+        </a>
+      </li>
     </ul>
-    <p class="footer-copy">&copy; 2026 Navia. Made with presence.</p>
+
+    <ul class="footer-links">
+      <li><a href="/pitch.html">The vision</a></li>
+      <li><a href="mailto:contact@bynavia.com">Contact</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+    </ul>
+    <p class="footer-founder">Founder. Sebastien Assohou is a holistic health practitioner and educator distinguished for extraordinary ability in his field, with recognition under the EB-1 category in the United States.</p>
   </div>
+  <p class="footer-copy">&copy; 2026 Navia. Built with presence, not for performance.</p>
 </footer>
 
 <script>
+/* ─── Theme toggle ─────────────────────────────────────── */
+(function () {
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var iconPath = document.getElementById('theme-icon-path');
+  var MOON = 'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
+  var SUN = 'M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0z';
+
+  var modeCards = document.querySelectorAll('.mode[data-theme-target]');
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    iconPath.setAttribute('d', theme === 'night' ? MOON : SUN);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'night' ? '#2B2940' : '#F5F0E6');
+    modeCards.forEach(function (card) {
+      if (card.getAttribute('data-theme-target') === theme) {
+        card.classList.add('is-active');
+      } else {
+        card.classList.remove('is-active');
+      }
+    });
+    try { localStorage.setItem('navia-theme', theme); } catch (e) {}
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem('navia-theme'); } catch (e) {}
+  if (saved === 'day' || saved === 'night') {
+    applyTheme(saved);
+  } else {
+    applyTheme('night');
+  }
+
+  toggle.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'night' ? 'day' : 'night';
+    applyTheme(next);
+  });
+
+  /* Day/Night preview: switch theme on hover, also works on click + keyboard for touch/a11y */
+  modeCards.forEach(function (card) {
+    var target = card.getAttribute('data-theme-target');
+    card.addEventListener('mouseenter', function () { applyTheme(target); });
+    card.addEventListener('focus', function () { applyTheme(target); });
+    card.addEventListener('click', function () { applyTheme(target); });
+  });
+
+  /* ─── Top bar hide-on-scroll, show-on-idle ──
+   * When the user scrolls, the top bar retreats upward.
+   * When scrolling pauses (~180ms), it slides back down.
+   * Mimics the first iteration of the site — discreet
+   * presence that yields during motion and returns at rest.
+   */
+  var topBar = document.querySelector('.top-bar');
+  if (topBar) {
+    var scrollTimer = null;
+    var lastY = window.scrollY || 0;
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY || 0;
+      // Always visible near the very top
+      if (y < 24) {
+        topBar.classList.remove('is-hidden');
+      } else if (Math.abs(y - lastY) > 2) {
+        topBar.classList.add('is-hidden');
+      }
+      lastY = y;
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function () {
+        topBar.classList.remove('is-hidden');
+      }, 180);
+    }, { passive: true });
+  }
+})();
+
+/* ─── Waitlist forms (demo mode, Brevo-ready) ────────── */
 /*
- * ─── WAITLIST FORM (Demo Mode) ───
+ * Both forms call handleWaitlist(inputId, successId, formId).
  * Currently shows success UI without sending data anywhere.
  *
- * When ready for production, uncomment the Brevo section below
- * and add your API key. For security, move the API call to a
- * backend endpoint to avoid exposing your key in client-side code.
+ * When ready for production, replace the commented section
+ * with a POST to your Brevo-backed endpoint. For security,
+ * keep the API call on a backend, never expose the key
+ * in client-side code.
  *
- * Brevo setup:
- *   const BREVO_API_KEY = 'YOUR_BREVO_API_KEY';
- *   const BREVO_LIST_ID = 2;
- *   Endpoint: POST https://api.brevo.com/v3/contacts
- *   Docs: https://developers.brevo.com/reference/createcontact
+ *   fetch('/api/waitlist', {
+ *     method: 'POST',
+ *     headers: { 'Content-Type': 'application/json' },
+ *     body: JSON.stringify({ email: email })
+ *   })
+ *   .then(function (r) { return r.json(); })
+ *   .then(function () { showSuccess(); })
+ *   .catch(function () { showError(); });
+ *
+ * Brevo docs: https://developers.brevo.com/reference/createcontact
  */
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function submitEmail() {
-  var emailEl = document.getElementById('cta-email');
-  var email = emailEl.value.trim();
-
-  if (!email || !isValidEmail(email)) {
-    emailEl.style.borderColor = '#F4C0D1';
-    emailEl.setAttribute('aria-invalid', 'true');
-    setTimeout(function() {
-      emailEl.style.borderColor = 'rgba(123,110,246,0.25)';
-      emailEl.removeAttribute('aria-invalid');
-    }, 2000);
-    return;
-  }
-
-  // Demo mode: just show success
-  document.getElementById('cta-form').style.display = 'none';
-  document.getElementById('cta-note').style.display = 'none';
-  document.getElementById('cta-success').classList.add('show');
+function handleWaitlist(form, input, success, note) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = (input.value || '').trim();
+    if (!email || !isValidEmail(email)) {
+      input.setAttribute('aria-invalid', 'true');
+      setTimeout(function () { input.removeAttribute('aria-invalid'); }, 2400);
+      input.focus();
+      return;
+    }
+    form.style.display = 'none';
+    if (note) note.style.display = 'none';
+    success.classList.add('show');
+    /* TODO: POST to /api/waitlist here when backend is live */
+  });
 }
 
-document.getElementById('cta-email').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') { e.preventDefault(); submitEmail(); }
-});
-
-/* Scroll reveal animations (IntersectionObserver) */
-var revealElements = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window) {
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-  revealElements.forEach(function(el) { revealObserver.observe(el); });
-} else {
-  revealElements.forEach(function(el) { el.classList.add('visible'); });
-}
-
-/* Sticky CTA bar — shows when user pauses scrolling, after hero */
-(function() {
-  var stickyCta = document.getElementById('sticky-cta');
-  var scrollTimer = null;
-  var heroHeight = window.innerHeight;
-  var isVisible = false;
-
-  window.addEventListener('scroll', function() {
-    if (isVisible) { stickyCta.classList.remove('show'); stickyCta.setAttribute('aria-hidden','true'); isVisible = false; }
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(function() {
-      if (window.scrollY > heroHeight * 0.6) {
-        stickyCta.classList.add('show');
-        stickyCta.setAttribute('aria-hidden','false');
-        isVisible = true;
-      }
-    }, 800);
-  }, { passive: true });
-})();
-
-/* Phone Navia multi-turn typing animation + auto-scroll diary to keep latest message in view */
-(function() {
-  var naviaEl = document.getElementById('navia-typed');
-  if (!naviaEl) return;
-  var naviaEl2 = document.getElementById('navia-typed-2');
-  var emmaEl = document.getElementById('emma-followup');
-  var followupWrap = document.getElementById('phone-followup');
-  var diaryEl = naviaEl.closest('.phone-diary');
-  var started = false;
-
-  var naviaText1 = 'I hear you, Emma. That thought, "will I be a good mother", is one of the most common and most tender fears. It usually comes from people who already care deeply. You are already showing up.';
-  var emmaText  = 'I needed to hear that. Thank you. I just wish I could stop overthinking everything.';
-  var naviaText2 = 'Overthinking is often love with nowhere else to go. Tonight, let me hold some of it for you. Sleep gently.';
-
-  function scroll() { if (diaryEl) { diaryEl.scrollTop = diaryEl.scrollHeight; } }
-
-  function typeInto(el, text, speed, done) {
-    var i = 0;
-    (function step() {
-      if (i < text.length) {
-        el.textContent = text.slice(0, i + 1);
-        i++;
-        scroll();
-        setTimeout(step, speed + Math.random() * 25);
-      } else if (done) {
-        setTimeout(done, 600);
-      }
-    })();
-  }
-
-  function runSequence() {
-    typeInto(naviaEl, naviaText1, 32, function() {
-      setTimeout(function() {
-        if (followupWrap) followupWrap.classList.add('show');
-        scroll();
-        typeInto(emmaEl, emmaText, 30, function() {
-          typeInto(naviaEl2, naviaText2, 32, null);
-        });
-      }, 700);
-    });
-  }
-
-  if ('IntersectionObserver' in window) {
-    var phoneObs = new IntersectionObserver(function(entries) {
-      if (entries[0].isIntersecting && !started) { started = true; setTimeout(runSequence, 800); phoneObs.disconnect(); }
-    }, { threshold: 0.3 });
-    phoneObs.observe(document.querySelector('.phone-mockup'));
-  } else {
-    naviaEl.textContent = naviaText1;
-    if (followupWrap) followupWrap.classList.add('show');
-    if (emmaEl) emmaEl.textContent = emmaText;
-    if (naviaEl2) naviaEl2.textContent = naviaText2;
-    scroll();
-  }
-})()
-
-/* Mobile hamburger menu */
-function toggleMenu() {
-  const menu = document.getElementById('mobile-menu');
-  const btn = document.querySelector('.hamburger');
-  const isOpen = menu.classList.toggle('open');
-  btn.classList.toggle('active');
-  btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-}
+handleWaitlist(
+  document.getElementById('waitlist-form-2'),
+  document.getElementById('waitlist-email-2'),
+  document.getElementById('waitlist-success-2'),
+  document.getElementById('waitlist-note-2')
+);
 </script>
+
 </body>
 </html>
