@@ -2086,7 +2086,7 @@
 
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
-    iconPath.setAttribute('d', theme === 'night' ? MOON : SUN);
+    iconPath.setAttribute('d', theme === 'night' ? SUN : MOON);
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', theme === 'night' ? '#2B2940' : '#F5F0E6');
     modeCards.forEach(function (card) {
@@ -2196,6 +2196,62 @@ handleWaitlist(
   document.getElementById('waitlist-success-2'),
   document.getElementById('waitlist-note-2')
 );
+
+/* ─── Animated counters for numbers section ────────────── */
+(function () {
+  var figures = document.querySelectorAll('.number-figure');
+  if (!figures.length) return;
+
+  function parseTarget(text) {
+    text = text.trim();
+    /* "1 in 7" format */
+    var inMatch = text.match(/^(\d+)\s+in\s+(\d+)$/i);
+    if (inMatch) return { prefix: '', num: parseInt(inMatch[2], 10), suffix: '', template: inMatch[1] + ' in {n}' };
+    /* "$14B" or "$1T" format */
+    var moneyMatch = text.match(/^\$(\d+)([A-Z])$/);
+    if (moneyMatch) return { prefix: '$', num: parseInt(moneyMatch[1], 10), suffix: moneyMatch[2], template: null };
+    /* "75%" or "2x" format */
+    var numSuffix = text.match(/^(\d+)([%xX])$/);
+    if (numSuffix) return { prefix: '', num: parseInt(numSuffix[1], 10), suffix: numSuffix[2], template: null };
+    return null;
+  }
+
+  function animateValue(el, data, duration) {
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      /* ease-out cubic */
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(eased * data.num);
+      if (data.template) {
+        el.textContent = data.template.replace('{n}', current);
+      } else {
+        el.textContent = data.prefix + current + data.suffix;
+      }
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      var data = parseTarget(el.getAttribute('data-target'));
+      if (data) {
+        el.textContent = data.template ? data.template.replace('{n}', '0') : data.prefix + '0' + data.suffix;
+        animateValue(el, data, 1200);
+      }
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.3 });
+
+  figures.forEach(function (fig) {
+    fig.setAttribute('data-target', fig.textContent.trim());
+    observer.observe(fig);
+  });
+})();
 </script>
 
 </body>
