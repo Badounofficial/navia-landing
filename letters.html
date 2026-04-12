@@ -145,7 +145,7 @@
 
   /* ── Page intro ── */
   .page-intro {
-    text-align: center; margin-bottom: 80px;
+    text-align: center; margin-bottom: 48px;
   }
   .page-intro h1 {
     font-family: 'Fraunces', serif; font-weight: 300;
@@ -161,7 +161,7 @@
   /* ── Moon divider ── */
   .moon-divider {
     display: flex; align-items: center; justify-content: center;
-    margin: 72px 0;
+    margin: 44px 0;
     gap: 20px;
   }
   .moon-divider::before, .moon-divider::after {
@@ -188,33 +188,33 @@
     font-family: 'Fraunces', serif; font-weight: 300;
     font-size: 13px; color: var(--accent-aube);
     letter-spacing: 0.15em; text-transform: uppercase;
-    margin-bottom: 32px; text-align: center;
+    margin-bottom: 18px; text-align: center;
     opacity: 0.7;
   }
 
   /* ── Handwritten text ── */
   .letter-body p {
     font-family: 'Caveat', cursive;
-    font-size: clamp(20px, 3.8vw, 24px);
+    font-size: clamp(24px, 4.5vw, 30px);
     font-weight: 400;
-    line-height: 1.75;
+    line-height: 1.55;
     color: var(--text);
-    margin-bottom: 1.4em;
+    margin-bottom: 0.7em;
   }
   .letter-body p:last-child { margin-bottom: 0; }
 
   .letter-body p.emphasis {
     font-weight: 500;
     color: var(--accent-aube);
-    font-size: clamp(21px, 4vw, 26px);
+    font-size: clamp(25px, 4.8vw, 32px);
   }
 
   .letter-body p.standalone {
     text-align: center;
     font-weight: 500;
-    font-size: clamp(22px, 4.2vw, 28px);
+    font-size: clamp(27px, 5vw, 34px);
     color: var(--text-strong);
-    margin: 1.8em 0;
+    margin: 1em 0;
   }
 
   .letter-body p.dialogue {
@@ -222,13 +222,13 @@
     color: var(--text-soft);
     padding-left: 24px;
     border-left: 2px solid var(--hairline);
-    margin: 0.6em 0;
+    margin: 0.3em 0;
   }
 
   /* ── Closing section ── */
   .closing {
-    text-align: center; margin-top: 80px;
-    padding-top: 40px;
+    text-align: center; margin-top: 48px;
+    padding-top: 24px;
   }
   .closing .signature {
     font-family: 'Caveat', cursive;
@@ -244,8 +244,8 @@
 
   /* ── Footer ── */
   .page-footer {
-    text-align: center; margin-top: 100px;
-    padding: 40px 0;
+    text-align: center; margin-top: 60px;
+    padding: 32px 0;
     border-top: 1px solid var(--hairline);
   }
   .page-footer p {
@@ -259,11 +259,64 @@
   }
   .page-footer a:hover { color: var(--text-strong); }
 
+  /* ── Letter wrapper with side illustration ── */
+  .letter-wrapper {
+    position: relative;
+  }
+  .letter-illustration {
+    position: absolute;
+    top: 40px;
+    width: 80px;
+    height: 80px;
+    opacity: 0.18;
+    transition: opacity 0.9s ease;
+    pointer-events: none;
+  }
+  .letter-wrapper:hover .letter-illustration {
+    opacity: 0.32;
+  }
+  .letter-wrapper.illust-left .letter-illustration {
+    left: -110px;
+  }
+  .letter-wrapper.illust-right .letter-illustration {
+    right: -110px;
+  }
+  .letter-illustration svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── Warm paper texture overlay (subtle) ── */
+  .page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  }
+
   /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .letter-illustration {
+      position: relative;
+      top: 0; left: 0 !important; right: 0 !important;
+      margin: 0 auto 20px;
+      display: block;
+      opacity: 0.22;
+      width: 60px; height: 60px;
+    }
+    .letter-wrapper.illust-left .letter-illustration,
+    .letter-wrapper.illust-right .letter-illustration {
+      left: auto !important; right: auto !important;
+    }
+  }
   @media (max-width: 480px) {
     .page { padding: 120px 20px 80px; }
-    .moon-divider { margin: 56px 0; }
+    .moon-divider { margin: 32px 0; }
     .top-bar { padding: 14px 18px; }
+    .letter-illustration { width: 48px; height: 48px; }
   }
 </style>
 </head>
@@ -287,6 +340,22 @@
   </div>
 
   <!-- ════ Letter I ════ -->
+  <div class="letter-wrapper illust-left">
+  <div class="letter-illustration">
+    <!-- Open diary / book -->
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M40 18v48"/>
+      <path d="M40 18c-4-4-14-6-22-4v46c8-2 18 0 22 4"/>
+      <path d="M40 18c4-4 14-6 22-4v46c-8-2-18 0-22 4"/>
+      <line x1="24" y1="28" x2="35" y2="28" opacity="0.5"/>
+      <line x1="24" y1="34" x2="33" y2="34" opacity="0.4"/>
+      <line x1="24" y1="40" x2="36" y2="40" opacity="0.5"/>
+      <line x1="24" y1="46" x2="32" y2="46" opacity="0.3"/>
+      <line x1="45" y1="28" x2="56" y2="28" opacity="0.5"/>
+      <line x1="45" y1="34" x2="54" y2="34" opacity="0.4"/>
+      <line x1="45" y1="40" x2="57" y2="40" opacity="0.5"/>
+    </svg>
+  </div>
   <article class="letter">
     <div class="letter-number">Letter I</div>
     <div class="letter-body">
@@ -321,10 +390,22 @@
       <p>And perhaps that is still where I am today. Trying not to drift too far from what I do not fully understand.</p>
     </div>
   </article>
+  </div>
 
   <div class="moon-divider"><span class="moon-dot"></span></div>
 
   <!-- ════ Letter II ════ -->
+  <div class="letter-wrapper illust-right">
+  <div class="letter-illustration">
+    <!-- Quill / feather pen -->
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M56 10c-8 8-18 22-24 36l-4 12 8-8c12-6 22-16 28-28 2-6-2-10-4-12-2-2-4 0-4 0z"/>
+      <path d="M28 58l-6 14" stroke-width="1"/>
+      <path d="M22 72l4-2" stroke-width="0.8"/>
+      <path d="M36 38c4-2 10-6 16-14" opacity="0.3" stroke-width="0.8"/>
+      <path d="M32 46c4-2 12-8 18-18" opacity="0.25" stroke-width="0.8"/>
+    </svg>
+  </div>
   <article class="letter">
     <div class="letter-number">Letter II</div>
     <div class="letter-body">
@@ -349,10 +430,23 @@
       <p>Closer to what was already there, waiting for someone to stop explaining it away.</p>
     </div>
   </article>
+  </div>
 
   <div class="moon-divider"><span class="moon-dot"></span></div>
 
   <!-- ════ Letter III ════ -->
+  <div class="letter-wrapper illust-left">
+  <div class="letter-illustration">
+    <!-- Crescent moon -->
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.2" stroke-linecap="round">
+      <path d="M48 12a28 28 0 1 0 0 56 22 22 0 0 1 0-56z"/>
+      <circle cx="22" cy="24" r="1" fill="var(--accent-aube)" opacity="0.4"/>
+      <circle cx="58" cy="44" r="0.8" fill="var(--accent-aube)" opacity="0.3"/>
+      <circle cx="50" cy="20" r="0.6" fill="var(--accent-aube)" opacity="0.35"/>
+      <circle cx="14" cy="52" r="0.7" fill="var(--accent-aube)" opacity="0.25"/>
+      <circle cx="62" cy="28" r="0.5" fill="var(--accent-aube)" opacity="0.3"/>
+    </svg>
+  </div>
   <article class="letter">
     <div class="letter-number">Letter III</div>
     <div class="letter-body">
@@ -379,10 +473,29 @@
       <p>Without rushing toward a conclusion. Without trying to close what is still speaking.</p>
     </div>
   </article>
+  </div>
 
   <div class="moon-divider"><span class="moon-dot"></span></div>
 
   <!-- ════ Letter IV ════ -->
+  <div class="letter-wrapper illust-right">
+  <div class="letter-illustration">
+    <!-- Compass / rose des vents -->
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="40" cy="40" r="26" stroke-width="0.8"/>
+      <circle cx="40" cy="40" r="3" fill="var(--accent-aube)" opacity="0.3"/>
+      <line x1="40" y1="14" x2="40" y2="22" stroke-width="1.2"/>
+      <line x1="40" y1="58" x2="40" y2="66" stroke-width="1.2"/>
+      <line x1="14" y1="40" x2="22" y2="40" stroke-width="1.2"/>
+      <line x1="58" y1="40" x2="66" y2="40" stroke-width="1.2"/>
+      <polygon points="40,16 37,32 40,28 43,32" fill="var(--accent-aube)" opacity="0.35" stroke="none"/>
+      <line x1="40" y1="10" x2="40" y2="14" stroke-width="0.6" opacity="0.5"/>
+      <line x1="58" y1="22" x2="55" y2="25" stroke-width="0.6" opacity="0.4"/>
+      <line x1="22" y1="22" x2="25" y2="25" stroke-width="0.6" opacity="0.4"/>
+      <line x1="58" y1="58" x2="55" y2="55" stroke-width="0.6" opacity="0.4"/>
+      <line x1="22" y1="58" x2="25" y2="55" stroke-width="0.6" opacity="0.4"/>
+    </svg>
+  </div>
   <article class="letter">
     <div class="letter-number">Letter IV</div>
     <div class="letter-body">
@@ -411,6 +524,7 @@
       <p class="emphasis">And that is where I will stay.</p>
     </div>
   </article>
+  </div>
 
   <!-- Signature -->
   <div class="closing">
