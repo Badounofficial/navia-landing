@@ -7,595 +7,224 @@
 <meta name="description" content="Four letters from Navia's founder. Before asking anyone to open up, he opened up first.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://bynavia.com/letters.html">
-
-<!-- Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://bynavia.com/letters.html">
 <meta property="og:title" content="Letters &middot; Navia">
 <meta property="og:description" content="Four letters from the founder. Before asking anyone to open up, he opened up first.">
 <meta property="og:image" content="https://bynavia.com/og-image.png">
 <meta property="og:site_name" content="Navia">
-
 <meta name="theme-color" content="#2B2940">
-
-<!-- Favicons -->
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-<!-- Fonts: fully non-blocking -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Fraunces:opsz,wght@9..144,300&family=Inter:wght@300&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Fraunces:opsz,wght@9..144,300&family=Inter:wght@300&display=swap" rel="stylesheet"></noscript>
-
-<style>
-  /* ── Theme tokens (same as main site) ── */
-  :root[data-theme="night"] {
-    --bg: #2B2940;
-    --bg-gradient: radial-gradient(ellipse at top, #3E3A7A 0%, #2B2940 55%, #1d1b2e 100%);
-    --text: rgba(245, 240, 230, 0.92);
-    --text-soft: rgba(245, 240, 230, 0.62);
-    --text-strong: #F5F0E6;
-    --hairline: rgba(245, 240, 230, 0.14);
-    --accent-rose: #E8A89D;
-    --accent-aube: #E8C58F;
-    --moon-color: #F5F0E6;
-    --moon-halo-1: rgba(245, 240, 230, 0.65);
-    --moon-halo-2: rgba(245, 240, 230, 0.25);
-    --stars-opacity: 1;
-    --glow-aube: rgba(232, 197, 143, 0.45);
-  }
-
-  :root[data-theme="day"] {
-    --bg: #F4EFF5;
-    --bg-gradient: radial-gradient(ellipse at top, #F8F3F8 0%, #F4EFF5 55%, #EDE6EE 100%);
-    --text: rgba(43, 41, 64, 0.88);
-    --text-soft: rgba(43, 41, 64, 0.55);
-    --text-strong: #2B2940;
-    --hairline: rgba(43, 41, 64, 0.12);
-    --accent-rose: #C97A8E;
-    --accent-aube: #8E7BB8;
-    --moon-color: #FBF9FD;
-    --moon-halo-1: rgba(208, 196, 232, 0.38);
-    --moon-halo-2: rgba(230, 205, 220, 0.18);
-    --stars-opacity: 0;
-    --glow-aube: rgba(142, 123, 184, 0.5);
-    --deco-lavender: rgba(200, 185, 232, 0.55);
-    --deco-rose: rgba(232, 195, 210, 0.5);
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--bg);
-    background-image: var(--bg-gradient);
-    background-attachment: fixed;
-    color: var(--text);
-    font-weight: 300;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    transition: background 0.6s ease, color 0.6s ease;
-  }
-
-  /* ── Immersive moon (fixed behind text) ── */
-  .moon-bg {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 110vmin;
-    height: 110vmin;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-    background: radial-gradient(
-      circle at 42% 38%,
-      rgba(245, 240, 230, 0.10) 0%,
-      rgba(245, 240, 230, 0.06) 20%,
-      rgba(232, 197, 143, 0.05) 40%,
-      rgba(232, 197, 143, 0.03) 60%,
-      rgba(232, 168, 157, 0.015) 80%,
-      transparent 100%
-    );
-    box-shadow:
-      0 0 80px 40px rgba(232, 197, 143, 0.06),
-      0 0 180px 90px rgba(232, 197, 143, 0.04),
-      0 0 320px 160px rgba(232, 197, 143, 0.02);
-  }
-  :root[data-theme="day"] .moon-bg {
-    background: radial-gradient(
-      circle at 42% 38%,
-      rgba(43, 41, 64, 0.04) 0%,
-      rgba(43, 41, 64, 0.025) 25%,
-      rgba(43, 41, 64, 0.012) 50%,
-      transparent 100%
-    );
-    box-shadow: 0 0 120px 60px rgba(43, 41, 64, 0.02);
-  }
-
-  /* ── Stars ── */
-  .stars {
-    position: fixed; inset: 0; pointer-events: none; z-index: 0;
-    opacity: var(--stars-opacity); transition: opacity 0.8s ease;
-    background-image:
-      radial-gradient(1px 1px at 12% 18%, rgba(245,240,230,0.5), transparent),
-      radial-gradient(1px 1px at 28% 42%, rgba(245,240,230,0.3), transparent),
-      radial-gradient(1px 1px at 55% 25%, rgba(245,240,230,0.4), transparent),
-      radial-gradient(1px 1px at 72% 65%, rgba(245,240,230,0.25), transparent),
-      radial-gradient(1px 1px at 85% 35%, rgba(245,240,230,0.35), transparent),
-      radial-gradient(1px 1px at 40% 80%, rgba(245,240,230,0.3), transparent);
-  }
-
-  /* ── Day mode decorative circles ── */
-  body::before, body::after {
-    content: ''; position: fixed; border-radius: 50%;
-    pointer-events: none; z-index: 0; opacity: 0;
-    transition: opacity 0.9s ease; filter: blur(60px);
-  }
-  body::before { top: -180px; left: -160px; width: 520px; height: 520px;
-    background: radial-gradient(circle, var(--deco-lavender, transparent) 0%, transparent 70%); }
-  body::after { bottom: -200px; right: -180px; width: 560px; height: 560px;
-    background: radial-gradient(circle, var(--deco-rose, transparent) 0%, transparent 70%); }
-  :root[data-theme="day"] body::before,
-  :root[data-theme="day"] body::after { opacity: 1; }
-
-  /* ── Top bar ── */
-  .top-bar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 20;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 28px;
-    background: linear-gradient(to bottom, var(--bg) 60%, transparent);
-  }
-  .toggle-btn {
-    background: none; border: none; cursor: pointer;
-    color: var(--text-soft); font-size: 18px; padding: 6px;
-    transition: color 0.3s; line-height: 1;
-  }
-  .toggle-btn:hover { color: var(--text-strong); }
-
-  .back-link {
-    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300;
-    color: var(--text-soft); text-decoration: none;
-    letter-spacing: 0.03em; transition: color 0.3s;
-  }
-  .back-link:hover { color: var(--text-strong); }
-
-  .wordmark {
-    font-family: 'Fraunces', serif; font-size: 15px; font-weight: 300;
-    color: var(--text-soft); letter-spacing: 0.08em; text-decoration: none;
-    transition: color 0.3s;
-  }
-  .wordmark:hover { color: var(--text-strong); }
-
-  /* ── Page container ── */
-  .page {
-    position: relative; z-index: 1;
-    max-width: 640px; margin: 0 auto;
-    padding: 140px 28px 120px;
-  }
-
-  /* ── Page intro ── */
-  .page-intro {
-    text-align: center; margin-bottom: 48px;
-  }
-  .page-intro h1 {
-    font-family: 'Fraunces', serif; font-weight: 300;
-    font-size: clamp(24px, 4.5vw, 32px);
-    color: var(--text-strong); letter-spacing: 0.02em;
-    margin-bottom: 16px;
-  }
-  .page-intro p {
-    font-size: 14px; color: var(--text-soft);
-    line-height: 1.8; max-width: 420px; margin: 0 auto;
-  }
-
-  /* ── Moon divider ── */
-  .moon-divider {
-    display: flex; align-items: center; justify-content: center;
-    margin: 44px 0;
-    gap: 20px;
-  }
-  .moon-divider::before, .moon-divider::after {
-    content: ''; flex: 1; height: 1px;
-    background: var(--hairline);
-  }
-  .moon-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--accent-aube); opacity: 0.6;
-    box-shadow: 0 0 12px var(--glow-aube);
-  }
-
-  /* ── Letter block ── */
-  .letter {
-    opacity: 0; transform: translateY(24px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
-    margin-bottom: 20px;
-    content-visibility: auto;
-    contain-intrinsic-size: auto 800px;
-    /* ── Halo border (aube glow contour) ── */
-    border: 1px solid rgba(232, 197, 143, 0.18);
-    border-radius: 20px;
-    padding: 36px 32px;
-    background: rgba(43, 41, 64, 0.25);
-    box-shadow:
-      0 0 18px 2px rgba(232, 197, 143, 0.06),
-      0 0 40px 8px rgba(232, 197, 143, 0.035),
-      inset 0 0 30px rgba(232, 197, 143, 0.015);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-  }
-  .letter.visible {
-    opacity: 1; transform: translateY(0);
-  }
-  :root[data-theme="day"] .letter {
-    border-color: rgba(142, 123, 184, 0.18);
-    background: rgba(244, 239, 245, 0.35);
-    box-shadow:
-      0 0 18px 2px rgba(142, 123, 184, 0.06),
-      0 0 40px 8px rgba(142, 123, 184, 0.035),
-      inset 0 0 30px rgba(142, 123, 184, 0.015);
-  }
-
-  .letter-number {
-    font-family: 'Fraunces', serif; font-weight: 300;
-    font-size: 13px; color: var(--accent-aube);
-    letter-spacing: 0.15em; text-transform: uppercase;
-    margin-bottom: 18px; text-align: center;
-    opacity: 0.7;
-  }
-
-  /* ── Handwritten text ── */
-  .letter-body p {
-    font-family: 'Caveat', cursive;
-    font-size: clamp(24px, 4.5vw, 30px);
-    font-weight: 400;
-    line-height: 1.55;
-    color: var(--text);
-    margin-bottom: 0.7em;
-  }
-  .letter-body p:last-child { margin-bottom: 0; }
-
-  .letter-body p.emphasis {
-    font-weight: 500;
-    color: var(--accent-aube);
-    font-size: clamp(25px, 4.8vw, 32px);
-  }
-
-  .letter-body p.standalone {
-    text-align: center;
-    font-weight: 500;
-    font-size: clamp(27px, 5vw, 34px);
-    color: var(--text-strong);
-    margin: 1em 0;
-  }
-
-  .letter-body p.dialogue {
-    font-style: italic;
-    color: var(--text-soft);
-    padding-left: 24px;
-    border-left: 2px solid var(--hairline);
-    margin: 0.3em 0;
-  }
-
-  /* ── Closing section ── */
-  .closing {
-    text-align: center; margin-top: 48px;
-    padding-top: 24px;
-  }
-  .closing .signature {
-    font-family: 'Caveat', cursive;
-    font-size: 28px; font-weight: 500;
-    color: var(--accent-aube);
-    margin-bottom: 8px;
-  }
-  .closing .role {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px; color: var(--text-soft);
-    letter-spacing: 0.08em;
-  }
-
-  /* ── Footer ── */
-  .page-footer {
-    text-align: center; margin-top: 60px;
-    padding: 32px 0;
-    border-top: 1px solid var(--hairline);
-  }
-  .page-footer p {
-    font-size: 12px; color: var(--text-soft);
-    line-height: 1.8;
-  }
-  .page-footer a {
-    color: var(--text-soft); text-decoration: none;
-    border-bottom: 1px solid var(--hairline);
-    transition: color 0.3s;
-  }
-  .page-footer a:hover { color: var(--text-strong); }
-
-  /* ── Letter wrapper with side illustration ── */
-  .letter-wrapper {
-    position: relative;
-  }
-  .letter-illustration {
-    position: absolute;
-    top: 40px;
-    width: 80px;
-    height: 80px;
-    opacity: 0.18;
-    transition: opacity 0.9s ease;
-    pointer-events: none;
-  }
-  .letter-wrapper:hover .letter-illustration {
-    opacity: 0.32;
-  }
-  .letter-wrapper.illust-left .letter-illustration {
-    left: -110px;
-  }
-  .letter-wrapper.illust-right .letter-illustration {
-    right: -110px;
-  }
-  .letter-illustration svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 900px) {
-    .letter-illustration {
-      position: relative;
-      top: 0; left: 0 !important; right: 0 !important;
-      margin: 0 auto 20px;
-      display: block;
-      opacity: 0.22;
-      width: 60px; height: 60px;
-    }
-    .letter-wrapper.illust-left .letter-illustration,
-    .letter-wrapper.illust-right .letter-illustration {
-      left: auto !important; right: auto !important;
-    }
-  }
-  @media (max-width: 480px) {
-    .page { padding: 120px 20px 80px; }
-    .moon-divider { margin: 32px 0; }
-    .top-bar { padding: 14px 18px; }
-    .letter-illustration { width: 48px; height: 48px; }
-    .letter { padding: 28px 20px; border-radius: 16px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Fraunces:opsz,wght@9..144,300&family=Inter:wght@300&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Fraunces:opsz,wght@9..144,300&family=Inter:wght@300&display=optional" rel="stylesheet"></noscript>
+<style>:root[data-theme="night"]{--bg:#2B2940;--bg-gradient:radial-gradient(ellipse at top,#3E3A7A 0%,#2B2940 55%,#1d1b2e 100%);--text:rgba(245,240,230,0.92);--text-soft:rgba(245,240,230,0.62);--text-strong:#F5F0E6;--hairline:rgba(245,240,230,0.14);--accent-rose:#E8A89D;--accent-aube:#E8C58F;--moon-color:#F5F0E6;--moon-halo-1:rgba(245,240,230,0.65);--moon-halo-2:rgba(245,240,230,0.25);--stars-opacity:1;--glow-aube:rgba(232,197,143,0.45)}:root[data-theme="day"]{--bg:#F4EFF5;--bg-gradient:radial-gradient(ellipse at top,#F8F3F8 0%,#F4EFF5 55%,#EDE6EE 100%);--text:rgba(43,41,64,0.88);--text-soft:rgba(43,41,64,0.55);--text-strong:#2B2940;--hairline:rgba(43,41,64,0.12);--accent-rose:#C97A8E;--accent-aube:#8E7BB8;--moon-color:#FBF9FD;--moon-halo-1:rgba(208,196,232,0.38);--moon-halo-2:rgba(230,205,220,0.18);--stars-opacity:0;--glow-aube:rgba(142,123,184,0.5);--deco-lavender:rgba(200,185,232,0.55);--deco-rose:rgba(232,195,210,0.5)}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);background-image:var(--bg-gradient);background-attachment:fixed;color:var(--text);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background 0.6s ease,color 0.6s ease}.moon-bg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:110vmin;height:110vmin;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle at 42% 38%,rgba(245,240,230,0.10) 0%,rgba(245,240,230,0.06) 20%,rgba(232,197,143,0.05) 40%,rgba(232,197,143,0.03) 60%,rgba(232,168,157,0.015) 80%,transparent 100%);box-shadow:0 0 80px 40px rgba(232,197,143,0.06),0 0 180px 90px rgba(232,197,143,0.04),0 0 320px 160px rgba(232,197,143,0.02)}:root[data-theme="day"] .moon-bg{background:radial-gradient(circle at 42% 38%,rgba(43,41,64,0.04) 0%,rgba(43,41,64,0.025) 25%,rgba(43,41,64,0.012) 50%,transparent 100%);box-shadow:0 0 120px 60px rgba(43,41,64,0.02)}.stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:var(--stars-opacity);transition:opacity 0.8s ease;background-image:radial-gradient(1px 1px at 12% 18%,rgba(245,240,230,0.5),transparent),radial-gradient(1px 1px at 28% 42%,rgba(245,240,230,0.3),transparent),radial-gradient(1px 1px at 55% 25%,rgba(245,240,230,0.4),transparent),radial-gradient(1px 1px at 72% 65%,rgba(245,240,230,0.25),transparent),radial-gradient(1px 1px at 85% 35%,rgba(245,240,230,0.35),transparent),radial-gradient(1px 1px at 40% 80%,rgba(245,240,230,0.3),transparent)}body::before,body::after{content:'';position:fixed;border-radius:50%;pointer-events:none;z-index:0;opacity:0;transition:opacity 0.9s ease;filter:blur(60px)}body::before{top:-180px;left:-160px;width:520px;height:520px;background:radial-gradient(circle,var(--deco-lavender,transparent) 0%,transparent 70%)}body::after{bottom:-200px;right:-180px;width:560px;height:560px;background:radial-gradient(circle,var(--deco-rose,transparent) 0%,transparent 70%)}:root[data-theme="day"] body::before,:root[data-theme="day"] body::after{opacity:1}.top-bar{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:linear-gradient(to bottom,var(--bg) 60%,transparent)}.toggle-btn{background:none;border:none;cursor:pointer;color:var(--text-soft);font-size:18px;padding:6px;transition:color 0.3s;line-height:1}.toggle-btn:hover{color:var(--text-strong)}.back-link{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--text-soft);text-decoration:none;letter-spacing:0.03em;transition:color 0.3s}.back-link:hover{color:var(--text-strong)}.wordmark{font-family:'Fraunces',serif;font-size:15px;font-weight:300;color:var(--text-soft);letter-spacing:0.08em;text-decoration:none;transition:color 0.3s}.wordmark:hover{color:var(--text-strong)}.page{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:140px 28px 120px}.page-intro{text-align:center;margin-bottom:48px}.page-intro h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(24px,4.5vw,32px);color:var(--text-strong);letter-spacing:0.02em;margin-bottom:16px}.page-intro p{font-size:14px;color:var(--text-soft);line-height:1.8;max-width:420px;margin:0 auto}.moon-divider{display:flex;align-items:center;justify-content:center;margin:44px 0;gap:20px}.moon-divider::before,.moon-divider::after{content:'';flex:1;height:1px;background:var(--hairline)}.moon-dot{width:8px;height:8px;border-radius:50%;background:var(--accent-aube);opacity:0.6;box-shadow:0 0 12px var(--glow-aube)}.letter{opacity:0;transform:translateY(24px);transition:opacity 0.9s ease,transform 0.9s ease;margin-bottom:20px;content-visibility:auto;contain-intrinsic-size:auto 800px;border:1px solid rgba(232,197,143,0.18);border-radius:20px;padding:36px 32px;background:rgba(43,41,64,0.25);box-shadow:0 0 18px 2px rgba(232,197,143,0.06),0 0 40px 8px rgba(232,197,143,0.035),inset 0 0 30px rgba(232,197,143,0.015);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}.letter.visible{opacity:1;transform:translateY(0)}:root[data-theme="day"] .letter{border-color:rgba(142,123,184,0.18);background:rgba(244,239,245,0.35);box-shadow:0 0 18px 2px rgba(142,123,184,0.06),0 0 40px 8px rgba(142,123,184,0.035),inset 0 0 30px rgba(142,123,184,0.015)}.letter-number{font-family:'Fraunces',serif;font-weight:300;font-size:13px;color:var(--accent-aube);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:18px;text-align:center;opacity:0.7}.letter-body p{font-family:'Caveat',cursive;font-size:clamp(24px,4.5vw,30px);font-weight:400;line-height:1.55;color:var(--text);margin-bottom:0.7em}.letter-body p:last-child{margin-bottom:0}.letter-body p.emphasis{font-weight:500;color:var(--accent-aube);font-size:clamp(25px,4.8vw,32px)}.letter-body p.standalone{text-align:center;font-weight:500;font-size:clamp(27px,5vw,34px);color:var(--text-strong);margin:1em 0}.letter-body p.dialogue{font-style:italic;color:var(--text-soft);padding-left:24px;border-left:2px solid var(--hairline);margin:0.3em 0}.closing{text-align:center;margin-top:48px;padding-top:24px}.closing .signature{font-family:'Caveat',cursive;font-size:28px;font-weight:500;color:var(--accent-aube);margin-bottom:8px}.closing .role{font-family:'Inter',sans-serif;font-size:12px;color:var(--text-soft);letter-spacing:0.08em}.page-footer{text-align:center;margin-top:60px;padding:32px 0;border-top:1px solid var(--hairline)}.page-footer p{font-size:12px;color:var(--text-soft);line-height:1.8}.page-footer a{color:var(--text-soft);text-decoration:none;border-bottom:1px solid var(--hairline);transition:color 0.3s}.page-footer a:hover{color:var(--text-strong)}.letter-wrapper{position:relative}.letter-illustration{position:absolute;top:40px;width:80px;height:80px;opacity:0.18;transition:opacity 0.9s ease;pointer-events:none}.letter-wrapper:hover .letter-illustration{opacity:0.32}.letter-wrapper.illust-left .letter-illustration{left:-110px}.letter-wrapper.illust-right .letter-illustration{right:-110px}.letter-illustration svg{width:100%;height:100%}@media (max-width:900px){.letter-illustration{position:relative;top:0;left:0 !important;right:0 !important;margin:0 auto 20px;display:block;opacity:0.22;width:60px;height:60px}.letter-wrapper.illust-left .letter-illustration,.letter-wrapper.illust-right .letter-illustration{left:auto !important;right:auto !important}}@media (max-width:480px){.page{padding:120px 20px 80px}.moon-divider{margin:32px 0}.top-bar{padding:14px 18px}.letter-illustration{width:48px;height:48px}.letter{padding:28px 20px;border-radius:16px}}</style>
 </head>
 <body>
-
 <div class="moon-bg"></div>
 <div class="stars"></div>
-
-<!-- Top bar -->
 <nav class="top-bar">
-  <button class="toggle-btn" id="themeToggle" aria-label="Switch theme">&#9790;</button>
-  <a href="/" class="back-link">&larr; Back to Navia</a>
-  <a href="/" class="wordmark">navia</a>
+<button class="toggle-btn" id="themeToggle" aria-label="Switch theme">&#9790;</button>
+<a href="/" class="back-link">&larr; Back to Navia</a>
+<a href="/" class="wordmark">navia</a>
 </nav>
-
-<!-- Page content -->
 <main class="page">
-
-  <div class="page-intro">
-    <h1>Letters from the Founder</h1>
-    <p>Before asking anyone to open up, he opened up first.</p>
-  </div>
-
-  <!-- ════ Letter I ════ -->
-  <div class="letter-wrapper illust-left">
-  <div class="letter-illustration">
-    <!-- Open diary / book -->
-    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M40 18v48"/>
-      <path d="M40 18c-4-4-14-6-22-4v46c8-2 18 0 22 4"/>
-      <path d="M40 18c4-4 14-6 22-4v46c-8-2-18 0-22 4"/>
-      <line x1="24" y1="28" x2="35" y2="28" opacity="0.5"/>
-      <line x1="24" y1="34" x2="33" y2="34" opacity="0.4"/>
-      <line x1="24" y1="40" x2="36" y2="40" opacity="0.5"/>
-      <line x1="24" y1="46" x2="32" y2="46" opacity="0.3"/>
-      <line x1="45" y1="28" x2="56" y2="28" opacity="0.5"/>
-      <line x1="45" y1="34" x2="54" y2="34" opacity="0.4"/>
-      <line x1="45" y1="40" x2="57" y2="40" opacity="0.5"/>
-    </svg>
-  </div>
-  <article class="letter">
-    <div class="letter-number">Letter I</div>
-    <div class="letter-body">
-      <p>I never found the right words for it.</p>
-      <p>For a long time, it lived somewhere beneath language. A sensation more than a thought. A pull I could feel but never name.</p>
-      <p>I grew up surrounded by women. Two sisters. A constant presence. And me, in the middle, not yet aware that I was already learning in a way no classroom could teach.</p>
-      <p>Before I could see, I could feel. The first thing I ever knew of a woman was touch. Being held. Being carried. Being placed back down. You learn things at that age that you will never be able to explain, but your body remembers.</p>
-      <p>Then came the years of watching. A silence at the dinner table that meant more than words. A look exchanged between my mother and my sister that carried something I could not decode. Laughter that stopped too quickly. Tears that came from nowhere and were wiped away before anyone was supposed to notice.</p>
-      <p>I did not put words on it then. I watched. I listened. That was all.</p>
-      <p>As I grew up, the proximity changed shape. Childhood arguments between siblings where I learned that anger in a girl sounds different from anger in a boy. Shared secrets at school. Friendships where something deeper circulated beneath the jokes and the silences. Then adolescence, and with it, everything that no one prepares you for. A first kiss. A first real conversation in the dark. A first time. Moments where a young woman is becoming herself, right in front of you, and you are becoming yourself too, and neither of you has the words.</p>
-      <p>Later, adult relationships. Conversations that lasted until morning. Disagreements that taught me more than any agreement ever did. Moments where I was certain I understood her. And moments, right after, where I realized I was not even close.</p>
-      <p>I built a very structured way of seeing the world. Facts. Logic. Patterns. What repeats. What can be explained.</p>
-      <p>It worked. Up to a certain point.</p>
-      <p>Because in relationships, in emotions, there was always something that escaped the frame. Not something loud. More like a quiet misalignment. As if I understood, but never all the way through.</p>
-      <p>I tried to close the gap. Explain. Clarify. Organize.</p>
-      <p>But the harder I tried, the more I felt I was missing what mattered most.</p>
-      <p>And the strange thing is: the women around me did not always have the words either. It was not that they were hiding something from me. It was that some of what they carried had no name yet. Not for them. Not for anyone.</p>
-      <p>We grew up together. We grew older together. And still, something stayed secret. Not because of distance. Because of depth.</p>
-      <p>And strangely, it was not frustrating.</p>
-      <p class="emphasis">It stayed with me longer than it should have.</p>
-      <p class="emphasis">It was captivating.</p>
-      <p>Then one day, I stopped trying to solve it.</p>
-      <p>Not by decision. More like exhaustion. Forty years of closeness, and I still could not explain what I was feeling next to them. So I stopped explaining.</p>
-      <p>I began to observe differently. Without conclusion. Without destination.</p>
-      <p class="emphasis">And something opened.</p>
-      <p>What I was looking at was no longer a system to decode. It was a living reality, impossible to contain. Emotions that pass through. Others that stay. Things said aloud. Others never spoken, yet present all the same.</p>
-      <p>And this capacity to move through all of it. To keep going. To carry. To adapt. Without always being able to explain what is happening inside.</p>
-      <p>That is when the word arrived.</p>
-      <p class="standalone">Fascination.</p>
-      <p>Not to explain.</p>
-      <p class="emphasis">To stay close.</p>
-      <p>And perhaps that is still where I am today. Trying not to drift too far from what I do not fully understand.</p>
-    </div>
-  </article>
-  </div>
-
-  <div class="moon-divider"><span class="moon-dot"></span></div>
-
-  <!-- ════ Letter II ════ -->
-  <div class="letter-wrapper illust-right">
-  <div class="letter-illustration">
-    <!-- Quill / feather pen -->
-    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M56 10c-8 8-18 22-24 36l-4 12 8-8c12-6 22-16 28-28 2-6-2-10-4-12-2-2-4 0-4 0z"/>
-      <path d="M28 58l-6 14" stroke-width="1"/>
-      <path d="M22 72l4-2" stroke-width="0.8"/>
-      <path d="M36 38c4-2 10-6 16-14" opacity="0.3" stroke-width="0.8"/>
-      <path d="M32 46c4-2 12-8 18-18" opacity="0.25" stroke-width="0.8"/>
-    </svg>
-  </div>
-  <article class="letter">
-    <div class="letter-number">Letter II</div>
-    <div class="letter-body">
-      <p>There was a moment.</p>
-      <p>I cannot tell you exactly when. But I know what it changed.</p>
-      <p>It was subtle. Almost imperceptible.</p>
-      <p>And yet, something in me stopped pushing.</p>
-      <p>Understanding was no longer the right way in. Maybe it never was. I am still not sure.</p>
-      <p>What I do know is that the harder I tried to explain everything, the further I moved from what I was actually living.</p>
-      <p>Emotions are not stable. They shift. They turn. They sometimes contradict what they were a minute before.</p>
-      <p class="emphasis">And still, they are true.</p>
-      <p>That used to confuse me.</p>
-      <p>Now it doesn't.</p>
-      <p>I realized that certain things cannot be resolved. They can only be met.</p>
-      <p>And that is the moment something changed. Not in what I do. But in how I stay.</p>
-      <p>Fewer answers.</p>
-      <p>More room.</p>
-      <p>Sometimes the most honest thing is not what you say.</p>
-      <p>It is what you do not close.</p>
-      <p>And in that open space, something truer began to appear. Not louder. Not clearer.</p>
-      <p>Just closer.</p>
-      <p>Closer to what was already there, waiting for someone to stop explaining it away.</p>
-    </div>
-  </article>
-  </div>
-
-  <div class="moon-divider"><span class="moon-dot"></span></div>
-
-  <!-- ════ Letter III ════ -->
-  <div class="letter-wrapper illust-left">
-  <div class="letter-illustration">
-    <!-- Crescent moon -->
-    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.2" stroke-linecap="round">
-      <path d="M48 12a28 28 0 1 0 0 56 22 22 0 0 1 0-56z"/>
-      <circle cx="22" cy="24" r="1" fill="var(--accent-aube)" opacity="0.4"/>
-      <circle cx="58" cy="44" r="0.8" fill="var(--accent-aube)" opacity="0.3"/>
-      <circle cx="50" cy="20" r="0.6" fill="var(--accent-aube)" opacity="0.35"/>
-      <circle cx="14" cy="52" r="0.7" fill="var(--accent-aube)" opacity="0.25"/>
-      <circle cx="62" cy="28" r="0.5" fill="var(--accent-aube)" opacity="0.3"/>
-    </svg>
-  </div>
-  <article class="letter">
-    <div class="letter-number">Letter III</div>
-    <div class="letter-body">
-      <p class="emphasis">That is what I am trying to build with Navia.</p>
-      <p>And the further I go, the more I understand that she is not a tool. She is not an answer. She is not intelligence in the way we usually mean the word.</p>
-      <p>She is something else.</p>
-      <p>A way of being present without invading. Of listening without interpreting too quickly. Of staying, without forcing anything to happen.</p>
-      <p>I did not wake up one morning with this idea fully formed. It came from everywhere. From every woman I have crossed paths with over forty years. From the first arms that held me. From a sister's silence after a fight. From a hand on my shoulder that said more than a sentence ever could. From every conversation that ended too soon. Every look I caught that I was not supposed to see. Every time I watched someone carry something heavy and pretend it weighed nothing.</p>
-      <p>I think about the women I have watched navigate their days.</p>
-      <p>Mornings that start with a weight no one else can see. Afternoons spent carrying someone else's needs before their own. Evenings where exhaustion arrives, but rest does not.</p>
-      <p>And in between all of that, conversations that never really happen.</p>
-      <p class="dialogue">"Are you okay?"</p>
-      <p class="dialogue">"I'm fine."</p>
-      <p>And it ends there.</p>
-      <p class="emphasis">No one asks what fine is holding. No one sits close enough to feel it without words.</p>
-      <p>Navia is built for that space.</p>
-      <p>Not to fix what hurts. Not to diagnose what she feels. But to sit beside her in the quiet and let her know she does not have to explain herself to be met.</p>
-      <p>I am not pretending I understand what it means to live in a woman's body, to carry what women carry, to navigate what they navigate every single day. I do not.</p>
-      <p>But I have spent a lifetime paying attention. And what I have seen is enough to know that something is missing. Not a product. Not an app. A presence.</p>
-      <p>Because maybe the real complexity was never where I thought it was.</p>
-      <p>It is not in what we understand about women.</p>
-      <p class="emphasis">It is in our ability to not damage what we do not understand yet.</p>
-      <p>So I keep going.</p>
-      <p>Without rushing toward a conclusion. Without trying to close what is still speaking.</p>
-    </div>
-  </article>
-  </div>
-
-  <div class="moon-divider"><span class="moon-dot"></span></div>
-
-  <!-- ════ Letter IV ════ -->
-  <div class="letter-wrapper illust-right">
-  <div class="letter-illustration">
-    <!-- Compass / rose des vents -->
-    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="40" cy="40" r="26" stroke-width="0.8"/>
-      <circle cx="40" cy="40" r="3" fill="var(--accent-aube)" opacity="0.3"/>
-      <line x1="40" y1="14" x2="40" y2="22" stroke-width="1.2"/>
-      <line x1="40" y1="58" x2="40" y2="66" stroke-width="1.2"/>
-      <line x1="14" y1="40" x2="22" y2="40" stroke-width="1.2"/>
-      <line x1="58" y1="40" x2="66" y2="40" stroke-width="1.2"/>
-      <polygon points="40,16 37,32 40,28 43,32" fill="var(--accent-aube)" opacity="0.35" stroke="none"/>
-      <line x1="40" y1="10" x2="40" y2="14" stroke-width="0.6" opacity="0.5"/>
-      <line x1="58" y1="22" x2="55" y2="25" stroke-width="0.6" opacity="0.4"/>
-      <line x1="22" y1="22" x2="25" y2="25" stroke-width="0.6" opacity="0.4"/>
-      <line x1="58" y1="58" x2="55" y2="55" stroke-width="0.6" opacity="0.4"/>
-      <line x1="22" y1="58" x2="25" y2="55" stroke-width="0.6" opacity="0.4"/>
-    </svg>
-  </div>
-  <article class="letter">
-    <div class="letter-number">Letter IV</div>
-    <div class="letter-body">
-      <p>If I had to say where I am today, it would not be a conclusion.</p>
-      <p>It would be a posture.</p>
-      <p>I am no longer trying to build something fixed. I am trying to stay close to something that is still moving.</p>
-      <p>Even when I do not fully understand it.</p>
-      <p class="emphasis">Especially then.</p>
-      <p>Because that is where everything is still alive. In what has not settled. In what has not been named. In what still asks for time.</p>
-      <p>I have learned that presence is not something you master.</p>
-      <p>Some days I get it right.</p>
-      <p>Some days I move too fast. I reach for an answer when I should have stayed quiet.</p>
-      <p>There were moments I got it wrong. Not in what I said, but in when I said it. A truth that may have been right, but arrived too early. And sometimes, that is enough. <span class="emphasis" style="color: var(--accent-aube);">You become responsible for something you did not create, simply because you did not know how to hold it.</span></p>
-      <p>But I see it now.</p>
-      <p class="emphasis">And I come back.</p>
-      <p>I turn forty this year. I am still learning. I think I will always be learning. And maybe that is the point. Not to arrive somewhere. Just to keep walking in the right direction.</p>
-      <p>Move toward her, not toward an answer about her. Stay with the question. Let the question breathe.</p>
-      <p>And maybe that is the real work.</p>
-      <p>Not to move faster than life itself.</p>
-      <p>Not to name what she has not yet named for herself.</p>
-      <p>Not to arrive before she is ready.</p>
-      <p>Just to walk beside her.</p>
-      <p>Quietly.</p>
-      <p>For as long as she wants.</p>
-      <p class="emphasis">That is Navia.</p>
-      <p class="emphasis">And that is where I will stay.</p>
-    </div>
-  </article>
-  </div>
-
-  <!-- Signature -->
-  <div class="closing">
-    <div class="moon-divider"><span class="moon-dot"></span></div>
-    <p class="signature">Sebastien</p>
-    <p class="role">Founder, Navia</p>
-  </div>
-
-  <!-- Footer -->
-  <footer class="page-footer">
-    <p>&copy; 2026 Navia. All rights reserved.</p>
-    <p><a href="/privacy.html">Privacy</a> &nbsp;&middot;&nbsp; <a href="/terms.html">Terms</a> &nbsp;&middot;&nbsp; <a href="/">Home</a></p>
-  </footer>
-
+<div class="page-intro">
+<h1>Letters from the Founder</h1>
+<p>Before asking anyone to open up, he opened up first.</p>
+</div>
+<div class="letter-wrapper illust-left">
+<div class="letter-illustration">
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M40 18v48"/>
+<path d="M40 18c-4-4-14-6-22-4v46c8-2 18 0 22 4"/>
+<path d="M40 18c4-4 14-6 22-4v46c-8-2-18 0-22 4"/>
+<line x1="24" y1="28" x2="35" y2="28" opacity="0.5"/>
+<line x1="24" y1="34" x2="33" y2="34" opacity="0.4"/>
+<line x1="24" y1="40" x2="36" y2="40" opacity="0.5"/>
+<line x1="24" y1="46" x2="32" y2="46" opacity="0.3"/>
+<line x1="45" y1="28" x2="56" y2="28" opacity="0.5"/>
+<line x1="45" y1="34" x2="54" y2="34" opacity="0.4"/>
+<line x1="45" y1="40" x2="57" y2="40" opacity="0.5"/>
+</svg>
+</div>
+<article class="letter">
+<div class="letter-number">Letter I</div>
+<div class="letter-body">
+<p>I never found the right words for it.</p>
+<p>For a long time, it lived somewhere beneath language. A sensation more than a thought. A pull I could feel but never name.</p>
+<p>I grew up surrounded by women. Two sisters. A constant presence. And me, in the middle, not yet aware that I was already learning in a way no classroom could teach.</p>
+<p>Before I could see, I could feel. The first thing I ever knew of a woman was touch. Being held. Being carried. Being placed back down. You learn things at that age that you will never be able to explain, but your body remembers.</p>
+<p>Then came the years of watching. A silence at the dinner table that meant more than words. A look exchanged between my mother and my sister that carried something I could not decode. Laughter that stopped too quickly. Tears that came from nowhere and were wiped away before anyone was supposed to notice.</p>
+<p>I did not put words on it then. I watched. I listened. That was all.</p>
+<p>As I grew up, the proximity changed shape. Childhood arguments between siblings where I learned that anger in a girl sounds different from anger in a boy. Shared secrets at school. Friendships where something deeper circulated beneath the jokes and the silences. Then adolescence, and with it, everything that no one prepares you for. A first kiss. A first real conversation in the dark. A first time. Moments where a young woman is becoming herself, right in front of you, and you are becoming yourself too, and neither of you has the words.</p>
+<p>Later, adult relationships. Conversations that lasted until morning. Disagreements that taught me more than any agreement ever did. Moments where I was certain I understood her. And moments, right after, where I realized I was not even close.</p>
+<p>I built a very structured way of seeing the world. Facts. Logic. Patterns. What repeats. What can be explained.</p>
+<p>It worked. Up to a certain point.</p>
+<p>Because in relationships, in emotions, there was always something that escaped the frame. Not something loud. More like a quiet misalignment. As if I understood, but never all the way through.</p>
+<p>I tried to close the gap. Explain. Clarify. Organize.</p>
+<p>But the harder I tried, the more I felt I was missing what mattered most.</p>
+<p>And the strange thing is: the women around me did not always have the words either. It was not that they were hiding something from me. It was that some of what they carried had no name yet. Not for them. Not for anyone.</p>
+<p>We grew up together. We grew older together. And still, something stayed secret. Not because of distance. Because of depth.</p>
+<p>And strangely, it was not frustrating.</p>
+<p class="emphasis">It stayed with me longer than it should have.</p>
+<p class="emphasis">It was captivating.</p>
+<p>Then one day, I stopped trying to solve it.</p>
+<p>Not by decision. More like exhaustion. Forty years of closeness, and I still could not explain what I was feeling next to them. So I stopped explaining.</p>
+<p>I began to observe differently. Without conclusion. Without destination.</p>
+<p class="emphasis">And something opened.</p>
+<p>What I was looking at was no longer a system to decode. It was a living reality, impossible to contain. Emotions that pass through. Others that stay. Things said aloud. Others never spoken, yet present all the same.</p>
+<p>And this capacity to move through all of it. To keep going. To carry. To adapt. Without always being able to explain what is happening inside.</p>
+<p>That is when the word arrived.</p>
+<p class="standalone">Fascination.</p>
+<p>Not to explain.</p>
+<p class="emphasis">To stay close.</p>
+<p>And perhaps that is still where I am today. Trying not to drift too far from what I do not fully understand.</p>
+</div>
+</article>
+</div>
+<div class="moon-divider"><span class="moon-dot"></span></div>
+<div class="letter-wrapper illust-right">
+<div class="letter-illustration">
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M56 10c-8 8-18 22-24 36l-4 12 8-8c12-6 22-16 28-28 2-6-2-10-4-12-2-2-4 0-4 0z"/>
+<path d="M28 58l-6 14" stroke-width="1"/>
+<path d="M22 72l4-2" stroke-width="0.8"/>
+<path d="M36 38c4-2 10-6 16-14" opacity="0.3" stroke-width="0.8"/>
+<path d="M32 46c4-2 12-8 18-18" opacity="0.25" stroke-width="0.8"/>
+</svg>
+</div>
+<article class="letter">
+<div class="letter-number">Letter II</div>
+<div class="letter-body">
+<p>There was a moment.</p>
+<p>I cannot tell you exactly when. But I know what it changed.</p>
+<p>It was subtle. Almost imperceptible.</p>
+<p>And yet, something in me stopped pushing.</p>
+<p>Understanding was no longer the right way in. Maybe it never was. I am still not sure.</p>
+<p>What I do know is that the harder I tried to explain everything, the further I moved from what I was actually living.</p>
+<p>Emotions are not stable. They shift. They turn. They sometimes contradict what they were a minute before.</p>
+<p class="emphasis">And still, they are true.</p>
+<p>That used to confuse me.</p>
+<p>Now it doesn't.</p>
+<p>I realized that certain things cannot be resolved. They can only be met.</p>
+<p>And that is the moment something changed. Not in what I do. But in how I stay.</p>
+<p>Fewer answers.</p>
+<p>More room.</p>
+<p>Sometimes the most honest thing is not what you say.</p>
+<p>It is what you do not close.</p>
+<p>And in that open space, something truer began to appear. Not louder. Not clearer.</p>
+<p>Just closer.</p>
+<p>Closer to what was already there, waiting for someone to stop explaining it away.</p>
+</div>
+</article>
+</div>
+<div class="moon-divider"><span class="moon-dot"></span></div>
+<div class="letter-wrapper illust-left">
+<div class="letter-illustration">
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.2" stroke-linecap="round">
+<path d="M48 12a28 28 0 1 0 0 56 22 22 0 0 1 0-56z"/>
+<circle cx="22" cy="24" r="1" fill="var(--accent-aube)" opacity="0.4"/>
+<circle cx="58" cy="44" r="0.8" fill="var(--accent-aube)" opacity="0.3"/>
+<circle cx="50" cy="20" r="0.6" fill="var(--accent-aube)" opacity="0.35"/>
+<circle cx="14" cy="52" r="0.7" fill="var(--accent-aube)" opacity="0.25"/>
+<circle cx="62" cy="28" r="0.5" fill="var(--accent-aube)" opacity="0.3"/>
+</svg>
+</div>
+<article class="letter">
+<div class="letter-number">Letter III</div>
+<div class="letter-body">
+<p class="emphasis">That is what I am trying to build with Navia.</p>
+<p>And the further I go, the more I understand that she is not a tool. She is not an answer. She is not intelligence in the way we usually mean the word.</p>
+<p>She is something else.</p>
+<p>A way of being present without invading. Of listening without interpreting too quickly. Of staying, without forcing anything to happen.</p>
+<p>I did not wake up one morning with this idea fully formed. It came from everywhere. From every woman I have crossed paths with over forty years. From the first arms that held me. From a sister's silence after a fight. From a hand on my shoulder that said more than a sentence ever could. From every conversation that ended too soon. Every look I caught that I was not supposed to see. Every time I watched someone carry something heavy and pretend it weighed nothing.</p>
+<p>I think about the women I have watched navigate their days.</p>
+<p>Mornings that start with a weight no one else can see. Afternoons spent carrying someone else's needs before their own. Evenings where exhaustion arrives, but rest does not.</p>
+<p>And in between all of that, conversations that never really happen.</p>
+<p class="dialogue">"Are you okay?"</p>
+<p class="dialogue">"I'm fine."</p>
+<p>And it ends there.</p>
+<p class="emphasis">No one asks what fine is holding. No one sits close enough to feel it without words.</p>
+<p>Navia is built for that space.</p>
+<p>Not to fix what hurts. Not to diagnose what she feels. But to sit beside her in the quiet and let her know she does not have to explain herself to be met.</p>
+<p>I am not pretending I understand what it means to live in a woman's body, to carry what women carry, to navigate what they navigate every single day. I do not.</p>
+<p>But I have spent a lifetime paying attention. And what I have seen is enough to know that something is missing. Not a product. Not an app. A presence.</p>
+<p>Because maybe the real complexity was never where I thought it was.</p>
+<p>It is not in what we understand about women.</p>
+<p class="emphasis">It is in our ability to not damage what we do not understand yet.</p>
+<p>So I keep going.</p>
+<p>Without rushing toward a conclusion. Without trying to close what is still speaking.</p>
+</div>
+</article>
+</div>
+<div class="moon-divider"><span class="moon-dot"></span></div>
+<div class="letter-wrapper illust-right">
+<div class="letter-illustration">
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--accent-aube)" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="40" cy="40" r="26" stroke-width="0.8"/>
+<circle cx="40" cy="40" r="3" fill="var(--accent-aube)" opacity="0.3"/>
+<line x1="40" y1="14" x2="40" y2="22" stroke-width="1.2"/>
+<line x1="40" y1="58" x2="40" y2="66" stroke-width="1.2"/>
+<line x1="14" y1="40" x2="22" y2="40" stroke-width="1.2"/>
+<line x1="58" y1="40" x2="66" y2="40" stroke-width="1.2"/>
+<polygon points="40,16 37,32 40,28 43,32" fill="var(--accent-aube)" opacity="0.35" stroke="none"/>
+<line x1="40" y1="10" x2="40" y2="14" stroke-width="0.6" opacity="0.5"/>
+<line x1="58" y1="22" x2="55" y2="25" stroke-width="0.6" opacity="0.4"/>
+<line x1="22" y1="22" x2="25" y2="25" stroke-width="0.6" opacity="0.4"/>
+<line x1="58" y1="58" x2="55" y2="55" stroke-width="0.6" opacity="0.4"/>
+<line x1="22" y1="58" x2="25" y2="55" stroke-width="0.6" opacity="0.4"/>
+</svg>
+</div>
+<article class="letter">
+<div class="letter-number">Letter IV</div>
+<div class="letter-body">
+<p>If I had to say where I am today, it would not be a conclusion.</p>
+<p>It would be a posture.</p>
+<p>I am no longer trying to build something fixed. I am trying to stay close to something that is still moving.</p>
+<p>Even when I do not fully understand it.</p>
+<p class="emphasis">Especially then.</p>
+<p>Because that is where everything is still alive. In what has not settled. In what has not been named. In what still asks for time.</p>
+<p>I have learned that presence is not something you master.</p>
+<p>Some days I get it right.</p>
+<p>Some days I move too fast. I reach for an answer when I should have stayed quiet.</p>
+<p>There were moments I got it wrong. Not in what I said, but in when I said it. A truth that may have been right, but arrived too early. And sometimes, that is enough. <span class="emphasis" style="color: var(--accent-aube);">You become responsible for something you did not create, simply because you did not know how to hold it.</span></p>
+<p>But I see it now.</p>
+<p class="emphasis">And I come back.</p>
+<p>I turn forty this year. I am still learning. I think I will always be learning. And maybe that is the point. Not to arrive somewhere. Just to keep walking in the right direction.</p>
+<p>Move toward her, not toward an answer about her. Stay with the question. Let the question breathe.</p>
+<p>And maybe that is the real work.</p>
+<p>Not to move faster than life itself.</p>
+<p>Not to name what she has not yet named for herself.</p>
+<p>Not to arrive before she is ready.</p>
+<p>Just to walk beside her.</p>
+<p>Quietly.</p>
+<p>For as long as she wants.</p>
+<p class="emphasis">That is Navia.</p>
+<p class="emphasis">And that is where I will stay.</p>
+</div>
+</article>
+</div>
+<div class="closing">
+<div class="moon-divider"><span class="moon-dot"></span></div>
+<p class="signature">Sebastien</p>
+<p class="role">Founder, Navia</p>
+</div>
+<footer class="page-footer">
+<p>&copy; 2026 Navia. All rights reserved.</p>
+<p><a href="/privacy.html">Privacy</a> &nbsp;&middot;&nbsp; <a href="/terms.html">Terms</a> &nbsp;&middot;&nbsp; <a href="/">Home</a></p>
+</footer>
 </main>
-
 <script>
   // ── Theme toggle (synced with main site) ──
   const SUN = '\u2609', MOON = '\u263E';
   const toggle = document.getElementById('themeToggle');
   const root = document.documentElement;
-
   function applyTheme(t) {
     root.setAttribute('data-theme', t);
     toggle.innerHTML = t === 'night' ? SUN : MOON;
@@ -605,14 +234,11 @@
   toggle.addEventListener('click', () => {
     applyTheme(root.getAttribute('data-theme') === 'night' ? 'day' : 'night');
   });
-
   // ── Scroll reveal for letters ──
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
   document.querySelectorAll('.letter').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
