@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /brand-book.html
+
+Sitemap: https://bynavia.com/sitemap.xml
