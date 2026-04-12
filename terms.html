@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Navia &mdash; Terms of Service</title>
+<meta name="description" content="Navia terms of service. The agreement between you and Navia, written plainly." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --indigo-nuit: #2B2940;
+    --indigo-royal: #3E3A7A;
+    --clair-lune: #F5F0E6;
+    --aube: #E8C58F;
+    --text: rgba(245, 240, 230, 0.92);
+    --text-soft: rgba(245, 240, 230, 0.62);
+    --hairline: rgba(245, 240, 230, 0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: radial-gradient(ellipse at top, var(--indigo-royal) 0%, var(--indigo-nuit) 55%, #1d1b2e 100%);
+    background-attachment: fixed;
+    color: var(--text);
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  header.mark {
+    position: fixed;
+    top: 28px;
+    right: 32px;
+    z-index: 10;
+    opacity: 0.82;
+    transition: opacity 0.4s ease;
+  }
+  header.mark:hover { opacity: 1; }
+  header.mark a { text-decoration: none; }
+
+  .wordmark {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: 17px;
+    letter-spacing: 0.02em;
+    color: var(--clair-lune);
+    position: relative;
+  }
+  .wordmark-i {
+    display: inline-block;
+    position: relative;
+    width: 0.32em;
+    text-align: center;
+  }
+  .wordmark-i::before {
+    content: '';
+    position: absolute;
+    top: -0.55em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.34em;
+    height: 0.34em;
+    border-radius: 50%;
+    background: var(--clair-lune);
+    box-shadow: 0 0 8px rgba(245, 240, 230, 0.55);
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 140px 32px 160px;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--aube);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--clair-lune);
+    margin-bottom: 28px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--aube);
+    font-weight: 300;
+  }
+
+  .updated {
+    color: var(--text-soft);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    margin-bottom: 56px;
+  }
+
+  .placeholder-card {
+    background: rgba(245, 240, 230, 0.04);
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    padding: 28px 32px;
+    margin-bottom: 48px;
+  }
+
+  .placeholder-card p {
+    color: var(--text-soft);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--clair-lune);
+    margin-top: 48px;
+    margin-bottom: 14px;
+    letter-spacing: -0.005em;
+  }
+
+  p {
+    margin-bottom: 18px;
+    font-size: 16px;
+    color: var(--text);
+  }
+
+  p strong {
+    color: var(--clair-lune);
+    font-weight: 500;
+  }
+
+  a {
+    color: var(--aube);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 197, 143, 0.35);
+    transition: border-color 0.3s ease;
+  }
+  a:hover { border-bottom-color: var(--aube); }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--hairline);
+    width: 100%;
+    color: var(--text-soft);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    border-bottom: none;
+  }
+  .back-link:hover { color: var(--aube); }
+
+  @media (max-width: 720px) {
+    main { padding: 120px 22px 120px; }
+    header.mark { top: 22px; right: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="mark">
+  <a href="/"><div class="wordmark">Nav<span class="wordmark-i">&#305;</span>a</div></a>
+</header>
+
+<main>
+  <span class="label">Terms</span>
+  <h1>The agreement between <em>us</em>.</h1>
+  <p class="updated">Last updated: April 2026 &middot; Pre-launch placeholder</p>
+
+  <div class="placeholder-card">
+    <p>This is a placeholder. The full Navia terms of service will be published before public launch, after a complete review with legal counsel covering US consumer law, health-adjacent disclaimers, and international jurisdictions.</p>
+  </div>
+
+  <h2>What you are agreeing to today</h2>
+  <p>By joining the Navia waitlist with your email, you are agreeing to receive a small number of messages from us about the launch of the Navia companion. That is the entire scope of this agreement during the pre-launch period.</p>
+
+  <h2>Navia is a companion, not a clinician</h2>
+  <p>Navia is being built as a wellness and emotional companion for women. <strong>Navia is not a substitute for medical, psychological, or emergency care.</strong> If you are experiencing a medical emergency, a mental health crisis, or any situation that requires professional intervention, please contact a licensed provider or local emergency services immediately.</p>
+
+  <h2>Your content stays yours</h2>
+  <p>Anything you share with the Navia companion in the future, including conversations, voice notes, health logs, and entries inside your private circles, remains your content. We do not claim ownership over what you write or what you say to Navia. The full content rights, license, and deletion mechanics will be detailed here at launch.</p>
+
+  <h2>The free, the basic, the premium</h2>
+  <p>The emotional core of Navia, where a woman can be heard, will always be free. The future basic and premium tiers will unlock features such as expanded private circles, asynchronous expert access, and the structured health synthesis that can be exported to her doctor or OBGYN. Pricing, billing, refunds, and cancellation will be described here in full at launch.</p>
+
+  <h2>Acceptable use</h2>
+  <p>Please use Navia in good faith. Do not attempt to disrupt the service, scrape its content, impersonate other users, or use the experience to harm anyone. Navia is built around dignity; misuse undermines that for everyone.</p>
+
+  <h2>Changes</h2>
+  <p>When the full terms of service are published, this page will be replaced. If you are on the waitlist at that point, we will tell you, plainly, what changed and what it means for you before you ever open the app.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this agreement: <a href="mailto:contact@bynavia.com">contact@bynavia.com</a>.</p>
+
+  <a class="back-link" href="/">&larr; Back to Navia</a>
+</main>
+
+</body>
+</html>
