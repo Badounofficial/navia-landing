@@ -1,934 +1,678 @@
 <!DOCTYPE html>
-<html lang="en-US" data-theme="night">
+<html lang="en-US">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navia &middot; To be understood before having to ask</title>
-<meta name="description" content="Navia is a quiet companion for every phase of a woman's life. A breathing moon, private circles with the people she trusts, and a presence that acts before she has to ask.">
+<title>Navia — A presence, before you even ask</title>
+<meta name="description" content="Navia is a presence that exists with you through every chapter of womanhood. She perceives what you feel before you find the words. Join the waitlist.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://bynavia.com/">
+
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bynavia.com/">
-<meta property="og:title" content="Navia &middot; To be understood before having to ask">
-<meta property="og:description" content="A quiet companion for every phase of a woman's life. Navia listens the way the moon listens, and acts before you have to ask.">
+<meta property="og:title" content="Navia — A presence, before you even ask">
+<meta property="og:description" content="Navia exists with you in the moments where nothing is formulated, but everything is felt. Join the waitlist.">
 <meta property="og:image" content="https://bynavia.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Navia">
 <meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Navia &middot; To be understood before having to ask">
-<meta name="twitter:description" content="A quiet companion for every phase of a woman's life.">
+<meta name="twitter:title" content="Navia — A presence, before you even ask">
+<meta name="twitter:description" content="Navia exists with you in the moments where nothing is formulated, but everything is felt. Join the waitlist.">
 <meta name="twitter:image" content="https://bynavia.com/og-image.png">
+
+<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Navia",
   "url": "https://bynavia.com",
-  "description": "A quiet companion for every phase of a woman's life.",
+  "logo": "https://bynavia.com/logo.png",
+  "description": "A presence that exists with women through every chapter of life. She perceives what you feel before you find the words.",
   "email": "contact@bynavia.com",
-  "founder": { "@type": "Person", "name": "Sebastien Assohou" },
+  "founder": {
+    "@type": "Person",
+    "name": "Sebastien Assohou"
+  },
   "sameAs": []
 }
 </script>
-<meta name="theme-color" content="#2B2940">
-<meta name="color-scheme" content="dark light">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Navia — A presence, before you even ask",
+  "description": "Navia exists with you in the moments where nothing is formulated, but everything is felt. She does not ask you to explain. She is already there.",
+  "url": "https://bynavia.com/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Navia"
+  }
+}
+</script>
+
+<!-- Performance: theme-color for mobile browsers -->
+<meta name="theme-color" content="#F9F8FF">
+<meta name="color-scheme" content="light">
+
+<!-- Fonts: preconnect + non-blocking load with display=swap -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@300;400&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@300;400&display=optional" rel="stylesheet"></noscript>
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<style>:root[data-theme="night"]{--bg:#2B2940;--bg-gradient:radial-gradient(ellipse at top,#3E3A7A 0%,#2B2940 55%,#1d1b2e 100%);--text:rgba(245,240,230,0.92);--text-soft:rgba(245,240,230,0.62);--text-strong:#F5F0E6;--hairline:rgba(245,240,230,0.14);--accent-rose:#E8A89D;--accent-aube:#E8C58F;--card-bg:rgba(245,240,230,0.04);--moon-color:#F5F0E6;--moon-halo-1:rgba(245,240,230,0.65);--moon-halo-2:rgba(245,240,230,0.25);--stars-opacity:1;--input-bg:rgba(245,240,230,0.06);--input-border:rgba(245,240,230,0.25);--btn-bg:#F5F0E6;--btn-text:#2B2940;--glow-aube:rgba(232,197,143,0.45);--glow-aube-ring:rgba(232,197,143,0.32);--glow-aube-wide:rgba(232,197,143,0.14);--glow-shadow:rgba(0,0,0,0.32);--glow-inset:rgba(245,240,230,0.12);--glow-tint:rgba(232,197,143,0.07)}:root[data-theme="day"]{--bg:#F4EFF5;--bg-gradient:radial-gradient(ellipse at top,#F8F3F8 0%,#F4EFF5 55%,#EDE6EE 100%);--text:rgba(43,41,64,0.88);--text-soft:rgba(43,41,64,0.55);--text-strong:#2B2940;--hairline:rgba(43,41,64,0.12);--accent-rose:#C97A8E;--accent-aube:#8E7BB8;--card-bg:rgba(43,41,64,0.04);--moon-color:#FBF9FD;--moon-halo-1:rgba(208,196,232,0.38);--moon-halo-2:rgba(230,205,220,0.18);--stars-opacity:0;--input-bg:rgba(43,41,64,0.04);--input-border:rgba(43,41,64,0.22);--btn-bg:#2B2940;--btn-text:#F5F0E6;--glow-aube:rgba(142,123,184,0.5);--glow-aube-ring:rgba(142,123,184,0.34);--glow-aube-wide:rgba(142,123,184,0.12);--glow-shadow:rgba(43,41,64,0.15);--glow-inset:rgba(255,255,255,0.5);--glow-tint:rgba(142,123,184,0.07);--deco-lavender:rgba(200,185,232,0.55);--deco-rose:rgba(232,195,210,0.5)}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Inter','Inter Fallback',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);background-image:var(--bg-gradient);background-attachment:fixed;color:var(--text);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background 0.6s ease,color 0.6s ease;position:relative}body::before,body::after{content:'';position:fixed;border-radius:50%;pointer-events:none;z-index:0;opacity:0;transition:opacity 0.9s ease;filter:blur(60px)}body::before{top:-180px;left:-160px;width:520px;height:520px;background:radial-gradient(circle at center,var(--deco-lavender,transparent) 0%,transparent 70%)}body::after{bottom:-200px;right:-180px;width:560px;height:560px;background:radial-gradient(circle at center,var(--deco-rose,transparent) 0%,transparent 70%)}:root[data-theme="day"] body::before,:root[data-theme="day"] body::after{opacity:1}.stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:var(--stars-opacity);transition:opacity 0.8s ease;background-image:radial-gradient(1px 1px at 12% 18%,rgba(245,240,230,0.5),transparent),radial-gradient(1px 1px at 28% 42%,rgba(245,240,230,0.3),transparent),radial-gradient(1px 1px at 55% 25%,rgba(245,240,230,0.4),transparent),radial-gradient(1px 1px at 72% 65%,rgba(245,240,230,0.25),transparent),radial-gradient(1px 1px at 85% 35%,rgba(245,240,230,0.35),transparent),radial-gradient(1px 1px at 40% 80%,rgba(245,240,230,0.3),transparent),radial-gradient(1px 1px at 92% 82%,rgba(245,240,230,0.28),transparent),radial-gradient(1px 1px at 18% 72%,rgba(245,240,230,0.22),transparent)}.top-bar{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:18px 32px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);background:linear-gradient(to bottom,rgba(43,41,64,0.55) 0%,rgba(43,41,64,0.15) 60%,rgba(43,41,64,0) 100%);transform:translateY(0);transition:background 0.6s ease,transform 0.55s cubic-bezier(0.2,0.8,0.2,1),opacity 0.55s ease;will-change:transform}.top-bar.is-hidden{transform:translateY(-110%);opacity:0;pointer-events:none}:root[data-theme="day"] .top-bar{background:linear-gradient(to bottom,rgba(245,240,230,0.7) 0%,rgba(245,240,230,0.2) 60%,rgba(245,240,230,0) 100%)}.top-bar-left{flex:0 0 auto;display:flex;align-items:center}.top-bar-center{flex:1 1 auto;text-align:center}.top-bar-right{flex:0 0 auto;display:flex;align-items:center}.community-link{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;font-size:14px;letter-spacing:0.02em;color:var(--text-soft);text-decoration:none;padding:9px 20px;border-radius:100px;border:1px solid transparent;transform:translateY(0);transition:color 0.45s ease,border-color 0.45s ease,background 0.45s ease,transform 0.45s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.45s cubic-bezier(0.2,0.8,0.2,1);will-change:transform}.community-link::after{content:' \2192';opacity:0.6;margin-left:4px;transition:transform 0.3s ease,opacity 0.3s ease;display:inline-block}.community-link:hover,.community-link:focus-visible{color:#F2D9A8;border-color:rgba(232,197,143,0.6);background:rgba(232,197,143,0.16);transform:translateY(-3px);box-shadow:0 0 0 1px rgba(232,197,143,0.45),0 0 36px rgba(232,197,143,0.28),0 16px 36px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.25);outline:none}:root[data-theme="day"] .community-link:hover,:root[data-theme="day"] .community-link:focus-visible{color:#5B4A8A;border-color:rgba(110,90,160,0.55);background:rgba(142,123,184,0.14);box-shadow:0 0 0 1px rgba(110,90,160,0.4),0 0 32px rgba(142,123,184,0.25),0 16px 36px rgba(43,41,64,0.22),inset 0 1px 0 rgba(255,255,255,0.5)}.community-link:hover::after,.community-link:focus-visible::after{transform:translateX(3px);opacity:1}.theme-toggle{background:transparent;border:1px solid var(--hairline);border-radius:999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text);transition:background 0.3s ease,transform 0.2s ease;padding:0}.theme-toggle:hover{background:var(--card-bg);transform:scale(1.05)}.theme-toggle svg{width:16px;height:16px}.wordmark-wrap{opacity:0.78;transition:opacity 0.4s ease}.wordmark-wrap:hover{opacity:1}.wordmark{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:17px;letter-spacing:0.02em;color:var(--text-strong);position:relative;display:inline-block;text-decoration:none}.wordmark-i{position:relative;display:inline-block}.wordmark-i::before{content:'';position:absolute;top:-3px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#FFFFFF 0%,var(--moon-color) 55%,rgba(245,240,230,0.35) 100%);box-shadow:0 0 14px var(--moon-halo-1),0 0 32px var(--moon-halo-2);animation:softBreath 5s ease-in-out infinite}:root[data-theme="day"] .wordmark-i::before{border:0.6px solid rgba(160,140,200,0.55);box-shadow:0 0 0 0.6px rgba(200,185,232,0.35),0 0 12px rgba(200,185,232,0.45),0 0 24px rgba(232,195,220,0.28)}@keyframes softBreath{0%,100%{transform:translateX(-50%) scale(1);opacity:0.95}50%{transform:translateX(-50%) scale(1.08);opacity:1}}main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:160px 40px 60px}section{margin-bottom:120px}.hero-moon{display:block;margin:20px 0 48px;margin-left:calc(50% - 75px + 56px);width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#FFFFFF 0%,var(--moon-color) 55%,rgba(245,240,230,0.18) 100%);box-shadow:0 0 90px var(--moon-halo-1),0 0 180px var(--moon-halo-2);animation:softBreath 6s ease-in-out infinite}:root[data-theme="day"] .hero-moon{border:1px solid rgba(160,140,200,0.5);box-shadow:0 0 0 1px rgba(200,185,232,0.35),0 0 60px rgba(200,185,232,0.45),0 0 140px rgba(232,195,220,0.3)}h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(40px,6vw,68px);line-height:1.08;letter-spacing:-0.02em;color:var(--text-strong);text-align:center;margin-bottom:28px}h1 em{font-style:italic;font-weight:300;color:var(--accent-aube)}.lede{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:22px;font-style:italic;line-height:1.55;color:var(--text);text-align:center;margin:0 auto 48px;max-width:32ch}.waitlist-form{display:flex;gap:10px;max-width:460px;margin:0 auto 18px;flex-wrap:wrap;justify-content:center}.waitlist-input{flex:1 1 240px;min-width:0;padding:15px 22px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:100px;color:var(--text-strong);font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color 0.25s ease,background 0.25s ease}.waitlist-input::placeholder{color:var(--text-soft)}.waitlist-input:focus{border-color:var(--accent-aube);background:var(--card-bg)}.waitlist-input[aria-invalid="true"]{border-color:var(--accent-rose)}.waitlist-btn{padding:15px 32px;background:var(--btn-bg);color:var(--btn-text);border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.02em;cursor:pointer;white-space:nowrap;transition:transform 0.2s ease,opacity 0.2s ease}.waitlist-btn:hover{transform:translateY(-1px);opacity:0.92}.waitlist-btn:active{transform:translateY(0)}.waitlist-note{font-size:12px;color:var(--text-soft);text-align:center;letter-spacing:0.02em}.waitlist-success{display:none;text-align:center;padding:24px;color:var(--text-strong);font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:20px;max-width:460px;margin:0 auto}.waitlist-success.show{display:block}.section-label{display:block;font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent-rose);margin-bottom:14px;text-align:center}h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(30px,4.5vw,44px);line-height:1.15;letter-spacing:-0.01em;color:var(--text-strong);margin-bottom:32px;text-align:center}h2 em{font-style:italic;color:var(--accent-rose)}p{font-size:17px;color:var(--text);margin-bottom:22px}.prose p{max-width:62ch;margin-left:auto;margin-right:auto;text-align:left}.library-specialists{font-size:15px;color:var(--text-soft,rgba(43,41,64,0.72));font-style:italic;letter-spacing:0.01em;margin-top:14px}.library-preview{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:48px auto 24px;max-width:900px}.library-card{position:relative;padding:26px 26px 24px;border:1px solid var(--hairline);border-radius:18px;background:var(--card-bg);text-align:left;transform:translateY(0);transition:transform 0.5s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.5s cubic-bezier(0.2,0.8,0.2,1),border-color 0.5s ease;overflow:hidden}.library-card::before{content:'';position:absolute;inset:0;border-radius:18px;pointer-events:none;background:linear-gradient(145deg,var(--glow-tint) 0%,transparent 60%);opacity:0;transition:opacity 0.5s ease}.library-card:hover{transform:translateY(-5px);border-color:var(--glow-aube-ring);box-shadow:0 22px 52px var(--glow-shadow),0 0 0 1px var(--glow-aube-ring),0 0 60px var(--glow-aube-wide),inset 0 1px 0 var(--glow-inset)}.library-card:hover::before{opacity:1}.library-card-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;position:relative;z-index:1}.library-category{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-aube)}.library-time{font-family:'Inter',sans-serif;font-size:11px;font-weight:400;color:var(--text-soft);letter-spacing:0.04em}.library-title{font-family:'Fraunces',Georgia,serif;font-weight:300;font-style:italic;font-size:22px;line-height:1.3;color:var(--text-strong);margin:0 0 10px;position:relative;z-index:1}.library-lead{font-size:14.5px;line-height:1.6;color:var(--text);margin:0 0 16px;position:relative;z-index:1}.library-formats{display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1}.library-format{font-family:'Inter',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.06em;color:var(--text-soft);padding:4px 10px;border:1px solid var(--hairline);border-radius:999px;background:transparent}.library-preview-note{text-align:center;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:14px;color:var(--text-soft);margin:8px auto 24px;max-width:48ch}.consultation-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:44px auto 28px;max-width:980px}.consultation-step{position:relative;padding:30px 26px 26px;border:1px solid var(--hairline);border-radius:18px;background:var(--card-bg);text-align:left;transition:transform 0.5s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.5s cubic-bezier(0.2,0.8,0.2,1),border-color 0.5s ease;overflow:hidden}.consultation-step::before{content:'';position:absolute;inset:0;border-radius:18px;pointer-events:none;background:linear-gradient(145deg,var(--glow-tint) 0%,transparent 60%);opacity:0;transition:opacity 0.5s ease}.consultation-step:hover{transform:translateY(-5px);border-color:var(--glow-aube-ring);box-shadow:0 22px 52px var(--glow-shadow),0 0 0 1px var(--glow-aube-ring),0 0 60px var(--glow-aube-wide),inset 0 1px 0 var(--glow-inset)}.consultation-step:hover::before{opacity:1}.consultation-step-num{font-family:'Fraunces',Georgia,serif;font-weight:300;font-style:italic;font-size:30px;color:var(--accent-aube);margin-bottom:14px;position:relative;z-index:1}.consultation-step-title{font-family:'Fraunces',Georgia,serif;font-weight:400;font-style:italic;font-size:19px;color:var(--text-strong);margin-bottom:8px;position:relative;z-index:1}.consultation-step-body{font-size:14.5px;line-height:1.6;color:var(--text);position:relative;z-index:1}.consultation-note{text-align:center;font-size:13px;color:var(--text-soft);font-style:italic;max-width:64ch;margin:14px auto 0;line-height:1.6}.callout{font-family:'Fraunces',Georgia,serif;font-weight:300;font-style:italic;font-size:clamp(22px,3vw,28px);line-height:1.45;color:var(--text-strong);text-align:center;margin:60px auto;max-width:28ch;position:relative}.callout::before,.callout::after{content:'';display:block;width:40px;height:1px;background:var(--hairline);margin:24px auto}.callout-wide{max-width:44ch}.phases{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:30px 0;flex-wrap:wrap}.phase{flex:1 1 110px;text-align:center}.phase svg{width:48px;height:48px;margin-bottom:10px}:root[data-theme="day"] .phase svg .moon-disc{fill:#8E7BB8;stroke:rgba(74,61,107,0.35);stroke-width:0.8}:root[data-theme="day"] .phase svg .moon-disc-faint{fill:#8E7BB8;fill-opacity:0.18;stroke:rgba(107,91,149,0.65);stroke-width:1;opacity:1}:root[data-theme="day"] .phase svg .moon-ring{stroke:rgba(107,91,149,0.7);stroke-opacity:1}:root[data-theme="day"] .phase svg .moon-shadow{fill:#4A3D6B;fill-opacity:0.92}.phase-label{font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-soft);display:block;margin-bottom:4px}.phase-mood{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:13px;color:var(--text)}.modes{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:40px 0}.mode{border:1px solid var(--hairline);border-radius:18px;padding:36px 24px;text-align:center;font:inherit;cursor:pointer;position:relative;transition:transform 0.4s ease,box-shadow 0.4s ease,border-color 0.4s ease}.mode-day{background:#F4EFF5;color:#2B2940;border-color:rgba(43,41,64,0.10)}.mode-night{background:#2B2940;color:#F5F0E6;border-color:rgba(245,240,230,0.2)}.mode:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(0,0,0,0.12)}.mode-day:hover{border-color:rgba(142,123,184,0.28)}.mode-night:hover{border-color:rgba(245,240,230,0.42)}.mode.is-active{box-shadow:0 0 0 2px var(--accent-aube),0 14px 40px rgba(0,0,0,0.15)}.mode-label{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:22px;margin-bottom:10px;display:block}.mode-desc{font-size:13px;opacity:0.72;display:block}.mode-hint{display:block;margin-top:14px;font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;opacity:0.48}.circles-row{display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center;margin:40px 0 30px}.circles-text p{font-size:16px;line-height:1.72;color:var(--text);margin-bottom:20px;text-align:left;max-width:none}.circles-text p:last-child{margin-bottom:0}.circles-visual{display:flex;justify-content:center;align-items:center}.phone-svg{width:100%;max-width:240px;height:auto;color:var(--text);filter:drop-shadow(0 20px 50px rgba(0,0,0,0.22))}@media (max-width:720px){.circles-row{grid-template-columns:1fr;gap:40px}.circles-visual{order:-1}.phone-svg{max-width:220px}}.triad{display:grid;gap:14px;margin:36px auto;max-width:640px}.triad-row{display:flex;align-items:flex-start;gap:18px;padding:22px 26px;background:var(--card-bg);border:1px solid var(--hairline);border-radius:16px;cursor:pointer;position:relative;transform:translateY(0);transition:transform 0.5s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.5s cubic-bezier(0.2,0.8,0.2,1),border-color 0.5s ease,background 0.5s ease;will-change:transform}.triad-row::before{content:'';position:absolute;inset:0;border-radius:16px;pointer-events:none;background:linear-gradient(145deg,var(--glow-tint) 0%,transparent 55%);opacity:0;transition:opacity 0.5s ease}.triad-row:hover{transform:translateY(-5px);border-color:var(--glow-aube-ring);background:var(--card-bg);box-shadow:0 22px 52px var(--glow-shadow),0 0 0 1px var(--glow-aube-ring),0 0 60px var(--glow-aube-wide),inset 0 1px 0 var(--glow-inset)}.triad-row:hover::before{opacity:1}.triad-row:focus-visible{outline:none;border-color:var(--glow-aube-ring);box-shadow:0 0 0 2px var(--glow-aube),0 18px 40px var(--glow-shadow)}.triad-icon{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:19px;color:var(--accent-aube);flex-shrink:0;min-width:100px;transition:transform 0.5s cubic-bezier(0.2,0.8,0.2,1),opacity 0.4s ease;position:relative;z-index:1}.triad-row:hover .triad-icon{transform:translateX(3px)}.triad-text{font-size:15px;color:var(--text);line-height:1.6;position:relative;z-index:1}.pitch-link{display:inline-block;margin:20px auto;color:var(--text-soft);font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:15px;text-decoration:none;border-bottom:1px solid var(--hairline);padding-bottom:3px;transition:color 0.3s ease,border-color 0.3s ease}.pitch-link:hover{color:var(--text-strong);border-color:var(--accent-aube)}.center{text-align:center}.final-cta{text-align:center;padding:40px 0}.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:40px auto 0;max-width:1100px}.number-card{position:relative;padding:32px 22px 26px;border:1px solid var(--hairline);border-radius:18px;background:var(--card-bg);text-align:center;transform:translateY(0);transition:transform 0.5s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.5s cubic-bezier(0.2,0.8,0.2,1),border-color 0.5s ease;will-change:transform}.number-card:hover{transform:translateY(-4px);border-color:var(--glow-aube-ring);box-shadow:0 22px 52px var(--glow-shadow),0 0 0 1px var(--glow-aube-ring),0 0 50px var(--glow-aube-wide),inset 0 1px 0 var(--glow-inset)}.number-figure{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(36px,4vw,48px);line-height:1;color:var(--accent-aube);letter-spacing:-0.02em;margin-bottom:14px}.number-headline{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:14px;line-height:1.45;color:var(--text-strong);margin-bottom:12px;min-height:40px}.number-context{font-size:12px;line-height:1.65;color:var(--text-soft);margin-bottom:14px}.number-source{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-soft);opacity:0.7}.numbers-disclaimer{margin:36px auto 0;max-width:640px;font-size:11px;color:var(--text-soft);text-align:center;font-style:italic;opacity:0.7;line-height:1.6}footer{position:relative;z-index:1;border-top:1px solid var(--hairline);margin-top:80px;padding:60px 40px 48px}.footer-inner{max-width:780px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}.footer-brand .wordmark{font-size:20px}.footer-brand .wordmark-i::before{width:12px;height:12px;top:-3px}.footer-tagline{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:14px;color:var(--text-soft);margin-top:10px}.footer-links{display:flex;flex-direction:column;gap:10px;list-style:none}.footer-links a{color:var(--text-soft);font-size:13px;text-decoration:none;transition:color 0.3s ease}.footer-links a:hover{color:var(--text-strong)}.footer-founder{max-width:280px;font-size:12px;color:var(--text-soft);line-height:1.65}.footer-copy{max-width:780px;margin:40px auto 0;padding-top:24px;border-top:1px solid var(--hairline);font-size:11px;color:var(--text-soft);text-align:center;letter-spacing:0.04em}.footer-downloads{display:flex;justify-content:center;gap:16px;margin:48px auto 28px;flex-wrap:wrap}.download-btn{display:inline-flex;align-items:center;gap:12px;padding:12px 22px 12px 18px;background:var(--card-bg);border:1px solid var(--hairline);border-radius:14px;color:var(--text-strong);text-decoration:none;transform:translateY(0);transition:transform 0.45s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.45s cubic-bezier(0.2,0.8,0.2,1),border-color 0.45s ease}.download-btn:hover,.download-btn:focus-visible{transform:translateY(-3px);border-color:var(--glow-aube-ring);box-shadow:0 0 0 1px var(--glow-aube-ring),0 16px 36px var(--glow-shadow),0 0 36px var(--glow-aube-wide),inset 0 1px 0 var(--glow-inset);outline:none}.download-btn svg{width:26px;height:26px;flex-shrink:0}.download-text{display:flex;flex-direction:column;line-height:1.1;text-align:left}.download-tiny{font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-soft);margin-bottom:2px}.download-store{font-family:'Fraunces',Georgia,serif;font-size:16px;font-weight:400}.footer-socials{display:flex;justify-content:center;gap:14px;margin-bottom:36px;list-style:none;padding:0}.footer-socials li{list-style:none;margin:0;padding:0}.footer-socials li::marker{content:''}.social-icon{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--hairline);border-radius:50%;color:var(--text-soft);text-decoration:none;background:var(--card-bg);transform:translateY(0);transition:transform 0.45s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.45s cubic-bezier(0.2,0.8,0.2,1),border-color 0.45s ease,color 0.45s ease}.social-icon svg{width:16px;height:16px}.social-icon:hover,.social-icon:focus-visible{transform:translateY(-3px);color:var(--accent-aube);border-color:var(--glow-aube-ring);box-shadow:0 0 0 1px var(--glow-aube-ring),0 12px 28px var(--glow-shadow),0 0 28px var(--glow-aube-wide);outline:none}.signup-terms{margin-top:14px;font-size:11px;color:var(--text-soft);opacity:0.8;line-height:1.6;text-align:center}.signup-terms a{color:var(--text-soft);text-decoration:underline;text-decoration-color:var(--hairline);text-underline-offset:3px;transition:color 0.3s ease,text-decoration-color 0.3s ease}.signup-terms a:hover{color:var(--accent-aube);text-decoration-color:var(--glow-aube-ring)}@media (max-width:980px){.numbers-grid{grid-template-columns:repeat(2,1fr)}}@media (max-width:720px){main{padding:130px 24px 40px}section{margin-bottom:80px}.top-bar{padding:14px 18px}.wordmark{font-size:15px}.wordmark-i::before{width:9px;height:9px;top:-3px}.theme-toggle{width:30px;height:30px}.theme-toggle svg{width:14px;height:14px}.community-link{font-size:12px;padding:6px 12px}.top-bar{backdrop-filter:none;-webkit-backdrop-filter:none}.hero-moon{width:120px;height:120px;margin-left:calc(50% - 60px + 38px)}.modes{grid-template-columns:1fr}.waitlist-form{flex-direction:column}.waitlist-input,.waitlist-btn{flex:1 1 auto;width:100%}.triad-row{flex-direction:column;gap:6px}.triad-icon{min-width:0}.footer-inner{flex-direction:column;gap:32px}.numbers-grid{grid-template-columns:1fr;gap:14px}.number-headline{min-height:0}.library-preview{grid-template-columns:1fr;gap:14px}.library-card{padding:22px 22px 20px}.library-title{font-size:19px}.consultation-steps{grid-template-columns:1fr;gap:14px}.footer-downloads{flex-direction:column;align-items:center}.download-btn{width:220px;justify-content:flex-start}}@media (max-width:520px){.top-bar-center{display:none}}#circles,#content,#numbers,#consultation,#final-cta,footer{content-visibility:auto;contain-intrinsic-size:auto 600px}@media (prefers-reduced-motion:reduce){.hero-moon,.wordmark-i::before{animation:none}html{scroll-behavior:auto}*{transition:none !important}}</style>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'"  >
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+<style>
+  :root {
+    --violet: #7B6EF6;
+    --violet-light: #EEEDFE;
+    --violet-mid: #AFA9EC;
+    --rose: #F4C0D1;
+    --nuit: #2C2840;
+    --nuit-soft: #3D3758;
+    --blanc: #F9F8FF;
+    --gris: #8A8799;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--blanc);
+    color: var(--nuit);
+    font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    text-rendering: optimizeSpeed;
+  }
+  /* Accessibility: visible focus for keyboard navigation */
+  :focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; border-radius: 4px; }
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.25rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(249,248,255,0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(175,169,236,0.15);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo svg { width: 32px; height: 32px; }
+  .nav-wordmark { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 22px; font-weight: 400; color: var(--nuit); letter-spacing: -0.3px; }
+  .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 14px; font-weight: 400; color: var(--gris); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--nuit); }
+  .nav-cta { background: var(--nuit) !important; color: var(--blanc) !important; padding: 9px 22px; border-radius: 100px; font-size: 13px !important; font-weight: 500 !important; transition: background .2s, transform .15s !important; }
+  .nav-cta:hover { background: var(--nuit-soft) !important; transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 8rem 3rem 5rem; position: relative; overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+  .hero-orb-1 { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: var(--violet-light); opacity: .6; top: -100px; right: -150px; animation: float1 8s ease-in-out infinite; will-change: transform; }
+  .hero-orb-2 { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: var(--rose); opacity: .35; bottom: 80px; right: 200px; animation: float2 10s ease-in-out infinite; will-change: transform; }
+  .hero-orb-3 { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: var(--violet-mid); opacity: .2; top: 200px; left: 60%; animation: float3 7s ease-in-out infinite; will-change: transform; }
+  @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,20px)} }
+  @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(15px,-15px)} }
+  @keyframes float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-10px,10px)} }
+
+  .hero-content { position: relative; z-index: 1; max-width: 640px; animation: fadeUp 1s ease both; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--violet); margin-bottom: 1.5rem; animation: fadeUp 1s ease .1s both; }
+  .hero-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--violet); }
+
+  .hero-title { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.1; color: var(--nuit); margin-bottom: 1.5rem; animation: fadeUp 1s ease .2s both; }
+  .hero-title em { font-style: italic; color: var(--violet); }
+
+  .hero-subtitle { font-size: 18px; font-weight: 300; line-height: 1.75; color: var(--gris); max-width: 480px; margin-bottom: 3rem; animation: fadeUp 1s ease .3s both; }
+
+  .hero-form { display: flex; gap: 10px; max-width: 440px; animation: fadeUp 1s ease .4s both; }
+  .hero-input { flex: 1; padding: 14px 20px; border: 1.5px solid rgba(123,110,246,.25); border-radius: 100px; background: white; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--nuit); outline: none; transition: border-color .2s; }
+  .hero-input::placeholder { color: var(--violet-mid); }
+  .hero-input:focus { border-color: var(--violet); }
+  .hero-btn { padding: 14px 28px; background: var(--violet); color: white; border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: background .2s, transform .15s; }
+  .hero-btn:hover { background: var(--nuit-soft); transform: translateY(-1px); }
+
+  .hero-note { font-size: 12px; color: var(--gris); margin-top: 14px; animation: fadeUp 1s ease .5s both; }
+  .success-msg { display: none; align-items: center; gap: 10px; font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 20px; font-style: italic; color: var(--violet); }
+  .success-msg.show { display: flex; }
+
+  /* MANIFESTO */
+  .manifesto { padding: 7rem 3rem; max-width: 900px; margin: 0 auto; text-align: center; content-visibility: auto; contain-intrinsic-size: auto 400px; }
+  .manifesto-quote { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 300; font-style: italic; line-height: 1.5; color: var(--nuit); margin-bottom: 2rem; }
+  .manifesto-quote span { color: var(--violet); }
+  .manifesto-body { font-size: 16px; line-height: 1.9; color: var(--gris); max-width: 640px; margin: 0 auto; }
+
+  /* MODULES */
+  .modules { padding: 5rem 3rem 7rem; background: var(--nuit); position: relative; overflow: hidden; content-visibility: auto; contain-intrinsic-size: auto 800px; }
+  .modules::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 400px; height: 400px; border-radius: 50%; background: var(--violet); opacity: .08; pointer-events: none; }
+  .modules-header { text-align: center; margin-bottom: 4rem; position: relative; z-index: 1; }
+  .section-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--violet-mid); margin-bottom: 1rem; }
+  .section-title-dark { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; color: white; line-height: 1.2; }
+  .section-title-dark em { font-style: italic; color: var(--violet-mid); }
+
+  .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5px; position: relative; z-index: 1; border: 1.5px solid rgba(175,169,236,.12); border-radius: 20px; overflow: hidden; }
+  .module-card { padding: 2rem 1.75rem; background: rgba(255,255,255,.03); border: 1px solid rgba(175,169,236,.08); transition: background .2s; }
+  .module-card:hover { background: rgba(123,110,246,.08); }
+  .module-icon { width: 40px; height: 40px; margin-bottom: 1.25rem; }
+  .module-num { font-size: 11px; font-weight: 500; color: var(--violet); letter-spacing: .08em; margin-bottom: .5rem; }
+  .module-title { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 1.4rem; font-weight: 400; color: white; margin-bottom: .75rem; line-height: 1.2; }
+  .module-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.6); }
+
+  /* GIFTING */
+  .gifting { padding: 8rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; content-visibility: auto; contain-intrinsic-size: auto 600px; }
+  .gifting-visual { position: relative; }
+  .gift-card { background: white; border-radius: 24px; padding: 2rem; border: 1.5px solid rgba(123,110,246,.15); position: relative; z-index: 1; }
+  .gift-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
+  .gift-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--violet-light); display: flex; align-items: center; justify-content: center; }
+  .gift-name { font-size: 15px; font-weight: 500; color: var(--nuit); }
+  .gift-phase { font-size: 12px; color: var(--gris); }
+  .gift-message { background: var(--violet-light); border-radius: 16px 16px 16px 4px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+  .gift-message p { font-size: 14px; line-height: 1.65; color: var(--nuit-soft); font-style: italic; }
+  .gift-surprise { background: var(--nuit); border-radius: 16px; padding: 1.25rem; display: flex; align-items: center; gap: 14px; }
+  .gift-box-icon { width: 42px; height: 42px; background: rgba(123,110,246,.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .gift-surprise-text p:first-child { font-size: 13px; font-weight: 500; color: white; margin-bottom: 2px; }
+  .gift-surprise-text p:last-child { font-size: 12px; color: var(--violet-mid); }
+  .floating-badge { position: absolute; background: white; border: 1.5px solid rgba(123,110,246,.2); border-radius: 100px; padding: 8px 14px; font-size: 12px; color: var(--nuit); white-space: nowrap; }
+  .fb1 { top: -16px; right: -10px; animation: float2 6s ease-in-out infinite; }
+  .fb2 { bottom: -16px; left: -10px; animation: float1 8s ease-in-out infinite; }
+
+  .gifting-tag { font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--violet); margin-bottom: 1rem; display: block; }
+  .gifting-title { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.2; color: var(--nuit); margin-bottom: 1.5rem; }
+  .gifting-title em { font-style: italic; color: var(--violet); }
+  .gifting-body { font-size: 16px; line-height: 1.8; color: var(--gris); margin-bottom: 2rem; }
+  .gifting-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .gifting-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--nuit); line-height: 1.5; }
+  .gifting-list li::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--violet); margin-top: 6px; flex-shrink: 0; }
+
+  /* TESTIMONIALS */
+  .testimonials { padding: 7rem 3rem; background: var(--violet-light); content-visibility: auto; contain-intrinsic-size: auto 500px; }
+  .testimonials-header { text-align: center; margin-bottom: 4rem; }
+  .section-title-light { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--nuit); line-height: 1.2; }
+  .section-title-light em { font-style: italic; color: var(--violet); }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+  .testi-card { background: white; border-radius: 20px; padding: 1.75rem; border: 1px solid rgba(123,110,246,.1); }
+  .testi-quote { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 1.25rem; font-style: italic; font-weight: 300; line-height: 1.6; color: var(--nuit); margin-bottom: 1.25rem; }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .testi-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; }
+  .testi-name { font-size: 13px; font-weight: 500; color: var(--nuit); }
+  .testi-role { font-size: 12px; color: var(--gris); }
+
+  /* FOUNDER */
+  .founder {
+    padding: 7rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .founder-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .founder-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: var(--violet-light);
+    border: 2px solid rgba(123,110,246,.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .founder-avatar svg { width: 80px; height: 80px; }
+  .founder-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--violet);
+  }
+  .founder-name {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 300;
+    color: var(--nuit);
+    margin-bottom: .5rem;
+    line-height: 1.2;
+  }
+  .founder-role {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--violet);
+    margin-bottom: 1.25rem;
+  }
+  .founder-bio {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--gris);
+    margin-bottom: 1.5rem;
+  }
+  .founder-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+  }
+  .founder-highlights li {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--nuit);
+    background: var(--violet-light);
+    padding: 6px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .founder { grid-template-columns: 1fr; text-align: center; padding: 5rem 1.5rem; gap: 2rem; }
+    .founder-visual { margin: 0 auto; }
+    .founder-highlights { justify-content: center; }
+  }
+
+  /* CTA */
+  .cta-final { padding: 9rem 3rem; text-align: center; position: relative; overflow: hidden; }
+  .cta-orb { position: absolute; width: 700px; height: 400px; border-radius: 50%; background: var(--violet-light); opacity: .5; top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+  .cta-content { position: relative; z-index: 1; }
+  .cta-title { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; color: var(--nuit); line-height: 1.15; margin-bottom: 1.5rem; }
+  .cta-title em { font-style: italic; color: var(--violet); }
+  .cta-subtitle { font-size: 16px; color: var(--gris); margin-bottom: 3rem; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .cta-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
+  .cta-note { font-size: 12px; color: var(--gris); margin-top: 12px; }
+
+  /* FOOTER */
+  footer { padding: 3rem; border-top: 1px solid rgba(123,110,246,.1); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 400; color: var(--nuit); }
+  .footer-copy { font-size: 13px; color: var(--gris); }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-size: 13px; color: var(--gris); text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--violet); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .hero-form, .cta-form { flex-direction: column; }
+    .manifesto, .modules { padding: 5rem 1.5rem; }
+    .gifting { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
+    .testimonials { padding: 5rem 1.5rem; }
+    .cta-final { padding: 6rem 1.5rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
 </head>
 <body>
-<div class="stars" aria-hidden="true"></div>
-<nav class="top-bar" aria-label="Top navigation">
-<div class="top-bar-left">
-<button class="theme-toggle" id="theme-toggle" aria-label="Switch between day and night mode" type="button">
-<svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-<path id="theme-icon-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-</button>
-</div>
-<div class="top-bar-center">
-<a href="#final-cta" class="community-link">Join the Navia community</a>
-</div>
-<div class="top-bar-right">
-<div class="wordmark-wrap">
-<a href="/" class="wordmark">Nav<span class="wordmark-i">&#305;</span>a</a>
-</div>
-</div>
+
+<!-- NAV -->
+<nav aria-label="Main navigation">
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="14" fill="#EEEDFE"/>
+      <circle cx="16" cy="16" r="10" fill="#AFA9EC" opacity="0.3"/>
+      <circle cx="20" cy="14" r="8" fill="#EEEDFE"/>
+      <circle cx="14" cy="18" r="1.2" fill="#7B6EF6" opacity="0.4"/>
+      <circle cx="11" cy="14" r="0.8" fill="#7B6EF6" opacity="0.25"/>
+    </svg>
+    <span class="nav-wordmark">navia</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#modules">Our approach</a></li>
+    <li><a href="#gifting">Gifting</a></li>
+    <li><a href="#founder">Founder</a></li>
+    <li><a href="#waitlist" class="nav-cta">Join the waitlist</a></li>
+  </ul>
 </nav>
+
+<!-- HERO -->
 <main>
-<section id="hero">
-<div class="hero-moon" aria-hidden="true"></div>
-<h1>To be understood<br/>before having to <em>ask</em>.</h1>
-<p class="lede">Navia is a quiet companion for every phase of a woman's life. She listens the way the moon listens.</p>
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-orb-1"></div>
+    <div class="hero-orb-2"></div>
+    <div class="hero-orb-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">A presence for women</div>
+    <h1 class="hero-title">
+      She is <em>already</em><br>there.
+    </h1>
+    <p class="hero-subtitle">
+      Navia exists with you in the moments where nothing is formulated, but everything is felt. She does not ask you to explain. She perceives what matters before you find the words.
+    </p>
+    <div class="hero-form" id="hero-form">
+      <input class="hero-input" type="email" id="hero-email" placeholder="your@email.com" aria-label="Email address" required />
+      <button class="hero-btn" type="button" onclick="submitEmail('hero')">Join the waitlist</button>
+    </div>
+    <div class="success-msg" id="hero-success">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#7B6EF6" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#7B6EF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Welcome. You'll hear from us first.
+    </div>
+    <p class="hero-note" id="hero-note">No ads. Your data stays yours. Always.</p>
+  </div>
 </section>
-<section id="philosophy">
-<span class="section-label">Our philosophy</span>
-<h2>We do not wait for the storm.<br/>We <em>read</em> the sky.</h2>
-<div class="prose">
-<p>Every woman lives with a quiet duality. What her hormones dictate on any given morning, and what she actually wants underneath. When a low mood finds her, she would love a hand on her shoulder, a voice note from her sister, a gesture from someone who loves her. But she will not ask for it. Having to ask breaks the comfort of receiving.</p>
-<p>Navia was built on a quiet inheritance, closer in spirit to traditional Chinese medicine, where the practitioner adjusts the body's energy long before any imbalance has a chance to declare itself. We do not intervene after the fact. We pay attention before it arrives.</p>
-</div>
-<div class="callout callout-wide">To be understood before having to ask.</div>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <p class="manifesto-quote">
+    "Sometimes, what you need is not an answer. It is a <span>just presence</span>."
+  </p>
+  <p class="manifesto-body">
+    Navia lives in the space between. Not a replacement for your doctor, not a coach, not a tool. A presence that stays with you <em>between the moments</em>, in the doubt, in the exhaustion, or simply when no one is there to listen.
+  </p>
 </section>
-<section id="companion">
-<span class="section-label">Her form</span>
-<h2>A moon that breathes,<br/>never a face that <em>stares</em>.</h2>
-<div class="prose">
-<p>Navia takes the form of a luminous moon. No eyes, no mouth, no avatar, no cartoon character. She breathes with a soft halo, the same way a sleeping body rises and falls. When you open the app, she is already there, already waiting, already present. When you speak to her, the moon gently enlarges and glows. When you stop, it returns to rest.</p>
-</div>
-<div class="phases" aria-label="Moon phases as mood">
-<div class="phase">
-<svg viewBox="0 0 48 48" fill="none"><circle class="moon-disc" cx="24" cy="24" r="18" fill="#F5F0E6"/></svg>
-<span class="phase-label">Full</span>
-<span class="phase-mood">at peace</span>
-</div>
-<div class="phase">
-<svg viewBox="0 0 48 48" fill="none"><circle class="moon-disc" cx="24" cy="24" r="18" fill="#F5F0E6"/><path class="moon-shadow" d="M 36 24 a 12 18 0 0 1 -12 18 a 18 18 0 0 0 0 -36 a 12 18 0 0 1 12 18 z" fill="#2B2940"/></svg>
-<span class="phase-label">Gibbous</span>
-<span class="phase-mood">mostly serene</span>
-</div>
-<div class="phase">
-<svg viewBox="0 0 48 48" fill="none"><circle class="moon-disc" cx="24" cy="24" r="18" fill="#F5F0E6"/><path class="moon-shadow" d="M 24 6 a 18 18 0 0 0 0 36 z" fill="#2B2940"/></svg>
-<span class="phase-label">Half</span>
-<span class="phase-mood">in balance</span>
-</div>
-<div class="phase">
-<svg viewBox="0 0 48 48" fill="none"><circle class="moon-disc" cx="24" cy="24" r="18" fill="#F5F0E6"/><path class="moon-shadow" d="M 24 6 a 18 18 0 0 0 0 36 a 12 18 0 0 0 0 -36 z" fill="#2B2940"/></svg>
-<span class="phase-label">Crescent</span>
-<span class="phase-mood">in passage</span>
-</div>
-<div class="phase">
-<svg viewBox="0 0 48 48" fill="none"><circle class="moon-disc-faint" cx="24" cy="24" r="18" fill="#F5F0E6" opacity="0.16"/><circle class="moon-ring" cx="24" cy="24" r="18" fill="none" stroke="#F5F0E6" stroke-opacity="0.5"/></svg>
-<span class="phase-label">New</span>
-<span class="phase-mood">in retreat</span>
-</div>
-</div>
+
+<!-- MODULES -->
+<section class="modules" id="modules">
+  <div class="modules-header">
+    <span class="section-tag">How she is there</span>
+    <h2 class="section-title-dark">A presence that <em>adjusts</em><br>to your rhythm</h2>
+  </div>
+  <div class="modules-grid">
+    <div class="module-card">
+      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="#AFA9EC" stroke-width="0.8" opacity="0.4"/>
+        <path d="M20 8 Q28 14 28 20 Q28 28 20 32 Q12 28 12 20 Q12 14 20 8Z" stroke="#7B6EF6" stroke-width="1.5" fill="none"/>
+        <circle cx="20" cy="20" r="3" fill="#7B6EF6"/>
+      </svg>
+      <p class="module-num">01</p>
+      <h3 class="module-title">Body tracking</h3>
+      <p class="module-desc">Cycle, ovulation, hormones. Understood simply. Your body, on your terms.</p>
+    </div>
+    <div class="module-card">
+      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
+        <ellipse cx="20" cy="22" rx="10" ry="13" stroke="#7B6EF6" stroke-width="1.5" fill="none"/>
+        <circle cx="20" cy="13" r="4" stroke="#AFA9EC" stroke-width="1" fill="none"/>
+        <path d="M14 30 Q20 34 26 30" stroke="#7B6EF6" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <p class="module-num">02</p>
+      <h3 class="module-title">Pregnancy tracking</h3>
+      <p class="module-desc">Week by week, your baby grows. Navia grows with you.</p>
+    </div>
+    <div class="module-card">
+      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
+        <rect x="8" y="10" width="24" height="22" rx="4" stroke="#7B6EF6" stroke-width="1.5" fill="none"/>
+        <path d="M13 18h14M13 23h10" stroke="#AFA9EC" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="28" cy="14" r="4" fill="#7B6EF6"/>
+        <path d="M26 14l1.5 1.5 2.5-2.5" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p class="module-num">03</p>
+      <h3 class="module-title">Journal</h3>
+      <p class="module-desc">Deposit what you feel. Navia listens, perceives, and sometimes responds. Sometimes she stays quiet.</p>
+    </div>
+    <div class="module-card">
+      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
+        <path d="M10 25 Q10 15 20 12 Q30 15 30 25" stroke="#7B6EF6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <rect x="8" y="25" width="24" height="6" rx="3" stroke="#AFA9EC" stroke-width="1" fill="none"/>
+        <path d="M16 28h8" stroke="#AFA9EC" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <p class="module-num">04</p>
+      <h3 class="module-title">Daily check-in</h3>
+      <p class="module-desc">30 seconds every morning. Mood, energy, sleep. Navia adjusts to you.</p>
+    </div>
+    <div class="module-card">
+      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
+        <path d="M12 32 L12 20 Q12 10 20 8 Q28 10 28 20 L28 32" stroke="#7B6EF6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M8 32h24" stroke="#AFA9EC" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="20" cy="18" r="3" stroke="#AFA9EC" stroke-width="1" fill="none"/>
+      </svg>
+      <p class="module-num">05</p>
+      <h3 class="module-title">Personal insights</h3>
+      <p class="module-desc">Your emotional patterns, your energy cycles. Know yourself better.</p>
+    </div>
+    <div class="module-card">
+      <svg class="module-icon" viewBox="0 0 40 40" fill="none">
+        <rect x="10" y="14" width="20" height="16" rx="5" stroke="#7B6EF6" stroke-width="1.5" fill="none"/>
+        <path d="M15 14 Q15 8 20 8 Q25 8 25 14" stroke="#AFA9EC" stroke-width="1.2" fill="none"/>
+        <circle cx="20" cy="22" r="2.5" fill="#7B6EF6"/>
+        <path d="M20 24.5v2" stroke="#7B6EF6" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <p class="module-num">06</p>
+      <h3 class="module-title">Intelligent gifting</h3>
+      <p class="module-desc">A surprise arrives. Not because you asked for it.</p>
+    </div>
+  </div>
 </section>
-<section id="experience">
-<span class="section-label">Day and night</span>
-<h2>A space that adapts<br/>to her <em>mood</em>.</h2>
-<div class="prose">
-<p>Navia lives in two interchangeable modes. Day mode is luminous and warm, the energy of morning and presence. Night mode is deep indigo, embraced by stars, the register of retreat and softness. You choose which one holds you, and you can switch whenever you want. Tap the moon in the corner of the screen.</p>
-</div>
-<div class="modes" id="mode-preview">
-<button type="button" class="mode mode-day" data-theme-target="day" aria-label="Preview day mode">
-<span class="mode-label">Day</span>
-<span class="mode-desc">Clair de lune, souffle rose, the energy of presence</span>
-<span class="mode-hint">Hover to try</span>
-</button>
-<button type="button" class="mode mode-night" data-theme-target="night" aria-label="Preview night mode">
-<span class="mode-label">Night</span>
-<span class="mode-desc">Indigo royal, breathing moon, the register of retreat</span>
-<span class="mode-hint">Hover to try</span>
-</button>
-</div>
+
+<!-- GIFTING -->
+<section class="gifting" id="gifting">
+  <div class="gifting-visual">
+    <div class="gift-card">
+      <div class="gift-card-top">
+        <div class="gift-avatar">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="8" r="4" fill="#7B6EF6" opacity="0.6"/>
+            <path d="M4 20 Q4 14 11 14 Q18 14 18 20" fill="#7B6EF6" opacity="0.4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="gift-name">Emma, 28</p>
+          <p class="gift-phase">Week 24 of pregnancy</p>
+        </div>
+      </div>
+      <div class="gift-message">
+        <p>"Tonight I feel so tired and a little lonely in all of this. My belly is heavy and I can't seem to fall asleep..."</p>
+      </div>
+      <div class="gift-surprise">
+        <div class="gift-box-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <rect x="3" y="9" width="16" height="11" rx="2" stroke="#AFA9EC" stroke-width="1.2"/>
+            <path d="M3 12h16" stroke="#AFA9EC" stroke-width="1" stroke-linecap="round"/>
+            <path d="M11 9V20" stroke="#AFA9EC" stroke-width="1" stroke-linecap="round"/>
+            <path d="M7 9 Q7 4 11 4 Q11 4 11 9" stroke="#CECBF6" stroke-width="1.2" fill="none"/>
+            <path d="M15 9 Q15 4 11 4 Q11 4 11 9" stroke="#CECBF6" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+        <div class="gift-surprise-text">
+          <p>A surprise is on its way</p>
+          <p>Sleep tea + maternity pillow · sent by Navia</p>
+        </div>
+      </div>
+    </div>
+    <div class="floating-badge fb1">
+      <svg width="8" height="8" viewBox="0 0 8 8" style="display:inline;margin-right:5px;vertical-align:middle"><circle cx="4" cy="4" r="3" fill="#7B6EF6"/></svg>
+      Sensed: a difficult night
+    </div>
+    <div class="floating-badge fb2">
+      <svg width="8" height="8" viewBox="0 0 8 8" style="display:inline;margin-right:5px;vertical-align:middle"><circle cx="4" cy="4" r="3" fill="#F4C0D1"/></svg>
+      Delivery tomorrow
+    </div>
+  </div>
+
+  <div class="gifting-content">
+    <span class="gifting-tag">Signature feature</span>
+    <h2 class="gifting-title">She receives.<br>She never <em>asked</em>.</h2>
+    <p class="gifting-body">
+      Navia perceives what is not said. When she senses a difficult moment, or a moment of lightness, she sends a real, physical, personalized gift.
+    </p>
+    <ul class="gifting-list">
+      <li>Triggered by what Navia perceives in your journal</li>
+      <li>Tailored to her life phase: cycle, pregnancy, postpartum</li>
+      <li>Wellness boxes, handwritten letters, baby keepsakes</li>
+      <li>Budget set by the user, managed automatically</li>
+      <li>Never e-commerce. Always an emotional experience.</li>
+    </ul>
+  </div>
 </section>
-<section id="circles">
-<span class="section-label">Private circles</span>
-<h2>Consent as a<br/><em>lunar</em> cycle.</h2>
-<div class="circles-row">
-<div class="circles-text">
-<p>You can invite one or several trusted people into your Navia through a private QR code. Each invitation carries a cycle duration you choose yourself. Twelve hours to cross a difficult night with your sister. Twelve days to accompany a friend who just gave birth. Twelve weeks to walk through a first trimester with your mother. Twelve months for a friendship you want to keep close all year.</p>
-<p>During the cycle, your two companions quietly share context after a transparent agreement, so your friend never has to be told that today is a hard day. She simply arrives already knowing, and her gesture can land at the right moment. When the cycle ends, the companions gently forget. Access is a ritual gift, never a permanent transfer.</p>
-</div>
-<div class="circles-visual">
-<svg class="phone-svg" viewBox="0 0 260 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A phone displaying a Navia private circle QR code that opens the waitlist, and a twelve-day lunar cycle timeline">
-<defs>
-<radialGradient id="phoneScreenGrad" cx="50%" cy="40%" r="75%">
-<stop offset="0%" stop-color="#FBF9FD" stop-opacity="1"/>
-<stop offset="60%" stop-color="#F4EFF5" stop-opacity="1"/>
-<stop offset="100%" stop-color="#EDE6EE" stop-opacity="1"/>
-</radialGradient>
-</defs>
-<rect x="22" y="18" width="216" height="484" rx="34" fill="#6B5B95" stroke="#4A3D6B" stroke-width="1.5"/>
-<rect x="22" y="18" width="216" height="484" rx="34" fill="none" stroke="rgba(245, 240, 230, 0.28)" stroke-width="0.6"/>
-<rect x="30" y="26" width="200" height="468" rx="28" fill="url(#phoneScreenGrad)"/>
-<rect x="108" y="32" width="44" height="6" rx="3" fill="#4A3D6B" opacity="0.85"/>
-<text x="130" y="82" text-anchor="end"
-                font-family="Georgia, 'Times New Roman', serif" font-size="18" font-style="italic"
-                fill="#2B2940" opacity="0.88">Nav</text>
-<text x="131" y="82" text-anchor="start"
-                font-family="Georgia, 'Times New Roman', serif" font-size="18" font-style="italic"
-                fill="#2B2940" opacity="0.88">&#305;a</text>
-<circle cx="133" cy="66" r="2.6" fill="#5B4A8A"/>
-<circle cx="133" cy="66" r="3.8" fill="none" stroke="#5B4A8A" stroke-width="0.5" opacity="0.35"/>
-<text x="130" y="104" text-anchor="middle"
-                font-family="'Inter', sans-serif" font-size="7" letter-spacing="2.4"
-                fill="#2B2940" opacity="0.45">PRIVATE CIRCLE</text>
-<rect x="56" y="124" width="148" height="148" rx="10" fill="#FBF9FD" stroke="#DDD0E8" stroke-width="0.8"/>
-<g fill="#2B2940">
-<rect x="64.00" y="134.00" width="5.28" height="5.28"/>
-<rect x="69.28" y="134.00" width="5.28" height="5.28"/>
-<rect x="74.56" y="134.00" width="5.28" height="5.28"/>
-<rect x="79.84" y="134.00" width="5.28" height="5.28"/>
-<rect x="85.12" y="134.00" width="5.28" height="5.28"/>
-<rect x="90.40" y="134.00" width="5.28" height="5.28"/>
-<rect x="95.68" y="134.00" width="5.28" height="5.28"/>
-<rect x="106.24" y="134.00" width="5.28" height="5.28"/>
-<rect x="122.08" y="134.00" width="5.28" height="5.28"/>
-<rect x="127.36" y="134.00" width="5.28" height="5.28"/>
-<rect x="137.92" y="134.00" width="5.28" height="5.28"/>
-<rect x="159.04" y="134.00" width="5.28" height="5.28"/>
-<rect x="164.32" y="134.00" width="5.28" height="5.28"/>
-<rect x="169.60" y="134.00" width="5.28" height="5.28"/>
-<rect x="174.88" y="134.00" width="5.28" height="5.28"/>
-<rect x="180.16" y="134.00" width="5.28" height="5.28"/>
-<rect x="185.44" y="134.00" width="5.28" height="5.28"/>
-<rect x="190.72" y="134.00" width="5.28" height="5.28"/>
-<rect x="64.00" y="139.28" width="5.28" height="5.28"/>
-<rect x="95.68" y="139.28" width="5.28" height="5.28"/>
-<rect x="106.24" y="139.28" width="5.28" height="5.28"/>
-<rect x="111.52" y="139.28" width="5.28" height="5.28"/>
-<rect x="116.80" y="139.28" width="5.28" height="5.28"/>
-<rect x="127.36" y="139.28" width="5.28" height="5.28"/>
-<rect x="132.64" y="139.28" width="5.28" height="5.28"/>
-<rect x="137.92" y="139.28" width="5.28" height="5.28"/>
-<rect x="148.48" y="139.28" width="5.28" height="5.28"/>
-<rect x="159.04" y="139.28" width="5.28" height="5.28"/>
-<rect x="190.72" y="139.28" width="5.28" height="5.28"/>
-<rect x="64.00" y="144.56" width="5.28" height="5.28"/>
-<rect x="74.56" y="144.56" width="5.28" height="5.28"/>
-<rect x="79.84" y="144.56" width="5.28" height="5.28"/>
-<rect x="85.12" y="144.56" width="5.28" height="5.28"/>
-<rect x="95.68" y="144.56" width="5.28" height="5.28"/>
-<rect x="116.80" y="144.56" width="5.28" height="5.28"/>
-<rect x="122.08" y="144.56" width="5.28" height="5.28"/>
-<rect x="127.36" y="144.56" width="5.28" height="5.28"/>
-<rect x="132.64" y="144.56" width="5.28" height="5.28"/>
-<rect x="148.48" y="144.56" width="5.28" height="5.28"/>
-<rect x="159.04" y="144.56" width="5.28" height="5.28"/>
-<rect x="169.60" y="144.56" width="5.28" height="5.28"/>
-<rect x="174.88" y="144.56" width="5.28" height="5.28"/>
-<rect x="180.16" y="144.56" width="5.28" height="5.28"/>
-<rect x="190.72" y="144.56" width="5.28" height="5.28"/>
-<rect x="64.00" y="149.84" width="5.28" height="5.28"/>
-<rect x="74.56" y="149.84" width="5.28" height="5.28"/>
-<rect x="79.84" y="149.84" width="5.28" height="5.28"/>
-<rect x="85.12" y="149.84" width="5.28" height="5.28"/>
-<rect x="95.68" y="149.84" width="5.28" height="5.28"/>
-<rect x="116.80" y="149.84" width="5.28" height="5.28"/>
-<rect x="132.64" y="149.84" width="5.28" height="5.28"/>
-<rect x="137.92" y="149.84" width="5.28" height="5.28"/>
-<rect x="159.04" y="149.84" width="5.28" height="5.28"/>
-<rect x="169.60" y="149.84" width="5.28" height="5.28"/>
-<rect x="174.88" y="149.84" width="5.28" height="5.28"/>
-<rect x="180.16" y="149.84" width="5.28" height="5.28"/>
-<rect x="190.72" y="149.84" width="5.28" height="5.28"/>
-<rect x="64.00" y="155.12" width="5.28" height="5.28"/>
-<rect x="74.56" y="155.12" width="5.28" height="5.28"/>
-<rect x="79.84" y="155.12" width="5.28" height="5.28"/>
-<rect x="85.12" y="155.12" width="5.28" height="5.28"/>
-<rect x="95.68" y="155.12" width="5.28" height="5.28"/>
-<rect x="106.24" y="155.12" width="5.28" height="5.28"/>
-<rect x="111.52" y="155.12" width="5.28" height="5.28"/>
-<rect x="116.80" y="155.12" width="5.28" height="5.28"/>
-<rect x="122.08" y="155.12" width="5.28" height="5.28"/>
-<rect x="137.92" y="155.12" width="5.28" height="5.28"/>
-<rect x="159.04" y="155.12" width="5.28" height="5.28"/>
-<rect x="169.60" y="155.12" width="5.28" height="5.28"/>
-<rect x="174.88" y="155.12" width="5.28" height="5.28"/>
-<rect x="180.16" y="155.12" width="5.28" height="5.28"/>
-<rect x="190.72" y="155.12" width="5.28" height="5.28"/>
-<rect x="64.00" y="160.40" width="5.28" height="5.28"/>
-<rect x="95.68" y="160.40" width="5.28" height="5.28"/>
-<rect x="106.24" y="160.40" width="5.28" height="5.28"/>
-<rect x="122.08" y="160.40" width="5.28" height="5.28"/>
-<rect x="137.92" y="160.40" width="5.28" height="5.28"/>
-<rect x="159.04" y="160.40" width="5.28" height="5.28"/>
-<rect x="190.72" y="160.40" width="5.28" height="5.28"/>
-<rect x="64.00" y="165.68" width="5.28" height="5.28"/>
-<rect x="69.28" y="165.68" width="5.28" height="5.28"/>
-<rect x="74.56" y="165.68" width="5.28" height="5.28"/>
-<rect x="79.84" y="165.68" width="5.28" height="5.28"/>
-<rect x="85.12" y="165.68" width="5.28" height="5.28"/>
-<rect x="90.40" y="165.68" width="5.28" height="5.28"/>
-<rect x="95.68" y="165.68" width="5.28" height="5.28"/>
-<rect x="106.24" y="165.68" width="5.28" height="5.28"/>
-<rect x="116.80" y="165.68" width="5.28" height="5.28"/>
-<rect x="127.36" y="165.68" width="5.28" height="5.28"/>
-<rect x="137.92" y="165.68" width="5.28" height="5.28"/>
-<rect x="148.48" y="165.68" width="5.28" height="5.28"/>
-<rect x="159.04" y="165.68" width="5.28" height="5.28"/>
-<rect x="164.32" y="165.68" width="5.28" height="5.28"/>
-<rect x="169.60" y="165.68" width="5.28" height="5.28"/>
-<rect x="174.88" y="165.68" width="5.28" height="5.28"/>
-<rect x="180.16" y="165.68" width="5.28" height="5.28"/>
-<rect x="185.44" y="165.68" width="5.28" height="5.28"/>
-<rect x="190.72" y="165.68" width="5.28" height="5.28"/>
-<rect x="106.24" y="170.96" width="5.28" height="5.28"/>
-<rect x="116.80" y="170.96" width="5.28" height="5.28"/>
-<rect x="122.08" y="170.96" width="5.28" height="5.28"/>
-<rect x="127.36" y="170.96" width="5.28" height="5.28"/>
-<rect x="137.92" y="170.96" width="5.28" height="5.28"/>
-<rect x="143.20" y="170.96" width="5.28" height="5.28"/>
-<rect x="148.48" y="170.96" width="5.28" height="5.28"/>
-<rect x="64.00" y="176.24" width="5.28" height="5.28"/>
-<rect x="69.28" y="176.24" width="5.28" height="5.28"/>
-<rect x="74.56" y="176.24" width="5.28" height="5.28"/>
-<rect x="90.40" y="176.24" width="5.28" height="5.28"/>
-<rect x="95.68" y="176.24" width="5.28" height="5.28"/>
-<rect x="106.24" y="176.24" width="5.28" height="5.28"/>
-<rect x="111.52" y="176.24" width="5.28" height="5.28"/>
-<rect x="116.80" y="176.24" width="5.28" height="5.28"/>
-<rect x="132.64" y="176.24" width="5.28" height="5.28"/>
-<rect x="137.92" y="176.24" width="5.28" height="5.28"/>
-<rect x="148.48" y="176.24" width="5.28" height="5.28"/>
-<rect x="153.76" y="176.24" width="5.28" height="5.28"/>
-<rect x="159.04" y="176.24" width="5.28" height="5.28"/>
-<rect x="164.32" y="176.24" width="5.28" height="5.28"/>
-<rect x="169.60" y="176.24" width="5.28" height="5.28"/>
-<rect x="185.44" y="176.24" width="5.28" height="5.28"/>
-<rect x="190.72" y="176.24" width="5.28" height="5.28"/>
-<rect x="69.28" y="181.52" width="5.28" height="5.28"/>
-<rect x="111.52" y="181.52" width="5.28" height="5.28"/>
-<rect x="116.80" y="181.52" width="5.28" height="5.28"/>
-<rect x="132.64" y="181.52" width="5.28" height="5.28"/>
-<rect x="143.20" y="181.52" width="5.28" height="5.28"/>
-<rect x="153.76" y="181.52" width="5.28" height="5.28"/>
-<rect x="159.04" y="181.52" width="5.28" height="5.28"/>
-<rect x="164.32" y="181.52" width="5.28" height="5.28"/>
-<rect x="174.88" y="181.52" width="5.28" height="5.28"/>
-<rect x="185.44" y="181.52" width="5.28" height="5.28"/>
-<rect x="190.72" y="181.52" width="5.28" height="5.28"/>
-<rect x="64.00" y="186.80" width="5.28" height="5.28"/>
-<rect x="74.56" y="186.80" width="5.28" height="5.28"/>
-<rect x="79.84" y="186.80" width="5.28" height="5.28"/>
-<rect x="85.12" y="186.80" width="5.28" height="5.28"/>
-<rect x="90.40" y="186.80" width="5.28" height="5.28"/>
-<rect x="95.68" y="186.80" width="5.28" height="5.28"/>
-<rect x="100.96" y="186.80" width="5.28" height="5.28"/>
-<rect x="106.24" y="186.80" width="5.28" height="5.28"/>
-<rect x="122.08" y="186.80" width="5.28" height="5.28"/>
-<rect x="143.20" y="186.80" width="5.28" height="5.28"/>
-<rect x="153.76" y="186.80" width="5.28" height="5.28"/>
-<rect x="164.32" y="186.80" width="5.28" height="5.28"/>
-<rect x="174.88" y="186.80" width="5.28" height="5.28"/>
-<rect x="180.16" y="186.80" width="5.28" height="5.28"/>
-<rect x="190.72" y="186.80" width="5.28" height="5.28"/>
-<rect x="85.12" y="192.08" width="5.28" height="5.28"/>
-<rect x="90.40" y="192.08" width="5.28" height="5.28"/>
-<rect x="100.96" y="192.08" width="5.28" height="5.28"/>
-<rect x="106.24" y="192.08" width="5.28" height="5.28"/>
-<rect x="111.52" y="192.08" width="5.28" height="5.28"/>
-<rect x="132.64" y="192.08" width="5.28" height="5.28"/>
-<rect x="153.76" y="192.08" width="5.28" height="5.28"/>
-<rect x="174.88" y="192.08" width="5.28" height="5.28"/>
-<rect x="64.00" y="197.36" width="5.28" height="5.28"/>
-<rect x="74.56" y="197.36" width="5.28" height="5.28"/>
-<rect x="85.12" y="197.36" width="5.28" height="5.28"/>
-<rect x="90.40" y="197.36" width="5.28" height="5.28"/>
-<rect x="95.68" y="197.36" width="5.28" height="5.28"/>
-<rect x="106.24" y="197.36" width="5.28" height="5.28"/>
-<rect x="111.52" y="197.36" width="5.28" height="5.28"/>
-<rect x="122.08" y="197.36" width="5.28" height="5.28"/>
-<rect x="127.36" y="197.36" width="5.28" height="5.28"/>
-<rect x="132.64" y="197.36" width="5.28" height="5.28"/>
-<rect x="143.20" y="197.36" width="5.28" height="5.28"/>
-<rect x="148.48" y="197.36" width="5.28" height="5.28"/>
-<rect x="159.04" y="197.36" width="5.28" height="5.28"/>
-<rect x="164.32" y="197.36" width="5.28" height="5.28"/>
-<rect x="190.72" y="197.36" width="5.28" height="5.28"/>
-<rect x="69.28" y="202.64" width="5.28" height="5.28"/>
-<rect x="79.84" y="202.64" width="5.28" height="5.28"/>
-<rect x="90.40" y="202.64" width="5.28" height="5.28"/>
-<rect x="100.96" y="202.64" width="5.28" height="5.28"/>
-<rect x="106.24" y="202.64" width="5.28" height="5.28"/>
-<rect x="111.52" y="202.64" width="5.28" height="5.28"/>
-<rect x="127.36" y="202.64" width="5.28" height="5.28"/>
-<rect x="143.20" y="202.64" width="5.28" height="5.28"/>
-<rect x="148.48" y="202.64" width="5.28" height="5.28"/>
-<rect x="159.04" y="202.64" width="5.28" height="5.28"/>
-<rect x="164.32" y="202.64" width="5.28" height="5.28"/>
-<rect x="185.44" y="202.64" width="5.28" height="5.28"/>
-<rect x="190.72" y="202.64" width="5.28" height="5.28"/>
-<rect x="64.00" y="207.92" width="5.28" height="5.28"/>
-<rect x="69.28" y="207.92" width="5.28" height="5.28"/>
-<rect x="85.12" y="207.92" width="5.28" height="5.28"/>
-<rect x="90.40" y="207.92" width="5.28" height="5.28"/>
-<rect x="95.68" y="207.92" width="5.28" height="5.28"/>
-<rect x="111.52" y="207.92" width="5.28" height="5.28"/>
-<rect x="116.80" y="207.92" width="5.28" height="5.28"/>
-<rect x="127.36" y="207.92" width="5.28" height="5.28"/>
-<rect x="132.64" y="207.92" width="5.28" height="5.28"/>
-<rect x="137.92" y="207.92" width="5.28" height="5.28"/>
-<rect x="143.20" y="207.92" width="5.28" height="5.28"/>
-<rect x="174.88" y="207.92" width="5.28" height="5.28"/>
-<rect x="180.16" y="207.92" width="5.28" height="5.28"/>
-<rect x="190.72" y="207.92" width="5.28" height="5.28"/>
-<rect x="74.56" y="213.20" width="5.28" height="5.28"/>
-<rect x="90.40" y="213.20" width="5.28" height="5.28"/>
-<rect x="100.96" y="213.20" width="5.28" height="5.28"/>
-<rect x="106.24" y="213.20" width="5.28" height="5.28"/>
-<rect x="116.80" y="213.20" width="5.28" height="5.28"/>
-<rect x="122.08" y="213.20" width="5.28" height="5.28"/>
-<rect x="127.36" y="213.20" width="5.28" height="5.28"/>
-<rect x="137.92" y="213.20" width="5.28" height="5.28"/>
-<rect x="159.04" y="213.20" width="5.28" height="5.28"/>
-<rect x="164.32" y="213.20" width="5.28" height="5.28"/>
-<rect x="169.60" y="213.20" width="5.28" height="5.28"/>
-<rect x="174.88" y="213.20" width="5.28" height="5.28"/>
-<rect x="64.00" y="218.48" width="5.28" height="5.28"/>
-<rect x="69.28" y="218.48" width="5.28" height="5.28"/>
-<rect x="74.56" y="218.48" width="5.28" height="5.28"/>
-<rect x="90.40" y="218.48" width="5.28" height="5.28"/>
-<rect x="95.68" y="218.48" width="5.28" height="5.28"/>
-<rect x="132.64" y="218.48" width="5.28" height="5.28"/>
-<rect x="137.92" y="218.48" width="5.28" height="5.28"/>
-<rect x="148.48" y="218.48" width="5.28" height="5.28"/>
-<rect x="153.76" y="218.48" width="5.28" height="5.28"/>
-<rect x="159.04" y="218.48" width="5.28" height="5.28"/>
-<rect x="164.32" y="218.48" width="5.28" height="5.28"/>
-<rect x="169.60" y="218.48" width="5.28" height="5.28"/>
-<rect x="185.44" y="218.48" width="5.28" height="5.28"/>
-<rect x="106.24" y="223.76" width="5.28" height="5.28"/>
-<rect x="111.52" y="223.76" width="5.28" height="5.28"/>
-<rect x="116.80" y="223.76" width="5.28" height="5.28"/>
-<rect x="132.64" y="223.76" width="5.28" height="5.28"/>
-<rect x="137.92" y="223.76" width="5.28" height="5.28"/>
-<rect x="148.48" y="223.76" width="5.28" height="5.28"/>
-<rect x="169.60" y="223.76" width="5.28" height="5.28"/>
-<rect x="190.72" y="223.76" width="5.28" height="5.28"/>
-<rect x="64.00" y="229.04" width="5.28" height="5.28"/>
-<rect x="69.28" y="229.04" width="5.28" height="5.28"/>
-<rect x="74.56" y="229.04" width="5.28" height="5.28"/>
-<rect x="79.84" y="229.04" width="5.28" height="5.28"/>
-<rect x="85.12" y="229.04" width="5.28" height="5.28"/>
-<rect x="90.40" y="229.04" width="5.28" height="5.28"/>
-<rect x="95.68" y="229.04" width="5.28" height="5.28"/>
-<rect x="122.08" y="229.04" width="5.28" height="5.28"/>
-<rect x="148.48" y="229.04" width="5.28" height="5.28"/>
-<rect x="159.04" y="229.04" width="5.28" height="5.28"/>
-<rect x="169.60" y="229.04" width="5.28" height="5.28"/>
-<rect x="190.72" y="229.04" width="5.28" height="5.28"/>
-<rect x="64.00" y="234.32" width="5.28" height="5.28"/>
-<rect x="95.68" y="234.32" width="5.28" height="5.28"/>
-<rect x="106.24" y="234.32" width="5.28" height="5.28"/>
-<rect x="111.52" y="234.32" width="5.28" height="5.28"/>
-<rect x="132.64" y="234.32" width="5.28" height="5.28"/>
-<rect x="143.20" y="234.32" width="5.28" height="5.28"/>
-<rect x="148.48" y="234.32" width="5.28" height="5.28"/>
-<rect x="169.60" y="234.32" width="5.28" height="5.28"/>
-<rect x="185.44" y="234.32" width="5.28" height="5.28"/>
-<rect x="190.72" y="234.32" width="5.28" height="5.28"/>
-<rect x="64.00" y="239.60" width="5.28" height="5.28"/>
-<rect x="74.56" y="239.60" width="5.28" height="5.28"/>
-<rect x="79.84" y="239.60" width="5.28" height="5.28"/>
-<rect x="85.12" y="239.60" width="5.28" height="5.28"/>
-<rect x="95.68" y="239.60" width="5.28" height="5.28"/>
-<rect x="116.80" y="239.60" width="5.28" height="5.28"/>
-<rect x="122.08" y="239.60" width="5.28" height="5.28"/>
-<rect x="127.36" y="239.60" width="5.28" height="5.28"/>
-<rect x="132.64" y="239.60" width="5.28" height="5.28"/>
-<rect x="143.20" y="239.60" width="5.28" height="5.28"/>
-<rect x="148.48" y="239.60" width="5.28" height="5.28"/>
-<rect x="153.76" y="239.60" width="5.28" height="5.28"/>
-<rect x="159.04" y="239.60" width="5.28" height="5.28"/>
-<rect x="164.32" y="239.60" width="5.28" height="5.28"/>
-<rect x="169.60" y="239.60" width="5.28" height="5.28"/>
-<rect x="185.44" y="239.60" width="5.28" height="5.28"/>
-<rect x="190.72" y="239.60" width="5.28" height="5.28"/>
-<rect x="64.00" y="244.88" width="5.28" height="5.28"/>
-<rect x="74.56" y="244.88" width="5.28" height="5.28"/>
-<rect x="79.84" y="244.88" width="5.28" height="5.28"/>
-<rect x="85.12" y="244.88" width="5.28" height="5.28"/>
-<rect x="95.68" y="244.88" width="5.28" height="5.28"/>
-<rect x="111.52" y="244.88" width="5.28" height="5.28"/>
-<rect x="116.80" y="244.88" width="5.28" height="5.28"/>
-<rect x="127.36" y="244.88" width="5.28" height="5.28"/>
-<rect x="148.48" y="244.88" width="5.28" height="5.28"/>
-<rect x="153.76" y="244.88" width="5.28" height="5.28"/>
-<rect x="169.60" y="244.88" width="5.28" height="5.28"/>
-<rect x="180.16" y="244.88" width="5.28" height="5.28"/>
-<rect x="185.44" y="244.88" width="5.28" height="5.28"/>
-<rect x="64.00" y="250.16" width="5.28" height="5.28"/>
-<rect x="74.56" y="250.16" width="5.28" height="5.28"/>
-<rect x="79.84" y="250.16" width="5.28" height="5.28"/>
-<rect x="85.12" y="250.16" width="5.28" height="5.28"/>
-<rect x="95.68" y="250.16" width="5.28" height="5.28"/>
-<rect x="106.24" y="250.16" width="5.28" height="5.28"/>
-<rect x="111.52" y="250.16" width="5.28" height="5.28"/>
-<rect x="127.36" y="250.16" width="5.28" height="5.28"/>
-<rect x="132.64" y="250.16" width="5.28" height="5.28"/>
-<rect x="137.92" y="250.16" width="5.28" height="5.28"/>
-<rect x="148.48" y="250.16" width="5.28" height="5.28"/>
-<rect x="153.76" y="250.16" width="5.28" height="5.28"/>
-<rect x="164.32" y="250.16" width="5.28" height="5.28"/>
-<rect x="169.60" y="250.16" width="5.28" height="5.28"/>
-<rect x="174.88" y="250.16" width="5.28" height="5.28"/>
-<rect x="185.44" y="250.16" width="5.28" height="5.28"/>
-<rect x="190.72" y="250.16" width="5.28" height="5.28"/>
-<rect x="64.00" y="255.44" width="5.28" height="5.28"/>
-<rect x="95.68" y="255.44" width="5.28" height="5.28"/>
-<rect x="106.24" y="255.44" width="5.28" height="5.28"/>
-<rect x="111.52" y="255.44" width="5.28" height="5.28"/>
-<rect x="122.08" y="255.44" width="5.28" height="5.28"/>
-<rect x="127.36" y="255.44" width="5.28" height="5.28"/>
-<rect x="137.92" y="255.44" width="5.28" height="5.28"/>
-<rect x="143.20" y="255.44" width="5.28" height="5.28"/>
-<rect x="148.48" y="255.44" width="5.28" height="5.28"/>
-<rect x="164.32" y="255.44" width="5.28" height="5.28"/>
-<rect x="169.60" y="255.44" width="5.28" height="5.28"/>
-<rect x="64.00" y="260.72" width="5.28" height="5.28"/>
-<rect x="69.28" y="260.72" width="5.28" height="5.28"/>
-<rect x="74.56" y="260.72" width="5.28" height="5.28"/>
-<rect x="79.84" y="260.72" width="5.28" height="5.28"/>
-<rect x="85.12" y="260.72" width="5.28" height="5.28"/>
-<rect x="90.40" y="260.72" width="5.28" height="5.28"/>
-<rect x="95.68" y="260.72" width="5.28" height="5.28"/>
-<rect x="106.24" y="260.72" width="5.28" height="5.28"/>
-<rect x="116.80" y="260.72" width="5.28" height="5.28"/>
-<rect x="132.64" y="260.72" width="5.28" height="5.28"/>
-<rect x="137.92" y="260.72" width="5.28" height="5.28"/>
-<rect x="148.48" y="260.72" width="5.28" height="5.28"/>
-<rect x="159.04" y="260.72" width="5.28" height="5.28"/>
-<rect x="174.88" y="260.72" width="5.28" height="5.28"/>
-<rect x="190.72" y="260.72" width="5.28" height="5.28"/>
-</g>
-<text x="130" y="306" text-anchor="middle"
-                font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic"
-                fill="#2B2940" opacity="0.85">twelve days together</text>
-<line x1="62" y1="342" x2="198" y2="342" stroke="#2B2940" stroke-width="0.6" opacity="0.22"/>
-<circle cx="68" cy="342" r="6" fill="#2B2940" opacity="0.9"/>
-<circle cx="102" cy="342" r="6" fill="#2B2940" opacity="0.68"/>
-<circle cx="136" cy="342" r="6" fill="#2B2940" opacity="0.48"/>
-<circle cx="170" cy="342" r="6" fill="#2B2940" opacity="0.28"/>
-<circle cx="192" cy="342" r="6" fill="none" stroke="#2B2940" stroke-width="1" opacity="0.4"/>
-<text x="130" y="390" text-anchor="middle"
-                font-family="'Inter', sans-serif" font-size="7" letter-spacing="2"
-                fill="#2B2940" opacity="0.4">PRESENCE FLOWING</text>
-<rect x="108" y="478" width="44" height="3" rx="1.5" fill="#4A3D6B" opacity="0.55"/>
-</svg>
-</div>
-</div>
-<div class="callout">She does not have to ask.<br/>She is already held.</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <span class="section-tag">What they feel</span>
+    <h2 class="section-title-light">Words that come from the <em>heart</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p class="testi-quote">"For the first time, I felt like something was just there with me. Not trying to fix anything. Just present."</p>
+      <div class="testi-author">
+        <div class="testi-dot" style="background:#EEEDFE;color:#534AB7;">S</div>
+        <div>
+          <p class="testi-name">Sophia R.</p>
+          <p class="testi-role">Trying to conceive, 8 months</p>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">"When the box arrived that evening, I cried. Not from sadness. Because I felt seen."</p>
+      <div class="testi-author">
+        <div class="testi-dot" style="background:#FBEAF0;color:#72243E;">M</div>
+        <div>
+          <p class="testi-name">Marie K.</p>
+          <p class="testi-role">Week 32 of pregnancy</p>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">"My morning check-in has become a sacred ritual. Five minutes just for me. Navia doesn't judge. It's just there."</p>
+      <div class="testi-author">
+        <div class="testi-dot" style="background:#E1F5EE;color:#085041;">A</div>
+        <div>
+          <p class="testi-name">Amina D.</p>
+          <p class="testi-role">Cycle tracking · 6 months</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<section id="content">
-<span class="section-label">The Library</span>
-<h2>Three formats,<br/>one <em>living</em> library.</h2>
-<div class="prose">
-<p>Every subject in Navia exists at three depths, designed for three very different moments in your day.</p>
-<p class="library-specialists">In conversation with leading specialists, including psychiatrists, perinatal coaches, pediatric first responders, and relational psychologists, so every piece of Navia content rests on real clinical ground.</p>
-</div>
-<div class="triad">
-<div class="triad-row">
-<span class="triad-icon">Article</span>
-<span class="triad-text">The long form, editorial, written with warmth and real expertise. Emotion, the body, hormonal weather, practical motherhood. Read at leisure.</span>
-</div>
-<div class="triad-row">
-<span class="triad-icon">Podcast</span>
-<span class="triad-text">The audio companion. Heard while walking, nursing, driving, falling asleep. Same depth as the article, delivered in Navia's voice.</span>
-</div>
-<div class="triad-row">
-<span class="triad-icon">Short video</span>
-<span class="triad-text">The moment of need fragment. Built from the Navia visual system, never human footage. For the 3 am questions: how to hold a newborn, a gentle first aid gesture.</span>
-</div>
-</div>
-<p class="library-preview-note">A first glimpse of what Navia will hold, ready at launch.</p>
-<div class="library-preview">
-<article class="library-card">
-<div class="library-card-meta">
-<span class="library-category">Perinatal mental health</span>
-<span class="library-time">12 min read</span>
-</div>
-<h3 class="library-title">Fourth trimester, without the fog</h3>
-<p class="library-lead">The weeks after birth that no one warns you about, named clearly and held with care, so a new mother can recognize what she is feeling before it grows heavy.</p>
-<div class="library-formats">
-<span class="library-format">Article</span>
-<span class="library-format">Podcast 16 min</span>
-<span class="library-format">Video 90 s</span>
-</div>
-</article>
-<article class="library-card">
-<div class="library-card-meta">
-<span class="library-category">Newborn first aid</span>
-<span class="library-time">8 min read</span>
-</div>
-<h3 class="library-title">A calm hand through her first fever</h3>
-<p class="library-lead">Step by step, in a quiet voice, what to do when a tiny body burns at 3 am. Written with a pediatric first responder, made to steady the hands of a mother who is alone and scared.</p>
-<div class="library-formats">
-<span class="library-format">Article</span>
-<span class="library-format">Podcast 11 min</span>
-<span class="library-format">Video 60 s</span>
-</div>
-</article>
-<article class="library-card">
-<div class="library-card-meta">
-<span class="library-category">Perinatal body</span>
-<span class="library-time">10 min read</span>
-</div>
-<h3 class="library-title">Six months later, the quiet rebuild</h3>
-<p class="library-lead">A patient look at the pelvic floor long after birth, with a perinatal coach who believes recovery is not a deadline. What to try, what to rest, what to forgive yourself for.</p>
-<div class="library-formats">
-<span class="library-format">Article</span>
-<span class="library-format">Podcast 14 min</span>
-<span class="library-format">Video 75 s</span>
-</div>
-</article>
-<article class="library-card">
-<div class="library-card-meta">
-<span class="library-category">Mother and daughter</span>
-<span class="library-time">14 min read</span>
-</div>
-<h3 class="library-title">When her mother is the one she cannot call</h3>
-<p class="library-lead">Some women become mothers while still grieving their own. A relational psychologist walks through the internal dialogue that shapes postpartum, with words a woman can borrow when her own feel too tangled.</p>
-<div class="library-formats">
-<span class="library-format">Article</span>
-<span class="library-format">Podcast 18 min</span>
-<span class="library-format">Video 90 s</span>
-</div>
-</article>
-</div>
-<div class="center">
-<a href="/pitch.html" class="pitch-link">Read the full vision</a>
-</div>
+
+<!-- FOUNDER -->
+<section class="founder" id="founder">
+  <div class="founder-visual">
+    <div class="founder-avatar">
+      <!-- Replace with actual founder photo: <img src="founder.jpg" alt="Sebastien Assohou, Founder of Navia" width="160" height="160" style="width:100%;height:100%;object-fit:cover;"> -->
+      <svg viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="28" r="14" fill="#7B6EF6" opacity="0.5"/>
+        <path d="M16 72 Q16 50 40 50 Q64 50 64 72" fill="#7B6EF6" opacity="0.35"/>
+      </svg>
+    </div>
+    <span class="founder-tag">Founder</span>
+  </div>
+  <div class="founder-content">
+    <h2 class="founder-name">Sebastien Assohou</h2>
+    <p class="founder-role">Holistic Health & Human Performance Expert</p>
+    <p class="founder-bio">
+      From protecting world leaders as a decorated police officer to coaching elite athletes and executives across continents, Sebastien has spent his career understanding what humans need to perform, and to heal. Author of <em>The Successful Body</em> and <em>Peak Performance</em>, Technogym Master Trainer, and recognized by the U.S. government as an individual of extraordinary ability, he brings a rare blend of operational experience and scientific depth.
+    </p>
+    <p class="founder-bio">
+      Navia was born from something more personal. After years of guiding women through their most transformative chapters, across diverse profiles and challenges, Sebastien recognized a space where no one was present: between doctor visits, between conversations, in the quiet moments where women carry everything alone. Navia exists for that space.
+    </p>
+    <ul class="founder-highlights" aria-label="Key credentials">
+      <li>EB-1 Extraordinary Ability</li>
+      <li>2 Published Books</li>
+      <li>Technogym Master Trainer</li>
+      <li>Paris 2024 Olympics Selected</li>
+      <li>Women's Health Specialist</li>
+    </ul>
+  </div>
 </section>
-<section id="numbers">
-<span class="section-label">In numbers</span>
-<h2>Why a companion,<br/><em>not another app.</em></h2>
-<div class="prose">
-<p>Quiet figures that explain why being present, early, matters so much for her.</p>
-</div>
-<div class="numbers-grid">
-<div class="number-card">
-<div class="number-figure">1 in 7</div>
-<div class="number-headline">Mothers touched by postpartum depression</div>
-<div class="number-context">A condition still under-recognized in the first year after birth.</div>
-<div class="number-source">Source: CDC, Depression Among Women</div>
-</div>
-<div class="number-card">
-<div class="number-figure">1 in 4</div>
-<div class="number-headline">Women face a perinatal mental health condition</div>
-<div class="number-context">From pregnancy through the first year postpartum.</div>
-<div class="number-source">Source: Maternal Mental Health Leadership Alliance</div>
-</div>
-<div class="number-card">
-<div class="number-figure">75%</div>
-<div class="number-headline">Of unpaid caregivers in the US are women</div>
-<div class="number-context">Care for others is carried quietly, often without care of her own.</div>
-<div class="number-source">Source: AARP &amp; NAC, Caregiving in the U.S. 2020</div>
-</div>
-<div class="number-card">
-<div class="number-figure">2x</div>
-<div class="number-headline">Women twice as likely as men to live with anxiety</div>
-<div class="number-context">A global pattern that begins early and follows her through life stages.</div>
-<div class="number-source">Source: WHO, Mental Health Atlas</div>
-</div>
-<div class="number-card">
-<div class="number-figure">44%</div>
-<div class="number-headline">Report moderate to severe mood symptoms in perimenopause</div>
-<div class="number-context">A passage still missing from most health conversations.</div>
-<div class="number-source">Source: Menopause, NAMS Journal</div>
-</div>
-<div class="number-card">
-<div class="number-figure">80%</div>
-<div class="number-headline">Of women say their pain is dismissed in clinical settings</div>
-<div class="number-context">Being heard is itself a form of medicine she often goes without.</div>
-<div class="number-source">Source: Journal of Pain Research</div>
-</div>
-<div class="number-card">
-<div class="number-figure">$14B</div>
-<div class="number-headline">Annual US cost of untreated maternal mental health</div>
-<div class="number-context">A price paid by families, workplaces, and communities alike.</div>
-<div class="number-source">Source: Mathematica Policy Research, 2019</div>
-</div>
-<div class="number-card">
-<div class="number-figure">$1T</div>
-<div class="number-headline">Annual global GDP lost to women&rsquo;s health gaps</div>
-<div class="number-context">Closing the gap is a health, human, and economic imperative.</div>
-<div class="number-source">Source: McKinsey Health Institute, 2024</div>
-</div>
-</div>
-<p class="numbers-disclaimer">Figures cited from publicly reported sources. Each will be re-verified with its primary source before public launch.</p>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="waitlist">
+  <div class="cta-orb"></div>
+  <div class="cta-content">
+    <h2 class="cta-title">
+      Be among the first<br><em>Navia women</em>
+    </h2>
+    <p class="cta-subtitle">
+      Navia launches soon. Early members get first access, and a surprise.
+    </p>
+    <div class="cta-form" id="cta-form">
+      <input class="hero-input" type="email" id="cta-email" placeholder="your@email.com" aria-label="Email address" required />
+      <button class="hero-btn" type="button" onclick="submitEmail('cta')">I'm in</button>
+    </div>
+    <div class="success-msg" id="cta-success" style="justify-content:center; margin-top:1rem;">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#7B6EF6" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#7B6EF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Welcome to the Navia community.
+    </div>
+    <p class="cta-note" id="cta-note">Zero spam. Unsubscribe anytime.</p>
+  </div>
 </section>
-<section id="consultation">
-<span class="section-label">Coming in Phase Two</span>
-<h2>When a conversation <em>is not enough</em>,<br/>a real specialist is one tap away.</h2>
-<div class="prose">
-<p>Navia begins with presence. For the moments when presence alone will not carry you, a second layer will arrive: a discreet consultation tab inside the app, built with partner cabinets in mental health, perinatal care, pediatric first response, and relational therapy.</p>
-<p>No cold directory, no random search. Only practices Navia already works with on content, vetted for warmth and rigor, reachable in the same breath as the companion who listened first.</p>
-</div>
-<div class="consultation-steps">
-<div class="consultation-step">
-<div class="consultation-step-num">01</div>
-<div class="consultation-step-title">Navia listens</div>
-<div class="consultation-step-body">She hears the signal, offers a first response, holds space without rushing.</div>
-</div>
-<div class="consultation-step">
-<div class="consultation-step-num">02</div>
-<div class="consultation-step-title">She suggests a hand</div>
-<div class="consultation-step-body">Only when the moment calls for one, Navia gently points to a partner cabinet that matches the need.</div>
-</div>
-<div class="consultation-step">
-<div class="consultation-step-num">03</div>
-<div class="consultation-step-title">Continuity, not handoff</div>
-<div class="consultation-step-body">The specialist sees the shared context a woman chose to bring. Nothing leaves the circle without her consent.</div>
-</div>
-</div>
-<p class="consultation-note">Phase Two follows the launch of the free emotional core. No specialist is listed until their cabinet has signed a formal partnership and content has been reviewed alongside them.</p>
-</section>
-<section id="final-cta">
-<div class="final-cta">
-<span class="section-label">Walk with her</span>
-<h2>Walk with <em>her</em><br/>from the beginning.</h2>
-<p class="lede">Join the waitlist and Navia will reach out when she is ready for you.</p>
-<form class="waitlist-form" id="waitlist-form-2" novalidate>
-<input
-          class="waitlist-input"
-          type="email"
-          id="waitlist-email-2"
-          placeholder="your@email.com"
-          aria-label="Your email address"
-          autocomplete="email"
-          required />
-<button class="waitlist-btn" type="submit">Join the waitlist</button>
-</form>
-<p class="signup-terms" id="waitlist-note-2">By joining the waitlist, you agree to our <a href="/privacy.html">privacy policy</a> and <a href="/terms.html">terms of service</a>.</p>
-<div class="waitlist-success" id="waitlist-success-2">Thank you. Navia will reach out when she is ready for you.</div>
-<div class="footer-downloads" aria-label="Download Navia">
-<a class="download-btn" href="#final-cta" aria-label="Download on the App Store (waitlist)">
-<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-<path d="M16.365 1.43c0 1.14-.43 2.22-1.21 3.02-.79.81-2.05 1.43-3.13 1.34-.13-1.1.43-2.25 1.18-3.04.83-.86 2.21-1.49 3.16-1.32zM20.5 17.43c-.55 1.27-.81 1.83-1.52 2.95-1 1.57-2.4 3.52-4.13 3.54-1.54.02-1.93-1-4.02-.99-2.09.01-2.52 1.01-4.06.99-1.73-.02-3.06-1.78-4.06-3.34C-.05 16.36-.36 11.07 1.5 8.27c1.32-1.99 3.41-3.16 5.37-3.16 2 0 3.26 1.1 4.91 1.1 1.6 0 2.58-1.1 4.89-1.1 1.74 0 3.59.95 4.9 2.59-4.31 2.36-3.61 8.51 1.43 9.73-.13.16-.27.31-.5 0z"/>
-</svg>
-<span class="download-text">
-<span class="download-tiny">Download on the</span>
-<span class="download-store">App Store</span>
-</span>
-</a>
-<a class="download-btn" href="#final-cta" aria-label="Get it on Google Play (waitlist)">
-<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-<path d="M3.609 1.814 13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zM14.499 12.708l2.302 2.302-11.62 6.66L14.5 12.71zM18.928 9.4a1.13 1.13 0 0 1 0 5.2l-2.658 1.523-2.51-2.51 2.51-2.51L18.928 9.4zM5.18 3.03l11.621 6.66-2.302 2.302L5.18 3.03z"/>
-</svg>
-<span class="download-text">
-<span class="download-tiny">Get it on</span>
-<span class="download-store">Google Play</span>
-</span>
-</a>
-</div>
-</div>
-</section>
+
 </main>
-<footer>
-<div class="footer-inner">
-<div class="footer-brand">
-<div class="wordmark">Nav<span class="wordmark-i">&#305;</span>a</div>
-<p class="footer-tagline">Be where she is.</p>
-</div>
-<ul class="footer-socials" aria-label="Navia on social media">
-<li>
-<a class="social-icon" href="https://instagram.com/bynavia" target="_blank" rel="noopener" aria-label="Navia on Instagram">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-<rect x="3" y="3" width="18" height="18" rx="5"/>
-<circle cx="12" cy="12" r="4"/>
-<circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/>
-</svg>
-</a>
-</li>
-<li>
-<a class="social-icon" href="https://x.com/bynavia" target="_blank" rel="noopener" aria-label="Navia on X">
-<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
-</svg>
-</a>
-</li>
-<li>
-<a class="social-icon" href="https://facebook.com/bynavia" target="_blank" rel="noopener" aria-label="Navia on Facebook">
-<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-<path d="M13.5 22v-8h2.7l.4-3.13H13.5V8.86c0-.9.25-1.52 1.55-1.52H16.7V4.55c-.29-.04-1.27-.13-2.41-.13-2.39 0-4.03 1.46-4.03 4.13v2.32H7.5V14h2.76v8h3.24z"/>
-</svg>
-</a>
-</li>
-<li>
-<a class="social-icon" href="https://youtube.com/@bynavia" target="_blank" rel="noopener" aria-label="Navia on YouTube">
-<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-<path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.27 5 12 5 12 5s-6.27 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2C2 8.78 2 12 2 12s0 3.22.4 4.8a2.5 2.5 0 0 0 1.76 1.77C5.73 19 12 19 12 19s6.27 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77C22 15.22 22 12 22 12s0-3.22-.4-4.8zM10 15.02V8.98L15.2 12 10 15.02z"/>
-</svg>
-</a>
-</li>
-</ul>
-<ul class="footer-links">
-<li><a href="/letters.html">Letters</a></li>
-<li><a href="/pitch.html">The vision</a></li>
-<li><a href="mailto:contact@bynavia.com">Contact</a></li>
-<li><a href="/privacy.html">Privacy</a></li>
-<li><a href="/terms.html">Terms</a></li>
-</ul>
-<p class="footer-founder">Founder. Sebastien Assohou is a holistic health practitioner and educator distinguished for extraordinary ability in his field, with recognition under the EB-1 category in the United States.</p>
-</div>
-<p class="footer-copy">&copy; 2026 Navia. Built with presence, not for performance.</p>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <span class="footer-logo">navia</span>
+  <ul class="footer-links">
+    <li><a href="/privacy">Privacy</a></li>
+    <li><a href="mailto:contact@bynavia.com">Contact</a></li>
+    <li><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2026 Navia. Made with presence.</p>
 </footer>
+
 <script>
-/* ─── Theme toggle ─────────────────────────────────────── */
-(function () {
-  var root = document.documentElement;
-  var toggle = document.getElementById('theme-toggle');
-  var iconPath = document.getElementById('theme-icon-path');
-  var MOON = 'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
-  var SUN = 'M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0z';
-  var modeCards = document.querySelectorAll('.mode[data-theme-target]');
-  function applyTheme(theme) {
-    root.setAttribute('data-theme', theme);
-    iconPath.setAttribute('d', theme === 'night' ? SUN : MOON);
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', theme === 'night' ? '#2B2940' : '#F5F0E6');
-    modeCards.forEach(function (card) {
-      if (card.getAttribute('data-theme-target') === theme) {
-        card.classList.add('is-active');
-      } else {
-        card.classList.remove('is-active');
-      }
-    });
-    try { localStorage.setItem('navia-theme', theme); } catch (e) {}
-  }
-  var saved = null;
-  try { saved = localStorage.getItem('navia-theme'); } catch (e) {}
-  if (saved === 'day' || saved === 'night') {
-    applyTheme(saved);
-  } else {
-    applyTheme('night');
-  }
-  toggle.addEventListener('click', function () {
-    var next = root.getAttribute('data-theme') === 'night' ? 'day' : 'night';
-    applyTheme(next);
-  });
-  /* Day/Night preview: switch theme on hover, also works on click + keyboard for touch/a11y */
-  modeCards.forEach(function (card) {
-    var target = card.getAttribute('data-theme-target');
-    card.addEventListener('mouseenter', function () { applyTheme(target); });
-    card.addEventListener('focus', function () { applyTheme(target); });
-    card.addEventListener('click', function () { applyTheme(target); });
-  });
-  /* ─── Top bar hide-on-scroll, show-on-idle ──
-   * When the user scrolls, the top bar retreats upward.
-   * When scrolling pauses (~180ms), it slides back down.
-   * Mimics the first iteration of the site — discreet
-   * presence that yields during motion and returns at rest.
-   */
-  var topBar = document.querySelector('.top-bar');
-  if (topBar) {
-    var scrollTimer = null;
-    var lastY = window.scrollY || 0;
-    window.addEventListener('scroll', function () {
-      var y = window.scrollY || 0;
-      // Always visible near the very top
-      if (y < 24) {
-        topBar.classList.remove('is-hidden');
-      } else if (Math.abs(y - lastY) > 2) {
-        topBar.classList.add('is-hidden');
-      }
-      lastY = y;
-      if (scrollTimer) clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(function () {
-        topBar.classList.remove('is-hidden');
-      }, 180);
-    }, { passive: true });
-  }
-})();
-/* ─── Waitlist forms (demo mode, Brevo-ready) ────────── */
 /*
- * Both forms call handleWaitlist(inputId, successId, formId).
+ * ─── WAITLIST FORM (Demo Mode) ───
  * Currently shows success UI without sending data anywhere.
  *
- * When ready for production, replace the commented section
- * with a POST to your Brevo-backed endpoint. For security,
- * keep the API call on a backend, never expose the key
- * in client-side code.
+ * When ready for production, uncomment the Brevo section below
+ * and add your API key. For security, move the API call to a
+ * backend endpoint to avoid exposing your key in client-side code.
  *
- *   fetch('/api/waitlist', {
- *     method: 'POST',
- *     headers: { 'Content-Type': 'application/json' },
- *     body: JSON.stringify({ email: email })
- *   })
- *   .then(function (r) { return r.json(); })
- *   .then(function () { showSuccess(); })
- *   .catch(function () { showError(); });
- *
- * Brevo docs: https://developers.brevo.com/reference/createcontact
+ * Brevo setup:
+ *   const BREVO_API_KEY = 'YOUR_BREVO_API_KEY';
+ *   const BREVO_LIST_ID = 2;
+ *   Endpoint: POST https://api.brevo.com/v3/contacts
+ *   Docs: https://developers.brevo.com/reference/createcontact
  */
+
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
-function handleWaitlist(form, input, success, note) {
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var email = (input.value || '').trim();
-    if (!email || !isValidEmail(email)) {
-      input.setAttribute('aria-invalid', 'true');
-      setTimeout(function () { input.removeAttribute('aria-invalid'); }, 2400);
-      input.focus();
-      return;
-    }
-    form.style.display = 'none';
-    if (note) note.style.display = 'none';
-    success.classList.add('show');
-    /* TODO: POST to /api/waitlist here when backend is live */
-  });
+
+function submitEmail(src) {
+  const emailEl = document.getElementById(src === 'hero' ? 'hero-email' : 'cta-email');
+  const email = emailEl.value.trim();
+
+  if (!email || !isValidEmail(email)) {
+    emailEl.style.borderColor = '#F4C0D1';
+    emailEl.setAttribute('aria-invalid', 'true');
+    setTimeout(() => {
+      emailEl.style.borderColor = 'rgba(123,110,246,0.25)';
+      emailEl.removeAttribute('aria-invalid');
+    }, 2000);
+    return;
+  }
+
+  // Demo mode: just show success
+  showSuccess(src);
 }
-handleWaitlist(
-  document.getElementById('waitlist-form-2'),
-  document.getElementById('waitlist-email-2'),
-  document.getElementById('waitlist-success-2'),
-  document.getElementById('waitlist-note-2')
-);
-/* ─── Animated counters for numbers section ────────────── */
-(function () {
-  var figures = document.querySelectorAll('.number-figure');
-  if (!figures.length) return;
-  function parseTarget(text) {
-    text = text.trim();
-    /* "1 in 7" format */
-    var inMatch = text.match(/^(\d+)\s+in\s+(\d+)$/i);
-    if (inMatch) return { prefix: '', num: parseInt(inMatch[2], 10), suffix: '', template: inMatch[1] + ' in {n}' };
-    /* "$14B" or "$1T" format */
-    var moneyMatch = text.match(/^\$(\d+)([A-Z])$/);
-    if (moneyMatch) return { prefix: '$', num: parseInt(moneyMatch[1], 10), suffix: moneyMatch[2], template: null };
-    /* "75%" or "2x" format */
-    var numSuffix = text.match(/^(\d+)([%xX])$/);
-    if (numSuffix) return { prefix: '', num: parseInt(numSuffix[1], 10), suffix: numSuffix[2], template: null };
-    return null;
+
+function showSuccess(src) {
+  if (src === 'hero') {
+    document.getElementById('hero-form').style.display = 'none';
+    document.getElementById('hero-note').style.display = 'none';
+    document.getElementById('hero-success').classList.add('show');
+  } else {
+    document.getElementById('cta-form').style.display = 'none';
+    document.getElementById('cta-note').style.display = 'none';
+    document.getElementById('cta-success').classList.add('show');
   }
-  function animateValue(el, data, duration) {
-    var start = null;
-    function step(ts) {
-      if (!start) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      /* ease-out cubic */
-      var eased = 1 - Math.pow(1 - progress, 3);
-      var current = Math.round(eased * data.num);
-      if (data.template) {
-        el.textContent = data.template.replace('{n}', current);
-      } else {
-        el.textContent = data.prefix + current + data.suffix;
-      }
-      if (progress < 1) requestAnimationFrame(step);
+}
+
+document.querySelectorAll('input[type=email]').forEach(inp => {
+  inp.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      submitEmail(inp.id === 'hero-email' ? 'hero' : 'cta');
     }
-    requestAnimationFrame(step);
-  }
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      var el = entry.target;
-      var data = parseTarget(el.getAttribute('data-target'));
-      if (data) {
-        el.textContent = data.template ? data.template.replace('{n}', '0') : data.prefix + '0' + data.suffix;
-        animateValue(el, data, 1200);
-      }
-      observer.unobserve(el);
-    });
-  }, { threshold: 0.3 });
-  figures.forEach(function (fig) {
-    fig.setAttribute('data-target', fig.textContent.trim());
-    observer.observe(fig);
   });
-})();
+});
 </script>
 </body>
 </html>
