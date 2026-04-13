@@ -866,10 +866,35 @@ function handleWaitlist(form, input, success, note) {
       input.focus();
       return;
     }
+    /* ── Send to Brevo via hidden iframe (no CORS issues) ── */
+    var iframeName = 'brevo-frame-' + Date.now();
+    var iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    var brevoForm = document.createElement('form');
+    brevoForm.method = 'POST';
+    brevoForm.action = 'https://2fb0d768.sibforms.com/serve/MUIFAJyZ_MTMdd0UUlU5Ko0Xf_UmKUxdeSiOOPV5VWSRZ7kw2v9wpDjQQYgJDZmsLye38M1VkkI5bTDfjAwhiMh4NMNywDzxY_NtL6Q9qyjnLzF_FEpr7qpCzPILiDfftcqJj57InOz7kQ3fRED0QeyLwnVX_N404CkS2_BbEdeW_63Ynx_fXTYocWdCmz0Fnpmu9iNLZzz7gQOwzQ==';
+    brevoForm.target = iframeName;
+    brevoForm.style.display = 'none';
+    var fields = { EMAIL: email, email_address_check: '', locale: 'en', html_type: 'simple' };
+    for (var key in fields) {
+      var inp = document.createElement('input');
+      inp.type = 'hidden';
+      inp.name = key;
+      inp.value = fields[key];
+      brevoForm.appendChild(inp);
+    }
+    document.body.appendChild(brevoForm);
+    brevoForm.submit();
+    setTimeout(function () {
+      document.body.removeChild(brevoForm);
+      document.body.removeChild(iframe);
+    }, 5000);
+    /* ── Show success UI ── */
     form.style.display = 'none';
     if (note) note.style.display = 'none';
     success.classList.add('show');
-    /* TODO: POST to /api/waitlist here when backend is live */
   });
 }
 handleWaitlist(
