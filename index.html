@@ -60,7 +60,7 @@
 </div>
 <div class="top-bar-right">
 <div class="wordmark-wrap">
-<a href="https://navia-voice.vercel.app" class="wordmark" target="_blank" rel="noopener">Nav<span class="wordmark-i">&#305;</span>a</a>
+<a href="#" class="wordmark" id="wordmark-talk" aria-label="Talk to Navia">Nav<span class="wordmark-i">&#305;</span>a</a>
 </div>
 </div>
 </nav>
@@ -1333,6 +1333,63 @@ handleWaitlist(
 
   // Initialize
   updateUI();
+})();
+</script>
+
+<!-- ─── Navia Voice Overlay ─────────────────────────────── -->
+<div class="voice-overlay" id="voice-overlay" aria-hidden="true">
+  <div class="voice-overlay-backdrop" id="voice-overlay-backdrop"></div>
+  <div class="voice-overlay-panel">
+    <button class="voice-overlay-close" id="voice-overlay-close" type="button" aria-label="Close">&times;</button>
+    <iframe id="voice-overlay-frame" src="" allow="microphone; autoplay" loading="lazy"></iframe>
+  </div>
+</div>
+
+<style>
+.voice-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.5s ease}
+.voice-overlay.is-open{opacity:1;pointer-events:auto}
+.voice-overlay-backdrop{position:absolute;inset:0;background:rgba(20,18,36,0.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.voice-overlay-panel{position:relative;width:90vw;max-width:480px;height:85vh;max-height:780px;border-radius:28px;overflow:hidden;border:1px solid var(--hairline);box-shadow:0 40px 120px rgba(0,0,0,0.5),0 0 80px rgba(232,197,143,0.12);transform:translateY(30px) scale(0.96);transition:transform 0.5s cubic-bezier(0.2,0.8,0.2,1)}
+.voice-overlay.is-open .voice-overlay-panel{transform:translateY(0) scale(1)}
+.voice-overlay-close{position:absolute;top:14px;right:16px;z-index:10;background:rgba(43,41,64,0.6);border:1px solid rgba(245,240,230,0.15);border-radius:50%;width:36px;height:36px;color:rgba(245,240,230,0.8);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.3s ease,color 0.3s ease}
+.voice-overlay-close:hover{background:rgba(43,41,64,0.85);color:#F5F0E6}
+.voice-overlay iframe{width:100%;height:100%;border:none;border-radius:28px;background:#2B2940}
+@media(max-width:720px){.voice-overlay-panel{width:100vw;height:100vh;max-width:none;max-height:none;border-radius:0}.voice-overlay iframe{border-radius:0}.voice-overlay-close{top:10px;right:12px}}
+</style>
+
+<script>
+(function(){
+  var overlay = document.getElementById('voice-overlay');
+  var backdrop = document.getElementById('voice-overlay-backdrop');
+  var closeBtn = document.getElementById('voice-overlay-close');
+  var frame = document.getElementById('voice-overlay-frame');
+  var trigger = document.getElementById('wordmark-talk');
+
+  function openVoice(e) {
+    e.preventDefault();
+    if (!frame.src || frame.src === '' || frame.src === window.location.href) {
+      frame.src = 'https://navia-voice.vercel.app';
+    }
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVoice() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  trigger.addEventListener('click', openVoice);
+  closeBtn.addEventListener('click', closeVoice);
+  backdrop.addEventListener('click', closeVoice);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
+      closeVoice();
+    }
+  });
 })();
 </script>
 </body>
