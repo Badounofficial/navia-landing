@@ -820,6 +820,11 @@
       }
     });
     try { localStorage.setItem('navia-theme', theme); } catch (e) {}
+    // Sync theme to voice widget iframe
+    var voiceFrame = document.getElementById('voice-widget-frame');
+    if (voiceFrame && voiceFrame.contentWindow) {
+      voiceFrame.contentWindow.postMessage({ type: 'navia-theme', theme: theme }, '*');
+    }
   }
   var saved = null;
   try { saved = localStorage.getItem('navia-theme'); } catch (e) {}
@@ -1386,6 +1391,15 @@ handleWaitlist(
     if (!isOpen) {
       if (!frame.src || frame.src === window.location.href || frame.src === '') {
         frame.src = 'https://navia-voice.vercel.app';
+        // Send current theme once iframe loads
+        frame.addEventListener('load', function() {
+          var currentTheme = document.documentElement.getAttribute('data-theme') || 'night';
+          frame.contentWindow.postMessage({ type: 'navia-theme', theme: currentTheme }, '*');
+        }, { once: true });
+      } else {
+        // iframe already loaded, just sync theme
+        var currentTheme = document.documentElement.getAttribute('data-theme') || 'night';
+        frame.contentWindow.postMessage({ type: 'navia-theme', theme: currentTheme }, '*');
       }
       panel.classList.add('is-open');
       isOpen = true;
