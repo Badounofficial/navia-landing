@@ -1428,15 +1428,19 @@ handleWaitlist(
 
   function startSoundscape() {
     if (started) return;
-    started = true;
     audio.play().then(function() {
+      started = true;
       fadeIn();
-    }).catch(function() {});
+    }).catch(function(e) {
+      console.warn('Ambient audio play blocked:', e);
+    });
   }
 
   // Mute toggle
   if (muteBtn) {
-    muteBtn.addEventListener('click', function() {
+    muteBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (!started) { startSoundscape(); }
       isMuted = !isMuted;
       audio.volume = isMuted ? 0 : targetVol;
       if (soundWaves) soundWaves.style.display = isMuted ? 'none' : '';
@@ -1444,17 +1448,14 @@ handleWaitlist(
     });
   }
 
-  // Start on first user interaction (browser autoplay policy)
-  var events = ['click', 'touchstart', 'scroll', 'keydown', 'mousemove'];
-  function onFirstInteraction() {
+  // Start on first real user gesture (click/tap only, scroll does not count)
+  function onFirstGesture() {
     startSoundscape();
-    events.forEach(function(evt) {
-      document.removeEventListener(evt, onFirstInteraction);
-    });
+    document.removeEventListener('click', onFirstGesture);
+    document.removeEventListener('touchstart', onFirstGesture);
   }
-  events.forEach(function(evt) {
-    document.addEventListener(evt, onFirstInteraction, { once: false, passive: true });
-  });
+  document.addEventListener('click', onFirstGesture, { passive: true });
+  document.addEventListener('touchstart', onFirstGesture, { passive: true });
 })();
 </script>
 </body>

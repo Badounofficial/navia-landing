@@ -100,7 +100,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: radial-gradient(circle at 38% 35%, #FFFFFF 0%, var(--clair-lune) 55%, rgba(245, 240, 230, 0.35) 100%);
+    background: url('moon-color.jpg') center/cover;
     box-shadow: 0 0 14px rgba(245, 240, 230, 0.55), 0 0 32px rgba(245, 240, 230, 0.2);
     animation: softBreath 5s ease-in-out infinite;
   }
@@ -117,8 +117,10 @@
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    background: radial-gradient(circle at 38% 35%, #FFFFFF 0%, var(--clair-lune) 55%, rgba(245, 240, 230, 0.18) 100%);
+    background: url('moon-color.jpg') center/cover;
     box-shadow: 0 0 80px rgba(245, 240, 230, 0.45), 0 0 160px rgba(245, 240, 230, 0.18);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
     animation: softBreath 6s ease-in-out infinite;
   }
 
