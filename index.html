@@ -54,6 +54,11 @@
 <path id="theme-icon-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 </button>
+<button class="theme-toggle sound-mute" id="sound-mute" aria-label="Mute ambient sound" type="button">
+<svg id="sound-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M11 5L6 9H2v6h4l5 4V5z"/><path id="sound-waves" d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+</svg>
+</button>
 </div>
 <div class="top-bar-center">
 <a href="#final-cta" class="community-link">Join the Navia community</a>
@@ -1389,46 +1394,42 @@ handleWaitlist(
   });
 })();
 
-/* ─── Ambient Binaural Soundscape (432 Hz) ─── */
+/* ─── Ambient Binaural Soundscape (loops ambient.mp3) ─── */
 (function(){
+  var audio = new Audio('audio/ambient.mp3');
+  audio.loop = true;
+  audio.volume = 0;
   var started = false;
-  var ctx, masterGain;
+  var isMuted = false;
+  var targetVol = 0.5;
+  var muteBtn = document.getElementById('sound-mute');
+  var soundWaves = document.getElementById('sound-waves');
+
+  function fadeIn() {
+    var vol = 0;
+    var interval = setInterval(function() {
+      vol += 0.005;
+      if (vol >= targetVol) { vol = targetVol; clearInterval(interval); }
+      if (!isMuted) audio.volume = vol;
+    }, 50);
+  }
 
   function startSoundscape() {
     if (started) return;
     started = true;
+    audio.play().then(function() {
+      fadeIn();
+    }).catch(function() {});
+  }
 
-    ctx = new (window.AudioContext || window.webkitAudioContext)();
-    masterGain = ctx.createGain();
-    masterGain.gain.value = 0;
-    masterGain.connect(ctx.destination);
-
-    var merger = ctx.createChannelMerger(2);
-
-    // Left ear: 432 Hz
-    var oscL = ctx.createOscillator();
-    oscL.type = 'sine';
-    oscL.frequency.value = 432;
-    var gainL = ctx.createGain();
-    gainL.gain.value = 0.06;
-    oscL.connect(gainL);
-    gainL.connect(merger, 0, 0);
-
-    // Right ear: 438 Hz (6 Hz theta binaural beat)
-    var oscR = ctx.createOscillator();
-    oscR.type = 'sine';
-    oscR.frequency.value = 438;
-    var gainR = ctx.createGain();
-    gainR.gain.value = 0.06;
-    oscR.connect(gainR);
-    gainR.connect(merger, 0, 1);
-
-    merger.connect(masterGain);
-    oscL.start();
-    oscR.start();
-
-    // Gentle fade in over 5 seconds
-    masterGain.gain.linearRampToValueAtTime(0.55, ctx.currentTime + 5);
+  // Mute toggle
+  if (muteBtn) {
+    muteBtn.addEventListener('click', function() {
+      isMuted = !isMuted;
+      audio.volume = isMuted ? 0 : targetVol;
+      if (soundWaves) soundWaves.style.display = isMuted ? 'none' : '';
+      muteBtn.setAttribute('aria-label', isMuted ? 'Unmute ambient sound' : 'Mute ambient sound');
+    });
   }
 
   // Start on first user interaction (browser autoplay policy)
