@@ -1146,16 +1146,18 @@ handleWaitlist(
       <div class="narrator-dots" id="narrator-dots"></div>
     </div>
     <div class="narrator-controls">
-      <button class="narrator-btn" id="narrator-prev" type="button" aria-label="Previous section">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M6 6h2v12H6V6zm3.5 6 8.5 6V6l-8.5 6z"/></svg>
-      </button>
-      <button class="narrator-btn narrator-play" id="narrator-play" type="button" aria-label="Play">
-        <svg class="narrator-icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="narrator-icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-      </button>
-      <button class="narrator-btn" id="narrator-next" type="button" aria-label="Next section">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
-      </button>
+      <div class="narrator-controls-main">
+        <button class="narrator-btn" id="narrator-prev" type="button" aria-label="Previous section">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M6 6h2v12H6V6zm3.5 6 8.5 6V6l-8.5 6z"/></svg>
+        </button>
+        <button class="narrator-btn narrator-play" id="narrator-play" type="button" aria-label="Play">
+          <svg class="narrator-icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="narrator-icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+        </button>
+        <button class="narrator-btn" id="narrator-next" type="button" aria-label="Next section">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+        </button>
+      </div>
       <button class="narrator-btn narrator-speed" id="narrator-speed" type="button" aria-label="Playback speed">
         <span id="narrator-speed-label">1x</span>
       </button>
@@ -1186,14 +1188,15 @@ handleWaitlist(
 .narrator-dot{width:6px;height:6px;border-radius:50%;background:var(--hairline);transition:background 0.4s ease,transform 0.3s ease}
 .narrator-dot.is-active{background:var(--accent-aube);transform:scale(1.3)}
 .narrator-dot.is-done{background:var(--text-soft)}
-.narrator-controls{display:flex;align-items:center;gap:16px}
+.narrator-controls{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;width:100%}
+.narrator-controls-main{grid-column:2;display:flex;align-items:center;justify-content:center;gap:16px}
 .narrator-btn{background:none;border:none;color:var(--text-soft);cursor:pointer;padding:6px;display:flex;align-items:center;justify-content:center;transition:color 0.3s ease,transform 0.2s ease}
 .narrator-btn:hover{color:var(--text);transform:scale(1.1)}
 .narrator-btn svg{width:18px;height:18px}
 .narrator-play{width:44px;height:44px;border-radius:50%;background:var(--btn-bg);color:var(--btn-text);padding:0;display:flex;align-items:center;justify-content:center}
 .narrator-play:hover{transform:scale(1.06);opacity:0.92}
 .narrator-play svg{width:20px;height:20px}
-.narrator-speed{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.04em;min-width:36px;padding:4px 8px;border-radius:8px;border:1px solid var(--hairline);background:var(--card-bg)}
+.narrator-speed{grid-column:3;justify-self:end;font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.04em;min-width:36px;padding:4px 8px;border-radius:8px;border:1px solid var(--hairline);background:var(--card-bg)}
 .narrator-speed:hover{border-color:var(--accent-aube)}
 .narrator-progress{width:100%;height:3px;background:var(--hairline);border-radius:2px;overflow:hidden}
 .narrator-progress-fill{height:100%;width:0;background:var(--accent-aube);border-radius:2px;transition:width 0.15s linear}
@@ -1244,6 +1247,12 @@ handleWaitlist(
   var scrollRafId = null;
   var userScrolling = false;
   var userScrollTimer = null;
+
+  // ─── Teleprompter (karaoke) ───
+  var tp = document.getElementById('teleprompter');
+  var tpText = document.getElementById('teleprompter-text');
+  var tpWords = [];
+  var tpActiveIndex = -1;
 
   // Build dots
   SECTIONS.forEach(function (_, i) {
@@ -1314,6 +1323,7 @@ handleWaitlist(
 
         window.scrollTo(0, Math.round(smoothY));
         progressFill.style.width = (progress * 100) + '%';
+        updateKaraoke();
       }
 
       scrollRafId = requestAnimationFrame(tick);
@@ -1341,6 +1351,73 @@ handleWaitlist(
     userScrollTimer = setTimeout(function () { userScrolling = false; }, 2000);
   }, { passive: true });
 
+  // ─── Teleprompter functions ───
+  function getSectionText(sectionId) {
+    var el = document.getElementById(sectionId);
+    if (!el) return [];
+    var nodes = el.querySelectorAll('h1, h2, .lede, p, .callout, .number-headline, .number-context, .consultation-step-title, .consultation-step-body, .library-title, .library-lead');
+    var paragraphs = [];
+    for (var i = 0; i < nodes.length; i++) {
+      if (nodes[i].closest('[aria-hidden="true"]')) continue;
+      var txt = nodes[i].textContent.trim().replace(/\s+/g, ' ');
+      if (txt && txt.length > 2) paragraphs.push(txt);
+    }
+    return paragraphs;
+  }
+
+  function buildTeleprompterWords() {
+    var paragraphs = getSectionText(SECTIONS[currentIndex].id);
+    tpText.innerHTML = '';
+    tpText.style.transform = '';
+    tpWords = [];
+    tpActiveIndex = -1;
+    for (var pi = 0; pi < paragraphs.length; pi++) {
+      if (pi > 0) {
+        var br = document.createElement('span');
+        br.className = 'tp-break';
+        tpText.appendChild(br);
+      }
+      var words = paragraphs[pi].split(/\s+/);
+      for (var wi = 0; wi < words.length; wi++) {
+        if (!words[wi]) continue;
+        var span = document.createElement('span');
+        span.className = 'tp-word';
+        span.textContent = words[wi];
+        tpText.appendChild(span);
+        tpWords.push(span);
+      }
+    }
+  }
+
+  function updateKaraoke() {
+    if (!tpWords.length || !audio.duration) return;
+    var progress = audio.currentTime / audio.duration;
+    var idx = Math.floor(progress * tpWords.length);
+    if (idx >= tpWords.length) idx = tpWords.length - 1;
+    if (idx < 0) idx = 0;
+    if (idx === tpActiveIndex) return;
+    tpActiveIndex = idx;
+    for (var i = 0; i < tpWords.length; i++) {
+      var cl = tpWords[i].classList;
+      cl.remove('is-active', 'is-near', 'is-read');
+      if (i < idx) cl.add('is-read');
+      else if (i === idx) cl.add('is-active');
+      else if (i <= idx + 3) cl.add('is-near');
+    }
+    // Keep active word centered on screen
+    var wordCenter = tpWords[idx].offsetTop + tpWords[idx].offsetHeight / 2;
+    tpText.style.transform = 'translateY(' + (window.innerHeight / 2 - wordCenter) + 'px)';
+  }
+
+  function showTeleprompter() {
+    buildTeleprompterWords();
+    tp.classList.add('is-active');
+  }
+
+  function hideTeleprompter() {
+    tp.classList.remove('is-active');
+  }
+
   function updateUI() {
     sectionLabel.textContent = SECTIONS[currentIndex].label;
     var dots = dotsContainer.querySelectorAll('.narrator-dot');
@@ -1360,6 +1437,7 @@ handleWaitlist(
     audio.playbackRate = SPEEDS[speedIndex];
     progressFill.style.width = '0%';
     updateUI();
+    if (tp.classList.contains('is-active')) buildTeleprompterWords();
     // On manual jump (not auto-advance), gently nudge smoothY toward target
     if (!keepScrolling && sectionAnchors[index]) {
       smoothY = window.pageYOffset;
@@ -1372,6 +1450,7 @@ handleWaitlist(
       isPlaying = true;
       updateUI();
       startCinemaScroll();
+      if (!tp.classList.contains('is-active')) showTeleprompter();
     }).catch(function (err) {
       console.warn('Narration play failed:', err);
     });
@@ -1416,6 +1495,7 @@ handleWaitlist(
   closeBtn.addEventListener('click', function () {
     isOpen = false;
     pause();
+    hideTeleprompter();
     fab.classList.remove('is-hidden');
     bar.classList.remove('is-visible');
   });
@@ -1455,10 +1535,54 @@ handleWaitlist(
     play();
   });
 
+  // ─── Scroll trigger: auto-start narration on scroll ───
+  var scrollTriggered = false;
+  window.addEventListener('scroll', function () {
+    if (scrollTriggered || isOpen) return;
+    if (window.pageYOffset > 120) {
+      scrollTriggered = true;
+      isOpen = true;
+      fab.classList.add('is-hidden');
+      bar.classList.add('is-visible');
+      calcAnchors();
+      loadSection(0);
+      play();
+    }
+  }, { passive: true });
+
   // Initialize
   updateUI();
 })();
 </script>
+
+<!-- ─── Teleprompter overlay (karaoke narration) ─────── -->
+<div class="teleprompter" id="teleprompter">
+  <div class="teleprompter-text" id="teleprompter-text"></div>
+  <div class="teleprompter-fade teleprompter-fade--top"></div>
+  <div class="teleprompter-fade teleprompter-fade--bottom"></div>
+</div>
+
+<style>
+.teleprompter{display:none;position:fixed;inset:0;z-index:40;background:rgba(43,41,64,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);overflow:hidden;animation:fadeIn 0.6s ease}
+.teleprompter.is-active{display:flex;align-items:center;justify-content:center}
+:root[data-theme="day"] .teleprompter{background:rgba(244,239,245,0.92)}
+.teleprompter-text{position:relative;max-width:640px;width:90%;text-align:center;padding:40vh 0;transition:transform 0.35s ease}
+.teleprompter-text .tp-word{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(22px,3.5vw,32px);line-height:1.8;color:rgba(245,240,230,0.18);display:inline;transition:color 0.3s ease,text-shadow 0.3s ease,transform 0.3s ease;margin:0 0.15em}
+:root[data-theme="day"] .teleprompter-text .tp-word{color:rgba(43,41,64,0.15)}
+.tp-word.is-read{color:rgba(245,240,230,0.45)}
+:root[data-theme="day"] .tp-word.is-read{color:rgba(43,41,64,0.35)}
+.tp-word.is-active{color:#F5F0E6;text-shadow:0 0 20px rgba(232,197,143,0.5),0 0 50px rgba(232,197,143,0.2);transform:scale(1.05)}
+:root[data-theme="day"] .tp-word.is-active{color:#2B2940;text-shadow:0 0 20px rgba(142,123,184,0.4),0 0 50px rgba(142,123,184,0.15)}
+.tp-word.is-near{color:rgba(245,240,230,0.55)}
+:root[data-theme="day"] .tp-word.is-near{color:rgba(43,41,64,0.45)}
+.tp-break{display:block;height:1.2em}
+.teleprompter-fade{position:fixed;left:0;right:0;height:25vh;pointer-events:none;z-index:41}
+.teleprompter-fade--top{top:0;background:linear-gradient(to bottom,rgba(43,41,64,0.95) 0%,transparent 100%)}
+.teleprompter-fade--bottom{bottom:0;background:linear-gradient(to top,rgba(43,41,64,0.95) 0%,transparent 100%)}
+:root[data-theme="day"] .teleprompter-fade--top{background:linear-gradient(to bottom,rgba(244,239,245,0.95) 0%,transparent 100%)}
+:root[data-theme="day"] .teleprompter-fade--bottom{background:linear-gradient(to top,rgba(244,239,245,0.95) 0%,transparent 100%)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+</style>
 
 <!-- ─── Navia Voice Widget (floating, scrollable) ─────── -->
 <div class="voice-widget" id="voice-widget">
