@@ -1012,11 +1012,23 @@ handleWaitlist(
     var camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
     camera.position.z = 2.8;
 
-    var renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
-      alpha: true,
-      antialias: true
-    });
+    var renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        alpha: true,
+        antialias: true
+      });
+    } catch(e) {
+      // WebGL not available: fallback to NASA texture image
+      canvas.style.display = 'none';
+      var wrap = canvas.parentElement;
+      if (wrap) {
+        wrap.style.background = "url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/17271/lroc_color_poles_1k.jpg') center/cover";
+        wrap.style.borderRadius = '50%';
+      }
+      return;
+    }
     renderer.setSize(SIZE, SIZE);
     renderer.setPixelRatio(1); // Already rendering at 2x
     renderer.setClearColor(0x000000, 0);
@@ -1433,7 +1445,7 @@ handleWaitlist(
   }
 
   // Start on first user interaction (browser autoplay policy)
-  var events = ['click', 'touchstart', 'scroll', 'keydown'];
+  var events = ['click', 'touchstart', 'scroll', 'keydown', 'mousemove'];
   function onFirstInteraction() {
     startSoundscape();
     events.forEach(function(evt) {
