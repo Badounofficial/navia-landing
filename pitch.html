@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="night">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -300,7 +300,16 @@
     border-radius: 18px;
     padding: 28px 24px;
     text-align: center;
+    transform: translateY(0);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    cursor: pointer;
   }
+  .mode:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.12);
+  }
+  .mode-day:hover { border-color: rgba(142,123,184,0.28); }
+  .mode-night:hover { border-color: rgba(245,240,230,0.42); }
 
   .mode-day {
     background: var(--clair-lune);
@@ -341,7 +350,23 @@
     background: rgba(245, 240, 230, 0.04);
     border: 1px solid var(--hairline);
     border-radius: 16px;
+    transform: translateY(0);
+    transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.5s cubic-bezier(0.2,0.8,0.2,1), border-color 0.5s ease;
+    position: relative;
+    overflow: hidden;
   }
+  .triad-row::before {
+    content: '';
+    position: absolute; inset: 0; border-radius: 16px; pointer-events: none;
+    background: linear-gradient(145deg, var(--glow-tint, rgba(232,197,143,0.07)) 0%, transparent 55%);
+    opacity: 0; transition: opacity 0.5s ease;
+  }
+  .triad-row:hover {
+    transform: translateY(-5px);
+    border-color: var(--glow-ring, rgba(232,197,143,0.32));
+    box-shadow: 0 22px 52px var(--glow-shadow, rgba(0,0,0,0.32)), 0 0 0 1px var(--glow-ring, rgba(232,197,143,0.32)), 0 0 60px var(--glow-wide, rgba(232,197,143,0.14)), inset 0 1px 0 var(--glow-inset, rgba(245,240,230,0.12));
+  }
+  .triad-row:hover::before { opacity: 1; }
 
   .triad-icon {
     font-family: 'Fraunces', Georgia, serif;
@@ -393,14 +418,128 @@
     margin: 0 auto;
   }
 
+  /* ─── Day theme ─── */
+  :root[data-theme="day"] {
+    --indigo-nuit: #F4EFF5;
+    --indigo-royal: #F8F3F8;
+    --clair-lune: #2B2940;
+    --souffle-rose: #C97A8E;
+    --aube: #8E7BB8;
+    --text: rgba(43,41,64,0.88);
+    --text-soft: rgba(43,41,64,0.55);
+    --hairline: rgba(43,41,64,0.12);
+    --glow-ring: rgba(142,123,184,0.34);
+    --glow-wide: rgba(142,123,184,0.12);
+    --glow-shadow: rgba(43,41,64,0.15);
+    --glow-inset: rgba(255,255,255,0.5);
+    --glow-tint: rgba(142,123,184,0.07);
+  }
+  :root[data-theme="night"] {
+    --glow-ring: rgba(232,197,143,0.32);
+    --glow-wide: rgba(232,197,143,0.14);
+    --glow-shadow: rgba(0,0,0,0.32);
+    --glow-inset: rgba(245,240,230,0.12);
+    --glow-tint: rgba(232,197,143,0.07);
+  }
+  :root[data-theme="day"] .stars { opacity: 0; }
+  :root[data-theme="day"] .mode-day { background: #EDE6EE; color: #2B2940; }
+  :root[data-theme="day"] .mode-night { background: #2B2940; color: #F5F0E6; }
+  :root[data-theme="day"] .wordmark-i::before {
+    border: 0.6px solid rgba(160,140,200,0.55);
+    box-shadow: 0 0 0 0.6px rgba(200,185,232,0.35), 0 0 12px rgba(200,185,232,0.45), 0 0 24px rgba(232,195,220,0.28);
+  }
+  :root[data-theme="day"] h2 em { color: var(--souffle-rose); }
+
+  /* Theme toggle */
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: var(--clair-lune);
+    transition: background 0.3s ease, transform 0.2s ease;
+    padding: 0;
+    position: fixed;
+    top: 28px;
+    left: 80px;
+    z-index: 10;
+  }
+  .theme-toggle:hover { background: rgba(245,240,230,0.08); transform: scale(1.05); }
+  .theme-toggle svg { width: 16px; height: 16px; }
+
+  /* Voice widget */
+  .voice-widget {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 380px; height: 640px;
+    z-index: 50;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.45);
+    display: none;
+  }
+  .voice-widget.is-open { display: block; }
+  .voice-widget iframe {
+    width: 100%; height: 100%; border: none;
+    background: #2B2940;
+    opacity: 0; transition: opacity 0.5s ease;
+  }
+  .voice-widget-close {
+    position: absolute; top: 14px; right: 14px; z-index: 51;
+    background: rgba(245,240,230,0.1); border: 1px solid rgba(245,240,230,0.2);
+    border-radius: 50%; width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: rgba(245,240,230,0.7);
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .voice-widget-close:hover { background: rgba(245,240,230,0.15); color: #F5F0E6; }
+  .navia-talk-fab {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 50;
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 22px;
+    background: var(--glow-tint);
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    color: var(--clair-lune);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+  .navia-talk-fab:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+    border-color: var(--glow-ring);
+    box-shadow: 0 0 0 1px var(--glow-ring), 0 16px 36px var(--glow-shadow), 0 0 36px var(--glow-wide);
+  }
+  .navia-talk-fab svg { width: 18px; height: 18px; }
+  .navia-talk-fab.is-hidden { display: none; }
+
+  /* 3D moon canvas */
+  .hero-moon { position: relative; }
+  .hero-moon canvas {
+    display: block;
+    width: 140px !important; height: 140px !important;
+    border-radius: 50%;
+  }
+
   @media (max-width: 640px) {
     main { padding: 100px 24px 120px; }
     header.mark { top: 18px; right: 20px; }
+    .back-link { top: 18px; left: 20px; }
+    .theme-toggle { top: 18px; left: 60px; }
     .wordmark { font-size: 15px; }
     .wordmark-i::before { width: 9px; height: 9px; top: -3px; }
     .modes { grid-template-columns: 1fr; }
     .triad-row { flex-direction: column; gap: 6px; }
     .triad-icon { min-width: 0; }
+    .voice-widget { width: calc(100vw - 24px); height: 70vh; bottom: 12px; right: 12px; }
   }
 </style>
 </head>
@@ -414,6 +553,22 @@
     <path d="M19 12H5M12 19l-7-7 7-7"/>
   </svg>
 </a>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Switch between day and night mode" type="button">
+  <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"></svg>
+</button>
+
+<!-- Voice widget -->
+<button class="navia-talk-fab" id="talk-fab" aria-label="Talk to Navia">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/>
+  </svg>
+  Talk to Navia
+</button>
+<div class="voice-widget" id="voice-widget">
+  <button class="voice-widget-close" id="widget-close" aria-label="Close">&times;</button>
+</div>
 
 <header class="mark">
   <div class="wordmark">Nav<span class="wordmark-i">ı</span>a</div>
@@ -614,8 +769,9 @@
 
 </main>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-/* Ambient sound (same as main site) */
+/* ─── Ambient sound ─── */
 (function(){
   var audio = document.getElementById('ambient-audio');
   audio.volume = 0;
@@ -646,6 +802,105 @@
   gestures.forEach(function(evt) {
     document.addEventListener(evt, startSound, { passive: true });
   });
+})();
+
+/* ─── Theme toggle ─── */
+(function(){
+  var moonPath = 'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z';
+  var sunPath = 'M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z';
+  var icon = document.getElementById('theme-icon');
+  var btn = document.getElementById('theme-toggle');
+  var stored = localStorage.getItem('navia-theme') || 'night';
+  document.documentElement.setAttribute('data-theme', stored);
+
+  function render(t) {
+    icon.innerHTML = t === 'night'
+      ? '<path d="' + moonPath + '"/>'
+      : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+  }
+  render(stored);
+
+  btn.addEventListener('click', function() {
+    var next = document.documentElement.getAttribute('data-theme') === 'night' ? 'day' : 'night';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('navia-theme', next);
+    render(next);
+    // Sync with widget if open
+    var frame = document.querySelector('.voice-widget iframe');
+    if (frame) frame.contentWindow.postMessage({ type: 'navia-theme', theme: next }, '*');
+  });
+})();
+
+/* ─── Voice widget ─── */
+(function(){
+  var fab = document.getElementById('talk-fab');
+  var widget = document.getElementById('voice-widget');
+  var closeBtn = document.getElementById('widget-close');
+  var frame = null;
+
+  fab.addEventListener('click', function() {
+    fab.classList.add('is-hidden');
+    widget.classList.add('is-open');
+    if (!frame) {
+      frame = document.createElement('iframe');
+      frame.src = 'https://navia-voice.vercel.app';
+      frame.allow = 'microphone';
+      frame.style.opacity = '0';
+      widget.appendChild(frame);
+      frame.addEventListener('load', function() {
+        setTimeout(function() { frame.style.opacity = '1'; }, 200);
+        var t = document.documentElement.getAttribute('data-theme') || 'night';
+        frame.contentWindow.postMessage({ type: 'navia-theme', theme: t }, '*');
+      });
+    }
+  });
+
+  closeBtn.addEventListener('click', function() {
+    widget.classList.remove('is-open');
+    fab.classList.remove('is-hidden');
+  });
+
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.type === 'navia-close') {
+      widget.classList.remove('is-open');
+      fab.classList.remove('is-hidden');
+    }
+  });
+})();
+
+/* ─── 3D Moon (same as main site) ─── */
+(function(){
+  var wrap = document.querySelector('.hero-moon');
+  if (!wrap || typeof THREE === 'undefined') return;
+  var W = 140, H = 140;
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+  camera.position.z = 4;
+  var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(W, H);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  wrap.innerHTML = '';
+  wrap.appendChild(renderer.domElement);
+
+  var geo = new THREE.SphereGeometry(1, 64, 64);
+  var loader = new THREE.TextureLoader();
+  var tex = loader.load('moon-color.jpg');
+  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  var mat = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.85, metalness: 0.08 });
+  var moon = new THREE.Mesh(geo, mat);
+  scene.add(moon);
+
+  var light = new THREE.DirectionalLight(0xfff5e6, 1.6);
+  light.position.set(3, 2, 4);
+  scene.add(light);
+  scene.add(new THREE.AmbientLight(0x404060, 0.5));
+
+  function animate() {
+    requestAnimationFrame(animate);
+    moon.rotation.y += 0.0008;
+    renderer.render(scene, camera);
+  }
+  animate();
 })();
 </script>
 </body>
