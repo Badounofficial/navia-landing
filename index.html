@@ -1282,9 +1282,14 @@ handleWaitlist(
     if (scrollRafId) return; // already running
     smoothY = window.pageYOffset;
 
-    function tick() {
+    var lastTime = performance.now();
+
+    function tick(now) {
+      var dt = (now - lastTime) / 1000; // seconds since last frame
+      lastTime = now;
+
       if (!isPlaying || userScrolling) {
-        smoothY = window.pageYOffset; // stay in sync when paused
+        smoothY = window.pageYOffset;
         scrollRafId = requestAnimationFrame(tick);
         return;
       }
@@ -1294,14 +1299,20 @@ handleWaitlist(
         var progress = audio.currentTime / audio.duration;
         var targetY = anchor.top + (anchor.bottom - anchor.top) * progress;
 
-        // Very gentle interpolation: 1.5% per frame (~90px/s at 60fps for 100px gap)
-        // This creates the slow, dreamy credits effect
         var diff = targetY - smoothY;
-        smoothY += diff * 0.015;
+
+        // Max scroll speed: 35px/s (comfortable reading pace)
+        // Scaled by playback rate so speed control works naturally
+        var maxStep = 35 * dt * SPEEDS[speedIndex];
+        if (Math.abs(diff) > 1) {
+          var step = diff * 0.012; // soft chase
+          // Clamp to max speed
+          if (step > maxStep) step = maxStep;
+          if (step < -maxStep) step = -maxStep;
+          smoothY += step;
+        }
 
         window.scrollTo(0, Math.round(smoothY));
-
-        // Update progress bar
         progressFill.style.width = (progress * 100) + '%';
       }
 
