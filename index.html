@@ -1477,22 +1477,23 @@ handleWaitlist(
   var trigger = document.getElementById('wordmark-talk');
   var isOpen = false;
 
+  var mainWordmark = document.querySelector('.top-bar-right .wordmark-wrap');
+
   function openVoice(e) {
     e.preventDefault();
     if (!isOpen) {
       if (!frame.src || frame.src === window.location.href || frame.src === '') {
         frame.src = 'https://navia-voice.vercel.app';
-        // Send current theme once iframe loads
         frame.addEventListener('load', function() {
           var currentTheme = document.documentElement.getAttribute('data-theme') || 'night';
           frame.contentWindow.postMessage({ type: 'navia-theme', theme: currentTheme }, '*');
         }, { once: true });
       } else {
-        // iframe already loaded, just sync theme
         var currentTheme = document.documentElement.getAttribute('data-theme') || 'night';
         frame.contentWindow.postMessage({ type: 'navia-theme', theme: currentTheme }, '*');
       }
       panel.classList.add('is-open');
+      if (mainWordmark) mainWordmark.style.opacity = '0';
       isOpen = true;
     } else {
       closeVoice();
@@ -1501,6 +1502,7 @@ handleWaitlist(
 
   function closeVoice() {
     panel.classList.remove('is-open');
+    if (mainWordmark) mainWordmark.style.opacity = '';
     isOpen = false;
   }
 
@@ -1553,14 +1555,22 @@ handleWaitlist(
     });
   }
 
-  // Start on first real user gesture (click/tap only, scroll does not count)
+  // Start on first user interaction (click, tap, or scroll)
+  // started flag is only set to true after play() succeeds,
+  // so failed attempts (e.g. scroll before gesture policy clears) will retry
+  var gestureEvents = ['click', 'touchstart', 'scroll', 'keydown'];
   function onFirstGesture() {
     startSoundscape();
-    document.removeEventListener('click', onFirstGesture);
-    document.removeEventListener('touchstart', onFirstGesture);
+    // Only remove listeners once audio actually started
+    if (started) {
+      gestureEvents.forEach(function(evt) {
+        document.removeEventListener(evt, onFirstGesture);
+      });
+    }
   }
-  document.addEventListener('click', onFirstGesture, { passive: true });
-  document.addEventListener('touchstart', onFirstGesture, { passive: true });
+  gestureEvents.forEach(function(evt) {
+    document.addEventListener(evt, onFirstGesture, { passive: true });
+  });
 })();
 </script>
 </body>
