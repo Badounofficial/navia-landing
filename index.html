@@ -1537,20 +1537,27 @@ handleWaitlist(
     }, 50);
   }
 
+  var trying = false;
+
   function startSoundscape() {
-    if (started) return;
+    if (started || trying) return;
+    trying = true;
     audio.play().then(function() {
       started = true;
+      trying = false;
       fadeIn();
-    }).catch(function(e) {
-      console.warn('Ambient audio play blocked:', e);
+      // Remove all listeners once playing
+      gestureEvents.forEach(function(evt) {
+        document.removeEventListener(evt, onFirstGesture);
+      });
+    }).catch(function() {
+      trying = false;
     });
   }
 
   // Mute toggle
   if (muteBtn) {
-    muteBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
+    muteBtn.addEventListener('click', function() {
       if (!started) { startSoundscape(); }
       isMuted = !isMuted;
       audio.volume = isMuted ? 0 : targetVol;
@@ -1559,18 +1566,10 @@ handleWaitlist(
     });
   }
 
-  // Start on first user interaction (click, tap, or scroll)
-  // started flag is only set to true after play() succeeds,
-  // so failed attempts (e.g. scroll before gesture policy clears) will retry
+  // Start on first user interaction
   var gestureEvents = ['click', 'touchstart', 'scroll', 'keydown'];
   function onFirstGesture() {
     startSoundscape();
-    // Only remove listeners once audio actually started
-    if (started) {
-      gestureEvents.forEach(function(evt) {
-        document.removeEventListener(evt, onFirstGesture);
-      });
-    }
   }
   gestureEvents.forEach(function(evt) {
     document.addEventListener(evt, onFirstGesture, { passive: true });
