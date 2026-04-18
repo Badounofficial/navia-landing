@@ -1129,9 +1129,9 @@ handleWaitlist(
 
 <!-- ─── Karaoke word highlighting (on-page) ─── -->
 <style>
-.nv-word{transition:color 0.25s ease,text-shadow 0.25s ease}
-.nv-active{color:var(--accent-aube) !important;text-shadow:0 0 18px var(--glow-aube),0 0 40px var(--glow-aube-wide)}
-.nv-read{opacity:0.55}
+.nv-word{transition:color 0.35s ease,text-shadow 0.35s ease}
+.nv-active{color:var(--accent-aube) !important;text-shadow:0 0 14px var(--glow-aube),0 0 32px var(--glow-aube-wide)}
+.nv-read{opacity:0.72;transition:opacity 0.4s ease}
 </style>
 
 <!-- ─── Navia Narration Player ─────────────────────────────── -->
@@ -1371,28 +1371,24 @@ handleWaitlist(
       if (el.closest('[aria-hidden="true"]')) continue;
       if (el.dataset.originalHtml) continue; // already wrapped
       el.dataset.originalHtml = el.innerHTML;
-      // Use TreeWalker to wrap text nodes without breaking existing tags
-      var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
-      var textNodes = [];
-      var tn;
-      while ((tn = walker.nextNode())) textNodes.push(tn);
-      for (var ti = 0; ti < textNodes.length; ti++) {
-        var raw = textNodes[ti].nodeValue;
-        if (!raw || !raw.trim()) continue;
-        var parts = raw.split(/(\s+)/);
-        var frag = document.createDocumentFragment();
-        for (var pi = 0; pi < parts.length; pi++) {
-          if (/^\s+$/.test(parts[pi]) || !parts[pi]) {
-            frag.appendChild(document.createTextNode(parts[pi]));
-          } else {
-            var span = document.createElement('span');
-            span.className = 'nv-word';
-            span.textContent = parts[pi];
-            frag.appendChild(span);
-            nvWords.push(span);
-          }
+      // Split innerHTML into HTML tags and text segments.
+      // Tags (<br/>, <em>, </em>, etc.) are preserved untouched.
+      // Text segments get each word wrapped in <span class="nv-word">.
+      var parts = el.innerHTML.split(/(<[^>]+>)/);
+      var result = '';
+      for (var pi = 0; pi < parts.length; pi++) {
+        if (parts[pi].charAt(0) === '<') {
+          result += parts[pi]; // HTML tag, keep as-is
+        } else {
+          // Text: wrap each word, preserve whitespace
+          result += parts[pi].replace(/(\S+)/g, '<span class="nv-word">$1</span>');
         }
-        textNodes[ti].parentNode.replaceChild(frag, textNodes[ti]);
+      }
+      el.innerHTML = result;
+      // Collect all nv-word spans in DOM order
+      var spans = el.querySelectorAll('.nv-word');
+      for (var si = 0; si < spans.length; si++) {
+        nvWords.push(spans[si]);
       }
     }
     nvWrappedId = sectionId;
