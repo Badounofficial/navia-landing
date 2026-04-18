@@ -1254,44 +1254,52 @@ handleWaitlist(
   });
 
   // ─── Scroll positions ───
-  // Get the Y position of a section (top of section, with offset for comfortable reading)
-  function getSectionTop(index) {
-    var el = document.getElementById(SECTIONS[index].id);
-    if (!el) return 0;
-    return el.getBoundingClientRect().top + window.pageYOffset - 80;
-  }
+  // Pre-calculate all section anchor positions
+  var sectionAnchors = []; // [{top, bottom}] filled once at narration start
 
-  function getSectionEnd(index) {
-    if (index + 1 < SECTIONS.length) {
-      return getSectionTop(index + 1);
+  function calcAnchors() {
+    sectionAnchors = [];
+    for (var i = 0; i < SECTIONS.length; i++) {
+      var el = document.getElementById(SECTIONS[i].id);
+      var top = el ? el.getBoundingClientRect().top + window.pageYOffset - 100 : 0;
+      sectionAnchors.push({ top: top });
     }
-    // Last section: scroll to bottom of page
-    return document.documentElement.scrollHeight - window.innerHeight;
+    // Set each section's bottom = next section's top (seamless)
+    for (var j = 0; j < sectionAnchors.length; j++) {
+      if (j + 1 < sectionAnchors.length) {
+        sectionAnchors[j].bottom = sectionAnchors[j + 1].top;
+      } else {
+        sectionAnchors[j].bottom = document.documentElement.scrollHeight - window.innerHeight;
+      }
+    }
   }
 
   // ─── Cinema scroll: continuously scroll in sync with audio ───
-  function startCinemaScroll() {
-    cancelAnimationFrame(scrollRafId);
+  // Single animation loop runs across all sections, no restart between them
+  var smoothY = 0; // current smoothed scroll position
 
-    var scrollStart = getSectionTop(currentIndex);
-    var scrollEnd = getSectionEnd(currentIndex);
+  function startCinemaScroll() {
+    if (scrollRafId) return; // already running
+    smoothY = window.pageYOffset;
 
     function tick() {
       if (!isPlaying || userScrolling) {
+        smoothY = window.pageYOffset; // stay in sync when paused
         scrollRafId = requestAnimationFrame(tick);
         return;
       }
 
-      if (audio.duration && audio.duration > 0) {
+      if (audio.duration && audio.duration > 0 && sectionAnchors[currentIndex]) {
+        var anchor = sectionAnchors[currentIndex];
         var progress = audio.currentTime / audio.duration;
-        var targetY = scrollStart + (scrollEnd - scrollStart) * progress;
+        var targetY = anchor.top + (anchor.bottom - anchor.top) * progress;
 
-        // Smooth interpolation: move 6% of the remaining distance each frame
-        var currentY = window.pageYOffset;
-        var diff = targetY - currentY;
-        if (Math.abs(diff) > 1) {
-          window.scrollTo(0, currentY + diff * 0.06);
-        }
+        // Very gentle interpolation: 1.5% per frame (~90px/s at 60fps for 100px gap)
+        // This creates the slow, dreamy credits effect
+        var diff = targetY - smoothY;
+        smoothY += diff * 0.015;
+
+        window.scrollTo(0, Math.round(smoothY));
 
         // Update progress bar
         progressFill.style.width = (progress * 100) + '%';
@@ -1334,13 +1342,17 @@ handleWaitlist(
     iconPause.style.display = isPlaying ? 'block' : 'none';
   }
 
-  function loadSection(index) {
+  function loadSection(index, keepScrolling) {
     if (index < 0 || index >= SECTIONS.length) return;
     currentIndex = index;
     audio.src = SECTIONS[index].file;
     audio.playbackRate = SPEEDS[speedIndex];
     progressFill.style.width = '0%';
     updateUI();
+    // On manual jump (not auto-advance), gently nudge smoothY toward target
+    if (!keepScrolling && sectionAnchors[index]) {
+      smoothY = window.pageYOffset;
+    }
   }
 
   function play() {
@@ -1361,10 +1373,10 @@ handleWaitlist(
     updateUI();
   }
 
-  // Auto-advance to next section
+  // Auto-advance to next section (seamless, no scroll restart)
   audio.addEventListener('ended', function () {
     if (currentIndex < SECTIONS.length - 1) {
-      loadSection(currentIndex + 1);
+      loadSection(currentIndex + 1, true);
       play();
     } else {
       isPlaying = false;
@@ -1385,6 +1397,7 @@ handleWaitlist(
     isOpen = true;
     fab.classList.add('is-hidden');
     bar.classList.add('is-visible');
+    calcAnchors(); // Pre-calculate all scroll positions
     loadSection(0);
     play();
   });
