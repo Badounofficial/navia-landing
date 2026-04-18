@@ -1129,7 +1129,7 @@ handleWaitlist(
 
 <!-- ─── Karaoke word highlighting (on-page) ─── -->
 <style>
-.nv-word{transition:color 0.35s ease,text-shadow 0.35s ease}
+.nv-word{transition:color 0.15s ease,text-shadow 0.15s ease}
 .nv-active{color:var(--accent-aube) !important;text-shadow:0 0 14px var(--glow-aube),0 0 32px var(--glow-aube-wide)}
 .nv-read{opacity:0.72;transition:opacity 0.4s ease}
 </style>
@@ -1314,11 +1314,11 @@ handleWaitlist(
 
         var diff = targetY - smoothY;
 
-        // Max scroll speed: 35px/s (comfortable reading pace)
+        // Max scroll speed: 12px/s (gentle drift, never rushed)
         // Scaled by playback rate so speed control works naturally
-        var maxStep = 35 * dt * SPEEDS[speedIndex];
+        var maxStep = 12 * dt * SPEEDS[speedIndex];
         if (Math.abs(diff) > 1) {
-          var step = diff * 0.012; // soft chase
+          var step = diff * 0.006; // very soft chase
           // Clamp to max speed
           if (step > maxStep) step = maxStep;
           if (step < -maxStep) step = -maxStep;
@@ -1412,7 +1412,11 @@ handleWaitlist(
   function updateKaraoke() {
     if (!nvWords.length || !audio.duration) return;
     var progress = audio.currentTime / audio.duration;
-    var idx = Math.floor(progress * nvWords.length);
+    // Speech is denser than page text: boost progression so words
+    // keep pace with the voice. 1.35 means karaoke reaches the end
+    // at ~74% of audio duration, matching typical speech density.
+    var boosted = Math.min(progress * 1.35, 1);
+    var idx = Math.floor(boosted * nvWords.length);
     if (idx >= nvWords.length) idx = nvWords.length - 1;
     if (idx < 0) idx = 0;
     if (idx === nvActiveIndex) return;

@@ -62,6 +62,36 @@
     padding: 120px 40px 160px;
   }
 
+  /* Back arrow, top left */
+  .back-link {
+    position: fixed;
+    top: 28px;
+    left: 32px;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--clair-lune);
+    opacity: 0.5;
+    text-decoration: none;
+    transition: opacity 0.4s ease, color 0.4s ease;
+  }
+  .back-link:hover {
+    opacity: 1;
+    color: #E8C58F;
+  }
+  .back-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+  .back-link:hover svg {
+    transform: translateX(-3px);
+  }
+
   /* Sticky wordmark header, discreet, top right, like the presence observing */
   header.mark {
     position: fixed;
@@ -375,8 +405,15 @@
 </style>
 </head>
 <body>
+<audio id="ambient-audio" src="audio/ambient.mp3" loop preload="auto"></audio>
 
 <div class="stars"></div>
+
+<a href="/" class="back-link" aria-label="Back to home">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5M12 19l-7-7 7-7"/>
+  </svg>
+</a>
 
 <header class="mark">
   <div class="wordmark">Nav<span class="wordmark-i">ı</span>a</div>
@@ -577,5 +614,39 @@
 
 </main>
 
+<script>
+/* Ambient sound (same as main site) */
+(function(){
+  var audio = document.getElementById('ambient-audio');
+  audio.volume = 0;
+  var started = false;
+  var targetVol = 0.5;
+  var gestures = ['touchstart', 'pointerdown', 'click'];
+
+  function fadeIn() {
+    var vol = 0;
+    var interval = setInterval(function() {
+      vol += 0.005;
+      if (vol >= targetVol) { vol = targetVol; clearInterval(interval); }
+      audio.volume = vol;
+    }, 50);
+  }
+
+  function startSound() {
+    if (started) return;
+    audio.play().then(function() {
+      started = true;
+      fadeIn();
+      gestures.forEach(function(evt) {
+        document.removeEventListener(evt, startSound);
+      });
+    }).catch(function() {});
+  }
+
+  gestures.forEach(function(evt) {
+    document.addEventListener(evt, startSound, { passive: true });
+  });
+})();
+</script>
 </body>
 </html>
