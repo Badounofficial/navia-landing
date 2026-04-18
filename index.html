@@ -1127,6 +1127,18 @@ handleWaitlist(
 })();
 </script>
 
+<!-- ─── Scroll to top ─── -->
+<style>
+.scroll-top{position:fixed;bottom:28px;right:32px;z-index:10;display:inline-flex;align-items:center;gap:6px;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:13px;color:var(--text);opacity:0;text-decoration:none;cursor:pointer;background:none;border:1px solid var(--hairline);border-radius:999px;padding:8px 16px;transition:opacity 0.4s ease,color 0.4s ease,transform 0.4s ease,border-color 0.4s ease;pointer-events:none}
+.scroll-top.is-visible{opacity:0.5;pointer-events:auto}
+.scroll-top:hover{opacity:1;color:var(--accent-aube);border-color:var(--glow-aube-ring);transform:translateY(-2px)}
+.scroll-top svg{width:14px;height:14px}
+</style>
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+Top
+</button>
+
 <!-- ─── Karaoke word highlighting (on-page) ─── -->
 <style>
 .nv-word{transition:color 0.15s ease,text-shadow 0.15s ease}
@@ -1674,6 +1686,19 @@ handleWaitlist(
       muteBtn.setAttribute('aria-label', userMuted ? 'Unmute ambient sound' : 'Mute ambient sound');
     });
   }
+})();
+
+/* ─── Scroll to top button ─── */
+(function(){
+  var btn = document.getElementById('scroll-top');
+  if (!btn) return;
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 400) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }, { passive: true });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 })();
 </script>
 </body>

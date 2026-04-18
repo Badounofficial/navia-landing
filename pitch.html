@@ -63,14 +63,15 @@
   }
 
   /* Back arrow, top left */
+  /* Back link - bottom left */
   .back-link {
     position: fixed;
-    top: 28px;
+    bottom: 28px;
     left: 32px;
     z-index: 10;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     font-family: 'Fraunces', Georgia, serif;
     font-style: italic;
     font-size: 14px;
@@ -81,7 +82,7 @@
   }
   .back-link:hover {
     opacity: 1;
-    color: #E8C58F;
+    color: var(--aube);
   }
   .back-link svg {
     width: 16px;
@@ -91,6 +92,70 @@
   .back-link:hover svg {
     transform: translateX(-3px);
   }
+
+  /* Top-left controls bar */
+  .top-left-controls {
+    position: fixed;
+    top: 28px;
+    left: 32px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Scroll to top - bottom right */
+  .scroll-top {
+    position: fixed;
+    bottom: 28px;
+    right: 32px;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--clair-lune);
+    opacity: 0;
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    padding: 8px 16px;
+    transition: opacity 0.4s ease, color 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
+    pointer-events: none;
+  }
+  .scroll-top.is-visible {
+    opacity: 0.5;
+    pointer-events: auto;
+  }
+  .scroll-top:hover {
+    opacity: 1;
+    color: var(--aube);
+    border-color: var(--glow-ring);
+    transform: translateY(-2px);
+  }
+  .scroll-top svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Sound mute button */
+  .sound-mute {
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: var(--clair-lune);
+    transition: background 0.3s ease, transform 0.2s ease;
+    padding: 0;
+  }
+  .sound-mute:hover { background: rgba(245,240,230,0.08); transform: scale(1.05); }
+  .sound-mute svg { width: 16px; height: 16px; }
 
   /* Sticky wordmark header, discreet, top right, like the presence observing */
   header.mark {
@@ -450,7 +515,7 @@
   }
   :root[data-theme="day"] h2 em { color: var(--souffle-rose); }
 
-  /* Theme toggle */
+  /* Theme toggle (inside top-left-controls) */
   .theme-toggle {
     background: transparent;
     border: 1px solid var(--hairline);
@@ -461,10 +526,6 @@
     color: var(--clair-lune);
     transition: background 0.3s ease, transform 0.2s ease;
     padding: 0;
-    position: fixed;
-    top: 28px;
-    left: 80px;
-    z-index: 10;
   }
   .theme-toggle:hover { background: rgba(245,240,230,0.08); transform: scale(1.05); }
   .theme-toggle svg { width: 16px; height: 16px; }
@@ -495,34 +556,19 @@
     transition: background 0.3s ease, color 0.3s ease;
   }
   .voice-widget-close:hover { background: rgba(245,240,230,0.15); color: #F5F0E6; }
-  .navia-talk-fab {
-    position: fixed;
-    bottom: 28px; right: 28px;
-    z-index: 50;
-    display: flex; align-items: center; gap: 10px;
-    padding: 14px 22px;
-    background: var(--glow-tint);
-    border: 1px solid var(--hairline);
-    border-radius: 999px;
-    color: var(--clair-lune);
-    font-family: 'Fraunces', Georgia, serif;
-    font-style: italic;
-    font-size: 14px;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-  }
-  .navia-talk-fab:hover {
-    opacity: 1;
-    transform: translateY(-3px);
-    border-color: var(--glow-ring);
-    box-shadow: 0 0 0 1px var(--glow-ring), 0 16px 36px var(--glow-shadow), 0 0 36px var(--glow-wide);
-  }
-  .navia-talk-fab svg { width: 18px; height: 18px; }
-  .navia-talk-fab.is-hidden { display: none; }
+  /* Wordmark clickable for voice */
+  header.mark { cursor: pointer; }
 
   /* 3D moon canvas */
-  .hero-moon { position: relative; }
+  .hero-moon {
+    position: relative;
+    display: block;
+    margin: 40px auto 60px;
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
   .hero-moon canvas {
     display: block;
     width: 140px !important; height: 140px !important;
@@ -532,14 +578,17 @@
   @media (max-width: 640px) {
     main { padding: 100px 24px 120px; }
     header.mark { top: 18px; right: 20px; }
-    .back-link { top: 18px; left: 20px; }
-    .theme-toggle { top: 18px; left: 60px; }
+    .top-left-controls { top: 18px; left: 20px; }
+    .back-link { bottom: 18px; left: 20px; }
+    .scroll-top { bottom: 18px; right: 20px; }
     .wordmark { font-size: 15px; }
     .wordmark-i::before { width: 9px; height: 9px; top: -3px; }
     .modes { grid-template-columns: 1fr; }
     .triad-row { flex-direction: column; gap: 6px; }
     .triad-icon { min-width: 0; }
     .voice-widget { width: calc(100vw - 24px); height: 70vh; bottom: 12px; right: 12px; }
+    .hero-moon { width: 110px; height: 110px; }
+    .hero-moon canvas { width: 110px !important; height: 110px !important; }
   }
 </style>
 </head>
@@ -548,24 +597,36 @@
 
 <div class="stars"></div>
 
+<!-- Top-left: theme toggle + sound mute -->
+<div class="top-left-controls">
+  <button class="theme-toggle" id="theme-toggle" aria-label="Switch between day and night mode" type="button">
+    <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"></svg>
+  </button>
+  <button class="sound-mute" id="sound-mute" aria-label="Mute ambient sound">
+    <svg id="sound-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+  </button>
+</div>
+
+<!-- Bottom-left: back to home -->
 <a href="/" class="back-link" aria-label="Back to home">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
     <path d="M19 12H5M12 19l-7-7 7-7"/>
   </svg>
+  Back
 </a>
 
-<button class="theme-toggle" id="theme-toggle" aria-label="Switch between day and night mode" type="button">
-  <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"></svg>
+<!-- Bottom-right: scroll to top -->
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+  Top
 </button>
 
-<!-- Voice widget -->
-<button class="navia-talk-fab" id="talk-fab" aria-label="Talk to Navia">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/>
-  </svg>
-  Talk to Navia
-</button>
+<!-- Voice widget (opened via wordmark click) -->
 <div class="voice-widget" id="voice-widget">
   <button class="voice-widget-close" id="widget-close" aria-label="Close">&times;</button>
 </div>
@@ -831,15 +892,14 @@
   });
 })();
 
-/* ─── Voice widget ─── */
+/* ─── Voice widget (via wordmark click) ─── */
 (function(){
-  var fab = document.getElementById('talk-fab');
+  var mark = document.querySelector('header.mark');
   var widget = document.getElementById('voice-widget');
   var closeBtn = document.getElementById('widget-close');
   var frame = null;
 
-  fab.addEventListener('click', function() {
-    fab.classList.add('is-hidden');
+  if (mark) mark.addEventListener('click', function() {
     widget.classList.add('is-open');
     if (!frame) {
       frame = document.createElement('iframe');
@@ -857,14 +917,60 @@
 
   closeBtn.addEventListener('click', function() {
     widget.classList.remove('is-open');
-    fab.classList.remove('is-hidden');
   });
 
   window.addEventListener('message', function(e) {
     if (e.data && e.data.type === 'navia-close') {
       widget.classList.remove('is-open');
-      fab.classList.remove('is-hidden');
     }
+  });
+})();
+
+/* ─── Day/Night mode cards toggle theme ─── */
+(function(){
+  var cards = document.querySelectorAll('.mode');
+  cards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      var next = card.classList.contains('mode-day') ? 'day' : 'night';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('navia-theme', next);
+      var icon = document.getElementById('theme-icon');
+      if (icon) {
+        icon.innerHTML = next === 'night'
+          ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>'
+          : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+      }
+      var f = document.querySelector('.voice-widget iframe');
+      if (f) f.contentWindow.postMessage({ type: 'navia-theme', theme: next }, '*');
+    });
+  });
+})();
+
+/* ─── Scroll to top button ─── */
+(function(){
+  var btn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 400) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }, { passive: true });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+/* ─── Sound mute ─── */
+(function(){
+  var muteBtn = document.getElementById('sound-mute');
+  var audio = document.getElementById('ambient-audio');
+  var muted = false;
+  var icon = document.getElementById('sound-icon');
+  var onSvg = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+  var offSvg = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+  muteBtn.addEventListener('click', function() {
+    muted = !muted;
+    audio.volume = muted ? 0 : 0.5;
+    icon.innerHTML = muted ? offSvg : onSvg;
+    muteBtn.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
   });
 })();
 
