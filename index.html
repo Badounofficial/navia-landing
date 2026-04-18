@@ -1127,33 +1127,11 @@ handleWaitlist(
 })();
 </script>
 
-<!-- ─── Teleprompter overlay (karaoke narration) ─────── -->
-<div class="teleprompter" id="teleprompter">
-  <div class="teleprompter-text" id="teleprompter-text"></div>
-  <div class="teleprompter-fade teleprompter-fade--top"></div>
-  <div class="teleprompter-fade teleprompter-fade--bottom"></div>
-</div>
-
+<!-- ─── Karaoke word highlighting (on-page) ─── -->
 <style>
-.teleprompter{display:none;position:fixed;inset:0;z-index:40;background:rgba(43,41,64,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);overflow:hidden;pointer-events:none;animation:fadeIn 0.6s ease}
-.teleprompter.is-active{display:flex;align-items:center;justify-content:center}
-:root[data-theme="day"] .teleprompter{background:rgba(244,239,245,0.92)}
-.teleprompter-text{position:relative;max-width:640px;width:90%;text-align:center;padding:40vh 0;transition:transform 0.35s ease}
-.teleprompter-text .tp-word{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(22px,3.5vw,32px);line-height:1.8;color:rgba(245,240,230,0.18);display:inline;transition:color 0.3s ease,text-shadow 0.3s ease,transform 0.3s ease;margin:0 0.15em}
-:root[data-theme="day"] .teleprompter-text .tp-word{color:rgba(43,41,64,0.15)}
-.tp-word.is-read{color:rgba(245,240,230,0.45)}
-:root[data-theme="day"] .tp-word.is-read{color:rgba(43,41,64,0.35)}
-.tp-word.is-active{color:#F5F0E6;text-shadow:0 0 20px rgba(232,197,143,0.5),0 0 50px rgba(232,197,143,0.2);transform:scale(1.05)}
-:root[data-theme="day"] .tp-word.is-active{color:#2B2940;text-shadow:0 0 20px rgba(142,123,184,0.4),0 0 50px rgba(142,123,184,0.15)}
-.tp-word.is-near{color:rgba(245,240,230,0.55)}
-:root[data-theme="day"] .tp-word.is-near{color:rgba(43,41,64,0.45)}
-.tp-break{display:block;height:1.2em}
-.teleprompter-fade{position:fixed;left:0;right:0;height:25vh;pointer-events:none;z-index:41}
-.teleprompter-fade--top{top:0;background:linear-gradient(to bottom,rgba(43,41,64,0.95) 0%,transparent 100%)}
-.teleprompter-fade--bottom{bottom:0;background:linear-gradient(to top,rgba(43,41,64,0.95) 0%,transparent 100%)}
-:root[data-theme="day"] .teleprompter-fade--top{background:linear-gradient(to bottom,rgba(244,239,245,0.95) 0%,transparent 100%)}
-:root[data-theme="day"] .teleprompter-fade--bottom{background:linear-gradient(to top,rgba(244,239,245,0.95) 0%,transparent 100%)}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.nv-word{transition:color 0.25s ease,text-shadow 0.25s ease}
+.nv-active{color:var(--accent-aube) !important;text-shadow:0 0 18px var(--glow-aube),0 0 40px var(--glow-aube-wide)}
+.nv-read{opacity:0.55}
 </style>
 
 <!-- ─── Navia Narration Player ─────────────────────────────── -->
@@ -1275,11 +1253,10 @@ handleWaitlist(
   var userScrolling = false;
   var userScrollTimer = null;
 
-  // ─── Teleprompter (karaoke) ───
-  var tp = document.getElementById('teleprompter');
-  var tpText = document.getElementById('teleprompter-text');
-  var tpWords = [];
-  var tpActiveIndex = -1;
+  // ─── On-page karaoke ───
+  var nvWords = [];       // all .nv-word spans for current section
+  var nvActiveIndex = -1; // last highlighted index
+  var nvWrappedId = null; // which section is currently wrapped
 
   // Build dots
   SECTIONS.forEach(function (_, i) {
@@ -1378,71 +1355,78 @@ handleWaitlist(
     userScrollTimer = setTimeout(function () { userScrolling = false; }, 2000);
   }, { passive: true });
 
-  // ─── Teleprompter functions ───
-  function getSectionText(sectionId) {
-    var el = document.getElementById(sectionId);
-    if (!el) return [];
-    var nodes = el.querySelectorAll('h1, h2, .lede, p, .callout, .number-headline, .number-context, .consultation-step-title, .consultation-step-body, .library-title, .library-lead');
-    var paragraphs = [];
-    for (var i = 0; i < nodes.length; i++) {
-      if (nodes[i].closest('[aria-hidden="true"]')) continue;
-      var txt = nodes[i].textContent.trim().replace(/\s+/g, ' ');
-      if (txt && txt.length > 2) paragraphs.push(txt);
+  // ─── On-page karaoke functions ───
+  var READABLE = 'h1, h2, .lede, .prose p, p, .callout, .number-headline, .number-context, .consultation-step-title, .consultation-step-body, .library-title, .library-lead, .circles-text p';
+
+  function wrapSectionWords(sectionId) {
+    if (nvWrappedId === sectionId) return; // already wrapped
+    if (nvWrappedId) unwrapSectionWords(nvWrappedId);
+    var section = document.getElementById(sectionId);
+    if (!section) return;
+    nvWords = [];
+    nvActiveIndex = -1;
+    var nodes = section.querySelectorAll(READABLE);
+    for (var ni = 0; ni < nodes.length; ni++) {
+      var el = nodes[ni];
+      if (el.closest('[aria-hidden="true"]')) continue;
+      if (el.dataset.originalHtml) continue; // already wrapped
+      el.dataset.originalHtml = el.innerHTML;
+      // Use TreeWalker to wrap text nodes without breaking existing tags
+      var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+      var textNodes = [];
+      var tn;
+      while ((tn = walker.nextNode())) textNodes.push(tn);
+      for (var ti = 0; ti < textNodes.length; ti++) {
+        var raw = textNodes[ti].nodeValue;
+        if (!raw || !raw.trim()) continue;
+        var parts = raw.split(/(\s+)/);
+        var frag = document.createDocumentFragment();
+        for (var pi = 0; pi < parts.length; pi++) {
+          if (/^\s+$/.test(parts[pi]) || !parts[pi]) {
+            frag.appendChild(document.createTextNode(parts[pi]));
+          } else {
+            var span = document.createElement('span');
+            span.className = 'nv-word';
+            span.textContent = parts[pi];
+            frag.appendChild(span);
+            nvWords.push(span);
+          }
+        }
+        textNodes[ti].parentNode.replaceChild(frag, textNodes[ti]);
+      }
     }
-    return paragraphs;
+    nvWrappedId = sectionId;
   }
 
-  function buildTeleprompterWords() {
-    var paragraphs = getSectionText(SECTIONS[currentIndex].id);
-    tpText.innerHTML = '';
-    tpText.style.transform = '';
-    tpWords = [];
-    tpActiveIndex = -1;
-    for (var pi = 0; pi < paragraphs.length; pi++) {
-      if (pi > 0) {
-        var br = document.createElement('span');
-        br.className = 'tp-break';
-        tpText.appendChild(br);
-      }
-      var words = paragraphs[pi].split(/\s+/);
-      for (var wi = 0; wi < words.length; wi++) {
-        if (!words[wi]) continue;
-        var span = document.createElement('span');
-        span.className = 'tp-word';
-        span.textContent = words[wi];
-        tpText.appendChild(span);
-        tpWords.push(span);
+  function unwrapSectionWords(sectionId) {
+    var section = document.getElementById(sectionId);
+    if (!section) return;
+    var nodes = section.querySelectorAll(READABLE);
+    for (var ni = 0; ni < nodes.length; ni++) {
+      if (nodes[ni].dataset.originalHtml) {
+        nodes[ni].innerHTML = nodes[ni].dataset.originalHtml;
+        delete nodes[ni].dataset.originalHtml;
       }
     }
+    nvWords = [];
+    nvActiveIndex = -1;
+    if (nvWrappedId === sectionId) nvWrappedId = null;
   }
 
   function updateKaraoke() {
-    if (!tpWords.length || !audio.duration) return;
+    if (!nvWords.length || !audio.duration) return;
     var progress = audio.currentTime / audio.duration;
-    var idx = Math.floor(progress * tpWords.length);
-    if (idx >= tpWords.length) idx = tpWords.length - 1;
+    var idx = Math.floor(progress * nvWords.length);
+    if (idx >= nvWords.length) idx = nvWords.length - 1;
     if (idx < 0) idx = 0;
-    if (idx === tpActiveIndex) return;
-    tpActiveIndex = idx;
-    for (var i = 0; i < tpWords.length; i++) {
-      var cl = tpWords[i].classList;
-      cl.remove('is-active', 'is-near', 'is-read');
-      if (i < idx) cl.add('is-read');
-      else if (i === idx) cl.add('is-active');
-      else if (i <= idx + 3) cl.add('is-near');
+    if (idx === nvActiveIndex) return;
+    nvActiveIndex = idx;
+    for (var i = 0; i < nvWords.length; i++) {
+      var cl = nvWords[i].classList;
+      cl.remove('nv-active', 'nv-read');
+      if (i < idx) cl.add('nv-read');
+      else if (i === idx) cl.add('nv-active');
     }
-    // Keep active word centered on screen
-    var wordCenter = tpWords[idx].offsetTop + tpWords[idx].offsetHeight / 2;
-    tpText.style.transform = 'translateY(' + (window.innerHeight / 2 - wordCenter) + 'px)';
-  }
-
-  function showTeleprompter() {
-    buildTeleprompterWords();
-    tp.classList.add('is-active');
-  }
-
-  function hideTeleprompter() {
-    tp.classList.remove('is-active');
   }
 
   function updateUI() {
@@ -1464,7 +1448,7 @@ handleWaitlist(
     audio.playbackRate = SPEEDS[speedIndex];
     progressFill.style.width = '0%';
     updateUI();
-    if (tp.classList.contains('is-active')) buildTeleprompterWords();
+    if (nvWrappedId) wrapSectionWords(SECTIONS[index].id);
     // On manual jump (not auto-advance), gently nudge smoothY toward target
     if (!keepScrolling && sectionAnchors[index]) {
       smoothY = window.pageYOffset;
@@ -1477,7 +1461,7 @@ handleWaitlist(
       isPlaying = true;
       updateUI();
       startCinemaScroll();
-      if (!tp.classList.contains('is-active')) showTeleprompter();
+      if (!nvWrappedId) wrapSectionWords(SECTIONS[currentIndex].id);
     }).catch(function (err) {
       console.warn('Narration play failed:', err);
     });
@@ -1522,7 +1506,7 @@ handleWaitlist(
   closeBtn.addEventListener('click', function () {
     isOpen = false;
     pause();
-    hideTeleprompter();
+    if (nvWrappedId) unwrapSectionWords(nvWrappedId);
     fab.classList.remove('is-hidden');
     bar.classList.remove('is-visible');
   });
@@ -1640,7 +1624,8 @@ handleWaitlist(
 })();
 
 /* ─── Ambient Binaural Soundscape ─── */
-/* Only click/touchstart are reliable user gestures for audio.play(). */
+/* touchstart fires BEFORE scroll on mobile and IS a valid user gesture.
+   pointerdown also fires before scroll. Together they cover mobile + desktop. */
 (function(){
   var audio = document.getElementById('ambient-audio');
   audio.volume = 0;
@@ -1649,6 +1634,7 @@ handleWaitlist(
   var targetVol = 0.5;
   var muteBtn = document.getElementById('sound-mute');
   var soundWaves = document.getElementById('sound-waves');
+  var gestures = ['touchstart', 'pointerdown', 'click'];
 
   function fadeIn() {
     var vol = 0;
@@ -1664,8 +1650,7 @@ handleWaitlist(
     audio.play().then(function() {
       started = true;
       fadeIn();
-      // Remove gesture listeners once playing
-      ['click', 'touchstart'].forEach(function(evt) {
+      gestures.forEach(function(evt) {
         document.removeEventListener(evt, startSound);
       });
     }).catch(function(err) {
@@ -1673,8 +1658,9 @@ handleWaitlist(
     });
   }
 
-  // Only use REAL user gestures (click + touchstart)
-  ['click', 'touchstart'].forEach(function(evt) {
+  // touchstart + pointerdown fire before scroll, so the first finger
+  // touch that initiates a scroll will also unlock audio.
+  gestures.forEach(function(evt) {
     document.addEventListener(evt, startSound, { passive: true });
   });
 
