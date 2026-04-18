@@ -1532,22 +1532,6 @@ handleWaitlist(
     play();
   });
 
-  // ─── Scroll trigger: show narrator bar on scroll (audio needs a real tap) ───
-  var scrollTriggered = false;
-  window.addEventListener('scroll', function () {
-    if (scrollTriggered || isOpen) return;
-    if (window.pageYOffset > 120) {
-      scrollTriggered = true;
-      isOpen = true;
-      fab.classList.add('is-hidden');
-      bar.classList.add('is-visible');
-      calcAnchors();
-      loadSection(0);
-      // Don't call play() here: browsers block audio.play() without a tap/click.
-      // The bar is now visible and the user can tap play.
-    }
-  }, { passive: true });
-
   // Initialize
   updateUI();
 })();
@@ -1660,6 +1644,7 @@ handleWaitlist(
   var targetVol = 0.5;
   var muteBtn = document.getElementById('sound-mute');
   var soundWaves = document.getElementById('sound-waves');
+  var scrollTimer = null;
 
   function fadeIn() {
     var vol = 0;
@@ -1670,43 +1655,46 @@ handleWaitlist(
     }, 50);
   }
 
-  var trying = false;
+  function removeListeners() {
+    ['click', 'touchstart', 'keydown'].forEach(function(evt) {
+      document.removeEventListener(evt, onTap);
+    });
+    document.removeEventListener('scroll', onScroll);
+  }
 
-  function startSoundscape() {
-    if (started || trying) return;
-    trying = true;
+  function tryPlay() {
+    if (started) return;
     audio.play().then(function() {
       started = true;
-      trying = false;
       fadeIn();
-      // Remove all listeners once playing
-      gestureEvents.forEach(function(evt) {
-        document.removeEventListener(evt, onFirstGesture);
-      });
-    }).catch(function() {
-      trying = false;
-    });
+      removeListeners();
+    }).catch(function() { /* will retry on next gesture */ });
   }
+
+  // Click/touch/keydown: always try immediately (valid browser gesture)
+  function onTap() { tryPlay(); }
+  ['click', 'touchstart', 'keydown'].forEach(function(evt) {
+    document.addEventListener(evt, onTap, { passive: true });
+  });
+
+  // Scroll: debounce to avoid saturating audio system
+  function onScroll() {
+    if (started) return;
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(tryPlay, 200);
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
 
   // Mute toggle
   if (muteBtn) {
     muteBtn.addEventListener('click', function() {
-      if (!started) { startSoundscape(); }
+      if (!started) { tryPlay(); }
       isMuted = !isMuted;
       audio.volume = isMuted ? 0 : targetVol;
       if (soundWaves) soundWaves.style.display = isMuted ? 'none' : '';
       muteBtn.setAttribute('aria-label', isMuted ? 'Unmute ambient sound' : 'Mute ambient sound');
     });
   }
-
-  // Start on first user interaction
-  var gestureEvents = ['click', 'touchstart', 'scroll', 'keydown'];
-  function onFirstGesture() {
-    startSoundscape();
-  }
-  gestureEvents.forEach(function(evt) {
-    document.addEventListener(evt, onFirstGesture, { passive: true });
-  });
 })();
 </script>
 </body>
