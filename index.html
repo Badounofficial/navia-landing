@@ -1156,6 +1156,9 @@ handleWaitlist(
       <button class="narrator-btn" id="narrator-next" type="button" aria-label="Next section">
         <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
       </button>
+      <button class="narrator-btn narrator-speed" id="narrator-speed" type="button" aria-label="Playback speed">
+        <span id="narrator-speed-label">1x</span>
+      </button>
     </div>
     <div class="narrator-progress" id="narrator-progress">
       <div class="narrator-progress-fill" id="narrator-progress-fill"></div>
@@ -1190,8 +1193,10 @@ handleWaitlist(
 .narrator-play{width:44px;height:44px;border-radius:50%;background:var(--btn-bg);color:var(--btn-text);padding:0;display:flex;align-items:center;justify-content:center}
 .narrator-play:hover{transform:scale(1.06);opacity:0.92}
 .narrator-play svg{width:20px;height:20px}
+.narrator-speed{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.04em;min-width:36px;padding:4px 8px;border-radius:8px;border:1px solid var(--hairline);background:var(--card-bg)}
+.narrator-speed:hover{border-color:var(--accent-aube)}
 .narrator-progress{width:100%;height:3px;background:var(--hairline);border-radius:2px;overflow:hidden}
-.narrator-progress-fill{height:100%;width:0;background:var(--accent-aube);border-radius:2px;transition:width 0.3s ease}
+.narrator-progress-fill{height:100%;width:0;background:var(--accent-aube);border-radius:2px;transition:width 0.15s linear}
 
 @media(max-width:720px){
   .narrator{bottom:16px}
@@ -1201,19 +1206,21 @@ handleWaitlist(
 </style>
 
 <script>
-/* ─── Navia Narration Player ─── */
+/* ─── Navia Narration Player (cinema-scroll) ─── */
 (function () {
   var SECTIONS = [
-    { id: 'intro',        label: 'Introduction',    file: 'audio/01-intro.mp3' },
+    { id: 'hero',         label: 'Introduction',    file: 'audio/01-intro.mp3' },
     { id: 'philosophy',   label: 'Our philosophy',  file: 'audio/02-philosophy.mp3' },
     { id: 'presence',     label: 'Her form',        file: 'audio/03-presence.mp3' },
     { id: 'experience',   label: 'Day and night',   file: 'audio/04-experience.mp3' },
     { id: 'circles',      label: 'Private circles', file: 'audio/05-circles.mp3' },
-    { id: 'library',      label: 'The library',     file: 'audio/06-library.mp3' },
+    { id: 'content',      label: 'The library',     file: 'audio/06-library.mp3' },
     { id: 'numbers',      label: 'In numbers',      file: 'audio/07-numbers.mp3' },
     { id: 'consultation', label: 'Phase two',       file: 'audio/08-consultation.mp3' },
-    { id: 'closing',      label: 'Walk with her',   file: 'audio/09-closing.mp3' }
+    { id: 'final-cta',    label: 'Walk with her',   file: 'audio/09-closing.mp3' }
   ];
+
+  var SPEEDS = [0.75, 1, 1.25, 1.5];
 
   var fab = document.getElementById('narrator-fab');
   var bar = document.getElementById('narrator-bar');
@@ -1221,6 +1228,8 @@ handleWaitlist(
   var playBtn = document.getElementById('narrator-play');
   var prevBtn = document.getElementById('narrator-prev');
   var nextBtn = document.getElementById('narrator-next');
+  var speedBtn = document.getElementById('narrator-speed');
+  var speedLabel = document.getElementById('narrator-speed-label');
   var sectionLabel = document.getElementById('narrator-section');
   var dotsContainer = document.getElementById('narrator-dots');
   var progressFill = document.getElementById('narrator-progress-fill');
@@ -1231,6 +1240,10 @@ handleWaitlist(
   var currentIndex = 0;
   var isPlaying = false;
   var isOpen = false;
+  var speedIndex = 1; // default 1x
+  var scrollRafId = null;
+  var userScrolling = false;
+  var userScrollTimer = null;
 
   // Build dots
   SECTIONS.forEach(function (_, i) {
@@ -1239,6 +1252,75 @@ handleWaitlist(
     dot.setAttribute('data-index', i);
     dotsContainer.appendChild(dot);
   });
+
+  // ─── Scroll positions ───
+  // Get the Y position of a section (top of section, with offset for comfortable reading)
+  function getSectionTop(index) {
+    var el = document.getElementById(SECTIONS[index].id);
+    if (!el) return 0;
+    return el.getBoundingClientRect().top + window.pageYOffset - 80;
+  }
+
+  function getSectionEnd(index) {
+    if (index + 1 < SECTIONS.length) {
+      return getSectionTop(index + 1);
+    }
+    // Last section: scroll to bottom of page
+    return document.documentElement.scrollHeight - window.innerHeight;
+  }
+
+  // ─── Cinema scroll: continuously scroll in sync with audio ───
+  function startCinemaScroll() {
+    cancelAnimationFrame(scrollRafId);
+
+    var scrollStart = getSectionTop(currentIndex);
+    var scrollEnd = getSectionEnd(currentIndex);
+
+    function tick() {
+      if (!isPlaying || userScrolling) {
+        scrollRafId = requestAnimationFrame(tick);
+        return;
+      }
+
+      if (audio.duration && audio.duration > 0) {
+        var progress = audio.currentTime / audio.duration;
+        var targetY = scrollStart + (scrollEnd - scrollStart) * progress;
+
+        // Smooth interpolation: move 6% of the remaining distance each frame
+        var currentY = window.pageYOffset;
+        var diff = targetY - currentY;
+        if (Math.abs(diff) > 1) {
+          window.scrollTo(0, currentY + diff * 0.06);
+        }
+
+        // Update progress bar
+        progressFill.style.width = (progress * 100) + '%';
+      }
+
+      scrollRafId = requestAnimationFrame(tick);
+    }
+
+    scrollRafId = requestAnimationFrame(tick);
+  }
+
+  function stopCinemaScroll() {
+    cancelAnimationFrame(scrollRafId);
+    scrollRafId = null;
+  }
+
+  // Detect manual scrolling so we don't fight the user
+  window.addEventListener('wheel', function () {
+    if (!isOpen) return;
+    userScrolling = true;
+    clearTimeout(userScrollTimer);
+    userScrollTimer = setTimeout(function () { userScrolling = false; }, 2000);
+  }, { passive: true });
+  window.addEventListener('touchmove', function () {
+    if (!isOpen) return;
+    userScrolling = true;
+    clearTimeout(userScrollTimer);
+    userScrollTimer = setTimeout(function () { userScrolling = false; }, 2000);
+  }, { passive: true });
 
   function updateUI() {
     sectionLabel.textContent = SECTIONS[currentIndex].label;
@@ -1256,20 +1338,17 @@ handleWaitlist(
     if (index < 0 || index >= SECTIONS.length) return;
     currentIndex = index;
     audio.src = SECTIONS[index].file;
+    audio.playbackRate = SPEEDS[speedIndex];
     progressFill.style.width = '0%';
     updateUI();
-
-    // Scroll to the matching section on the page
-    var target = document.getElementById(SECTIONS[index].id);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
   }
 
   function play() {
+    audio.playbackRate = SPEEDS[speedIndex];
     audio.play().then(function () {
       isPlaying = true;
       updateUI();
+      startCinemaScroll();
     }).catch(function (err) {
       console.warn('Narration play failed:', err);
     });
@@ -1278,16 +1357,9 @@ handleWaitlist(
   function pause() {
     audio.pause();
     isPlaying = false;
+    stopCinemaScroll();
     updateUI();
   }
-
-  // Progress update
-  audio.addEventListener('timeupdate', function () {
-    if (audio.duration) {
-      var pct = (audio.currentTime / audio.duration) * 100;
-      progressFill.style.width = pct + '%';
-    }
-  });
 
   // Auto-advance to next section
   audio.addEventListener('ended', function () {
@@ -1295,9 +1367,9 @@ handleWaitlist(
       loadSection(currentIndex + 1);
       play();
     } else {
-      // Finished all sections
       isPlaying = false;
       progressFill.style.width = '100%';
+      stopCinemaScroll();
       updateUI();
     }
   });
@@ -1305,7 +1377,6 @@ handleWaitlist(
   // Error handling (audio file not found)
   audio.addEventListener('error', function () {
     console.warn('Narration audio not found for section:', SECTIONS[currentIndex].id);
-    console.warn('Run: cd ~/Desktop/Navia\\ App/Website/narration && node generate.mjs');
     sectionLabel.textContent = 'Audio not yet generated';
   });
 
@@ -1342,6 +1413,13 @@ handleWaitlist(
       loadSection(currentIndex + 1);
       play();
     }
+  });
+
+  // Speed control: cycle through 0.75x, 1x, 1.25x, 1.5x
+  speedBtn.addEventListener('click', function () {
+    speedIndex = (speedIndex + 1) % SPEEDS.length;
+    audio.playbackRate = SPEEDS[speedIndex];
+    speedLabel.textContent = SPEEDS[speedIndex] + 'x';
   });
 
   // Dot click to jump
