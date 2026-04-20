@@ -7,8 +7,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Ozaia</title>
 <style>
-  html, body { margin:0; padding:0; width:100%; height:100%; background:#2B2940; overflow:hidden; -webkit-tap-highlight-color:transparent; }
-  #root { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+  html, body { margin:0; padding:0; width:100%; height:100%; background:#111; overflow:hidden; -webkit-tap-highlight-color:transparent; }
+  #root { width:100%; height:100%; }
 </style>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
@@ -17,7 +17,7 @@
 </head>
 <body>
 <div id="root"></div>
-<script type="text/babel" data-type="module">
+<script type="text/babel">
 const { useState, useEffect, useRef, useCallback } = React;
 
 /* ─────────────────────────────────────────────
@@ -671,7 +671,7 @@ function QuillText({ text, color, delay = 0, onComplete }) {
             animation: "quillBob 1.2s ease-in-out infinite",
           }}
         >
-          &#9998;
+          270E
         </span>
       )}
       <p
@@ -805,7 +805,7 @@ function DiaryScreen({ colors }) {
             color: colors.accentAube, letterSpacing: "0.04em",
           }}
         >
-          Oza{moonDetached ? "\u0131" : <>&#305;</>}a
+          Oza{moonDetached ? "\u0131" : <>0131</>}a
         </span>
       </div>
 
@@ -933,7 +933,7 @@ function DiaryScreen({ colors }) {
               }}
             />
             <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 0" }}>
-              <span style={{ fontSize: 13, color: colors.accentAube, opacity: 0.6, animation: "quillBob 1.2s ease-in-out infinite" }}>&#9998;</span>
+              <span style={{ fontSize: 13, color: colors.accentAube, opacity: 0.6, animation: "quillBob 1.2s ease-in-out infinite" }}>270E</span>
               <div style={{ display: "flex", gap: 4 }}>
                 {[0, 1, 2].map((dot) => (
                   <div
@@ -1006,7 +1006,7 @@ function DiaryScreen({ colors }) {
                 color: colors.bg, fontSize: 16, flexShrink: 0,
               }}
             >
-              &#8593;
+              2191
             </button>
           )}
         </div>
@@ -1337,7 +1337,7 @@ function ProfileScreen({ colors, theme, onToggleTheme }) {
       {/* ── Daily message from Ozaia (replaces Memory) ── */}
       <div style={{ padding: "20px", borderRadius: 16, border: `1px solid ${colors.accentAube}18`, background: `${colors.accentAube}06`, marginBottom: 16 }}>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: colors.accentAube, margin: "0 0 12px", opacity: 0.6 }}>
-          From Oza&#305;a
+          From Oza0131a
         </p>
         <p style={{ fontFamily: "'Georgia', serif", fontStyle: "italic", fontSize: 15, lineHeight: 1.6, color: colors.accentAube, margin: 0 }}>
           "What you hold in silence still speaks. And I hear it."
@@ -1484,7 +1484,7 @@ function ProfileScreen({ colors, theme, onToggleTheme }) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ fontSize: 14, opacity: 0.5 }}>&#9835;</span>
+          <span style={{ fontSize: 14, opacity: 0.5 }}>266B</span>
           <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: colors.textSoft }}>
             432 Hz
           </span>
@@ -1663,7 +1663,7 @@ function WhisperNotification({ colors }) {
           display: "flex", alignItems: "center", justifyContent: "center",
           marginTop: 1,
         }}>
-          <span style={{ fontSize: 12, opacity: 0.8 }}>&#9790;</span>
+          <span style={{ fontSize: 12, opacity: 0.8 }}>263E</span>
         </div>
         <div>
           <p style={{
@@ -1672,7 +1672,7 @@ function WhisperNotification({ colors }) {
             textTransform: "uppercase",
             color: colors.accentAube, margin: "0 0 4px", opacity: 0.6,
           }}>
-            Oza&#305;a
+            Oza0131a
           </p>
           <p style={{
             fontFamily: "'Georgia', serif", fontStyle: "italic",
