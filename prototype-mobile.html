@@ -9,7 +9,7 @@
 <style>
   html, body { margin:0; padding:0; width:100%; height:100%; background:#2B2940; overflow:hidden; -webkit-tap-highlight-color:transparent; }
   #root { width:100%; height:100%; }
-  #error { display:none; position:fixed; top:0; left:0; right:0; padding:20px; background:red; color:white; font-size:12px; z-index:9999; word-break:break-all; }
+  #error { display:none; position:fixed; top:0; left:0; right:0; padding:16px; background:#c00; color:white; font-size:11px; z-index:9999; word-break:break-all; max-height:30vh; overflow:auto; }
 </style>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
@@ -18,7 +18,7 @@
 <script>
 window.onerror = function(msg, url, line, col, err) {
   var el = document.getElementById('error');
-  if (el) { el.style.display = 'block'; el.textContent = 'Error: ' + msg + ' (line ' + line + ')'; }
+  if (el) { el.style.display = 'block'; el.textContent += 'ERR: ' + msg + ' L' + line + '\n'; }
 };
 </script>
 </head>
@@ -572,21 +572,20 @@ function OnboardingScreen({ colors, onComplete }) {
       }}
     >
       {/* Next (only after scene 2, invisible during pure silence) */}
-      {sceneIndex >= 2 && (
-        <button
-          onClick={(e) => { e.stopPropagation(); onComplete(); }}
-          style={{
-            position: "absolute", top: 20, right: 24,
-            background: "none", border: "none",
-            color: colors.textSoft, fontSize: 13,
-            fontFamily: "'Inter', sans-serif",
-            cursor: "pointer", letterSpacing: "0.04em",
-            opacity: 0.4, transition: "opacity 0.6s ease",
-          }}
-        >
-          next
-        </button>
-      )}
+      <button
+        onClick={function(e) { e.stopPropagation(); onComplete(); }}
+        style={{
+          position: "absolute", top: 20, right: 24,
+          background: "none", border: "none",
+          color: colors.textSoft, fontSize: 13,
+          fontFamily: "'Inter', sans-serif",
+          cursor: "pointer", letterSpacing: "0.04em",
+          opacity: sceneIndex < 2 ? 0.25 : 0.5,
+          transition: "opacity 0.6s ease",
+        }}
+      >
+        {sceneIndex < 2 ? "I am ready" : "next"}
+      </button>
 
       {/* NASA Moon */}
       <div style={{ marginBottom: 60, transition: "transform 0.8s ease" }}>
@@ -740,9 +739,8 @@ function DiaryScreen({ colors }) {
   const [inputText, setInputText] = useState("");
   const [writingResponse, setWritingResponse] = useState(false);
   const [latestOzaiaText, setLatestOzaiaText] = useState(null);
-  const [moonDetached, setMoonDetached] = useState(false);
-  const [moonArrived, setMoonArrived] = useState(false);
-  const [moonReturning, setMoonReturning] = useState(false);
+  // Moon animation: "idle" | "descending" | "writing" | "ascending"
+  const [moonPhase, setMoonPhase] = useState("idle");
   const pendingResponseRef = useRef(null);
   const scrollRef = useRef(null);
 
@@ -758,7 +756,6 @@ function DiaryScreen({ colors }) {
     setEntries((prev) => [...prev, newEntry]);
     setInputText("");
 
-    // Pick the response now, store it for later
     const responses = [
       "What would feel good right now?",
       "We can just stay here too.",
@@ -768,37 +765,30 @@ function DiaryScreen({ colors }) {
     ];
     pendingResponseRef.current = responses[Math.floor(Math.random() * responses.length)];
 
-    // Phase 1: Moon detaches from the "ı" and travels down (dots visible)
-    setTimeout(() => {
-      setMoonDetached(true);
+    // Phase 1: Moon detaches and descends (dots visible)
+    setTimeout(function() {
+      setMoonPhase("descending");
       setWritingResponse(true);
     }, 400);
 
-    // Phase 2: Moon has landed (2s animation) — small pause, then quill starts
-    setTimeout(() => {
-      setMoonArrived(true);
-    }, 2400); // 400ms wait + 2s descent animation
-
-    // Phase 3: Text starts writing after moon has settled
-    setTimeout(() => {
+    // Phase 2: Moon arrived, start quill writing
+    setTimeout(function() {
+      setMoonPhase("writing");
       setWritingResponse(false);
       setLatestOzaiaText(pendingResponseRef.current);
-    }, 3000); // 600ms after landing — let the moon breathe
+    }, 2800);
   };
 
-  // When quill writing completes, moon returns to header
-  const handleOzaiaComplete = useCallback(() => {
-    setMoonReturning(true);
-    setTimeout(() => {
-      setMoonDetached(false);
-      setMoonArrived(false);
-      setMoonReturning(false);
-      // Fold quill response into entry
-      setEntries((prev) => {
-        const updated = [...prev];
-        const last = updated[updated.length - 1];
+  // When quill finishes, moon returns
+  var handleOzaiaComplete = useCallback(function() {
+    setMoonPhase("ascending");
+    setTimeout(function() {
+      setMoonPhase("idle");
+      setEntries(function(prev) {
+        var updated = prev.slice();
+        var last = updated[updated.length - 1];
         if (last && !last.ozaia) {
-          updated[updated.length - 1] = { ...last, ozaia: latestOzaiaText };
+          updated[updated.length - 1] = Object.assign({}, last, { ozaia: latestOzaiaText });
         }
         return updated;
       });
@@ -808,31 +798,27 @@ function DiaryScreen({ colors }) {
 
   return (
     <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden", position: "relative" }}>
-      {/* Traveling moon: detaches from header, goes to writing area */}
-      {moonDetached && (
-        <div
-          style={{
-            position: "absolute",
-            zIndex: 50,
-            left: "50%",
-            transform: "translateX(-50%)",
-            pointerEvents: "none",
-            animation: moonReturning
-              ? "moonAscend 0.8s ease-in forwards"
-              : moonArrived
-                ? "moonFloat 2s ease-in-out infinite"
-                : "moonDescend 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
-            top: moonArrived ? "calc(100% - 130px)" : undefined,
-          }}
-        >
-          <div style={{
-            width: 24, height: 24, borderRadius: "50%",
-            boxShadow: `0 0 12px 4px ${colors.accentAube}40`,
-          }}>
-            <MoonPhaseIcon size={24} phase={0.85} colors={colors} />
-          </div>
+      {/* Traveling moon: always in DOM, animated via CSS transitions */}
+      <div
+        style={{
+          position: "absolute",
+          zIndex: 50,
+          left: "50%",
+          pointerEvents: "none",
+          transform: "translateX(-50%)",
+          top: moonPhase === "descending" || moonPhase === "writing" ? "calc(100% - 130px)" : 8,
+          opacity: moonPhase === "idle" ? 0 : moonPhase === "ascending" ? 0 : 1,
+          transition: "top 2s ease-in-out, opacity 0.8s ease",
+        }}
+      >
+        <div style={{
+          width: 24, height: 24, borderRadius: "50%",
+          boxShadow: moonPhase === "writing" ? "0 0 14px 5px " + colors.accentAube + "50" : "0 0 8px 3px " + colors.accentAube + "30",
+          transition: "box-shadow 0.6s ease",
+        }}>
+          <MoonPhaseIcon size={24} phase={0.85} colors={colors} />
         </div>
-      )}
+      </div>
 
       {/* Header */}
       <div
@@ -848,7 +834,7 @@ function DiaryScreen({ colors }) {
             color: colors.accentAube, letterSpacing: "0.04em",
           }}
         >
-          Oza{moonDetached ? "\u0131" : <>ı</>}a
+          Oza{"\u0131"}a
         </span>
       </div>
 
@@ -1234,65 +1220,56 @@ function MoonPhaseIcon({ size = 42, phase = 0.5, colors }) {
       ctx.fillRect(0, 0, res, res);
     }
 
-    // Draw moon phase shadow
+    // Draw moon phase shadow using pixel-perfect column scanning
     // Phase 0 = new moon (all dark), 1 = full moon (all lit)
-    // We paint shadow over the lit surface. The lit crescent stays visible on one side.
     const illum = Math.max(0, Math.min(1, phase));
 
     if (illum < 0.98) {
-      // Method: draw shadow as the FULL circle, then SUBTRACT the lit crescent.
-      // Lit crescent = intersection of two circles offset horizontally.
-      // Simpler approach: paint shadow on right half + elliptical terminator extending left.
+      // Terminator position: maps illumination to x-coordinate
+      // illum 0 = terminator at far left (all shadow), illum 1 = far right (no shadow)
+      // The terminator is an ellipse with radiusX that depends on illumination
+      const tX = (illum * 2 - 1) * r; // -r (new) to +r (full)
 
-      // For illum 0..0.5: lit crescent on LEFT, shadow covers right + most of center
-      // For illum 0.5..1: lit crescent on RIGHT, shadow covers left + some center
+      // Paint shadow column by column using imageData for reliability
+      const imgData = ctx.getImageData(0, 0, res, res);
+      const data = imgData.data;
+      const dr = parseInt(darkColor.slice(1, 3), 16);
+      const dg = parseInt(darkColor.slice(3, 5), 16);
+      const db = parseInt(darkColor.slice(5, 7), 16);
 
-      // Terminator ellipse radiusX: 0 at half moon, r at new/full
-      const tRx = Math.abs(illum - 0.5) * 2 * r;
+      for (let py = 0; py < res; py++) {
+        const dy = py - cy;
+        const diskHalf = Math.sqrt(Math.max(0, r * r - dy * dy));
+        if (diskHalf <= 0) continue;
+        // Terminator x at this row: ellipse with radiusX = |tX|, radiusY = r
+        const termHalf = r > 0 ? (Math.abs(tX) * Math.sqrt(Math.max(0, r * r - dy * dy)) / r) : 0;
+        const termXAtRow = tX >= 0 ? termHalf : -termHalf;
 
-      ctx.save();
-      // Clip to moon circle
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.clip();
-
-      if (illum <= 0.5) {
-        // Shadow covers from RIGHT edge to the terminator (which is left of center)
-        // The more left the terminator, the more shadow. At illum=0, shadow=entire circle.
-        // Draw: fill entire right half, then fill the area between center and terminator on left
-        ctx.beginPath();
-        // Right semicircle
-        ctx.moveTo(cx, cy - r);
-        ctx.arc(cx, cy, r, -Math.PI / 2, Math.PI / 2, false);
-        // Curved terminator back to top (ellipse bulges LEFT for low illum)
-        ctx.ellipse(cx, cy, tRx, r, 0, Math.PI / 2, -Math.PI / 2, true);
-        ctx.closePath();
-      } else {
-        // Shadow on LEFT side, terminator bulges right
-        ctx.beginPath();
-        ctx.moveTo(cx, cy - r);
-        ctx.arc(cx, cy, r, -Math.PI / 2, Math.PI / 2, true);
-        ctx.ellipse(cx, cy, tRx, r, 0, Math.PI / 2, -Math.PI / 2, false);
-        ctx.closePath();
+        for (let px = 0; px < res; px++) {
+          const dx = px - cx;
+          // Check if inside moon disk
+          if (dx * dx + dy * dy > r * r) continue;
+          // Shadow condition: pixel is in shadow if it's on the dark side of terminator
+          // For waxing (illum 0..0.5): shadow on the RIGHT of terminator
+          // For waning (illum 0.5..1): shadow on the LEFT of terminator
+          let inShadow;
+          if (illum <= 0.5) {
+            inShadow = dx > termXAtRow;
+          } else {
+            inShadow = dx < termXAtRow;
+          }
+          if (inShadow) {
+            const idx = (py * res + px) * 4;
+            // Blend shadow with soft edge near terminator
+            const dist = Math.abs(dx - termXAtRow);
+            const blend = dist < 3 ? (dist / 3) : 1;
+            data[idx] = Math.round(data[idx] * (1 - blend) + dr * blend);
+            data[idx + 1] = Math.round(data[idx + 1] * (1 - blend) + dg * blend);
+            data[idx + 2] = Math.round(data[idx + 2] * (1 - blend) + db * blend);
+          }
+        }
       }
-
-      // Fill shadow
-      ctx.fillStyle = darkColor;
-      ctx.fill();
-
-      // Soft glow at terminator edge
-      ctx.beginPath();
-      const glowRx = Math.max(2, tRx + 2);
-      if (illum <= 0.5) {
-        ctx.ellipse(cx, cy, glowRx, r, 0, -Math.PI / 2, Math.PI / 2, false);
-      } else {
-        ctx.ellipse(cx, cy, glowRx, r, 0, -Math.PI / 2, Math.PI / 2, true);
-      }
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = `rgba(${isNight ? "200,195,180" : "180,175,165"},0.12)`;
-      ctx.stroke();
-
-      ctx.restore();
+      ctx.putImageData(imgData, 0, 0);
     }
 
     ctx.restore();
@@ -1315,7 +1292,7 @@ function MoonPhaseIcon({ size = 42, phase = 0.5, colors }) {
 }
 
 /* ── Profile Screen ── */
-function ProfileScreen({ colors, theme, onToggleTheme }) {
+function ProfileScreen({ colors, theme, onToggleTheme, soundOn, onToggleSound }) {
   const [expandedAppt, setExpandedAppt] = useState(null);
   const [showAttentionFlow, setShowAttentionFlow] = useState(false);
 
@@ -1385,6 +1362,50 @@ function ProfileScreen({ colors, theme, onToggleTheme }) {
         <p style={{ fontFamily: "'Georgia', serif", fontStyle: "italic", fontSize: 15, lineHeight: 1.6, color: colors.accentAube, margin: 0 }}>
           "What you hold in silence still speaks. And I hear it."
         </p>
+      </div>
+
+      {/* ── Medical info (important encart) ── */}
+      <div style={{
+        padding: "18px 20px", borderRadius: 16, marginBottom: 16,
+        border: "1px solid " + colors.accentRose + "30",
+        background: colors.accentRose + "08",
+      }}>
+        <p style={{
+          fontFamily: "'Inter', sans-serif", fontSize: 10,
+          fontWeight: 500, letterSpacing: "0.12em",
+          textTransform: "uppercase", color: colors.accentRose,
+          margin: "0 0 14px", opacity: 0.7,
+        }}>
+          Medical
+        </p>
+        {[
+          { label: "Blood type", value: "O+" },
+          { label: "Allergies", value: "Penicillin" },
+          { label: "Current treatment", value: "Iron supplement" },
+          { label: "Cycle", value: "Day 18 of 28" },
+          { label: "Emergency contact", value: "Maman" },
+        ].map(function(item, i) {
+          return (
+            <div key={i} style={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
+              padding: "8px 0",
+              borderBottom: i < 4 ? "1px solid " + colors.hairline : "none",
+            }}>
+              <span style={{
+                fontFamily: "'Inter', sans-serif", fontSize: 12,
+                color: colors.textSoft,
+              }}>
+                {item.label}
+              </span>
+              <span style={{
+                fontFamily: "'Georgia', serif", fontStyle: "italic",
+                fontSize: 13, color: colors.textStrong,
+              }}>
+                {item.value}
+              </span>
+            </div>
+          );
+        })}
       </div>
 
       {/* ── Upcoming moments (appointments as post-its) ── */}
@@ -1519,11 +1540,13 @@ function ProfileScreen({ colors, theme, onToggleTheme }) {
 
       {/* ── Soundscape: discreet inline toggle ── */}
       <div
+        onClick={onToggleSound}
         style={{
           display: "flex", alignItems: "center", justifyContent: "space-between",
           padding: "12px 16px", borderRadius: 12,
-          border: `1px solid ${colors.hairline}`,
+          border: "1px solid " + colors.hairline,
           background: colors.cardBg, marginBottom: 16,
+          cursor: "pointer",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -1532,8 +1555,19 @@ function ProfileScreen({ colors, theme, onToggleTheme }) {
             432 Hz
           </span>
         </div>
-        <div style={{ width: 36, height: 20, borderRadius: 10, background: colors.accentAube, position: "relative", cursor: "pointer", opacity: 0.7 }}>
-          <div style={{ width: 16, height: 16, borderRadius: "50%", background: "#fff", position: "absolute", top: 2, right: 2, boxShadow: "0 1px 3px rgba(0,0,0,0.2)" }} />
+        <div style={{
+          width: 36, height: 20, borderRadius: 10,
+          background: soundOn ? colors.accentAube : colors.hairline,
+          position: "relative", opacity: 0.7,
+          transition: "background 0.3s ease",
+        }}>
+          <div style={{
+            width: 16, height: 16, borderRadius: "50%", background: "#fff",
+            position: "absolute", top: 2,
+            right: soundOn ? 2 : 18,
+            transition: "right 0.3s ease",
+            boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+          }} />
         </div>
       </div>
 
@@ -1832,7 +1866,7 @@ function OzaiaPrototype() {
               <WhisperNotification colors={colors} />
               {activeTab === "diary" && <DiaryScreen colors={colors} />}
               {activeTab === "circles" && <CirclesScreen colors={colors} />}
-              {activeTab === "profile" && <ProfileScreen colors={colors} theme={theme} onToggleTheme={setTheme} />}
+              {activeTab === "profile" && <ProfileScreen colors={colors} theme={theme} onToggleTheme={setTheme} soundOn={soundscapeActive} onToggleSound={function() { setSoundscapeActive(function(v) { return !v; }); }} />}
               <TabBar activeTab={activeTab} onTabChange={setActiveTab} colors={colors} />
             </>
           )}
@@ -1846,7 +1880,7 @@ try {
   ReactDOM.createRoot(document.getElementById("root")).render(<OzaiaPrototype />);
 } catch(e) {
   document.getElementById("error").style.display = "block";
-  document.getElementById("error").textContent = "Render error: " + e.message;
+  document.getElementById("error").textContent = "Render: " + e.message + "\n" + e.stack;
 }
 </script>
 </body>
