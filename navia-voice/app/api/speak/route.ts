@@ -1,7 +1,7 @@
 /**
  * ElevenLabs Voice Synthesis Proxy (Streaming)
  * Receives text, streams audio back from ElevenLabs.
- * Uses Navia's PVC clone voice. API key stays private.
+ * Uses Ozaia's PVC clone voice. API key stays private.
  */
 
 import { NextRequest, NextResponse } from 'next/server';

@@ -1,6 +1,6 @@
 /**
  * ElevenLabs Voice Synthesis Client
- * Converts text to speech using Navia's PVC clone.
+ * Converts text to speech using Ozaia's PVC clone.
  *
  * Uses streaming mode: audio chunks arrive and play while
  * the rest of the response is still being generated.

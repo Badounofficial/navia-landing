@@ -1,4 +1,4 @@
-# Navia — Deploy to Vercel + Namecheap DNS
+# Ozaia — Deploy to Vercel + Namecheap DNS
 
 Follow these steps to put bynavia.com live. Total time: ~10 minutes.
 
@@ -12,7 +12,7 @@ Follow these steps to put bynavia.com live. Total time: ~10 minutes.
 
 ## Step 2: Prepare your project folder
 
-Make sure your Navia folder contains at least:
+Make sure your Ozaia folder contains at least:
 
 ```
 navia-landing.html  →  rename to index.html
@@ -23,7 +23,7 @@ navia-landing.html  →  rename to index.html
 Your folder should look like this:
 
 ```
-Navia/
+Ozaia/
 ├── index.html          (your landing page)
 ├── og-image.png        (when ready)
 ├── logo.png            (when ready)
@@ -38,7 +38,7 @@ Navia/
 1. Go to [vercel.com/new](https://vercel.com/new)
 2. Scroll down to **"Import Third-Party Git Repository"** — skip this
 3. Instead, look for **"Or, drop your files here"** at the bottom
-4. Drag your entire Navia folder into the browser
+4. Drag your entire Ozaia folder into the browser
 5. Vercel will automatically detect it's a static site
 6. Click **Deploy**
 7. In ~30 seconds, you'll get a URL like `navia-xxxxx.vercel.app`

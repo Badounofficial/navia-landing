@@ -1,8 +1,8 @@
-# Navia — Competitive Landscape
+# Ozaia — Competitive Landscape
 
 *Prepared April 11, 2026 — for discussion on Sebastien's return.*
 
-A map of the apps and platforms Navia will be compared against, grouped by the problem they try to solve, with an honest read on their strengths, weaknesses, and what Navia does differently. The goal is not to copy them. The goal is to understand the terrain so we can choose where to stand.
+A map of the apps and platforms Ozaia will be compared against, grouped by the problem they try to solve, with an honest read on their strengths, weaknesses, and what Ozaia does differently. The goal is not to copy them. The goal is to understand the terrain so we can choose where to stand.
 
 ---
 
@@ -12,74 +12,74 @@ This is the most saturated segment in women's health tech. Millions of users, bi
 
 ### Flo
 The 800-pound gorilla. Over 440 million users worldwide, science-backed, 70+ symptoms trackable, and a growing content library. Strong on data accuracy and cycle predictions.
-**Weakness for Navia's audience.** Data-first, not presence-first. A woman logs, Flo computes, insight shows up. The app asks her to translate her feeling into a checkbox before it will respond. It is a dashboard for her body, not a companion for her self.
-**What Navia does differently.** Navia never asks her to log to be understood. She is understood first. Flo is a tracker. Navia is a presence.
+**Weakness for Ozaia's audience.** Data-first, not presence-first. A woman logs, Flo computes, insight shows up. The app asks her to translate her feeling into a checkbox before it will respond. It is a dashboard for her body, not a companion for her self.
+**What Ozaia does differently.** Ozaia never asks her to log to be understood. She is understood first. Flo is a tracker. Ozaia is a presence.
 
 ### Clue
 Medical-grade, science-backed, privacy-focused, feminist in tone, and clean in design. Strong trust among educated urban women. Known for rigorous accuracy and a more somber register than Flo.
 **Weakness.** Still fundamentally a data tool. Beautifully executed, but the emotional register is informational, not relational.
-**What Navia does differently.** Navia carries warmth and voice where Clue carries data and charts.
+**What Ozaia does differently.** Ozaia carries warmth and voice where Clue carries data and charts.
 
 ### Stardust
 The most interesting of the cycle-tracking newcomers for us. Syncs a woman's cycle with moon phases and planetary positions, blends science with ancient wisdom and astrology, and was explicitly built against the "too pink, too over-sexualised" visual language of Flo and Ovia.
-**Why this matters.** Stardust is the closest visual and spiritual cousin to Navia in existing apps. They have the moon, they have the mystical register, and they have a committed niche audience that would be first in line for Navia. We should study Stardust carefully as both a sibling and a competitor.
-**Where Navia wins.** Stardust is still fundamentally a cycle tracker with moon aesthetics layered on top. Navia is the opposite: a companion whose cycle awareness is one of many things she holds, alongside emotion, body, relationships, and practical care. Stardust is built for the single user. Navia is built for her and the people she loves.
+**Why this matters.** Stardust is the closest visual and spiritual cousin to Ozaia in existing apps. They have the moon, they have the mystical register, and they have a committed niche audience that would be first in line for Ozaia. We should study Stardust carefully as both a sibling and a competitor.
+**Where Ozaia wins.** Stardust is still fundamentally a cycle tracker with moon aesthetics layered on top. Ozaia is the opposite: a companion whose cycle awareness is one of many things she holds, alongside emotion, body, relationships, and practical care. Stardust is built for the single user. Ozaia is built for her and the people she loves.
 
 ### Ovia
 Comprehensive cycle-to-menopause platform (cycle tracking, pregnancy, postpartum, perimenopause, menopause). Just consolidated all its separate apps into one unified experience in April 2026. Strong integration with wearables and employer benefits channels.
 **Weakness.** Employer-benefits-driven positioning makes it feel like an HR tool. Also, the visual language is utilitarian and the tone is clinical-friendly.
-**What Navia does differently.** Navia never positions itself as a workplace benefit. She is private, intimate, and consumer-first.
+**What Ozaia does differently.** Ozaia never positions itself as a workplace benefit. She is private, intimate, and consumer-first.
 
 ### Natural Cycles
 FDA-cleared contraception via temperature tracking. Highly specific use case (non-hormonal birth control).
-**Positioning vs Navia.** Not a direct competitor. Different problem, different register. Worth mentioning only because some women will use Natural Cycles and Navia in parallel.
+**Positioning vs Ozaia.** Not a direct competitor. Different problem, different register. Worth mentioning only because some women will use Natural Cycles and Ozaia in parallel.
 
 ---
 
 ## 2. AI companion apps — the emotional space
 
-This is where Navia has the most overlap technically but the least overlap philosophically.
+This is where Ozaia has the most overlap technically but the least overlap philosophically.
 
 ### Replika
 The most famous AI companion. Empathetic friend model, relationship over time, personality adaptation, and a reputation that has swung from innovative to controversial over several PR cycles.
-**Weakness for Navia's audience.** Replika is gender-neutral, emotionally transactional, and carries cultural baggage from its romantic/erotic use cases. A woman in postpartum who is looking for a companion would not naturally pick Replika.
-**What Navia does differently.** Navia is explicitly and unapologetically for women, built around hormonal, somatic, and relational transitions that Replika has no framework for. Navia also has a physical metaphor (the moon) that Replika lacks.
+**Weakness for Ozaia's audience.** Replika is gender-neutral, emotionally transactional, and carries cultural baggage from its romantic/erotic use cases. A woman in postpartum who is looking for a companion would not naturally pick Replika.
+**What Ozaia does differently.** Ozaia is explicitly and unapologetically for women, built around hormonal, somatic, and relational transitions that Replika has no framework for. Ozaia also has a physical metaphor (the moon) that Replika lacks.
 
 ### Wysa
 Clinical-grade mental health chatbot. CBT, DBT, mindfulness, FDA Breakthrough Device status in 2025, and a strong evidence base. Used by employers and health systems.
-**Weakness.** Built for generic mental health support, not for women's lived experience. Wysa talks to you about your anxiety the way a CBT workbook would. Navia talks to you the way a wise friend would.
-**What Navia does differently.** Wysa treats symptoms. Navia prevents them. Wysa is a therapist surrogate. Navia is a companion, and she is explicit that she is not therapy.
+**Weakness.** Built for generic mental health support, not for women's lived experience. Wysa talks to you about your anxiety the way a CBT workbook would. Ozaia talks to you the way a wise friend would.
+**What Ozaia does differently.** Wysa treats symptoms. Ozaia prevents them. Wysa is a therapist surrogate. Ozaia is a companion, and she is explicit that she is not therapy.
 
 ### Woebot
 CBT-based, research-backed, playful register, built by clinicians. Solid credibility, but the tone is utilitarian and the visual language is cartoon-ish.
-**Positioning vs Navia.** Different register entirely. Woebot wants to be your friendly CBT coach. Navia wants to be your unspoken understanding.
+**Positioning vs Ozaia.** Different register entirely. Woebot wants to be your friendly CBT coach. Ozaia wants to be your unspoken understanding.
 
 ### Pi (Inflection AI) and generalist chat companions
 Warm, natural conversation, good at active listening. Not specifically built for women, no cycle awareness, no body awareness, no rituals.
-**Positioning vs Navia.** Interesting comparison for voice quality and conversational warmth, but not a true competitor because Pi has no vertical.
+**Positioning vs Ozaia.** Interesting comparison for voice quality and conversational warmth, but not a true competitor because Pi has no vertical.
 
 ---
 
 ## 3. Women's community and private circles
 
-This is where Navia's QR cycle idea is most differentiated. Nothing out there does what we have planned.
+This is where Ozaia's QR cycle idea is most differentiated. Nothing out there does what we have planned.
 
 ### Peanut
 Closest community app for women. Over 5 million users. Started as "Tinder for moms", added community pods, expanded to conception, pregnancy, motherhood, and perimenopause over time. Profile verification, ad-free, positioned explicitly against Facebook Groups.
 **Strength.** Network effect is real. A woman who moves from TTC to pregnancy to postpartum to menopause keeps finding new people on Peanut at each stage.
-**Weakness for Navia.** Peanut is fundamentally about meeting strangers. Swipe, match, chat, join groups. The promise is "find women like you". That promise requires her to first explain who she is, to a public, to people she does not know. This is the opposite of Navia's private circles where she does not have to explain anything and everyone is already someone she trusts.
-**What Navia does differently.** Navia's circles are closed, time-bounded, consent-first, and built on automatic context sharing between companions. Peanut is a social network. Navia is a ritual.
-**Note.** If Navia grows, there is a real risk that Peanut copies our private circle feature. We should treat the QR cycle with automatic companion-to-companion context sharing as a potentially defensible differentiator and consider protecting the concept.
+**Weakness for Ozaia.** Peanut is fundamentally about meeting strangers. Swipe, match, chat, join groups. The promise is "find women like you". That promise requires her to first explain who she is, to a public, to people she does not know. This is the opposite of Ozaia's private circles where she does not have to explain anything and everyone is already someone she trusts.
+**What Ozaia does differently.** Ozaia's circles are closed, time-bounded, consent-first, and built on automatic context sharing between companions. Peanut is a social network. Ozaia is a ritual.
+**Note.** If Ozaia grows, there is a real risk that Peanut copies our private circle feature. We should treat the QR cycle with automatic companion-to-companion context sharing as a potentially defensible differentiator and consider protecting the concept.
 
 ---
 
 ## 4. Menopause and midlife
 
-An emerging and well-funded segment. Navia is broader in scope but will be compared to these in the menopause conversation.
+An emerging and well-funded segment. Ozaia is broader in scope but will be compared to these in the menopause conversation.
 
 ### Midday (Lisa Health, in collaboration with Mayo Clinic)
 Science-backed, AI-powered, built with Mayo Clinic. Includes a hormone therapy decision support tool. Strong medical credibility.
-**Positioning vs Navia.** Midday is a medical decision support tool with an emotional layer. Navia is an emotional and relational presence with a medical export layer. Different spine, different audience.
+**Positioning vs Ozaia.** Midday is a medical decision support tool with an emotional layer. Ozaia is an emotional and relational presence with a medical export layer. Different spine, different audience.
 
 ### Caria (Menopause & Midlife)
 CBT, nutrition therapy, mindfulness, fitness, evidence-based. One of the higher-scoring apps in independent reviews.
@@ -87,7 +87,7 @@ CBT, nutrition therapy, mindfulness, fitness, evidence-based. One of the higher-
 
 ### Elektra Health
 App, community, and digital treatment center. Clinician connections for hormone paneling. Educational community focus.
-**Positioning vs Navia.** Elektra is a clinic with an app. Navia is a companion with a clinic connection (the Health section with PDF export). Different center of gravity.
+**Positioning vs Ozaia.** Elektra is a clinic with an app. Ozaia is a companion with a clinic connection (the Health section with PDF export). Different center of gravity.
 
 ### Stella and Midi Health
 Smaller players in the midlife space. Midi recently raised $25M from GV for virtual midlife care.
@@ -100,11 +100,11 @@ Smaller players in the midlife space. Midi recently raised $25M from GV for virt
 ### Maven Clinic
 The world's largest virtual clinic for women and families. 24/7 access to 30+ types of specialists. Covers fertility, maternity, parenting, menopause, midlife. Launching direct-to-consumer nationwide in May 2026.
 **Strength.** Real clinicians, real care, real outcomes, real insurance integration. Enormous moat.
-**Positioning vs Navia.** Maven is clinical care. Navia is companionship. A woman can and should use both. In fact Navia could one day integrate with Maven-style clinical networks so the expert Q&A feature has real providers behind it. This is an integration opportunity, not a head-on fight.
+**Positioning vs Ozaia.** Maven is clinical care. Ozaia is companionship. A woman can and should use both. In fact Ozaia could one day integrate with Maven-style clinical networks so the expert Q&A feature has real providers behind it. This is an integration opportunity, not a head-on fight.
 
 ### Tia
 In-person and virtual women's health clinic. Expanding to 11 locations in 2026. Covers fertility, postpartum, perimenopause, menopause.
-**Positioning vs Navia.** Same as Maven. A clinical provider, not a companion. Complementary, not competitive.
+**Positioning vs Ozaia.** Same as Maven. A clinical provider, not a companion. Complementary, not competitive.
 
 ---
 
@@ -112,29 +112,29 @@ In-person and virtual women's health clinic. Expanding to 11 locations in 2026. 
 
 ### Headspace, Calm, Insight Timer, Balance
 Massive user bases, strong meditation content libraries, premium voiceovers, well-funded. None of them are women-specific.
-**Positioning vs Navia.** These are content libraries that happen to use voice. Navia is a relationship that happens to include content. A woman will keep her Headspace subscription and add Navia for the parts Headspace does not touch (cycles, relationships, body-specific transitions, private circles).
+**Positioning vs Ozaia.** These are content libraries that happen to use voice. Ozaia is a relationship that happens to include content. A woman will keep her Headspace subscription and add Ozaia for the parts Headspace does not touch (cycles, relationships, body-specific transitions, private circles).
 
 ### Expectful
 Meditations for each trimester, voice-guided by therapists, reported 30% anxiety drop in pilot studies. Narrow but well-executed focus on pregnancy mental health.
-**Positioning vs Navia.** Expectful is a content app for a specific window. Navia covers that window and every other window in a woman's life.
+**Positioning vs Ozaia.** Expectful is a content app for a specific window. Ozaia covers that window and every other window in a woman's life.
 
 ---
 
-## What this map tells us about Navia's position
+## What this map tells us about Ozaia's position
 
 Reading across all six categories, three things become clear.
 
-**First, no one is where Navia is.** There are trackers, clinics, chatbots, meditation libraries, and social networks. None of them is a companion that combines emotional presence, somatic awareness, private intimate circles with automatic context sharing, and a medical export layer. The white space is real.
+**First, no one is where Ozaia is.** There are trackers, clinics, chatbots, meditation libraries, and social networks. None of them is a companion that combines emotional presence, somatic awareness, private intimate circles with automatic context sharing, and a medical export layer. The white space is real.
 
-**Second, the philosophical stance of "preventive presence" ("on évite l'hémorragie") is not claimed by anyone.** Every other app in this list is reactive. Flo reacts to a cycle. Wysa reacts to anxiety. Midday reacts to a symptom. Peanut reacts to a need for community. Navia is the only one that positions itself as *what happens before anything needs reacting to*. This is both a philosophical edge and a marketing edge, and it is unusual enough to be memorable.
+**Second, the philosophical stance of "preventive presence" ("on évite l'hémorragie") is not claimed by anyone.** Every other app in this list is reactive. Flo reacts to a cycle. Wysa reacts to anxiety. Midday reacts to a symptom. Peanut reacts to a need for community. Ozaia is the only one that positions itself as *what happens before anything needs reacting to*. This is both a philosophical edge and a marketing edge, and it is unusual enough to be memorable.
 
-**Third, the closest sibling is Stardust.** Same moon, same mystical register, same rejection of "too pink" wellness aesthetics. Stardust is the app Sebastien should study most carefully, not to copy but to understand what they got right, what their users complain about, and where Navia's relational layer gives us room Stardust does not have. Stardust is still a solo app. Navia is a relational one. That is our structural moat.
+**Third, the closest sibling is Stardust.** Same moon, same mystical register, same rejection of "too pink" wellness aesthetics. Stardust is the app Sebastien should study most carefully, not to copy but to understand what they got right, what their users complain about, and where Ozaia's relational layer gives us room Stardust does not have. Stardust is still a solo app. Ozaia is a relational one. That is our structural moat.
 
 ---
 
 ## Open questions for discussion on Sebastien's return
 
-1. Should we explicitly position Navia against Stardust in the messaging, or should we treat Stardust as a sibling and differentiate without naming?
+1. Should we explicitly position Ozaia against Stardust in the messaging, or should we treat Stardust as a sibling and differentiate without naming?
 2. Is there an integration play with Maven Clinic or Tia for the async expert Q&A layer, or do we build our own clinician roster?
 3. How much do we worry about Peanut copying the private circle feature once we launch? Is there IP protection we should pursue on the "consent as cycle" mechanism?
 4. Do we target the US menopause surge (a well-funded growing market) as part of the v1 positioning, or do we start with the postpartum / early motherhood window first?

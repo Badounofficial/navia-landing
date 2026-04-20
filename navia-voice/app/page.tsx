@@ -4,11 +4,11 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import { VoicePipeline, type PipelineState } from '@/lib/pipeline';
 
 /**
- * Navia Voice Interface
+ * Ozaia Voice Interface
  *
  * Minimal, intimate UI. A single screen with:
  * - A central breathing circle (the voice button)
- * - Transcript display (what she said / what Navia said)
+ * - Transcript display (what she said / what Ozaia said)
  * - Subtle audio level visualizer
  */
 
@@ -61,7 +61,7 @@ export default function VoicePage() {
       pipelineRef.current = pipeline;
       setIsStarted(true);
     } catch (err) {
-      setError('Microphone access is needed for Navia to hear you.');
+      setError('Microphone access is needed for Ozaia to hear you.');
     }
   }, []);
 
@@ -85,7 +85,7 @@ export default function VoicePage() {
     idle: 'Tap to begin',
     listening: 'Listening...',
     processing: 'Thinking...',
-    speaking: 'Navia',
+    speaking: 'Ozaia',
     error: 'Something went wrong',
   };
 
@@ -106,7 +106,7 @@ export default function VoicePage() {
 
       {/* Status label */}
       <p style={styles.statusLabel}>
-        {isStarted ? stateLabel[state] : 'Navia'}
+        {isStarted ? stateLabel[state] : 'Ozaia'}
       </p>
 
       {/* Central voice circle */}
@@ -146,7 +146,7 @@ export default function VoicePage() {
       {/* Response area */}
       {response && (
         <div style={styles.responseArea}>
-          <p style={styles.responseLabel}>Navia</p>
+          <p style={styles.responseLabel}>Ozaia</p>
           <p style={styles.responseText}>{response}</p>
         </div>
       )}

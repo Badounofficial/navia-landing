@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * Navia Narration Generator
+ * Ozaia Narration Generator
  *
  * Reads sections.json, sends each section's text to ElevenLabs TTS,
  * saves the resulting MP3 files to Website/audio/.
  *
  * Usage:
- *   cd ~/Desktop/Navia\ App/Website/narration
+ *   cd ~/Desktop/Ozaia\ App/Website/narration
  *   node generate.mjs
  *
  * Requires:

@@ -1,4 +1,4 @@
-# Navia — Dual Track Plan: Site + JavaScript Learning
+# Ozaia — Dual Track Plan: Site + JavaScript Learning
 
 *Chef d'orchestre: Claude | Started: April 9, 2026*
 
@@ -27,14 +27,14 @@ Two tracks running in parallel. Every week has a clear goal for each.
 - Go to: https://javascript.info/first-steps
 - Read + do exercises for:
   - "Hello, world!" (your first program)
-  - Variables (`let name = "Navia"`)
+  - Variables (`let name = "Ozaia"`)
   - Data types (text, numbers, true/false)
 - **Time: 1-2 hours**
 
 **Day 3-4: Conditions & Logic**
 - https://javascript.info/ifelse
 - `if / else` — how the computer makes decisions
-- Think of it like Navia deciding: IF mood is sad THEN send comfort message
+- Think of it like Ozaia deciding: IF mood is sad THEN send comfort message
 - **Time: 1-2 hours**
 
 **Day 5-6: Functions**
@@ -46,7 +46,7 @@ Two tracks running in parallel. Every week has a clear goal for each.
 **Day 7: Practice**
 - Open your browser → right-click → "Inspect" → "Console" tab
 - Type code directly and see it run
-- Try: `alert("Welcome to Navia")` and see what happens
+- Try: `alert("Welcome to Ozaia")` and see what happens
 - **Time: 30 min, just play**
 
 ---
@@ -64,7 +64,7 @@ Two tracks running in parallel. Every week has a clear goal for each.
 **Day 1-2: Arrays (lists)**
 - https://javascript.info/array
 - An array is a list: `let moods = ["happy", "tired", "calm"]`
-- Like a list of Navia users or a week of mood check-ins
+- Like a list of Ozaia users or a week of mood check-ins
 - **Time: 1-2 hours**
 
 **Day 3-4: Objects (profiles)**
@@ -78,7 +78,7 @@ Two tracks running in parallel. Every week has a clear goal for each.
     week: 24
   }
   ```
-- This is EXACTLY how Navia will store each user's data
+- This is EXACTLY how Ozaia will store each user's data
 - **Time: 1-2 hours**
 
 **Day 5-7: Mini-project**
@@ -139,7 +139,7 @@ Two tracks running in parallel. Every week has a clear goal for each.
 
 **Day 1-2: Promises & async/await**
 - https://javascript.info/async
-- When Navia sends a diary entry to Claude AI, it WAITS for a response
+- When Ozaia sends a diary entry to Claude AI, it WAITS for a response
 - `async/await` is how JavaScript handles waiting
 - **Time: 2-3 hours**
 
@@ -151,12 +151,12 @@ Two tracks running in parallel. Every week has a clear goal for each.
 - **Time: 2-3 hours**
 
 **Day 5-7: Capstone project**
-- Build "Navia Mini" — a simple HTML/JS page:
+- Build "Ozaia Mini" — a simple HTML/JS page:
   - User types their name and mood
   - Data is stored in an array (simulating a database)
   - Page shows a history of all check-ins
   - A function analyzes: "Your most common mood this week is: calm"
-- **This is literally a micro-version of the Navia app!**
+- **This is literally a micro-version of the Ozaia app!**
 - **Time: 4-5 hours**
 
 ---
@@ -169,7 +169,7 @@ Once you've completed Weeks 1-4, you'll understand:
 - DOM manipulation (making pages interactive)
 - Async operations (talking to servers)
 
-Then we start React (Week 5-6) and React Native + Expo (Week 7-8), and you'll be building the actual Navia app.
+Then we start React (Week 5-6) and React Native + Expo (Week 7-8), and you'll be building the actual Ozaia app.
 
 ---
 

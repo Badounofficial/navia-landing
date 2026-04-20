@@ -1,6 +1,6 @@
 /**
  * ElevenLabs Voice Synthesis Client
- * Converts text to speech using Navia's voice.
+ * Converts text to speech using Ozaia's voice.
  *
  * Uses streaming mode: audio chunks arrive and play while
  * the rest of the response is still being generated.
@@ -31,20 +31,20 @@ export const SUPPORTED_LANGUAGES = [
   'he', // Hebrew
 ] as const;
 
-export type NaviaLanguage = (typeof SUPPORTED_LANGUAGES)[number];
+export type OzaiaLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
 export interface SpeakOptions {
   /** Text to speak (one sentence at a time for streaming) */
   text: string;
   /** Language hint (optional, model auto-detects from text) */
-  language?: NaviaLanguage;
+  language?: OzaiaLanguage;
   /** Override voice settings if needed */
   stability?: number;
   similarityBoost?: number;
   style?: number;
 }
 
-/** Navia voice settings -- validated by Sebastien, April 17, 2026
+/** Ozaia voice settings -- validated by Sebastien, April 17, 2026
  *  Voice: Katie (stock, conversational)
  *  Speed: 0.85 (slightly slower than default)
  *  Stability: 0.45 (natural variation, alive)

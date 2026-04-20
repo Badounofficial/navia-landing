@@ -19,7 +19,7 @@ export type PipelineState =
   | 'idle'        // Waiting, microphone ready
   | 'listening'   // User is speaking
   | 'processing'  // Whisper + Hume + Claude working
-  | 'speaking'    // Navia is responding with voice
+  | 'speaking'    // Ozaia is responding with voice
   | 'error';      // Something went wrong
 
 export interface PipelineCallbacks {
@@ -63,7 +63,7 @@ export class VoicePipeline {
         this.setState('speaking');
       },
       onPlaybackEnd: () => {
-        // Navia finished speaking, resume listening
+        // Ozaia finished speaking, resume listening
         this.setState('idle');
         this.vad?.resume();
       },

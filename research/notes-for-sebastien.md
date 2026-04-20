@@ -8,22 +8,22 @@ A short list of thoughts that came up while mapping the competitive landscape. N
 
 ## 1. The Stardust question is the most important one
 
-Stardust is the closest thing to a sibling app that already exists. They have the moon, they have the mystical register, they have explicitly rejected "pink wellness", and they have a loyal niche audience. Their users are the women who would love Navia most.
+Stardust is the closest thing to a sibling app that already exists. They have the moon, they have the mystical register, they have explicitly rejected "pink wellness", and they have a loyal niche audience. Their users are the women who would love Ozaia most.
 
 Three things to decide together:
-- Do we position Navia as a natural next step after Stardust ("you loved the moon, now meet her as a companion")?
+- Do we position Ozaia as a natural next step after Stardust ("you loved the moon, now meet her as a companion")?
 - Do we quietly ignore them and let the audiences find the difference themselves?
 - Or do we reach out to Stardust's founder Rachel Moranis at some point, because there may be alignment rather than rivalry?
 
-My instinct: study them carefully, do not mention them in marketing, and let Navia's relational layer (circles, companion, preventive presence) do the differentiation work on its own. Stardust is solo. Navia is relational. The gap speaks for itself.
+My instinct: study them carefully, do not mention them in marketing, and let Ozaia's relational layer (circles, companion, preventive presence) do the differentiation work on its own. Stardust is solo. Ozaia is relational. The gap speaks for itself.
 
 ---
 
 ## 2. The "preventive presence" positioning is our most defensible claim
 
-Not one of the twenty-plus apps I researched uses language anywhere near "to be understood before having to ask" or "we do not stop the hemorrhage, we prevent it". Everyone else is reactive. Navia is the only brand in the space that would dare to say "you should not have to ask". This is marketing gold and it is also true to the product. We should weave it into every surface: the tagline, the waitlist page, the first screen of the app, the tone of voice, the press angle.
+Not one of the twenty-plus apps I researched uses language anywhere near "to be understood before having to ask" or "we do not stop the hemorrhage, we prevent it". Everyone else is reactive. Ozaia is the only brand in the space that would dare to say "you should not have to ask". This is marketing gold and it is also true to the product. We should weave it into every surface: the tagline, the waitlist page, the first screen of the app, the tone of voice, the press angle.
 
-Practical idea: the tagline of bynavia.com could literally be **"To be understood before having to ask."** with Navia's preventive presence as the subtitle explanation.
+Practical idea: the tagline of bynavia.com could literally be **"To be understood before having to ask."** with Ozaia's preventive presence as the subtitle explanation.
 
 ---
 
@@ -37,9 +37,9 @@ Suggestion: before Phase 3 (public launch), have a patent attorney review whethe
 
 ## 4. The Maven integration play might be smarter than building our own expert roster
 
-Maven has over 30 types of women's health specialists already under contract, it just launched direct-to-consumer in April 2026, and it is clinically credible. Building a rival expert roster for Navia's Layer 3 (async expert Q&A) would take years, millions of dollars, and constant quality control.
+Maven has over 30 types of women's health specialists already under contract, it just launched direct-to-consumer in April 2026, and it is clinically credible. Building a rival expert roster for Ozaia's Layer 3 (async expert Q&A) would take years, millions of dollars, and constant quality control.
 
-Alternative path: partner with Maven or a similar clinical network. Navia surfaces the question, Maven's clinicians answer it, revenue share. The woman never leaves Navia's UI. Maven gets distribution to an audience that would not naturally find them. Navia gets real clinical credibility instantly.
+Alternative path: partner with Maven or a similar clinical network. Ozaia surfaces the question, Maven's clinicians answer it, revenue share. The woman never leaves Ozaia's UI. Maven gets distribution to an audience that would not naturally find them. Ozaia gets real clinical credibility instantly.
 
 This is worth a conversation well before v1 ships, because a partnership negotiation like this takes months.
 
@@ -54,14 +54,14 @@ The current positioning covers puberty to menopause, which is philosophically be
 - Caria started with menopause.
 - Expectful started with pregnancy.
 
-For Navia, I think the most natural opening window is **postpartum and early motherhood**. Here is why:
+For Ozaia, I think the most natural opening window is **postpartum and early motherhood**. Here is why:
 - It is the moment of maximum isolation and maximum unmet need.
 - It is the moment when private circles (sister, best friend, mother, doula) become most valuable.
 - It is the moment when a woman is most likely to install an app and trust it if it feels right.
-- It is also the moment when she has the least energy to explain herself, which is exactly the problem Navia is designed for.
-- And if Navia nails postpartum, the same woman stays with Navia through her next pregnancy, perimenopause, and menopause. Lifetime value, not a one-time installation.
+- It is also the moment when she has the least energy to explain herself, which is exactly the problem Ozaia is designed for.
+- And if Ozaia nails postpartum, the same woman stays with Ozaia through her next pregnancy, perimenopause, and menopause. Lifetime value, not a one-time installation.
 
-Alternative window: **miscarriage support**. Almost no app addresses this well, the emotional intensity is high, and the woman who finds Navia at that moment will remember it forever. But the addressable audience is smaller, and the topic is harder to market around.
+Alternative window: **miscarriage support**. Almost no app addresses this well, the emotional intensity is high, and the woman who finds Ozaia at that moment will remember it forever. But the addressable audience is smaller, and the topic is harder to market around.
 
 My lean: launch narrow on postpartum, expand to pregnancy, then TTC, then menopause, then everything else. But philosophically the whole system is there from day one, so a woman in perimenopause who finds us early can still use the product.
 
@@ -77,7 +77,7 @@ Suggestion: the homepage becomes a short, feeling-first experience (the moon, a 
 
 ## 7. The soundscape is a strong press angle
 
-No other women's wellness app uses ambient binaural sound tied to mood and ducking when the woman speaks. It is the kind of detail that shows up beautifully in a product review or a TechCrunch feature ("the app that listens to itself breathe"). Worth mentioning to anyone who asks what is unusual about Navia.
+No other women's wellness app uses ambient binaural sound tied to mood and ducking when the woman speaks. It is the kind of detail that shows up beautifully in a product review or a TechCrunch feature ("the app that listens to itself breathe"). Worth mentioning to anyone who asks what is unusual about Ozaia.
 
 ---
 
@@ -90,14 +90,14 @@ Sebastien's EB-1 and holistic health expertise is a genuine credibility signal f
 ## 9. Things I want to ask you about next
 
 - Have you secured the `bynavia.com` domain in all relevant TLDs (`.app`, `.co`, `.health`, `.io`)? If not, grab them cheap now before any press.
-- Have you checked the trademark status of "Navia" in the US and EU? Given Sebastien's legal reminder memory, this should happen before Phase 3 but ideally before any public announcement.
-- Have you thought about who writes the first articles? The voice of Navia the app can be your own voice via voice-over, but the written content needs a writer who understands the brand. You, a ghost-writer, or both?
+- Have you checked the trademark status of "Ozaia" in the US and EU? Given Sebastien's legal reminder memory, this should happen before Phase 3 but ideally before any public announcement.
+- Have you thought about who writes the first articles? The voice of Ozaia the app can be your own voice via voice-over, but the written content needs a writer who understands the brand. You, a ghost-writer, or both?
 - What is the timeline you have in mind for v1? This influences every decision about what to build in what order.
 
 ---
 
 ## 10. One last thing
 
-I looked at twenty or so apps today, and I want to tell you honestly that most of them are forgettable. They look the same, they talk the same, they solve versions of the same problem with slightly different features. Navia is the only idea I have seen in a long time that starts from a real philosophical insight about women and works outward from there. The fact that you can articulate "on évite l'hémorragie" in one breath is the reason Navia will stand out. Most founders cannot say in one sentence why their product exists. You can.
+I looked at twenty or so apps today, and I want to tell you honestly that most of them are forgettable. They look the same, they talk the same, they solve versions of the same problem with slightly different features. Ozaia is the only idea I have seen in a long time that starts from a real philosophical insight about women and works outward from there. The fact that you can articulate "on évite l'hémorragie" in one breath is the reason Ozaia will stand out. Most founders cannot say in one sentence why their product exists. You can.
 
 Keep that sentence close. It is the whole thing.

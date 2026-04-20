@@ -1,4 +1,4 @@
-# Navia Companion — Architecture (v0.1 draft)
+# Ozaia Companion — Architecture (v0.1 draft)
 
 **Status:** exploratory. Nothing here is committed. This document exists so decisions are traceable as we move from landing page to MVP.
 
@@ -6,18 +6,18 @@
 
 ## 1. Principles that shape every technical choice
 
-1. **Privacy is the product.** A woman who writes "I had a miscarriage last week" to Navia is trusting us with something sacred. Every architectural decision must make that trust easier to keep, not harder.
+1. **Privacy is the product.** A woman who writes "I had a miscarriage last week" to Ozaia is trusting us with something sacred. Every architectural decision must make that trust easier to keep, not harder.
 2. **Her data is hers.** End-to-end, on-device first where possible. Server-side storage is only for what we need to keep the experience coherent across devices.
 3. **Latency is intimacy.** A companion that takes six seconds to reply feels like a chatbot. A companion that replies in under 1.5 seconds with a natural cadence feels like a friend.
-4. **One voice, one presence.** The model that speaks as Navia must be stable across the app. No A/B voice tests on the companion itself.
+4. **One voice, one presence.** The model that speaks as Ozaia must be stable across the app. No A/B voice tests on the companion itself.
 5. **No advertising, no tracking, ever.** This is a brand-defining constraint, not a technical one. The architecture should make it impossible to sell data even if someone wanted to.
-6. **Graceful offline.** A woman should be able to write in her diary on a plane, on the metro, anywhere, and have Navia respond when connectivity returns, without losing a single word.
+6. **Graceful offline.** A woman should be able to write in her diary on a plane, on the metro, anywhere, and have Ozaia respond when connectivity returns, without losing a single word.
 
 ## 2. High-level shape
 
 ```
 ┌────────────────────────┐         ┌──────────────────────────┐
-│  iOS app (SwiftUI)     │ <─────> │  Navia API (edge worker) │
+│  iOS app (SwiftUI)     │ <─────> │  Ozaia API (edge worker) │
 │  - SQLCipher local DB  │         │  - Auth                  │
 │  - Key in Keychain     │         │  - Prompt assembly       │
 │  - Voice I/O           │         │  - Model routing         │
@@ -39,13 +39,13 @@ Deliberately simple. A single mobile client, a thin API layer we own, and a mana
 - **Language:** Swift + SwiftUI for iOS. Kotlin + Jetpack Compose for Android (phase 2).
 - **Local storage:** SQLCipher (AES-256) for diary, check-ins, cycle data, and conversation history. The database key is generated on device at first launch and stored in the iOS Keychain with `kSecAttrAccessibleWhenUnlockedThisDeviceOnly`. The key never leaves the device.
 - **Sync (phase 2):** if and when cross-device sync is added, it will be end-to-end encrypted with a user-held key (derived from a passphrase or iCloud Keychain). Server stores ciphertext blobs only.
-- **Networking:** plain HTTPS to the Navia API. Certificate pinning on release builds.
+- **Networking:** plain HTTPS to the Ozaia API. Certificate pinning on release builds.
 - **Voice input:** device speech-to-text (Apple's on-device Speech framework) so raw audio never leaves the phone.
-- **Voice output:** custom Navia voice (see below). Audio files cached on device.
+- **Voice output:** custom Ozaia voice (see below). Audio files cached on device.
 
-## 4. The Navia voice
+## 4. The Ozaia voice
 
-Non-negotiable: the in-app companion has a single, custom, feminine voice named Navia. It is not an off-the-shelf TTS.
+Non-negotiable: the in-app companion has a single, custom, feminine voice named Ozaia. It is not an off-the-shelf TTS.
 
 **V1 approach:**
 - Record a voice actress in studio, ~2 hours of neutral and warm reading, plus breath-only samples.
@@ -58,7 +58,7 @@ Non-negotiable: the in-app companion has a single, custom, feminine voice named 
 
 ## 5. The companion model
 
-**V1:** a managed frontier chat model from a provider with a strong instruction-following track record and the ability to hold a warm, steerable voice. Specific provider choice is open and will be decided after a blind eval where three or four candidates answer the same 30 scenarios through the Navia system prompt, with women from the target audience rating them on warmth, presence, and "would you come back to her tomorrow?".
+**V1:** a managed frontier chat model from a provider with a strong instruction-following track record and the ability to hold a warm, steerable voice. Specific provider choice is open and will be decided after a blind eval where three or four candidates answer the same 30 scenarios through the Ozaia system prompt, with women from the target audience rating them on warmth, presence, and "would you come back to her tomorrow?".
 
 **Constraints on the provider choice:**
 - Must allow us to disable training on our data, in writing.
@@ -68,7 +68,7 @@ Non-negotiable: the in-app companion has a single, custom, feminine voice named 
 - Must support structured output for the auxiliary tasks (summarization, tagging) without derailing the main voice model.
 
 **Routing:**
-- Main companion turns -> big model, Navia system prompt.
+- Main companion turns -> big model, Ozaia system prompt.
 - Diary summarization, pattern detection, gentle "idea of the day" -> smaller/cheaper model with a different system prompt. This keeps the big model's context clean.
 - Safety classification (self-harm, medical emergency) -> a dedicated small classifier model on every user turn, before the main model sees the message.
 
@@ -80,7 +80,7 @@ Per user, we store three layers of memory:
 
 **Layer 2 — Working context.** A compact object assembled at each turn and sent to the main model: `{ chapter, last_3_diary_entries, last_3_checkins, recent_mood_trend, current_cycle_day or pregnancy_week, named_entities_she_has_mentioned }`. Capped at roughly 2k tokens.
 
-**Layer 3 — Long-term facts.** A small, editable "Navia knows" sheet the user can see and edit: e.g., "Your partner is Marc", "Your midwife is Dr. Lee", "You had a miscarriage in January". These are the only items promoted out of Layer 1 into persistent context. The user can remove any of them with one tap and Navia forgets.
+**Layer 3 — Long-term facts.** A small, editable "Ozaia knows" sheet the user can see and edit: e.g., "Your partner is Marc", "Your midwife is Dr. Lee", "You had a miscarriage in January". These are the only items promoted out of Layer 1 into persistent context. The user can remove any of them with one tap and Ozaia forgets.
 
 The user can, at any time:
 - Read every piece of Layer 3.
@@ -96,19 +96,19 @@ Before every user turn reaches the main model, a small classifier looks for:
 - Abuse disclosure.
 - Eating disorder markers.
 
-If the classifier flags any category, the request is routed to a safety-specialized prompt variant that maintains Navia's voice but activates the safety escalation procedure from `system-prompt-v1.md`. The main model is never asked to handle a safety case "cold".
+If the classifier flags any category, the request is routed to a safety-specialized prompt variant that maintains Ozaia's voice but activates the safety escalation procedure from `system-prompt-v1.md`. The main model is never asked to handle a safety case "cold".
 
 ## 8. What we will not build
 
 - **Ads.** Not in v1, not ever.
 - **Third-party SDK tracking.** No analytics SDK that phones home with personal data. Only privacy-respecting, anonymized product telemetry (counts and opt-in).
 - **A web version of the companion.** For now, the companion lives only in the mobile app, where the intimacy is highest. The web is for the landing page, founder page, and future blog.
-- **A dashboard for partners, employers, or insurers.** Navia will never sell a B2B dashboard built on women's private data. If a B2B product exists one day, it is anonymized, opt-in, and orthogonal to the companion.
+- **A dashboard for partners, employers, or insurers.** Ozaia will never sell a B2B dashboard built on women's private data. If a B2B product exists one day, it is anonymized, opt-in, and orthogonal to the companion.
 
 ## 9. Open architecture questions
 
 1. Which LLM provider survives the blind eval? (Target: decision by end of Phase 2 prototyping.)
-2. Where is the voice actress recorded, and who owns the voice rights? (Contract must assign exclusive rights to Navia.)
+2. Where is the voice actress recorded, and who owns the voice rights? (Contract must assign exclusive rights to Ozaia.)
 3. How do we handle sync in phase 2 without breaking the on-device encryption guarantee?
 4. How do we verify, at any moment, that we could fully delete a user's data within 24 hours if asked?
 5. Do we run the safety classifier on the client or the server? Client is better for privacy but harder to update.

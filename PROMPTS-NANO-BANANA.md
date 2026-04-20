@@ -1,4 +1,4 @@
-# Navia — Brand Identity Prompts
+# Ozaia — Brand Identity Prompts
 
 ## Status: Cleaned up April 9, 2026 — only validated + standby items remain
 

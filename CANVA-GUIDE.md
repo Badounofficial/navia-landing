@@ -1,4 +1,4 @@
-# Navia Wordmark — Step-by-Step Canva Guide
+# Ozaia Wordmark — Step-by-Step Canva Guide
 
 Create the "navia" wordmark with the signature lavender dot above the "i".
 

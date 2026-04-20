@@ -8,9 +8,9 @@
  */
 
 export interface AudioPlayerCallbacks {
-  /** Navia started speaking */
+  /** Ozaia started speaking */
   onPlaybackStart: () => void;
-  /** Navia finished speaking (all queued audio played) */
+  /** Ozaia finished speaking (all queued audio played) */
   onPlaybackEnd: () => void;
 }
 

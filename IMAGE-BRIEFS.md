@@ -1,4 +1,4 @@
-# Navia — Image Generation Briefs
+# Ozaia — Image Generation Briefs
 
 Use these prompts on Midjourney, DALL-E, Ideogram, or any AI image platform.
 After generating, save files to this folder with the exact names listed below.
@@ -14,7 +14,7 @@ After generating, save files to this folder with the exact names listed below.
 ### Prompt (copy-paste ready):
 
 ```
-Minimal, elegant social media preview card for a women's health app called "Navia". 
+Minimal, elegant social media preview card for a women's health app called "Ozaia". 
 Soft lavender and violet color palette (#7B6EF6, #EEEDFE, #F9F8FF). 
 Left side: the word "navia" in a refined serif font (Cormorant Garamond style), 
 lowercase, with a small geometric logo mark above it (circle with gentle arc). 
@@ -39,7 +39,7 @@ Aspect ratio 1200:630. Flat design, no 3D.
 **Where it appears:** browser tab (favicon), structured data, app stores later
 
 ### Current logo description (already in the HTML as SVG):
-The Navia logo is a soft circle (`#EEEDFE`) containing a gentle upward arc/path (`#7B6EF6`) 
+The Ozaia logo is a soft circle (`#EEEDFE`) containing a gentle upward arc/path (`#7B6EF6`) 
 with a small filled circle at the top and two smaller transparent circles at the base. 
 It evokes a figure in a nurturing pose — abstract, minimal, human.
 

@@ -1,4 +1,4 @@
-# Navia — Launch Roadmap
+# Ozaia — Launch Roadmap
 
 > Domain: bynavia.com | Email: contact@bynavia.com
 > Target: US market | Language: English
@@ -28,7 +28,7 @@
 
 ## Phase 1.5: Design Enhancement (MOSTLY COMPLETE)
 
-- [x] **Phone mockup** — iPhone frame with Navia app preview, typing animation for AI response
+- [x] **Phone mockup** — iPhone frame with Ozaia app preview, typing animation for AI response
 - [x] **Scroll animations** — fade in / slide up on scroll
 - [x] **Sticky CTA bar** — appears when user pauses scrolling, disappears on scroll
 - [x] **Module grid** — 3x2 desktop, 2x2x2 mobile (aligned)
@@ -65,7 +65,7 @@
 
 ## Legal & IP (to address before Phase 3)
 
-- [ ] **Trademark search** — consult IP attorney re: "Navia" vs "Navia Benefit Solutions"
+- [ ] **Trademark search** — consult IP attorney re: "Ozaia" vs "Ozaia Benefit Solutions"
 - [x] **Terms of Service** — terms.html drafted and live (needs legal counsel review before activation)
 - [x] **Privacy Policy** — privacy.html drafted and live (needs CCPA compliance review)
 - [ ] **Business entity** (LLC or Corp)
