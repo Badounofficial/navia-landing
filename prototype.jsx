@@ -712,24 +712,38 @@ function DiaryScreen({ colors }) {
   const [inputText, setInputText] = useState("");
   const [writingResponse, setWritingResponse] = useState(false);
   const [latestOzaiaText, setLatestOzaiaText] = useState(null);
-  // Moon animation: "idle" | "descending" | "writing" | "ascending"
-  const [moonPhase, setMoonPhase] = useState("idle");
+  // Moon animation: "idle" | "ready" | "descending" | "writing" | "ascending"
+  // "ready" = moon visible at top, then transitions to "descending" next frame
+  const [moonAnim, setMoonAnim] = useState("idle");
   const pendingResponseRef = useRef(null);
+  const moonRef = useRef(null);
   const scrollRef = useRef(null);
 
-  useEffect(() => {
+  useEffect(function() {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [entries, writingResponse, latestOzaiaText]);
 
-  const handleSend = () => {
+  // Two-frame trick: when moonAnim becomes "ready", force reflow then go to "descending"
+  useEffect(function() {
+    if (moonAnim === "ready" && moonRef.current) {
+      // Force browser to paint the element at top:8 first
+      moonRef.current.getBoundingClientRect();
+      // Then trigger the transition to bottom
+      requestAnimationFrame(function() {
+        setMoonAnim("descending");
+      });
+    }
+  }, [moonAnim]);
+
+  var handleSend = function() {
     if (!inputText.trim()) return;
-    const now = new Date();
-    const date = now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
-    const newEntry = { date, text: inputText.trim(), ozaia: null };
-    setEntries((prev) => [...prev, newEntry]);
+    var now = new Date();
+    var date = now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+    var newEntry = { date: date, text: inputText.trim(), ozaia: null };
+    setEntries(function(prev) { return prev.concat([newEntry]); });
     setInputText("");
 
-    const responses = [
+    var responses = [
       "What would feel good right now?",
       "We can just stay here too.",
       "I was thinking about what you left here. How is it today?",
@@ -738,15 +752,15 @@ function DiaryScreen({ colors }) {
     ];
     pendingResponseRef.current = responses[Math.floor(Math.random() * responses.length)];
 
-    // Phase 1: Moon detaches and descends (dots visible)
+    // Phase 1: Show moon at header position, then it will auto-descend
     setTimeout(function() {
-      setMoonPhase("descending");
+      setMoonAnim("ready");
       setWritingResponse(true);
     }, 400);
 
     // Phase 2: Moon arrived, start quill writing
     setTimeout(function() {
-      setMoonPhase("writing");
+      setMoonAnim("writing");
       setWritingResponse(false);
       setLatestOzaiaText(pendingResponseRef.current);
     }, 2800);
@@ -754,9 +768,9 @@ function DiaryScreen({ colors }) {
 
   // When quill finishes, moon returns
   var handleOzaiaComplete = useCallback(function() {
-    setMoonPhase("ascending");
+    setMoonAnim("ascending");
     setTimeout(function() {
-      setMoonPhase("idle");
+      setMoonAnim("idle");
       setEntries(function(prev) {
         var updated = prev.slice();
         var last = updated[updated.length - 1];
@@ -771,23 +785,23 @@ function DiaryScreen({ colors }) {
 
   return (
     <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden", position: "relative" }}>
-      {/* Traveling moon: always in DOM, animated via CSS transitions */}
+      {/* Traveling moon */}
       <div
+        ref={moonRef}
         style={{
           position: "absolute",
           zIndex: 50,
           left: "50%",
+          marginLeft: -12,
           pointerEvents: "none",
-          transform: "translateX(-50%)",
-          top: moonPhase === "descending" || moonPhase === "writing" ? "calc(100% - 130px)" : 8,
-          opacity: moonPhase === "idle" ? 0 : moonPhase === "ascending" ? 0 : 1,
-          transition: "top 2s ease-in-out, opacity 0.8s ease",
+          top: (moonAnim === "descending" || moonAnim === "writing") ? "calc(100% - 130px)" : 8,
+          opacity: (moonAnim === "idle") ? 0 : (moonAnim === "ascending") ? 0 : 1,
+          transition: (moonAnim === "ready") ? "none" : "top 2s ease-in-out, opacity 0.6s ease",
         }}
       >
         <div style={{
           width: 24, height: 24, borderRadius: "50%",
-          boxShadow: moonPhase === "writing" ? "0 0 14px 5px " + colors.accentAube + "50" : "0 0 8px 3px " + colors.accentAube + "30",
-          transition: "box-shadow 0.6s ease",
+          boxShadow: "0 0 12px 4px " + colors.accentAube + "40",
         }}>
           <MoonPhaseIcon size={24} phase={0.85} colors={colors} />
         </div>
@@ -1763,15 +1777,15 @@ function AmbientSoundscape({ active }) {
       if (vol >= 0.35) clearInterval(fadeIn);
     }, 50);
 
-    return () => {
+    return function() {
       clearInterval(fadeIn);
-      // Fade out
-      let v = audio.volume;
-      const fadeOut = setInterval(() => {
-        v = Math.max(v - 0.02, 0);
+      // Fast fade out (~300ms)
+      var v = audio.volume;
+      var fadeOut = setInterval(function() {
+        v = Math.max(v - 0.05, 0);
         audio.volume = v;
         if (v <= 0) { clearInterval(fadeOut); audio.pause(); }
-      }, 50);
+      }, 30);
     };
   }, [active]);
 
@@ -1786,6 +1800,7 @@ export default function OzaiaPrototype() {
   const [screen, setScreen] = useState("onboarding");
   const [activeTab, setActiveTab] = useState("diary");
   const [soundscapeActive, setSoundscapeActive] = useState(false);
+  const [soundStarted, setSoundStarted] = useState(false);
   const colors = palette[theme];
 
   return (
@@ -1829,7 +1844,7 @@ export default function OzaiaPrototype() {
         ::-webkit-scrollbar { width: 0; }
       `}</style>
       <AmbientSoundscape active={soundscapeActive} />
-      <div onClick={() => { if (!soundscapeActive) setSoundscapeActive(true); }}>
+      <div onClick={function() { if (!soundStarted) { setSoundStarted(true); setSoundscapeActive(true); } }}>
         <PhoneFrame colors={colors}>
           {screen === "onboarding" ? (
             <OnboardingScreen colors={colors} onComplete={() => { setScreen("app"); setActiveTab("diary"); }} />
