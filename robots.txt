@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /brand-book.html
 
-Sitemap: https://bynavia.com/sitemap.xml
+Sitemap: https://ozaia.app/sitemap.xml
