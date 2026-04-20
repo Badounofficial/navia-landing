@@ -9,13 +9,21 @@
 <style>
   html, body { margin:0; padding:0; width:100%; height:100%; background:#2B2940; overflow:hidden; -webkit-tap-highlight-color:transparent; }
   #root { width:100%; height:100%; }
+  #error { display:none; position:fixed; top:0; left:0; right:0; padding:20px; background:red; color:white; font-size:12px; z-index:9999; word-break:break-all; }
 </style>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script>
+window.onerror = function(msg, url, line, col, err) {
+  var el = document.getElementById('error');
+  if (el) { el.style.display = 'block'; el.textContent = 'Error: ' + msg + ' (line ' + line + ')'; }
+};
+</script>
 </head>
 <body>
+<div id="error"></div>
 <div id="root"></div>
 <script type="text/babel">
 const { useState, useEffect, useRef, useCallback } = React;
@@ -701,7 +709,7 @@ function QuillText({ text, color, delay = 0, onComplete }) {
             animation: "quillBob 1.2s ease-in-out infinite",
           }}
         >
-          \u270E
+          ✎
         </span>
       )}
       <p
@@ -817,7 +825,12 @@ function DiaryScreen({ colors }) {
             top: moonArrived ? "calc(100% - 130px)" : undefined,
           }}
         >
-          <NasaMoon size={24} phase={0.85} colors={colors} glow={true} breathing={false} />
+          <div style={{
+            width: 24, height: 24, borderRadius: "50%",
+            boxShadow: `0 0 12px 4px ${colors.accentAube}40`,
+          }}>
+            <MoonPhaseIcon size={24} phase={0.85} colors={colors} />
+          </div>
         </div>
       )}
 
@@ -835,7 +848,7 @@ function DiaryScreen({ colors }) {
             color: colors.accentAube, letterSpacing: "0.04em",
           }}
         >
-          Oza{moonDetached ? "\u0131" : <>\u0131</>}a
+          Oza{moonDetached ? "\u0131" : <>ı</>}a
         </span>
       </div>
 
@@ -963,7 +976,7 @@ function DiaryScreen({ colors }) {
               }}
             />
             <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 0" }}>
-              <span style={{ fontSize: 13, color: colors.accentAube, opacity: 0.6, animation: "quillBob 1.2s ease-in-out infinite" }}>\u270E</span>
+              <span style={{ fontSize: 13, color: colors.accentAube, opacity: 0.6, animation: "quillBob 1.2s ease-in-out infinite" }}>✎</span>
               <div style={{ display: "flex", gap: 4 }}>
                 {[0, 1, 2].map((dot) => (
                   <div
@@ -1036,7 +1049,7 @@ function DiaryScreen({ colors }) {
                 color: colors.bg, fontSize: 16, flexShrink: 0,
               }}
             >
-              \u2191
+              ↑
             </button>
           )}
         </div>
@@ -1367,7 +1380,7 @@ function ProfileScreen({ colors, theme, onToggleTheme }) {
       {/* ── Daily message from Ozaia (replaces Memory) ── */}
       <div style={{ padding: "20px", borderRadius: 16, border: `1px solid ${colors.accentAube}18`, background: `${colors.accentAube}06`, marginBottom: 16 }}>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: colors.accentAube, margin: "0 0 12px", opacity: 0.6 }}>
-          From Oza\u0131a
+          From Ozaıa
         </p>
         <p style={{ fontFamily: "'Georgia', serif", fontStyle: "italic", fontSize: 15, lineHeight: 1.6, color: colors.accentAube, margin: 0 }}>
           "What you hold in silence still speaks. And I hear it."
@@ -1514,7 +1527,7 @@ function ProfileScreen({ colors, theme, onToggleTheme }) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ fontSize: 14, opacity: 0.5 }}>\u266B</span>
+          <span style={{ fontSize: 14, opacity: 0.5 }}>♫</span>
           <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: colors.textSoft }}>
             432 Hz
           </span>
@@ -1693,7 +1706,7 @@ function WhisperNotification({ colors }) {
           display: "flex", alignItems: "center", justifyContent: "center",
           marginTop: 1,
         }}>
-          <span style={{ fontSize: 12, opacity: 0.8 }}>\u263E</span>
+          <span style={{ fontSize: 12, opacity: 0.8 }}>☾</span>
         </div>
         <div>
           <p style={{
@@ -1702,7 +1715,7 @@ function WhisperNotification({ colors }) {
             textTransform: "uppercase",
             color: colors.accentAube, margin: "0 0 4px", opacity: 0.6,
           }}>
-            Oza\u0131a
+            Ozaıa
           </p>
           <p style={{
             fontFamily: "'Georgia', serif", fontStyle: "italic",
@@ -1829,7 +1842,12 @@ function OzaiaPrototype() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<OzaiaPrototype />);
+try {
+  ReactDOM.createRoot(document.getElementById("root")).render(<OzaiaPrototype />);
+} catch(e) {
+  document.getElementById("error").style.display = "block";
+  document.getElementById("error").textContent = "Render error: " + e.message;
+}
 </script>
 </body>
 </html>

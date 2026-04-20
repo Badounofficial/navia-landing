@@ -798,7 +798,12 @@ function DiaryScreen({ colors }) {
             top: moonArrived ? "calc(100% - 130px)" : undefined,
           }}
         >
-          <NasaMoon size={24} phase={0.85} colors={colors} glow={true} breathing={false} />
+          <div style={{
+            width: 24, height: 24, borderRadius: "50%",
+            boxShadow: `0 0 12px 4px ${colors.accentAube}40`,
+          }}>
+            <MoonPhaseIcon size={24} phase={0.85} colors={colors} />
+          </div>
         </div>
       )}
 
