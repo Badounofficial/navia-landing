@@ -355,6 +355,36 @@ function NasaMoon({ size = 120, phase = 1.0, colors, glow = true, breathing = tr
 
 /* ── Phone Frame ── */
 function PhoneFrame({ children, colors }) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 500);
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  if (isMobile) {
+    // Full-screen on real phones: no frame, no border-radius, fill viewport
+    return (
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          overflow: "hidden",
+          background: colors.bgGrad,
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        {/* Safe area top spacing */}
+        <div style={{ height: "env(safe-area-inset-top, 44px)", flexShrink: 0 }} />
+        {children}
+        {/* Safe area bottom */}
+        <div style={{ height: "env(safe-area-inset-bottom, 0px)", flexShrink: 0 }} />
+      </div>
+    );
+  }
+
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh", padding: 20, background: "#111" }}>
       <div
