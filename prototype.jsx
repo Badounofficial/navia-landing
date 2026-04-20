@@ -104,7 +104,7 @@ const demoCircles = [
    ═══════════════════════════════════════════ */
 
 /* ── Three.js 3D Rotating NASA Moon ── */
-function NasaMoon({ size = 120, phase = 1.0, colors, glow = true, breathing = true }) {
+function NasaMoon({ size = 120, phase = 1.0, colors, glow = true, breathing = true, mood = "calm" }) {
   const containerRef = useRef(null);
   const rendererRef = useRef(null);
   const sceneRef = useRef(null);
@@ -264,6 +264,7 @@ function NasaMoon({ size = 120, phase = 1.0, colors, glow = true, breathing = tr
 
     // Animation loop
     let breatheStart = Date.now();
+    var moodRef = { current: "calm" };
     const animate = () => {
       if (!mountedRef.current) return;
       frameRef.current = requestAnimationFrame(animate);
@@ -271,15 +272,25 @@ function NasaMoon({ size = 120, phase = 1.0, colors, glow = true, breathing = tr
       // Slow rotation
       moon.rotation.y += 0.001;
 
-      // Breathing scale
+      // Breathing scale — speed and amplitude respond to mood
       if (breathing) {
-        const t = (Date.now() - breatheStart) / 5000;
-        const s = 1 + Math.sin(t * Math.PI * 2) * 0.035;
+        var duration = 5000;
+        var amplitude = 0.035;
+        if (moodRef.current === "attentive") {
+          duration = 2500;
+          amplitude = 0.04;
+        } else if (moodRef.current === "thinking") {
+          duration = 3500;
+          amplitude = 0.055;
+        }
+        const t = (Date.now() - breatheStart) / duration;
+        const s = 1 + Math.sin(t * Math.PI * 2) * amplitude;
         moon.scale.set(s, s, s);
       }
 
       renderer.render(scene, camera);
     };
+    containerRef.current._moodRef = moodRef;
     animate();
 
     return () => {
@@ -293,6 +304,13 @@ function NasaMoon({ size = 120, phase = 1.0, colors, glow = true, breathing = tr
       }
     };
   }, [size]);
+
+  // Sync mood prop into the animation loop's moodRef
+  useEffect(function() {
+    if (containerRef.current && containerRef.current._moodRef) {
+      containerRef.current._moodRef.current = mood;
+    }
+  }, [mood]);
 
   // Update colors when theme changes
   useEffect(() => {
@@ -313,7 +331,7 @@ function NasaMoon({ size = 120, phase = 1.0, colors, glow = true, breathing = tr
         position: "relative",
       }}
     >
-      {/* Outer halo glow */}
+      {/* Outer halo glow — pulses faster when attentive or thinking */}
       {glow && (
         <>
           <div
@@ -324,6 +342,7 @@ function NasaMoon({ size = 120, phase = 1.0, colors, glow = true, breathing = tr
               background: `radial-gradient(circle, ${colors.moonHaloWide} 0%, transparent 65%)`,
               opacity: 0.5,
               pointerEvents: "none",
+              animation: mood === "calm" ? "haloBreath 5s ease-in-out infinite" : mood === "attentive" ? "haloBreath 2.5s ease-in-out infinite" : "haloBreath 3.5s ease-in-out infinite",
             }}
           />
           <div
@@ -334,6 +353,9 @@ function NasaMoon({ size = 120, phase = 1.0, colors, glow = true, breathing = tr
               background: `radial-gradient(circle, ${colors.moonHalo} 0%, transparent 55%)`,
               opacity: 0.35,
               pointerEvents: "none",
+              animation: mood === "calm" ? "haloBreath 5s ease-in-out infinite" : mood === "attentive" ? "haloBreath 2.5s ease-in-out infinite" : "haloBreath 3.5s ease-in-out infinite",
+              transform: mood === "thinking" ? "scale(1.08)" : "scale(1)",
+              transition: "transform 1.2s ease-in-out",
             }}
           />
         </>
@@ -432,6 +454,7 @@ function PhoneFrame({ children, colors }) {
 function TabBar({ activeTab, onTabChange, colors }) {
   const tabs = [
     { id: "diary", label: "Diary", icon: "D" },
+    { id: "library", label: "Library", icon: "L" },
     { id: "circles", label: "Circles", icon: "C" },
     { id: "profile", label: "Profile", icon: "P" },
   ];
@@ -639,7 +662,7 @@ function OnboardingScreen({ colors, onComplete }) {
 }
 
 /* ── Quill writing animation component ── */
-function QuillText({ text, color, delay = 0, onComplete }) {
+function QuillText({ text, color, delay = 0, onComplete, speed = 35 }) {
   const [displayed, setDisplayed] = useState("");
   const [started, setStarted] = useState(false);
   const [showQuill, setShowQuill] = useState(false);
@@ -660,9 +683,9 @@ function QuillText({ text, color, delay = 0, onComplete }) {
         setShowQuill(false);
         if (onComplete) onComplete();
       }
-    }, 35);
+    }, speed);
     return () => clearInterval(interval);
-  }, [started, text]);
+  }, [started, text, speed]);
 
   if (!text) return null;
 
@@ -716,12 +739,87 @@ function DiaryScreen({ colors }) {
   // "ready" = moon visible at top, then transitions to "descending" next frame
   const [moonAnim, setMoonAnim] = useState("idle");
   const pendingResponseRef = useRef(null);
+  var quillSpeedRef = useRef(35);
   const moonRef = useRef(null);
   const scrollRef = useRef(null);
+  // Ozaia initiates: gentle murmur after idle
+  var [ozaiaMurmur, setOzaiaMurmur] = useState(null);
+  var [murmurFading, setMurmurFading] = useState(false);
+  var murmurTimerRef = useRef(null);
+  var murmurFadeRef = useRef(null);
+  var hasInteractedRef = useRef(false);
+
+  // First visit welcome sequence
+  var firstVisitState = useState(true);
+  var firstVisit = firstVisitState[0];
+  var setFirstVisit = firstVisitState[1];
+  var welcomeLine1State = useState(false);
+  var welcomeLine1 = welcomeLine1State[0];
+  var setWelcomeLine1 = welcomeLine1State[1];
+  var welcomeLine2State = useState(false);
+  var welcomeLine2 = welcomeLine2State[0];
+  var setWelcomeLine2 = welcomeLine2State[1];
+  var entriesVisibleState = useState(false);
+  var entriesVisible = entriesVisibleState[0];
+  var setEntriesVisible = entriesVisibleState[1];
+
+  useEffect(function() {
+    if (!firstVisit) return;
+    var t1 = setTimeout(function() { setWelcomeLine1(true); }, 1500);
+    var t2 = setTimeout(function() { setWelcomeLine2(true); }, 3500);
+    var t3 = setTimeout(function() {
+      setEntriesVisible(true);
+      setFirstVisit(false);
+    }, 6500);
+    return function() { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+  }, [firstVisit]);
 
   useEffect(function() {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [entries, writingResponse, latestOzaiaText]);
+
+  // Track interaction to cancel murmur
+  useEffect(function() {
+    if (inputText.trim()) {
+      hasInteractedRef.current = true;
+      if (murmurTimerRef.current) { clearTimeout(murmurTimerRef.current); murmurTimerRef.current = null; }
+      if (murmurFadeRef.current) { clearTimeout(murmurFadeRef.current); murmurFadeRef.current = null; }
+      setOzaiaMurmur(null);
+      setMurmurFading(false);
+    }
+  }, [inputText]);
+
+  // Ozaia initiates after 8s of inactivity (50% chance)
+  useEffect(function() {
+    hasInteractedRef.current = false;
+    var murmurs = [
+      "You came back.",
+      "Take your time.",
+      "I noticed you were here yesterday too.",
+      "You do not have to write anything.",
+      "The silence is fine.",
+    ];
+    murmurTimerRef.current = setTimeout(function() {
+      if (hasInteractedRef.current) return;
+      if (Math.random() < 0.5) {
+        var chosen = murmurs[Math.floor(Math.random() * murmurs.length)];
+        setOzaiaMurmur(chosen);
+        setMurmurFading(false);
+        // Fade out after 6 seconds if no interaction
+        murmurFadeRef.current = setTimeout(function() {
+          setMurmurFading(true);
+          setTimeout(function() {
+            setOzaiaMurmur(null);
+            setMurmurFading(false);
+          }, 600);
+        }, 6000);
+      }
+    }, 8000);
+    return function() {
+      if (murmurTimerRef.current) clearTimeout(murmurTimerRef.current);
+      if (murmurFadeRef.current) clearTimeout(murmurFadeRef.current);
+    };
+  }, []);
 
   // Two-frame trick: when moonAnim becomes "ready", force reflow then go to "descending"
   useEffect(function() {
@@ -752,18 +850,38 @@ function DiaryScreen({ colors }) {
     ];
     pendingResponseRef.current = responses[Math.floor(Math.random() * responses.length)];
 
+    // Controlled imperfection: random delay between 2000ms and 6000ms
+    var thinkDelay = 2000 + Math.floor(Math.random() * 4000);
+    // 30% chance of a hesitation pause
+    var willHesitate = Math.random() < 0.3;
+    // Random quill speed: 25ms (flowing) or 50ms (deliberate) or 35ms (normal)
+    var speedOptions = [25, 35, 50];
+    var chosenSpeed = speedOptions[Math.floor(Math.random() * speedOptions.length)];
+    quillSpeedRef.current = chosenSpeed;
+
     // Phase 1: Show moon at header position, then it will auto-descend
     setTimeout(function() {
       setMoonAnim("ready");
       setWritingResponse(true);
     }, 400);
 
-    // Phase 2: Moon arrived, start quill writing
+    // Phase 2: Moon arrived, start quill writing (with possible hesitation)
+    if (willHesitate) {
+      // Hesitation: dots disappear briefly at 60% of thinkDelay
+      var hesitateAt = Math.floor(thinkDelay * 0.6);
+      setTimeout(function() {
+        setWritingResponse(false);
+      }, hesitateAt);
+      setTimeout(function() {
+        setWritingResponse(true);
+      }, hesitateAt + 500);
+    }
+
     setTimeout(function() {
       setMoonAnim("writing");
       setWritingResponse(false);
       setLatestOzaiaText(pendingResponseRef.current);
-    }, 2800);
+    }, thinkDelay);
   };
 
   // When quill finishes, moon returns
@@ -835,9 +953,40 @@ function DiaryScreen({ colors }) {
       >
         {/* Moon at top */}
         <div style={{ display: "flex", justifyContent: "center", padding: "16px 0 24px" }}>
-          <NasaMoon size={80} phase={0.85} colors={colors} />
+          <NasaMoon size={80} phase={0.85} colors={colors} breathing={firstVisit ? true : true} mood={writingResponse ? "thinking" : inputText.trim() ? "attentive" : firstVisit ? "waiting" : "calm"} />
         </div>
 
+        {/* First visit welcome messages */}
+        {firstVisit && (
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "20px 0 30px", gap: 16 }}>
+            {welcomeLine1 && (
+              <p style={{
+                fontFamily: "'Georgia', serif", fontStyle: "italic",
+                fontSize: 17, color: colors.accentAube,
+                textAlign: "center", margin: 0,
+                animation: "welcomeFadeIn 1.2s ease forwards",
+              }}>
+                I have been waiting for you.
+              </p>
+            )}
+            {welcomeLine2 && (
+              <p style={{
+                fontFamily: "'Georgia', serif", fontStyle: "italic",
+                fontSize: 15, color: colors.accentAube,
+                textAlign: "center", margin: 0, opacity: 0.7,
+                animation: "welcomeFadeIn 1.2s ease forwards",
+              }}>
+                Whenever you are ready.
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Diary entries (hidden during first visit, fade in after) */}
+        <div style={{
+          opacity: firstVisit ? 0 : 1,
+          transition: "opacity 1.5s ease",
+        }}>
         {entries.map((entry, i) => (
           <div key={i} style={{ marginBottom: 28 }}>
             {/* Date line */}
@@ -982,12 +1131,38 @@ function DiaryScreen({ colors }) {
               color={colors.accentAube}
               delay={200}
               onComplete={handleOzaiaComplete}
+              speed={quillSpeedRef.current}
             />
           </div>
         )}
 
         <div style={{ height: 12 }} />
+        </div>{/* end entries wrapper */}
       </div>
+
+      {/* Ozaia murmur — gentle initiation */}
+      {ozaiaMurmur && (
+        <div
+          style={{
+            padding: "0 24px 6px",
+            textAlign: "center",
+            animation: murmurFading ? "ozaiaMurmurOut 0.6s ease forwards" : "ozaiaMurmurIn 0.8s ease forwards",
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "'Georgia', serif",
+              fontStyle: "italic",
+              fontSize: 13,
+              color: colors.accentAube,
+              opacity: 0.7,
+              letterSpacing: "0.01em",
+            }}
+          >
+            {ozaiaMurmur}
+          </span>
+        </div>
+      )}
 
       {/* Input area */}
       <div style={{ padding: "12px 20px 8px", borderTop: `1px solid ${colors.hairline}`, flexShrink: 0 }}>
@@ -1000,7 +1175,7 @@ function DiaryScreen({ colors }) {
         >
           <input
             type="text"
-            className="diary-input"
+            className={firstVisit ? "diary-input diary-input-pulse" : "diary-input"}
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
@@ -1341,6 +1516,55 @@ function ProfileScreen({ colors, theme, onToggleTheme, soundOn, onToggleSound })
         </div>
       </div>
 
+      {/* ── Your journey timeline ── */}
+      {(function() {
+        var journeyData = [0.15, 0.12, 0.20, 0.25, 0.18, 0.30, 0.35, 0.28, 0.40, 0.45, 0.38, 0.50, 0.55, 0.45];
+        var dayLabels = ["M", "T", "W", "T", "F", "S", "S", "M", "T", "W", "T", "F", "S", "S"];
+        return (
+          <div style={{ padding: "20px", borderRadius: 16, border: "1px solid " + colors.hairline, background: colors.cardBg, marginBottom: 16 }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: colors.accentAube, margin: "0 0 14px" }}>
+              Your journey
+            </p>
+            <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+              <div style={{ display: "flex", gap: 6, minWidth: "max-content", justifyContent: "center" }}>
+                {journeyData.map(function(phase, i) {
+                  var isToday = i === journeyData.length - 1;
+                  return (
+                    <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+                      <div style={{
+                        borderRadius: "50%",
+                        border: isToday ? "1.5px solid " + colors.accentAube : "1.5px solid transparent",
+                        padding: 2,
+                        boxShadow: isToday ? "0 0 8px " + colors.accentAube + "30" : "none",
+                        transition: "all 0.3s ease",
+                      }}>
+                        <MoonPhaseIcon size={18} phase={phase} colors={colors} />
+                      </div>
+                      <span style={{
+                        fontFamily: "'Inter', sans-serif", fontSize: 8,
+                        color: isToday ? colors.accentAube : colors.textSoft,
+                        opacity: isToday ? 1 : 0.5,
+                        fontWeight: isToday ? 600 : 400,
+                      }}>
+                        {dayLabels[i]}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <p style={{
+              fontFamily: "'Georgia', serif", fontStyle: "italic",
+              fontSize: 13, lineHeight: 1.5,
+              color: colors.accentAube, margin: "14px 0 0",
+              textAlign: "center", opacity: 0.8,
+            }}>
+              You have been finding your way back. Slowly, but you have.
+            </p>
+          </div>
+        );
+      })()}
+
       {/* ── Daily message from Ozaia (replaces Memory) ── */}
       <div style={{ padding: "20px", borderRadius: 16, border: `1px solid ${colors.accentAube}18`, background: `${colors.accentAube}06`, marginBottom: 16 }}>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: colors.accentAube, margin: "0 0 12px", opacity: 0.6 }}>
@@ -1557,6 +1781,187 @@ function ProfileScreen({ colors, theme, onToggleTheme, soundOn, onToggleSound })
           }} />
         </div>
       </div>
+
+      <div style={{ height: 20 }} />
+    </div>
+  );
+}
+
+/* ── Library Screen ── */
+function LibraryScreen({ colors }) {
+  var libraryContent = {
+    articles: [
+      { title: "When rest feels like failure", readTime: "8 min read", category: "Mindset", moonPhase: 0.2 },
+      { title: "Your cycle is not your enemy", readTime: "6 min read", category: "Body", moonPhase: 0.45 },
+      { title: "The invisible weight of being the one who remembers", readTime: "10 min read", category: "Relationships", moonPhase: 0.7 },
+    ],
+    podcasts: [
+      { title: "Dr. Amara Osei on postpartum silence", duration: "34 min", guest: "Dr. Amara Osei", moonPhase: 0.35 },
+      { title: "Sleep, hormones, and the 3 a.m. spiral", duration: "28 min", guest: "Panel", moonPhase: 0.6 },
+    ],
+    videos: [
+      { title: "What to do when you cannot sleep", duration: "2 min", moonPhase: 0.15 },
+      { title: "One breathing exercise that actually works", duration: "90 sec", moonPhase: 0.85 },
+    ],
+  };
+
+  var activeFilter = useState("all");
+  var filter = activeFilter[0];
+  var setFilter = activeFilter[1];
+
+  function renderCard(item, type, index) {
+    var badge = type === "articles" ? item.category : type === "podcasts" ? "Podcast" : "Video";
+    var meta = type === "articles" ? item.readTime : item.duration;
+    var guestLine = type === "podcasts" && item.guest ? item.guest : null;
+
+    return (
+      <div
+        key={type + "-" + index}
+        style={{
+          padding: "16px 18px",
+          borderRadius: 14,
+          border: "1px solid " + colors.hairline,
+          background: colors.cardBg,
+          marginBottom: 10,
+          cursor: "pointer",
+          transition: "all 0.4s ease",
+          position: "relative",
+        }}
+        onMouseEnter={function(e) { e.currentTarget.style.boxShadow = "0 4px 20px " + colors.accentAube + "18"; e.currentTarget.style.borderColor = colors.accentAube + "40"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+        onMouseLeave={function(e) { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = colors.hairline; e.currentTarget.style.transform = "translateY(0)"; }}
+      >
+        <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+          <div style={{ flexShrink: 0, marginTop: 2, opacity: 0.5 }}>
+            <MoonPhaseIcon size={18} phase={item.moonPhase} colors={colors} />
+          </div>
+          <div style={{ flex: 1 }}>
+            <p style={{
+              fontFamily: "'Georgia', serif", fontStyle: "italic",
+              fontSize: 14, lineHeight: 1.5,
+              color: colors.textStrong, margin: "0 0 6px",
+            }}>
+              {item.title}
+            </p>
+            {guestLine && (
+              <p style={{
+                fontFamily: "'Inter', sans-serif", fontSize: 11,
+                color: colors.textSoft, margin: "0 0 4px",
+              }}>
+                with {guestLine}
+              </p>
+            )}
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{
+                fontFamily: "'Inter', sans-serif", fontSize: 9,
+                fontWeight: 500, letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                padding: "2px 7px", borderRadius: 6,
+                background: colors.accentAube + "12",
+                color: colors.accentAube, opacity: 0.8,
+              }}>
+                {badge}
+              </span>
+              <span style={{
+                fontFamily: "'Inter', sans-serif", fontSize: 10,
+                color: colors.textSoft, opacity: 0.6,
+              }}>
+                {meta}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  var filters = [
+    { id: "all", label: "All" },
+    { id: "articles", label: "Articles" },
+    { id: "podcasts", label: "Podcasts" },
+    { id: "videos", label: "Videos" },
+  ];
+
+  return (
+    <div style={{ flex: 1, overflowY: "auto", padding: "0 24px" }}>
+      {/* Header */}
+      <div style={{ textAlign: "center", padding: "20px 0 16px" }}>
+        <h2 style={{
+          fontFamily: "'Georgia', serif", fontStyle: "italic", fontWeight: 300,
+          fontSize: 24, color: colors.accentAube, margin: "0 0 4px",
+        }}>
+          Library
+        </h2>
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: colors.textSoft, margin: 0 }}>
+          Words, voices, and breath
+        </p>
+      </div>
+
+      {/* Filter pills */}
+      <div style={{ display: "flex", gap: 8, marginBottom: 18, justifyContent: "center" }}>
+        {filters.map(function(f) {
+          var isActive = filter === f.id;
+          return (
+            <button
+              key={f.id}
+              onClick={function() { setFilter(f.id); }}
+              style={{
+                background: isActive ? colors.accentAube + "18" : "transparent",
+                border: "1px solid " + (isActive ? colors.accentAube + "44" : colors.hairline),
+                borderRadius: 20, padding: "5px 14px",
+                cursor: "pointer",
+                fontFamily: "'Inter', sans-serif", fontSize: 10,
+                letterSpacing: "0.06em",
+                color: isActive ? colors.accentAube : colors.textSoft,
+                transition: "all 0.3s ease",
+              }}
+            >
+              {f.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Articles */}
+      {(filter === "all" || filter === "articles") && (
+        <div style={{ marginBottom: 16 }}>
+          <p style={{
+            fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 500,
+            letterSpacing: "0.14em", textTransform: "uppercase",
+            color: colors.accentRose, margin: "0 0 10px",
+          }}>
+            Articles
+          </p>
+          {libraryContent.articles.map(function(item, i) { return renderCard(item, "articles", i); })}
+        </div>
+      )}
+
+      {/* Podcasts */}
+      {(filter === "all" || filter === "podcasts") && (
+        <div style={{ marginBottom: 16 }}>
+          <p style={{
+            fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 500,
+            letterSpacing: "0.14em", textTransform: "uppercase",
+            color: colors.accentRose, margin: "0 0 10px",
+          }}>
+            Podcasts
+          </p>
+          {libraryContent.podcasts.map(function(item, i) { return renderCard(item, "podcasts", i); })}
+        </div>
+      )}
+
+      {/* Videos */}
+      {(filter === "all" || filter === "videos") && (
+        <div style={{ marginBottom: 16 }}>
+          <p style={{
+            fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 500,
+            letterSpacing: "0.14em", textTransform: "uppercase",
+            color: colors.accentRose, margin: "0 0 10px",
+          }}>
+            Short videos
+          </p>
+          {libraryContent.videos.map(function(item, i) { return renderCard(item, "videos", i); })}
+        </div>
+      )}
 
       <div style={{ height: 20 }} />
     </div>
@@ -1809,6 +2214,18 @@ export default function OzaiaPrototype() {
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: #111; }
+        @keyframes haloBreath {
+          0%, 100% { opacity: 0.35; transform: scale(1); }
+          50% { opacity: 0.6; transform: scale(1.06); }
+        }
+        @keyframes ozaiaMurmurIn {
+          from { opacity: 0; transform: translateY(4px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes ozaiaMurmurOut {
+          from { opacity: 1; transform: translateY(0); }
+          to { opacity: 0; transform: translateY(-4px); }
+        }
         @keyframes moonDescend {
           0% { top: 8px; opacity: 0.3; }
           70% { top: calc(100% - 130px); opacity: 1; }
@@ -1839,8 +2256,17 @@ export default function OzaiaPrototype() {
           from { opacity: 0; transform: translateY(6px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes welcomeFadeIn {
+          0% { opacity: 0; transform: translateY(8px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes placeholderPulse {
+          0%, 100% { opacity: 0.4; }
+          50% { opacity: 0.9; }
+        }
         input::placeholder { opacity: 0.6; }
         .diary-input::placeholder { color: var(--aube) !important; opacity: 0.7; }
+        .diary-input-pulse::placeholder { animation: placeholderPulse 2.5s ease-in-out infinite; }
         ::-webkit-scrollbar { width: 0; }
       `}</style>
       <AmbientSoundscape active={soundscapeActive} />
@@ -1853,6 +2279,7 @@ export default function OzaiaPrototype() {
               {/* Whisper notifications overlay */}
               <WhisperNotification colors={colors} />
               {activeTab === "diary" && <DiaryScreen colors={colors} />}
+              {activeTab === "library" && <LibraryScreen colors={colors} />}
               {activeTab === "circles" && <CirclesScreen colors={colors} />}
               {activeTab === "profile" && <ProfileScreen colors={colors} theme={theme} onToggleTheme={setTheme} soundOn={soundscapeActive} onToggleSound={function() { setSoundscapeActive(function(v) { return !v; }); }} />}
               <TabBar activeTab={activeTab} onTabChange={setActiveTab} colors={colors} />
