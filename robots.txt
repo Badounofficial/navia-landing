@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /brand-book.html
+Disallow: /articles/system/
 
 Sitemap: https://ozaia.app/sitemap.xml

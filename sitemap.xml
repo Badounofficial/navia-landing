@@ -2,42 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ozaia.app/</loc>
-    <lastmod>2026-04-12</lastmod>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ozaia.app/pitch.html</loc>
+    <loc>https://ozaia.app/pitch</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ozaia.app/origin.html</loc>
+    <loc>https://ozaia.app/origin</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ozaia.app/letters.html</loc>
+    <loc>https://ozaia.app/letters</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Author pages -->
   <url>
-    <loc>https://ozaia.app/brand-book.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://ozaia.app/author/ozaia</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ozaia.app/privacy.html</loc>
+    <loc>https://ozaia.app/author/sebastien</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Articles: Silent Anxiety series -->
+  <url>
+    <loc>https://ozaia.app/articles/high-functioning-anxiety-women</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ozaia.app/articles/silent-anxiety-teenage-girls</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ozaia.app/articles/silent-anxiety-pregnancy</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ozaia.app/articles/postpartum-anxiety-invisible-weight</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ozaia.app/articles/silent-anxiety-perimenopause</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ozaia.app/articles/anxiety-after-menopause</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Legal -->
+  <url>
+    <loc>https://ozaia.app/privacy</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://ozaia.app/terms.html</loc>
+    <loc>https://ozaia.app/terms</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
