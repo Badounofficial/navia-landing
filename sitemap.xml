@@ -39,6 +39,13 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Article Library -->
+  <url>
+    <loc>https://ozaia.app/articles</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Articles: Silent Anxiety series -->
   <url>
     <loc>https://ozaia.app/articles/high-functioning-anxiety-women</loc>

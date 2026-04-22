@@ -34,7 +34,8 @@
   "author": {
     "@type": "Person",
     "name": "Ozaia",
-    "url": "https://ozaia.app/author/ozaia"
+    "url": "https://ozaia.app/author/ozaia",
+    "jobTitle": "Wellness Presence"
   },
   "publisher": {
     "@type": "Organization",
@@ -107,6 +108,7 @@
 </script>
 
 <meta name="theme-color" content="#2B2940">
+<link rel="alternate" type="application/rss+xml" title="Ozaia" href="https://ozaia.app/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@300;400&display=optional" rel="stylesheet">
@@ -150,6 +152,7 @@ h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(32px,5vw
 .article-meta a{color:var(--accent-aube);text-decoration:none}
 .article-meta a:hover{text-decoration:underline}
 .article-date{margin-left:12px}
+.article-reading-time{margin-left:4px;color:var(--text-soft)}
 
 /* Body */
 .article-intro{font-size:18px;line-height:1.75;color:var(--text);margin-bottom:28px}
@@ -219,6 +222,10 @@ footer{border-top:1px solid var(--hairline);margin-top:20px;padding:40px;text-al
   .barometer-moon{width:32px;height:32px}
   .author-card{flex-direction:column;text-align:center}
 }
+.breadcrumb { font-size: 12px; color: var(--text-soft); margin-bottom: 24px; letter-spacing: 0.02em; }
+.breadcrumb a { color: var(--text-soft); text-decoration: none; transition: color 0.3s ease; }
+.breadcrumb a:hover { color: var(--accent-aube); }
+.breadcrumb-sep { margin: 0 8px; opacity: 0.5; }
 </style>
 </head>
 <body>
@@ -242,6 +249,7 @@ footer{border-top:1px solid var(--hairline);margin-top:20px;padding:40px;text-al
 </nav>
 
 <article>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><a href="/mental-health">Women's Mental Health</a><span class="breadcrumb-sep">›</span>She Carries It Well. That Is the Problem.</nav>
   <span class="article-cluster-label"><a href="/mental-health">Women's Mental Health</a></span>
 
   <!-- She said nothing -->
@@ -253,10 +261,20 @@ footer{border-top:1px solid var(--hairline);margin-top:20px;padding:40px;text-al
   <h1>She Carries It Well. That Is the Problem.</h1>
 
   <div class="article-meta">
-    By <a href="/author/ozaia">Ozaia</a><span class="article-date">April 21, 2026</span>
+    By <a href="/author/ozaia">Ozaia</a><span class="article-date">April 21, 2026</span><span class="article-reading-time"> · 6 min read</span>
   </div>
 
   <p class="article-intro">There is a particular kind of anxiety that does not scream. It organizes. It plans. It arrives early, stays late, and answers every message within minutes. It runs households and manages teams and remembers the allergies and the school schedules and the thing her friend said three weeks ago that meant she was not okay.</p>
+
+  <div class="key-takeaways" style="background:var(--card-bg);border:1px solid var(--hairline);border-radius:16px;padding:24px 28px;margin-bottom:36px">
+    <p style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;font-size:16px;color:var(--accent-aube);margin-bottom:16px;letter-spacing:0.01em">What you will find here</p>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px;line-height:1.65;color:var(--text)">
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">01</span>Women are more than twice as likely as men to experience generalized anxiety disorder. Hormonal transitions at every life phase reshape the neurochemistry of threat and mood.</p>
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">02</span>High-functioning anxiety is invisible because it produces results. Society promotes, trusts, and leans on the behaviors it generates.</p>
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">03</span>Anxiety lives in the body as much as the mind: jaw clenching, headaches, digestive trouble, fatigue that sleep cannot resolve. Eighty percent of women say their pain has been dismissed in clinical settings.</p>
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">04</span>Having to ask for help breaks something. Seventy-five percent of unpaid caregivers in the US are women. Care flows one direction, and the reversal feels impossible.</p>
+    </div>
+  </div>
 
   <p>It looks, from the outside, like competence. Like devotion. Like a woman who simply cares deeply about everything.</p>
 

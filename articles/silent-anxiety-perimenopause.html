@@ -36,7 +36,8 @@
   "author": {
     "@type": "Person",
     "name": "Ozaia",
-    "url": "https://ozaia.app/author/ozaia"
+    "url": "https://ozaia.app/author/ozaia",
+    "jobTitle": "Wellness Presence"
   },
   "publisher": {
     "@type": "Organization",
@@ -101,6 +102,7 @@
 </script>
 
 <meta name="theme-color" content="#2B2940">
+<link rel="alternate" type="application/rss+xml" title="Ozaia" href="https://ozaia.app/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@300;400&display=optional" rel="stylesheet">
@@ -144,6 +146,7 @@ h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(32px,5vw
 .article-meta a{color:var(--accent-aube);text-decoration:none}
 .article-meta a:hover{text-decoration:underline}
 .article-date{margin-left:12px}
+.article-reading-time{margin-left:4px;color:var(--text-soft)}
 
 /* Body */
 .article-intro{font-size:18px;line-height:1.75;color:var(--text);margin-bottom:28px}
@@ -213,6 +216,10 @@ footer{border-top:1px solid var(--hairline);margin-top:20px;padding:40px;text-al
   .barometer-moon{width:32px;height:32px}
   .author-card{flex-direction:column;text-align:center}
 }
+.breadcrumb { font-size: 12px; color: var(--text-soft); margin-bottom: 24px; letter-spacing: 0.02em; }
+.breadcrumb a { color: var(--text-soft); text-decoration: none; transition: color 0.3s ease; }
+.breadcrumb a:hover { color: var(--accent-aube); }
+.breadcrumb-sep { margin: 0 8px; opacity: 0.5; }
 </style>
 </head>
 <body>
@@ -236,6 +243,7 @@ footer{border-top:1px solid var(--hairline);margin-top:20px;padding:40px;text-al
 </nav>
 
 <article>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><a href="/hormones-and-cycles">Hormones &amp; Cycles</a><span class="breadcrumb-sep">›</span>The Dread That Has No Address</nav>
   <span class="article-cluster-label"><a href="/hormones-and-cycles">Hormones and Cycles</a></span>
 
   <!-- She said nothing -->
@@ -247,10 +255,20 @@ footer{border-top:1px solid var(--hairline);margin-top:20px;padding:40px;text-al
   <h1>The Dread That Has No Address</h1>
 
   <div class="article-meta">
-    By <a href="/author/ozaia">Ozaia</a><span class="article-date">April 21, 2026</span>
+    By <a href="/author/ozaia">Ozaia</a><span class="article-date">April 21, 2026</span><span class="article-reading-time"> · 5 min read</span>
   </div>
 
   <p class="article-intro">She wakes up at 4 a.m. with her heart pounding. Nothing happened. No nightmare, no noise, no emergency. Just a wall of dread, solid and formless, sitting on her chest like something she forgot to do but cannot name.</p>
+
+  <div class="key-takeaways" style="background:var(--card-bg);border:1px solid var(--hairline);border-radius:16px;padding:24px 28px;margin-bottom:36px">
+    <p style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;font-size:16px;color:var(--accent-aube);margin-bottom:16px;letter-spacing:0.01em">What you will find here</p>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px;line-height:1.65;color:var(--text)">
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">01</span>Anxiety is often the first symptom of perimenopause, arriving years before hot flashes or missed periods. Between fifteen and fifty percent of women are affected.</p>
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">02</span>Hormonal fluctuations, not decline, drive the anxiety. Volatile swings in estrogen and progesterone destabilize serotonin, dopamine, and GABA.</p>
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">03</span>Doctors frequently miss the connection. A woman in her early forties presenting with anxiety but no classic menopausal symptoms may leave with an SSRI instead of a hormonal explanation.</p>
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">04</span>Sixty-nine percent of women rate anxiety as a difficult menopausal symptom, yet only half ever discuss emotional changes with a provider.</p>
+    </div>
+  </div>
 
   <p>She gets up. Makes tea. Tells herself it is stress. Work has been demanding. The kids need things. There is always something. By the time the house stirs, she has already talked herself out of it, filed it under "busy life," and moved on.</p>
 

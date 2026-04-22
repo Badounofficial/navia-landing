@@ -36,7 +36,8 @@
   "author": {
     "@type": "Person",
     "name": "Ozaia",
-    "url": "https://ozaia.app/author/ozaia"
+    "url": "https://ozaia.app/author/ozaia",
+    "jobTitle": "Wellness Presence"
   },
   "publisher": {
     "@type": "Organization",
@@ -101,6 +102,7 @@
 </script>
 
 <meta name="theme-color" content="#2B2940">
+<link rel="alternate" type="application/rss+xml" title="Ozaia" href="https://ozaia.app/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@300;400&display=optional" rel="stylesheet">
@@ -144,6 +146,7 @@ h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(32px,5vw
 .article-meta a{color:var(--accent-aube);text-decoration:none}
 .article-meta a:hover{text-decoration:underline}
 .article-date{margin-left:12px}
+.article-reading-time{margin-left:4px;color:var(--text-soft)}
 
 /* Body */
 .article-intro{font-size:18px;line-height:1.75;color:var(--text);margin-bottom:28px}
@@ -213,6 +216,10 @@ footer{border-top:1px solid var(--hairline);margin-top:20px;padding:40px;text-al
   .barometer-moon{width:32px;height:32px}
   .author-card{flex-direction:column;text-align:center}
 }
+.breadcrumb { font-size: 12px; color: var(--text-soft); margin-bottom: 24px; letter-spacing: 0.02em; }
+.breadcrumb a { color: var(--text-soft); text-decoration: none; transition: color 0.3s ease; }
+.breadcrumb a:hover { color: var(--accent-aube); }
+.breadcrumb-sep { margin: 0 8px; opacity: 0.5; }
 </style>
 </head>
 <body>
@@ -236,6 +243,7 @@ footer{border-top:1px solid var(--hairline);margin-top:20px;padding:40px;text-al
 </nav>
 
 <article>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><a href="/motherhood">Motherhood</a><span class="breadcrumb-sep">›</span>The Invisible Weight After the Arrival</nav>
   <span class="article-cluster-label"><a href="/motherhood">Motherhood</a></span>
 
   <!-- She said nothing -->
@@ -247,10 +255,20 @@ footer{border-top:1px solid var(--hairline);margin-top:20px;padding:40px;text-al
   <h1>The Invisible Weight After the Arrival</h1>
 
   <div class="article-meta">
-    By <a href="/author/ozaia">Ozaia</a><span class="article-date">April 21, 2026</span>
+    By <a href="/author/ozaia">Ozaia</a><span class="article-date">April 21, 2026</span><span class="article-reading-time"> · 6 min read</span>
   </div>
 
   <p class="article-intro">Everyone prepared her for the birth. No one prepared her for what came after. Not the sleepless nights. Those were mentioned. Not the recovery. She read about that. What no one described was the constant hum underneath everything. The vigilance that does not turn off. The feeling that something terrible is about to happen, even when the baby is sleeping, even when the house is quiet, even when every single indicator says safe.</p>
+
+  <div class="key-takeaways" style="background:var(--card-bg);border:1px solid var(--hairline);border-radius:16px;padding:24px 28px;margin-bottom:36px">
+    <p style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;font-size:16px;color:var(--accent-aube);margin-bottom:16px;letter-spacing:0.01em">What you will find here</p>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px;line-height:1.65;color:var(--text)">
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">01</span>Postpartum anxiety affects up to one in four new mothers, yet standard screenings were designed to detect depression. Only one in three women with perinatal mood symptoms is identified.</p>
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">02</span>Seventy-five percent of women with postpartum depression also meet criteria for an anxiety disorder. Depression and anxiety are the same storm seen from different angles.</p>
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">03</span>Postpartum anxiety hides behind control. Sterilizing twice, refusing to delegate, standing over the crib. Culture calls it instinct. Biology calls it hypervigilance.</p>
+      <p style="margin:0;font-size:14.5px"><span style="color:var(--accent-aube);margin-right:10px;font-family:'Fraunces',Georgia,serif;font-style:italic">04</span>Estrogen and progesterone crash within hours of delivery. Sleep deprivation rewires threat perception. Her nervous system is doing exactly what extreme fatigue and hormonal upheaval demand.</p>
+    </div>
+  </div>
 
   <p>She checks the baby's breathing. Then checks again. Then once more. She knows this is excessive. She cannot stop. She lies awake calculating unlikely catastrophes with the precision of an engineer, and in the morning she will smile and say, "We're doing great."</p>
 
