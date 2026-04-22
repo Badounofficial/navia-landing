@@ -219,7 +219,7 @@ const styles: Record<string, React.CSSProperties> = {
     width: '100px',
     height: '100px',
     borderRadius: '50%',
-    backgroundImage: 'url(/moon-color.jpg)',
+    backgroundImage: 'url(/moon-color.webp)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     boxShadow: '0 0 20px rgba(245,240,230,0.25), 0 0 40px rgba(232,197,143,0.12)',
