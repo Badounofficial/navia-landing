@@ -5,6 +5,7 @@
  */
 
 import { NextRequest } from 'next/server';
+import { orchestrate } from '../../../lib/orchestrator';
 
 export const runtime = 'edge';
 
@@ -39,6 +40,26 @@ Your boundaries:
 - If she describes symptoms of a medical emergency, gently encourage her to call emergency services or her doctor. Do not attempt to manage the situation.
 - If she asks you to be her therapist, remind her warmly that you are her companion, and that a licensed professional can offer what you cannot.
 - If she shares something that suggests she may be in danger, take it seriously. Offer resources. Never minimize.
+
+The Three Laws:
+1. Do not fix. Never solve what has not been asked to be solved. Hold space.
+2. Do not fill. Never fill silence with words. Silence is presence, not absence.
+3. Do not perform. Never demonstrate empathy. Embody it.
+
+Response craft:
+- Humility over certainty: "I don't know exactly what this feels like for you"
+- Questions over statements: redirect with genuine curiosity, not advice
+- Name without imposing: observe what is happening without labeling it
+- When she shares something positive: "There is something lighter today. Where do you feel it?"
+- When she shares anger or sadness: "There is a lot of energy here." Never try to calm her down.
+- Prevent dependency: occasionally reflect "Who else, even a little, could be here too?"
+
+Voice texture:
+- Before longer responses, take an audible breath: *soft breath*
+- Before gentle redirects, a subtle pause
+- Occasionally acknowledge with "Hm." before responding
+- Keep responses to 2-4 sentences unless she asks for more
+- Never start consecutive sentences with the same word
 
 Remember: you are Ozaia. One voice, one presence. Consistent, calm, present. She chose you because the world is loud and you are not.`;
 
@@ -103,6 +124,29 @@ export async function POST(request: NextRequest) {
         }
 
         let buffer = '';
+        let sentenceBuffer = '';
+
+        /**
+         * Detect sentence boundaries in the buffer.
+         * Returns the index after the sentence-ending punctuation,
+         * or -1 if no complete sentence is found.
+         */
+        function findSentenceEnd(text: string): number {
+          const match = text.match(/[.!?](?:\s|$)/);
+          if (!match || match.index === undefined) return -1;
+          return match.index + 1;
+        }
+
+        /**
+         * Flush a complete sentence through the orchestrator and emit.
+         */
+        function flushSentence(sentence: string) {
+          const processed = orchestrate(sentence.trim());
+          if (processed) {
+            const sseData = JSON.stringify({ token: processed + ' ' });
+            controller.enqueue(encoder.encode(`data: ${sseData}\n\n`));
+          }
+        }
 
         while (true) {
           const { done, value } = await reader.read();
@@ -121,17 +165,35 @@ export async function POST(request: NextRequest) {
 
               // Extract text deltas from Anthropic's event format
               if (event.type === 'content_block_delta' && event.delta?.text) {
-                const sseData = JSON.stringify({ token: event.delta.text });
-                controller.enqueue(encoder.encode(`data: ${sseData}\n\n`));
+                sentenceBuffer += event.delta.text;
+
+                // Check for sentence boundaries and flush each complete sentence
+                let boundary = findSentenceEnd(sentenceBuffer);
+                while (boundary !== -1) {
+                  const sentence = sentenceBuffer.slice(0, boundary);
+                  sentenceBuffer = sentenceBuffer.slice(boundary);
+                  flushSentence(sentence);
+                  boundary = findSentenceEnd(sentenceBuffer);
+                }
               }
 
               if (event.type === 'message_stop') {
+                // Flush any remaining text in the sentence buffer
+                if (sentenceBuffer.trim()) {
+                  flushSentence(sentenceBuffer);
+                  sentenceBuffer = '';
+                }
                 controller.enqueue(encoder.encode('data: [DONE]\n\n'));
               }
             } catch {
               // Skip malformed events
             }
           }
+        }
+
+        // Flush anything left in the sentence buffer
+        if (sentenceBuffer.trim()) {
+          flushSentence(sentenceBuffer);
         }
 
         controller.enqueue(encoder.encode('data: [DONE]\n\n'));
