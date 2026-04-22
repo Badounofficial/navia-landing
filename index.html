@@ -1600,7 +1600,7 @@ Top
     if (!isOpen) {
       frame.style.opacity = '0';
       if (!frame.src || frame.src === window.location.href || frame.src === '') {
-        frame.src = 'https://navia-voice.vercel.app';
+        frame.src = 'https://ozaia-voice-v2.vercel.app';
         frame.addEventListener('load', function() {
           var currentTheme = document.documentElement.getAttribute('data-theme') || 'night';
           frame.contentWindow.postMessage({ type: 'navia-theme', theme: currentTheme }, '*');
