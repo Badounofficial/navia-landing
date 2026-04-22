@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Ozaia</title>
+    <link>https://ozaia.app</link>
+    <description>A quiet presence for every phase of a woman's life. Articles on silent anxiety, hormonal health, motherhood, and emotional wellbeing.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ozaia.app/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>She Carries It Well. That Is the Problem.</title>
+      <link>https://ozaia.app/articles/high-functioning-anxiety-women</link>
+      <guid isPermaLink="true">https://ozaia.app/articles/high-functioning-anxiety-women</guid>
+      <pubDate>Mon, 21 Apr 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Ozaia</dc:creator>
+      <category>Women's Mental Health</category>
+      <description>Women are more than twice as likely as men to experience generalized anxiety disorder. High-functioning anxiety hides behind competence, devotion, and the inability to stop. Ozaia names the pattern.</description>
+    </item>
+
+    <item>
+      <title>The Anxiety No One Talks About at Fifteen</title>
+      <link>https://ozaia.app/articles/silent-anxiety-teenage-girls</link>
+      <guid isPermaLink="true">https://ozaia.app/articles/silent-anxiety-teenage-girls</guid>
+      <pubDate>Mon, 21 Apr 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Ozaia</dc:creator>
+      <category>Women's Mental Health</category>
+      <description>She gets straight A's. Her stomach hurts every morning. No one connects the two. Silent anxiety in teenage girls hides behind achievement and compliance.</description>
+    </item>
+
+    <item>
+      <title>The Worry That Grows Alongside Her</title>
+      <link>https://ozaia.app/articles/silent-anxiety-pregnancy</link>
+      <guid isPermaLink="true">https://ozaia.app/articles/silent-anxiety-pregnancy</guid>
+      <pubDate>Mon, 21 Apr 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Ozaia</dc:creator>
+      <category>Motherhood</category>
+      <description>Nearly 1 in 5 pregnant women experiences clinically significant anxiety, yet standard screening tools were not designed to detect it.</description>
+    </item>
+
+    <item>
+      <title>The Invisible Weight After the Arrival</title>
+      <link>https://ozaia.app/articles/postpartum-anxiety-invisible-weight</link>
+      <guid isPermaLink="true">https://ozaia.app/articles/postpartum-anxiety-invisible-weight</guid>
+      <pubDate>Mon, 21 Apr 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Ozaia</dc:creator>
+      <category>Motherhood</category>
+      <description>Postpartum anxiety affects up to 1 in 4 new mothers and has 75% comorbidity with postpartum depression. It hides behind good mothering.</description>
+    </item>
+
+    <item>
+      <title>The Dread That Has No Address</title>
+      <link>https://ozaia.app/articles/silent-anxiety-perimenopause</link>
+      <guid isPermaLink="true">https://ozaia.app/articles/silent-anxiety-perimenopause</guid>
+      <pubDate>Mon, 21 Apr 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Ozaia</dc:creator>
+      <category>Hormones and Cycles</category>
+      <description>Anxiety is often the first symptom of perimenopause, arriving years before hot flashes. 15-50% of women are affected.</description>
+    </item>
+
+    <item>
+      <title>The Quiet After the Storm That Was Not Quiet at All</title>
+      <link>https://ozaia.app/articles/anxiety-after-menopause</link>
+      <guid isPermaLink="true">https://ozaia.app/articles/anxiety-after-menopause</guid>
+      <pubDate>Mon, 21 Apr 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Ozaia</dc:creator>
+      <category>Hormones and Cycles</category>
+      <description>Menopausal symptoms can leave lasting effects on mental health into post-menopause. Anxiety research in older women remains substantially neglected.</description>
+    </item>
+  </channel>
+</rss>

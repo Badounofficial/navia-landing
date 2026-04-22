@@ -9,6 +9,7 @@ Ozaia is a wellness presence for women, covering every life phase from adolescen
 - Origin story: https://ozaia.app/origin
 - Full presentation: https://ozaia.app/pitch
 - Founder letters: https://ozaia.app/letters
+- RSS feed: https://ozaia.app/feed.xml
 
 ## Content Clusters
 - Women's Mental Health: https://ozaia.app/mental-health
