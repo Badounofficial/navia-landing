@@ -109,7 +109,7 @@ export default function VoicePage() {
         {isStarted ? stateLabel[state] : 'Ozaia'}
       </p>
 
-      {/* Central voice circle */}
+      {/* Central voice circle — NASA moon texture */}
       <button
         onClick={isStarted ? handleStop : handleStart}
         className={circleClass}
@@ -117,17 +117,15 @@ export default function VoicePage() {
           ...styles.circle,
           transform: `scale(${ringScale})`,
           boxShadow: state === 'listening'
-            ? '0 0 30px var(--ring), 0 0 60px var(--glow)'
+            ? '0 0 30px rgba(232,197,143,0.5), 0 0 60px rgba(232,197,143,0.25)'
             : state === 'speaking'
-              ? '0 0 20px var(--ring)'
-              : 'none',
+              ? '0 0 20px rgba(232,197,143,0.35)'
+              : '0 0 12px rgba(245,240,230,0.15)',
         }}
         aria-label={isStarted ? 'Stop conversation' : 'Start conversation'}
       >
-        {/* Moon icon */}
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--text)" strokeWidth="1.5">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
+        {/* Realistic NASA moon — static, no rotation */}
+        <div style={styles.moonImage} />
       </button>
 
       {/* Instruction for first-time */}
@@ -207,14 +205,24 @@ const styles: Record<string, React.CSSProperties> = {
     width: '120px',
     height: '120px',
     borderRadius: '50%',
-    border: '2px solid var(--accent-rose)',
-    background: 'rgba(232, 168, 157, 0.08)',
+    border: 'none',
+    background: 'transparent',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     cursor: 'pointer',
     zIndex: 1,
     outline: 'none',
+    padding: 0,
+  },
+  moonImage: {
+    width: '100px',
+    height: '100px',
+    borderRadius: '50%',
+    backgroundImage: 'url(/moon-color.jpg)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    boxShadow: '0 0 20px rgba(245,240,230,0.25), 0 0 40px rgba(232,197,143,0.12)',
   },
   hint: {
     marginTop: '1.5rem',
