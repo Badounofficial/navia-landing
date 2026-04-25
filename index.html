@@ -1686,6 +1686,24 @@ Top
       muteBtn.setAttribute('aria-label', userMuted ? 'Unmute ambient sound' : 'Mute ambient sound');
     });
   }
+
+  // Duck ambient when Ozaia speaks (message from voice widget iframe)
+  var duckVol = 0.08; // whisper-level during speech
+  var duckInterval = null;
+  window.addEventListener('message', function(e) {
+    if (!e.data || e.data.type !== 'ozaia-voice') return;
+    if (userMuted || !started) return;
+    var target = e.data.speaking ? duckVol : targetVol;
+    clearInterval(duckInterval);
+    duckInterval = setInterval(function() {
+      var current = audio.volume;
+      var step = e.data.speaking ? -0.02 : 0.01;
+      var next = current + step;
+      if (e.data.speaking && next <= target) { audio.volume = target; clearInterval(duckInterval); return; }
+      if (!e.data.speaking && next >= target) { audio.volume = target; clearInterval(duckInterval); return; }
+      audio.volume = next;
+    }, 30);
+  });
 })();
 
 /* ─── Scroll to top button ─── */

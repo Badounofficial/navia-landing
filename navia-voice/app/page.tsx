@@ -34,6 +34,9 @@ export default function VoicePage() {
           setResponse('');
           responseBufferRef.current = '';
         }
+        // Signal parent to duck/restore ambient sound
+        const isSpeaking = newState === 'speaking';
+        window.parent?.postMessage({ type: 'ozaia-voice', speaking: isSpeaking }, '*');
       },
       onTranscript: (text) => {
         setTranscript(text);
