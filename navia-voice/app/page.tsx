@@ -35,7 +35,7 @@ export default function VoicePage() {
           responseBufferRef.current = '';
         }
       },
-      onTranscript: (text, isFinal) => {
+      onTranscript: (text) => {
         setTranscript(text);
       },
       onResponseToken: (token) => {

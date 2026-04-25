@@ -47,7 +47,7 @@ export async function transcribe(
     text: data.text?.trim() ?? '',
     language: data.language ?? 'en',
     duration: data.duration ?? 0,
-    segments: data.segments?.map((s: any) => ({
+    segments: data.segments?.map((s: { start: number; end: number; text: string }) => ({
       start: s.start,
       end: s.end,
       text: s.text,

@@ -3,7 +3,7 @@
  * Analyzes conversation patterns to determine the user's emotional moon phase
  * WITHOUT ever asking. Dark moon = needs presence. Full moon = doing well.
  *
- * Phases map to the lunar metaphor at Navia's core:
+ * Phases map to the lunar metaphor at Ozaia's core:
  *   full           = she is doing well, light touch
  *   waning-gibbous = regular cadence, lighter topics
  *   quarter        = moderate engagement, balanced

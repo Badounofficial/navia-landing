@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
         },
         body: JSON.stringify({
           text,
-          model_id: model_id || 'eleven_flash_v2_5',
+          model_id: model_id || 'eleven_multilingual_v2',
           voice_settings: voice_settings || {
             stability: 0.45,
             similarity_boost: 0.64,

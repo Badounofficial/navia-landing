@@ -14,7 +14,7 @@ Browser mic -> Whisper (STT) -> Claude (brain) -> ElevenLabs (voice) -> Speaker
 ### 1. Install dependencies
 
 ```bash
-cd navia-voice
+cd ozaia-voice
 npm install
 ```
 

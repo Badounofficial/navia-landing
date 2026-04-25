@@ -15,11 +15,11 @@ export interface SpeakOptions {
   style?: number;
 }
 
-/** Default voice settings (from Voice Pipeline Architecture doc) */
+/** Default voice settings — intimate register for Ozaia */
 const DEFAULTS = {
-  stability: 0.50,
-  similarityBoost: 0.80,
-  style: 0.35,
+  stability: 0.45,
+  similarityBoost: 0.64,
+  style: 0.18,
 };
 
 /**
@@ -29,12 +29,12 @@ const DEFAULTS = {
 export async function speak(options: SpeakOptions): Promise<Response> {
   const body = {
     text: options.text,
-    model_id: 'eleven_flash_v2_5',
+    model_id: 'eleven_multilingual_v2',
     voice_settings: {
       stability: options.stability ?? DEFAULTS.stability,
       similarity_boost: options.similarityBoost ?? DEFAULTS.similarityBoost,
       style: options.style ?? DEFAULTS.style,
-      use_speaker_boost: true,
+      use_speaker_boost: false,
     },
   };
 
@@ -62,7 +62,7 @@ export async function prewarm(): Promise<void> {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         text: '...',
-        model_id: 'eleven_flash_v2_5',
+        model_id: 'eleven_multilingual_v2',
         voice_settings: {
           stability: 0.50,
           similarity_boost: 0.80,

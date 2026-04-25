@@ -18,7 +18,7 @@ struct ContentView: View {
                 .scaleEffect(isBreathing ? 1.15 : 1.0)
                 .padding(.bottom, 8)
 
-            Text("Hi, I'm Navia.")
+            Text("Hi, I'm Ozaia.")
                 .font(.system(size: 32, weight: .semibold, design: .serif))
                 .foregroundStyle(.white)
 
